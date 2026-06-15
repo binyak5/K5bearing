@@ -1,9 +1,9 @@
 {
   "daily": {
-    "2026-06-15": 19
+    "2026-06-15": 20
   },
   "monthly": {
-    "2026-06": 19
+    "2026-06": 20
   },
   "posted": {
     "eu:poland:Orange Wind warning:Severe": "2026-06-15T17:33:30.835497+00:00",
@@ -17,6 +17,7 @@
     "nga:A:2023:2017": "2026-06-15T14:33:01.251097+00:00",
     "quake:us7000st1c": "2026-06-15T13:47:23.118713+00:00",
     "seas:Drake Passage:2026-06-15": "2026-06-15T17:53:45.968785+00:00",
+    "weather:Flood Warning:Vernon, LA": "2026-06-15T20:37:57.185886+00:00",
     "weather:Red Flag Warning:Colville Reservation": "2026-06-15T19:33:13.180002+00:00",
     "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
     "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
