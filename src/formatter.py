@@ -29,7 +29,7 @@ def timestamp(zone: str | None = None) -> str:
     minute = now.strftime("%M")
     ampm = now.strftime("%p").lower()
     label = now.strftime("%Z") if tzinfo is not timezone.utc else "UTC"
-    return f"{now.day} {now.strftime('%b')} {hour}:{minute} {ampm} {label}:"
+    return f"{hour}:{minute} {ampm} {label}:"
 
 
 def render(signal: Signal) -> str:

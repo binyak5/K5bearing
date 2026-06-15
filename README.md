@@ -16,8 +16,8 @@ weather, and field readiness — sourced entirely from free US government feeds.
 | **Global multi-hazard** — tropical cyclones (all basins), floods, earthquakes, volcanoes, wildfires | GDACS (UN OCHA / EC JRC) | New orange/red event |
 
 Every post is written as a timestamped advisory in plain, flowing prose
-(National Hurricane Center style), e.g. `15 Jun 2 am EDT: A tornado warning is
-in effect for ...`. The timestamp is in the **local time zone of the alert's
+(National Hurricane Center style), e.g. `2:34 am EDT: A tornado warning is in
+effect for ...`. The timestamp is in the **local time zone of the alert's
 location** (resolved from coordinates for US/global alerts and from country for
 Europe); global space-weather signals stay in UTC. The source agency is not
 named in-tweet — K5Bearing is the voice. No emoji, no sign-offs.
