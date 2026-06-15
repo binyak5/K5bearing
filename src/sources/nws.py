@@ -84,7 +84,7 @@ ACTIONS = {
     ],
     "Hurricane Force Wind Warning": [
         "Hurricane force winds above 64 knots are expected at sea, so remain in port and keep all vessels well clear of open water.",
-        "Winds of hurricane force are expected offshore, so stay in harbour and keep every vessel out of exposed water.",
+        "Winds of hurricane force are expected offshore, so stay in harbour and keep every vessel battened down and clear of exposed water.",
     ],
     "Hurricane Force Wind Watch": [
         "Hurricane force winds are possible at sea, so monitor advisories closely and prepare to keep vessels in port.",
@@ -100,19 +100,19 @@ ACTIONS = {
     ],
     "Storm Warning": [
         "Storm force winds are expected at sea, so remain in port and keep well clear of exposed and open water.",
-        "Dangerous storm force winds are building offshore, so stay in harbour and avoid open water.",
+        "Storm force winds are building offshore, so make for port and stay off open water until it blows through.",
     ],
     "Storm Watch": [
         "Storm force winds are possible at sea, so track the forecast and prepare to stay in port.",
         "Storm force conditions may build offshore, so follow the forecast and be ready to remain in harbour.",
     ],
     "Hazardous Seas Warning": [
-        "Dangerously steep and high seas are expected, so mariners should remain in port until conditions improve.",
+        "Confused, dangerously steep seas are expected, so mariners should remain in port until conditions improve.",
         "Hazardous seas are building, so keep vessels in port and off the water until the swell eases.",
     ],
     "Special Marine Warning": [
         "Sudden strong winds and dangerous seas are bearing down on the area, so head for harbour and secure your vessel now.",
-        "A burst of strong winds and rough seas is moving in, so make for shelter and tie down your vessel right away.",
+        "A squall of strong winds and rough seas is moving in, so make for the nearest harbour and batten down right away.",
     ],
     "Small Craft Advisory": [
         "Winds and seas are rough enough to endanger small boats, so inexperienced mariners and small craft should stay in port.",

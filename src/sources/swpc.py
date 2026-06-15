@@ -117,8 +117,8 @@ def flare_signal(min_class: str = "M", max_age_hours: int = 6) -> Signal | None:
         )
     else:  # M class
         impact = (
-            "Flares this strong can cause brief shortwave radio blackouts on the "
-            "daylit side of Earth."
+            "Flares this strong can cause brief HF (shortwave) radio blackouts on "
+            "the daylit side of Earth."
         )
     hhmm = peaked.strftime("%H:%M")
     article = "An" if letter in ("A", "M", "X") else "A"  # letter-name sound
