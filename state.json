@@ -1,9 +1,9 @@
 {
   "daily": {
-    "2026-06-15": 21
+    "2026-06-15": 22
   },
   "monthly": {
-    "2026-06": 21
+    "2026-06": 22
   },
   "posted": {
     "eu:poland:Orange Wind warning:Severe": "2026-06-15T17:33:30.835497+00:00",
@@ -20,6 +20,7 @@
     "weather:Flood Warning:Vernon, LA": "2026-06-15T20:37:57.185886+00:00",
     "weather:Red Flag Warning:Colville Reservation": "2026-06-15T19:33:13.180002+00:00",
     "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
+    "weather:Special Marine Warning:Coastal waters from Altamaha Sound to Fernandina Beach FL ou": "2026-06-15T21:02:29.616925+00:00",
     "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
     "weather:Special Marine Warning:Coastal waters from Jupiter Inlet to Deerfield Beach FL out ": "2026-06-15T20:03:21.072413+00:00",
     "weather:Special Marine Warning:Coastal waters from St. Augustine to Flagler Beach FL out 20": "2026-06-15T19:17:46.506331+00:00",
