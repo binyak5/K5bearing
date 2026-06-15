@@ -41,6 +41,11 @@ def collect(cfg: dict) -> list[Signal]:
         if sig:
             signals.append(sig)
 
+    if cfg.get("radiation", {}).get("enabled"):
+        sig = swpc.radiation_signal(cfg["radiation"].get("min_scale", 1))
+        if sig:
+            signals.append(sig)
+
     if cfg["weather"]["enabled"]:
         signals.extend(
             nws.weather_signals(cfg["weather"]["events"], cfg["weather"].get("area", ""))
@@ -55,11 +60,12 @@ def collect(cfg: dict) -> list[Signal]:
         )
 
     if cfg.get("marine_seas", {}).get("enabled"):
+        areas = cfg["marine_seas"].get("areas", [])
         signals.extend(
-            marine.sea_signals(
-                cfg["marine_seas"].get("areas", []),
-                cfg["marine_seas"].get("wave_height_threshold", 4.0),
-            )
+            marine.sea_signals(areas, cfg["marine_seas"].get("wave_height_threshold", 4.0))
+        )
+        signals.extend(
+            marine.fog_signals(areas, cfg["marine_seas"].get("fog_visibility_m", 1000))
         )
 
     if cfg.get("maritime_security", {}).get("enabled"):
@@ -88,6 +94,7 @@ def collect(cfg: dict) -> list[Signal]:
             outdoor.outdoor_signals(
                 cfg["outdoor"].get("locations", []),
                 cfg["outdoor"].get("uv_threshold", 11),
+                cfg["outdoor"].get("dust_threshold", 500),
             )
         )
 

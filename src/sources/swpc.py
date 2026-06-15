@@ -15,6 +15,10 @@ from . import Signal, pick
 KP_URL = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
 ALERTS_URL = "https://services.swpc.noaa.gov/products/alerts.json"
 FLARES_URL = "https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json"
+SCALES_URL = "https://services.swpc.noaa.gov/products/noaa-scales.json"
+
+# NOAA S-scale (solar radiation storm) level -> label.
+S_LABEL = {1: "minor", 2: "moderate", 3: "strong", 4: "severe", 5: "extreme"}
 
 TIMEOUT = 20
 
@@ -134,6 +138,34 @@ def flare_signal(min_class: str = "M", max_age_hours: int = 6) -> Signal | None:
         text=text,
         dedup_key=key,
         hashtags=["#SolarFlare", "#SpaceWeather"],
+    )
+
+
+def radiation_signal(min_scale: int = 1) -> Signal | None:
+    """Current solar radiation storm from the NOAA S-scale."""
+    try:
+        data = _get_json(SCALES_URL)
+    except (requests.RequestException, ValueError):
+        return None
+    raw = ((data or {}).get("0", {}).get("S") or {}).get("Scale")
+    try:
+        level = int(raw) if raw is not None else 0
+    except (TypeError, ValueError):
+        return None
+    if level < min_scale:
+        return None
+    label = S_LABEL.get(level, "minor")
+    key = f"radiation:S{level}"
+    variants = [
+        f"A solar radiation storm has reached S{level} ({label}). Polar flights can lose HF radio and satellite navigation may degrade.",
+        f"Solar radiation has surged to an S{level} ({label}) storm. Expect HF blackouts over the poles and possible satellite navigation glitches.",
+    ]
+    return Signal(
+        category="radiation",
+        severity=63 + level * 3,
+        text=pick(variants, key),
+        dedup_key=key,
+        hashtags=["#SolarRadiation", "#SpaceWeather"],
     )
 
 

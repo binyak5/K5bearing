@@ -48,6 +48,11 @@ solar_flares:
   min_class: "M"
   max_age_hours: 6
 
+# Solar radiation storms (NOAA S-scale, 1-5).
+radiation:
+  enabled: true
+  min_scale: 1     # S1 (minor) and up
+
 # Significant earthquakes (USGS), filtered to USA / Europe / Gulf.
 earthquakes:
   enabled: true
@@ -59,6 +64,7 @@ earthquakes:
 outdoor:
   enabled: true
   uv_threshold: 11       # 11+ = "extreme" (WHO scale)
+  dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm (common in the Gulf)
   locations:
     # USA
     - {name: "Phoenix",      lat: 33.45, lon: -112.07}
@@ -171,6 +177,7 @@ weather_eu:
 marine_seas:
   enabled: true
   wave_height_threshold: 4.0   # metres; 4 m+ = "high seas" (WMO)
+  fog_visibility_m: 1000       # dense fog at sea when visibility drops below this
   areas:
     # USA
     - {name: "Gulf of Mexico",       lat: 25.0, lon: -90.0}

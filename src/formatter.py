@@ -53,13 +53,8 @@ def timestamp(zone: str | None = None) -> str:
 
 
 def render(signal: Signal) -> str:
-    """Prepend the local timestamp, append hashtags, and clamp to 280 chars."""
+    """Prepend the local timestamp and clamp to 280 chars. No hashtags."""
     body = f"{timestamp(signal.tz)} {_split_so(signal.text.strip())}"
-    tags = " ".join(dict.fromkeys(signal.hashtags))  # de-dupe, keep order
-    if not tags:
-        return body[:MAX_LEN]
-
-    room = MAX_LEN - len(tags) - 1  # 1 for the joining newline
-    if len(body) > room:
-        body = body[: room - 1].rstrip() + "…"
-    return f"{body}\n{tags}"
+    if len(body) > MAX_LEN:
+        body = body[: MAX_LEN - 1].rstrip() + "…"
+    return body
