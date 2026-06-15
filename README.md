@@ -88,8 +88,11 @@ You already have an app in the X developer portal. Now:
 
 > **Cost note:** As of Feb 2026 the free tier is closed to new developers. New
 > apps are on **pay-per-use: ~$0.01 per post** (you may have a one-time $10
-> credit). The defaults in `config.yaml` cap posting at 8/day ≈ $2.40/month.
-> If you're on a legacy free tier instead, the 1,500-posts/month limit applies.
+> credit). The defaults cap posting at 16/day with a hard **500-posts/month
+> ceiling ≈ $5/month** (`limits.max_posts_per_month` in `config.yaml`). The
+> monthly cap is enforced in `state.json`, so cost can't run over even on busy
+> weather days. If you're on a legacy free tier instead, the 1,500-posts/month
+> limit applies.
 
 ### 2. Test locally (no posting)
 
@@ -135,7 +138,7 @@ Everything tunable lives in [`config.yaml`](config.yaml):
 > **Volume note:** adding severe-thunderstorm and flood warnings pulls in a lot
 > of active US alerts. The severity ranking + `max_posts_per_day` cap mean only
 > the most serious get posted, but raise the cap (and your budget) if you want
-> more through. At 12/day that's ~$3.60/month on pay-per-use.
+> more through, up to the 500/month (~$5) hard ceiling.
 
 ## Disclaimer
 

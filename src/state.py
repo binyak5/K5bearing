@@ -20,7 +20,7 @@ def _now() -> datetime:
 class State:
     def __init__(self, path: Path = STATE_PATH):
         self.path = path
-        self._data = {"posted": {}, "daily": {}}
+        self._data = {"posted": {}, "daily": {}, "monthly": {}}
         if path.exists():
             try:
                 self._data = json.loads(path.read_text())
@@ -28,6 +28,7 @@ class State:
                 pass
         self._data.setdefault("posted", {})
         self._data.setdefault("daily", {})
+        self._data.setdefault("monthly", {})
 
     # --- dedup ---------------------------------------------------------
     def already_posted(self, key: str, ttl_hours: int) -> bool:
@@ -40,19 +41,18 @@ class State:
     def mark_posted(self, key: str) -> None:
         self._data["posted"][key] = _now().isoformat()
 
-    # --- daily counter -------------------------------------------------
+    # --- daily + monthly counters -------------------------------------
     def posts_today(self) -> int:
         return self._data["daily"].get(_now().date().isoformat(), 0)
+
+    def posts_this_month(self) -> int:
+        return self._data["monthly"].get(_now().strftime("%Y-%m"), 0)
 
     def increment_today(self) -> None:
         day = _now().date().isoformat()
         self._data["daily"][day] = self._data["daily"].get(day, 0) + 1
-
-    def digest_sent_today(self) -> bool:
-        return self._data["daily"].get(f"digest:{_now().date().isoformat()}", False)
-
-    def mark_digest_sent(self) -> None:
-        self._data["daily"][f"digest:{_now().date().isoformat()}"] = True
+        month = _now().strftime("%Y-%m")
+        self._data["monthly"][month] = self._data["monthly"].get(month, 0) + 1
 
     # --- persistence ---------------------------------------------------
     def prune(self, ttl_hours: int) -> None:
@@ -64,9 +64,12 @@ class State:
         }
         keep = {(_now().date() - timedelta(days=d)).isoformat() for d in range(3)}
         self._data["daily"] = {
-            k: v
-            for k, v in self._data["daily"].items()
-            if k.split(":")[-1] in keep
+            k: v for k, v in self._data["daily"].items() if k in keep
+        }
+        # Keep this month and last month so the monthly cap survives the rollover.
+        months = {_now().strftime("%Y-%m"), (_now().replace(day=1) - timedelta(days=1)).strftime("%Y-%m")}
+        self._data["monthly"] = {
+            k: v for k, v in self._data["monthly"].items() if k in months
         }
 
     def save(self) -> None:

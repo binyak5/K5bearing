@@ -94,6 +94,7 @@ def main() -> None:
     ttl = cfg["dedup_ttl_hours"]
     max_run = cfg["limits"]["max_posts_per_run"]
     max_day = cfg["limits"]["max_posts_per_day"]
+    max_month = cfg["limits"].get("max_posts_per_month", 500)
 
     candidates = collect(cfg)
 
@@ -103,6 +104,9 @@ def main() -> None:
     posted = 0
     for sig in candidates:
         if posted >= max_run:
+            break
+        if state.posts_this_month() >= max_month:
+            print("monthly post budget reached; stopping (cost cap).")
             break
         if state.posts_today() >= max_day:
             print("daily post budget reached; stopping.")
