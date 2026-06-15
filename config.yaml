@@ -1,0 +1,94 @@
+# K5Bearing signal configuration
+# Tune what gets posted and how often. All times UTC.
+
+account:
+  name: K5Bearing
+  org: Kastle Five Systems
+  hashtags_default: ["#K5Bearing", "#SpaceWeather"]
+
+# Cap posts per run and per day to stay within X API budget.
+# Pay-per-use is ~$0.01/post. 8/day ~= $2.40/month.
+limits:
+  max_posts_per_run: 2
+  max_posts_per_day: 12
+
+# Don't repost the same signal within this many hours (dedup TTL).
+dedup_ttl_hours: 12
+
+# Geomagnetic / compass thresholds (planetary K-index, 0-9).
+geomagnetic:
+  enabled: true
+  # Post an alert when Kp meets or exceeds this. 5 = G1 storm.
+  kp_alert_threshold: 5
+
+# Aurora-visibility watch, derived from the Kp index (global viewline).
+aurora:
+  enabled: true
+  # Kp at/above which aurora may be visible at populated latitudes.
+  kp_threshold: 5
+
+# Solar storm alerts pulled from SWPC alerts.json.
+# Match on product_id prefixes. See README for the code list.
+solar:
+  enabled: true
+  # Radio blackouts (R), Solar radiation storms (S), strong flares.
+  watch_prefixes: ["WARK", "ALTK", "WATA", "ALTS", "SUM", "WARN"]
+
+# Severe-weather alerts from the US National Weather Service.
+weather:
+  enabled: true
+  # Only these event types get posted (high-stakes by default).
+  events:
+    - "Tornado Warning"
+    - "Hurricane Warning"
+    - "Hurricane Watch"
+    - "Tropical Storm Warning"
+    - "Tsunami Warning"
+    - "Blizzard Warning"
+    - "Extreme Wind Warning"
+    - "Severe Thunderstorm Warning"
+    - "Flash Flood Warning"
+    - "Flood Warning"
+    - "Red Flag Warning"        # fire weather
+    - "Fire Warning"
+  # Optional: restrict to a US state/area code (e.g. "FL"). Empty = nationwide.
+  area: ""
+
+# Severe-weather warnings for Europe via MeteoAlarm (EUMETNET).
+weather_eu:
+  enabled: true
+  # min_severity: Moderate (yellow) | Severe (orange) | Extreme (red).
+  # Severe filters out the high-volume yellow warnings; raise to Extreme for
+  # red-only.
+  min_severity: "Severe"
+  # Country feed slugs (feeds.meteoalarm.org legacy-atom names).
+  countries:
+    - united-kingdom
+    - ireland
+    - france
+    - germany
+    - netherlands
+    - belgium
+    - spain
+    - portugal
+    - italy
+    - switzerland
+    - austria
+    - poland
+    - sweden
+    - norway
+    - greece
+
+# Global multi-hazard alerts via GDACS (worldwide: tropical cyclones in all
+# basins, floods, earthquakes, volcanoes, wildfires). Covers everywhere the
+# US/EU feeds don't — Asia, Africa, Latin America, Oceania.
+global_hazards:
+  enabled: true
+  # Alert levels to post: Orange | Red. (Green is routine background noise.)
+  min_alert: "Orange"
+  event_types: ["TC", "FL", "EQ", "VO", "TS", "WF"]
+
+# Once-daily field-readiness digest.
+digest:
+  enabled: true
+  hour_utc: 13   # ~9am ET / 6am PT

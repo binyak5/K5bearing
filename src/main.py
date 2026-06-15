@@ -1,0 +1,114 @@
+"""K5Bearing entrypoint.
+
+Each invocation:
+  1. Collects candidate signals from all enabled sources.
+  2. Adds the daily field-readiness digest if it's the configured hour.
+  3. Drops anything already posted (local dedup) or over the daily budget.
+  4. Posts the most severe candidates, up to the per-run cap.
+
+Run locally:   DRY_RUN=1 python -m src.main
+On CI:         python -m src.main   (with X_* secrets in the environment)
+"""
+from __future__ import annotations
+
+from datetime import datetime, timezone
+
+from .config import load_config
+from .state import State
+from .formatter import render, daily_digest
+from .poster import Poster
+from .sources import swpc, nws, meteoalarm, gdacs, aurora, Signal
+
+
+def collect(cfg: dict) -> list[Signal]:
+    signals: list[Signal] = []
+
+    if cfg["geomagnetic"]["enabled"]:
+        sig = swpc.geomagnetic_signal(cfg["geomagnetic"]["kp_alert_threshold"])
+        if sig:
+            signals.append(sig)
+
+    if cfg.get("aurora", {}).get("enabled"):
+        sig = aurora.aurora_signal(cfg["aurora"]["kp_threshold"])
+        if sig:
+            signals.append(sig)
+
+    if cfg["solar"]["enabled"]:
+        signals.extend(swpc.solar_signals(cfg["solar"]["watch_prefixes"]))
+
+    if cfg["weather"]["enabled"]:
+        signals.extend(
+            nws.weather_signals(cfg["weather"]["events"], cfg["weather"].get("area", ""))
+        )
+
+    if cfg.get("weather_eu", {}).get("enabled"):
+        signals.extend(
+            meteoalarm.weather_signals(
+                cfg["weather_eu"]["countries"],
+                cfg["weather_eu"].get("min_severity", "Severe"),
+            )
+        )
+
+    if cfg.get("global_hazards", {}).get("enabled"):
+        signals.extend(
+            gdacs.global_signals(
+                cfg["global_hazards"]["event_types"],
+                cfg["global_hazards"].get("min_alert", "Orange"),
+            )
+        )
+
+    return signals
+
+
+def main() -> None:
+    cfg = load_config()
+    state = State()
+    poster = Poster()
+
+    hour = datetime.now(timezone.utc).hour
+    ttl = cfg["dedup_ttl_hours"]
+    max_run = cfg["limits"]["max_posts_per_run"]
+    max_day = cfg["limits"]["max_posts_per_day"]
+
+    candidates = collect(cfg)
+
+    # Daily digest, once, at the configured hour.
+    if (
+        cfg["digest"]["enabled"]
+        and hour == cfg["digest"]["hour_utc"]
+        and not state.digest_sent_today()
+    ):
+        candidates.append(daily_digest(cfg))
+
+    # Rank: most severe first.
+    candidates.sort(key=lambda s: s.severity, reverse=True)
+
+    posted = 0
+    for sig in candidates:
+        if posted >= max_run:
+            break
+        if state.posts_today() >= max_day:
+            print("daily post budget reached; stopping.")
+            break
+        if state.already_posted(sig.dedup_key, ttl):
+            continue
+
+        text = render(sig)
+        if poster.post(text):
+            state.mark_posted(sig.dedup_key)
+            state.increment_today()
+            if sig.category == "digest":
+                state.mark_digest_sent()
+            posted += 1
+
+    if posted == 0:
+        print("no new signals to post.")
+
+    # Don't let local dry runs pollute the real dedup/budget state.
+    if not poster.dry_run:
+        state.prune(ttl)
+        state.save()
+
+
+if __name__ == "__main__":
+    main()

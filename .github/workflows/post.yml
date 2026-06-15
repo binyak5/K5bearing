@@ -1,0 +1,55 @@
+name: K5Bearing signals
+
+on:
+  schedule:
+    # Hourly, on the hour (UTC). GitHub may delay runs under load.
+    - cron: "0 * * * *"
+  workflow_dispatch:        # allow manual runs from the Actions tab
+    inputs:
+      dry_run:
+        description: "Run without posting"
+        type: boolean
+        default: false
+
+# Prevent overlapping runs from racing on state.json.
+concurrency:
+  group: k5bearing-post
+  cancel-in-progress: false
+
+permissions:
+  contents: write           # needed to commit state.json back
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Post signals
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python -m src.main
+
+      - name: Persist posting state
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          if ! git diff --quiet state.json 2>/dev/null; then
+            git config user.name "k5bearing-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add state.json
+            git commit -m "chore: update posting state [skip ci]"
+            git push
+          else
+            echo "state.json unchanged"
+          fi
