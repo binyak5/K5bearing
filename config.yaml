@@ -143,6 +143,32 @@ weather_eu:
     - norway
     - greece
 
+# Marine sea-state (high-seas) warnings via Open-Meteo, for named sea areas.
+# Gives Europe (and global) marine coverage where there's no official feed.
+marine_seas:
+  enabled: true
+  wave_height_threshold: 4.0   # metres; 4 m+ = "high seas" (WMO)
+  areas:
+    # European seas
+    - {name: "North Sea",            lat: 56.0, lon: 3.0}
+    - {name: "English Channel",      lat: 50.0, lon: -1.0}
+    - {name: "Bay of Biscay",        lat: 45.5, lon: -5.0}
+    - {name: "Irish Sea",            lat: 53.5, lon: -5.0}
+    - {name: "Celtic Sea",           lat: 50.0, lon: -8.0}
+    - {name: "Norwegian Sea",        lat: 66.0, lon: 2.0}
+    - {name: "Baltic Sea",           lat: 57.5, lon: 19.0}
+    - {name: "Western Mediterranean", lat: 40.0, lon: 5.0}
+    - {name: "Ionian Sea",           lat: 37.5, lon: 18.0}
+    - {name: "Aegean Sea",           lat: 38.0, lon: 25.0}
+    - {name: "Adriatic Sea",         lat: 43.0, lon: 15.0}
+    - {name: "Black Sea",            lat: 43.0, lon: 34.0}
+    # Key global seas
+    - {name: "North Atlantic",       lat: 50.0, lon: -30.0}
+    - {name: "North Pacific",        lat: 45.0, lon: -150.0}
+    - {name: "Tasman Sea",           lat: -40.0, lon: 160.0}
+    - {name: "Drake Passage",        lat: -58.0, lon: -65.0}
+    - {name: "South China Sea",      lat: 15.0, lon: 115.0}
+
 # Global maritime security / military navigation warnings (NGA Maritime Safety
 # Information broadcast warnings — worldwide ocean coverage).
 maritime_security:

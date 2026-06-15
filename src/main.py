@@ -14,7 +14,7 @@ from .config import load_config
 from .state import State
 from .formatter import render
 from .poster import Poster
-from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, Signal
+from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -51,6 +51,14 @@ def collect(cfg: dict) -> list[Signal]:
             meteoalarm.weather_signals(
                 cfg["weather_eu"]["countries"],
                 cfg["weather_eu"].get("min_severity", "Severe"),
+            )
+        )
+
+    if cfg.get("marine_seas", {}).get("enabled"):
+        signals.extend(
+            marine.sea_signals(
+                cfg["marine_seas"].get("areas", []),
+                cfg["marine_seas"].get("wave_height_threshold", 4.0),
             )
         )
 
