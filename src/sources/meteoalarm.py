@@ -54,7 +54,7 @@ HAZARD_ACTIONS = [
         "Rising water is likely, so keep away from low lying areas and never cross a flooded road.",
     ]),
     ("snow", [
-        "Snow and ice will make travel difficult, so only head out if your journey is necessary.",
+        "Snow and ice will make travel difficult, so only head out if necessary.",
         "Heavy snow is expected, so postpone travel unless it is truly necessary.",
     ]),
     ("ice", [
