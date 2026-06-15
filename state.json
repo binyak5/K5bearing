@@ -1,9 +1,9 @@
 {
   "daily": {
-    "2026-06-15": 15
+    "2026-06-15": 16
   },
   "monthly": {
-    "2026-06": 15
+    "2026-06": 16
   },
   "posted": {
     "eu:poland:Orange Wind warning:Severe": "2026-06-15T17:33:30.835497+00:00",
@@ -17,6 +17,7 @@
     "nga:A:2023:2017": "2026-06-15T14:33:01.251097+00:00",
     "quake:us7000st1c": "2026-06-15T13:47:23.118713+00:00",
     "seas:Drake Passage:2026-06-15": "2026-06-15T17:53:45.968785+00:00",
+    "weather:Red Flag Warning:Colville Reservation": "2026-06-15T19:33:13.180002+00:00",
     "weather:Special Marine Warning:Coastal waters from St. Augustine to Flagler Beach FL out 20": "2026-06-15T19:17:46.506331+00:00",
     "weather:Special Marine Warning:Flagler Beach to Volusia-Brevard County Line 0-20 nm": "2026-06-15T18:46:19.113742+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain; Mississippi Sound; Lake Borgne": "2026-06-15T19:07:38.560502+00:00",
