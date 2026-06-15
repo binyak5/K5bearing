@@ -7,11 +7,11 @@ account:
   hashtags_default: ["#K5Bearing", "#SpaceWeather"]
 
 # Cost control. Pay-per-use is ~$0.01/post. The monthly cap is a hard ceiling:
-# 500 posts/month = ~$5.00/month. The daily cap smooths posting across the day.
+# 800 posts/month = ~$8.00/month. The daily cap smooths posting across the day.
 limits:
   max_posts_per_run: 2
-  max_posts_per_day: 16
-  max_posts_per_month: 500   # hard cost cap (~$5/month at $0.01/post)
+  max_posts_per_day: 27
+  max_posts_per_month: 800   # hard cost cap (~$8/month at $0.01/post)
 
 # Don't repost the same signal within this many hours (dedup TTL).
 dedup_ttl_hours: 12
