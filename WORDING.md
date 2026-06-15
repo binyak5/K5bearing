@@ -2,7 +2,7 @@
 
 Every phrasing the bot can post. {curly braces} are filled in at post time. One variant is chosen per alert.
 
-**Regions covered:** USA, Europe, and the Gulf states. **Timestamp prefix:** 24-hour local time, e.g. `16:33 CEST:`.
+**Regions:** USA, Europe, Gulf states. **Prefix:** 24-hour local time, e.g. `16:33 CEST:`. **No hashtags.**
 
 ---
 
@@ -34,6 +34,10 @@ _Lead:_
 _Impact:_
 - M-class: Flares this strong can cause brief HF (shortwave) radio blackouts on the daylit side of Earth.
 - X-class: Flares this strong can trigger widespread shortwave radio blackouts on the daylit side of Earth and impair GPS and HF communications.
+
+## Space weather — solar radiation storm (NOAA S-scale)
+1. A solar radiation storm has reached S{level} ({label}). Polar flights can lose HF radio and satellite navigation may degrade.
+2. Solar radiation has surged to an S{level} ({label}) storm. Expect HF blackouts over the poles and possible satellite navigation glitches.
 
 ## Space weather — solar alerts
 `Space weather alert: {NOAA headline}`.
@@ -254,7 +258,7 @@ Openers (country + colour):
 2. {article} {color} {hazard} warning has been issued for {label}{where}.
 3. {article} {color} {hazard} warning is now active for {label}{where}.
 
-**Action wording is reused from the US lists** — each European hazard maps to a US event:
+**Action wording reused from the US lists** — each European hazard maps to a US event:
 - thunder → **Severe Thunderstorm Warning**
 - wind → **High Wind Warning**
 - avalanche → **Avalanche Warning**
@@ -322,6 +326,10 @@ _No-tsunami note:_
 1. {cat} seas running to {h}m are reported in {area}. Small craft should stay in port and larger vessels should rig for heavy weather.
 2. Seas are building to {h}m ({low}) in {area}. Secure for heavy weather and keep well clear of exposed waters.
 
+## Marine fog (Open-Meteo visibility)
+1. Dense fog has settled over {area}, dropping visibility to around {v} m. Slow down, sound your fog signals, and post a lookout.
+2. Thick fog is blanketing {area}, with visibility under {v} m. Cut your speed, keep a sharp lookout, and lean on radar and signals.
+
 ---
 
 ## Maritime security / military (NGA)
@@ -350,4 +358,8 @@ _No-tsunami note:_
 ## Outdoor — extreme UV
 1. The UV index has reached {uv} in {name}, an extreme level. Cover up, wear sunglasses and sunscreen, and seek shade through the middle of the day.
 2. UV has spiked to {uv} in {name}, in the extreme range. Wear sunscreen and shades, cover exposed skin, and stay shaded around midday.
+
+## Outdoor — dust storm
+1. A dust storm is sweeping {name}, with airborne dust at {dust} µg/m³. Stay indoors, seal up windows, and mask up if you must go out.
+2. Thick dust has engulfed {name}, pushing levels to {dust} µg/m³. Limit time outside, close everything up, and protect your eyes and lungs.
 
