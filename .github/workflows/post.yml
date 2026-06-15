@@ -2,9 +2,9 @@ name: K5Bearing signals
 
 on:
   schedule:
-    # Roughly every 15 minutes, offset off the top of the hour (GitHub delays
+    # Every 20 minutes, offset off the top of the hour (GitHub delays
     # :00 runs the most under load). Scheduling is best-effort either way.
-    - cron: "7,22,37,52 * * * *"
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:        # allow manual runs from the Actions tab
     inputs:
       dry_run:
