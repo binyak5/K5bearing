@@ -2,8 +2,9 @@ name: K5Bearing signals
 
 on:
   schedule:
-    # Hourly, on the hour (UTC). GitHub may delay runs under load.
-    - cron: "0 * * * *"
+    # Every 15 minutes (UTC) for near-real-time alerts. GitHub may delay runs
+    # under load; sub-5-minute intervals get throttled.
+    - cron: "*/15 * * * *"
   workflow_dispatch:        # allow manual runs from the Actions tab
     inputs:
       dry_run:
