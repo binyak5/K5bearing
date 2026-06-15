@@ -34,6 +34,37 @@ solar:
   # Radio blackouts (R), Solar radiation storms (S), strong flares.
   watch_prefixes: ["WARK", "ALTK", "WATA", "ALTS", "SUM", "WARN"]
 
+# Solar flares from the GOES X-ray sensor (live).
+solar_flares:
+  enabled: true
+  # Minimum flare class to post: C | M | X. M+ is the usual "notable" bar.
+  min_class: "M"
+  max_age_hours: 6
+
+# Significant earthquakes worldwide (USGS).
+earthquakes:
+  enabled: true
+  min_magnitude: 6.0     # M6.0+ is "strong"; lower to 5.5 for more volume
+  max_age_hours: 6       # ignore quakes older than this on startup
+
+# Outdoor-safety watch (Open-Meteo): extreme UV and unhealthy air quality.
+# Only fires when a watched location crosses the threshold.
+outdoor:
+  enabled: true
+  uv_threshold: 11       # 11+ = "extreme" (WHO scale)
+  aqi_threshold: 201     # 201+ = "very unhealthy" (US AQI)
+  locations:
+    - {name: "Phoenix",      lat: 33.45, lon: -112.07}
+    - {name: "Los Angeles",  lat: 34.05, lon: -118.24}
+    - {name: "Delhi",        lat: 28.61, lon: 77.21}
+    - {name: "Bangkok",      lat: 13.76, lon: 100.50}
+    - {name: "Sydney",       lat: -33.87, lon: 151.21}
+    - {name: "Mexico City",  lat: 19.43, lon: -99.13}
+    - {name: "Madrid",       lat: 40.42, lon: -3.70}
+    - {name: "Nairobi",      lat: -1.29, lon: 36.82}
+    - {name: "Lima",         lat: -12.05, lon: -77.04}
+    - {name: "Jakarta",      lat: -6.21, lon: 106.85}
+
 # Severe-weather alerts from the US National Weather Service.
 weather:
   enabled: true
@@ -51,6 +82,22 @@ weather:
     - "Flood Warning"
     - "Red Flag Warning"        # fire weather
     - "Fire Warning"
+    # Marine / coastal (on-brand for navigation)
+    - "Gale Warning"
+    - "Storm Warning"
+    - "Special Marine Warning"
+    - "High Surf Warning"
+    - "Rip Current Statement"
+    - "Coastal Flood Warning"
+    # Winter
+    - "Winter Storm Warning"
+    - "Ice Storm Warning"
+    - "Extreme Cold Warning"    # NWS renamed from "Wind Chill Warning" in 2024
+    # Heat / wind / other
+    - "Extreme Heat Warning"    # NWS renamed from "Excessive Heat Warning" in 2024
+    - "High Wind Warning"
+    - "Dust Storm Warning"
+    - "Avalanche Warning"
   # Optional: restrict to a US state/area code (e.g. "FL"). Empty = nationwide.
   area: ""
 

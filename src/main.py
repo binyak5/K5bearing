@@ -14,7 +14,7 @@ from .config import load_config
 from .state import State
 from .formatter import render
 from .poster import Poster
-from .sources import swpc, nws, meteoalarm, gdacs, aurora, Signal
+from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -32,6 +32,14 @@ def collect(cfg: dict) -> list[Signal]:
 
     if cfg["solar"]["enabled"]:
         signals.extend(swpc.solar_signals(cfg["solar"]["watch_prefixes"]))
+
+    if cfg.get("solar_flares", {}).get("enabled"):
+        sig = swpc.flare_signal(
+            cfg["solar_flares"].get("min_class", "M"),
+            cfg["solar_flares"].get("max_age_hours", 6),
+        )
+        if sig:
+            signals.append(sig)
 
     if cfg["weather"]["enabled"]:
         signals.extend(
@@ -51,6 +59,23 @@ def collect(cfg: dict) -> list[Signal]:
             gdacs.global_signals(
                 cfg["global_hazards"]["event_types"],
                 cfg["global_hazards"].get("min_alert", "Orange"),
+            )
+        )
+
+    if cfg.get("earthquakes", {}).get("enabled"):
+        signals.extend(
+            usgs.quake_signals(
+                cfg["earthquakes"].get("min_magnitude", 6.0),
+                cfg["earthquakes"].get("max_age_hours", 6),
+            )
+        )
+
+    if cfg.get("outdoor", {}).get("enabled"):
+        signals.extend(
+            outdoor.outdoor_signals(
+                cfg["outdoor"].get("locations", []),
+                cfg["outdoor"].get("uv_threshold", 11),
+                cfg["outdoor"].get("aqi_threshold", 201),
             )
         )
 

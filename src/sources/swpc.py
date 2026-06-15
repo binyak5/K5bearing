@@ -1,9 +1,11 @@
-"""NOAA Space Weather Prediction Center (SWPC) — solar storms, geomagnetic
-activity, and the compass-accuracy signal derived from the Kp index.
+"""NOAA Space Weather Prediction Center (SWPC) — solar storms, solar flares,
+geomagnetic activity, and the compass-accuracy signal derived from the Kp index.
 
 All endpoints are public, free, and require no API key.
 """
 from __future__ import annotations
+
+from datetime import datetime, timedelta, timezone
 
 import requests
 
@@ -12,11 +14,15 @@ from . import Signal
 
 KP_URL = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
 ALERTS_URL = "https://services.swpc.noaa.gov/products/alerts.json"
+FLARES_URL = "https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json"
 
 TIMEOUT = 20
 
 # Kp -> NOAA G-scale geomagnetic storm level.
 G_SCALE = {5: "G1", 6: "G2", 7: "G3", 8: "G4", 9: "G5"}
+
+# Solar flare class letter -> rank, for thresholding.
+FLARE_RANK = {"A": 0, "B": 1, "C": 2, "M": 3, "X": 4}
 
 
 def _get_json(url: str):
@@ -66,6 +72,56 @@ def geomagnetic_signal(kp_threshold: int) -> Signal | None:
         text=advisory,
         dedup_key=f"geomag:{level}",
         hashtags=["#SpaceWeather", "#Compass"],
+    )
+
+
+def _parse_utc(ts: str) -> datetime | None:
+    try:
+        return datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        return None
+
+
+def flare_signal(min_class: str = "M", max_age_hours: int = 6) -> Signal | None:
+    """Most recent significant solar flare from the GOES X-ray sensor."""
+    min_rank = FLARE_RANK.get(min_class.upper(), 3)
+    try:
+        rows = _get_json(FLARES_URL)
+    except (requests.RequestException, ValueError):
+        return None
+    if not rows:
+        return None
+    flare = rows[0]
+    mclass = (flare.get("max_class") or "").strip()
+    if not mclass or FLARE_RANK.get(mclass[0].upper(), -1) < min_rank:
+        return None
+
+    peaked = _parse_utc(flare.get("max_time", ""))
+    if peaked is None:
+        return None
+    if datetime.now(timezone.utc) - peaked > timedelta(hours=max_age_hours):
+        return None
+
+    letter = mclass[0].upper()
+    if letter == "X":
+        impact = (
+            "Flares this strong can trigger widespread shortwave radio blackouts "
+            "on the daylit side of Earth and degrade GPS and HF communications."
+        )
+    else:  # M class
+        impact = (
+            "Flares this strong can cause brief shortwave radio blackouts on the "
+            "daylit side of Earth."
+        )
+    hhmm = peaked.strftime("%H:%M")
+    article = "An" if letter in ("A", "M", "X") else "A"  # letter-name sound
+    text = f"{article} {mclass} solar flare erupted, peaking at {hhmm} UTC. {impact}"
+    return Signal(
+        category="flare",
+        severity=70 if letter == "X" else 62,
+        text=text,
+        dedup_key=f"flare:{flare.get('max_time')}",
+        hashtags=["#SolarFlare", "#SpaceWeather"],
     )
 
 

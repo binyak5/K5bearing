@@ -30,6 +30,19 @@ ACTIONS = {
     "Flood Warning": "Flooding is already underway, so avoid low lying roads and do not drive through water of unknown depth.",
     "Red Flag Warning": "Conditions are right for fire to spread fast, so avoid anything that could throw a spark and be ready to leave at short notice.",
     "Fire Warning": "An active fire is threatening the area, so be ready to evacuate immediately and follow the instructions of local officials.",
+    "Gale Warning": "Gale force winds and rough seas are expected, so small craft should stay in port and larger vessels should secure for heavy weather.",
+    "Storm Warning": "Storm force winds are expected at sea, so remain in port and keep well clear of exposed and open water.",
+    "Special Marine Warning": "Sudden strong winds and dangerous seas are bearing down on the area, so head for harbour and secure your vessel now.",
+    "High Surf Warning": "Large and powerful surf is striking the coast, so stay off rocks, jetties, and the beach face.",
+    "Rip Current Statement": "Dangerous rip currents are running along the coast, so swim near a lifeguard and never fight the current if you are caught.",
+    "Coastal Flood Warning": "Coastal flooding is expected around high tide, so move vehicles to higher ground and stay off flooded roads.",
+    "Winter Storm Warning": "Heavy snow and ice are expected, so avoid travel and keep warm clothing and supplies within reach.",
+    "Ice Storm Warning": "Significant ice is expected to build up, so stay off the roads and prepare for downed limbs and power cuts.",
+    "Extreme Cold Warning": "Dangerously cold air is moving in, so limit time outdoors and cover exposed skin to guard against frostbite.",
+    "Extreme Heat Warning": "Dangerous heat is building, so stay hydrated, find cool air, and check on anyone at risk.",
+    "High Wind Warning": "Damaging winds are expected, so secure loose objects and watch for downed limbs and power lines.",
+    "Dust Storm Warning": "A wall of blowing dust is dropping visibility to near zero, so pull off the road, turn your lights off, and wait it out.",
+    "Avalanche Warning": "Dangerous avalanche conditions exist in the backcountry, so stay well clear of avalanche terrain and check the local forecast.",
 }
 
 # Primary hashtag per event type (a generic #WeatherAlert is always appended).
@@ -46,6 +59,19 @@ TAGS = {
     "Flood Warning": "#Flood",
     "Red Flag Warning": "#FireWeather",
     "Fire Warning": "#Wildfire",
+    "Gale Warning": "#Marine",
+    "Storm Warning": "#Marine",
+    "Special Marine Warning": "#Marine",
+    "High Surf Warning": "#HighSurf",
+    "Rip Current Statement": "#RipCurrent",
+    "Coastal Flood Warning": "#CoastalFlood",
+    "Winter Storm Warning": "#WinterStorm",
+    "Ice Storm Warning": "#IceStorm",
+    "Extreme Cold Warning": "#ExtremeCold",
+    "Extreme Heat Warning": "#ExtremeHeat",
+    "High Wind Warning": "#HighWind",
+    "Dust Storm Warning": "#DustStorm",
+    "Avalanche Warning": "#Avalanche",
 }
 
 

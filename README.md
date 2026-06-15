@@ -10,10 +10,13 @@ weather, and field readiness — sourced entirely from free US government feeds.
 | --- | --- | --- |
 | Geomagnetic storm + **compass accuracy** advisory | NOAA SWPC planetary K-index | Kp ≥ threshold (default 5 = G1) |
 | **Aurora visibility** watch (global viewline) | NOAA SWPC Kp index | Kp ≥ threshold (default 5) |
+| **Solar flares** (M/X-class) | NOAA SWPC GOES X-ray | New flare ≥ threshold class |
 | Solar storms / radio blackouts / radiation storms | NOAA SWPC alerts feed | New matching alert |
-| Severe weather — **US** (tornado, hurricane, severe t-storm, flash flood, red-flag fire, tsunami, blizzard…) | US National Weather Service | New active warning |
+| Severe weather — **US** (tornado, hurricane, severe t-storm, flash flood, fire, tsunami, marine/gale, winter, extreme heat/cold, high wind, dust, avalanche…) | US National Weather Service | New active warning |
 | Severe weather — **Europe** (~38 countries) | MeteoAlarm (EUMETNET) | New orange/red warning |
 | **Global multi-hazard** — tropical cyclones (all basins), floods, earthquakes, volcanoes, wildfires | GDACS (UN OCHA / EC JRC) | New orange/red event |
+| **Significant earthquakes** (worldwide) | USGS | New quake ≥ magnitude threshold |
+| **Outdoor safety** — extreme UV, unhealthy air quality | Open-Meteo (watchlist) | Threshold crossed at a watched city |
 
 Every post is written as a timestamped advisory in plain, flowing prose
 (National Hurricane Center style), e.g. `2:34 am EDT: A tornado warning is in
@@ -53,9 +56,11 @@ src/
   sources/
     swpc.py        solar + geomagnetic + compass (global)
     aurora.py      aurora-visibility viewline from Kp (global)
-    nws.py         severe weather — US
+    nws.py         severe weather — US (incl. marine, winter, heat)
     meteoalarm.py  severe weather — Europe
     gdacs.py       global multi-hazard — rest of world
+    usgs.py        significant earthquakes — worldwide
+    outdoor.py     extreme UV + air quality (Open-Meteo watchlist)
 config.yaml      thresholds, limits, schedule — tune this
 ```
 
