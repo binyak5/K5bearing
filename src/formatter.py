@@ -23,6 +23,19 @@ def _split_so(text: str) -> str:
     return _SO_JOIN.sub(lambda m: ". " + m.group(1).upper(), text)
 
 
+def _pretty_zone(label: str) -> str:
+    """Turn a numeric offset abbreviation ('+08', '-0530') into 'UTC+8' /
+    'UTC-5:30'. Named zones (EDT, CEST, BST) pass through unchanged.
+    """
+    if label[:1] in "+-":
+        sign, digits = label[0], label[1:].replace(":", "")
+        if digits.isdigit():
+            hours = int(digits[:2])
+            minutes = int(digits[2:4]) if len(digits) >= 4 else 0
+            return f"UTC{sign}{hours}" + (f":{minutes:02d}" if minutes else "")
+    return label
+
+
 def timestamp(zone: str | None = None) -> str:
     """Advisory-style lead-in in the alert's local zone, e.g. 'Mon 2 am EDT:'.
 
@@ -38,7 +51,7 @@ def timestamp(zone: str | None = None) -> str:
     hour = now.strftime("%I").lstrip("0") or "12"
     minute = now.strftime("%M")
     ampm = now.strftime("%p").lower()
-    label = now.strftime("%Z") if tzinfo is not timezone.utc else "UTC"
+    label = _pretty_zone(now.strftime("%Z")) if tzinfo is not timezone.utc else "UTC"
     return f"{hour}:{minute} {ampm} {label}:"
 
 
