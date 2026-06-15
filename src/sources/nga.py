@@ -13,6 +13,7 @@ from __future__ import annotations
 import requests
 
 from ..config import USER_AGENT
+from .. import region as geo
 from . import Signal, pick
 
 WARN_URL = "https://msi.nga.mil/api/publications/broadcast-warn?status=active&output=json"
@@ -117,6 +118,8 @@ def warning_signals(categories: list[str]) -> list[Signal]:
         text = w.get("text") or ""
         cat = _classify(text)
         if cat is None or cat not in wanted:
+            continue
+        if not geo.text_in_scope(text):
             continue
         region = _region(text, str(w.get("navArea", "")))
         severity, hashtags, variants = META[cat]

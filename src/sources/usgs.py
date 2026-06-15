@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 import requests
 
 from ..config import USER_AGENT
-from .. import tz
+from .. import tz, region
 from . import Signal, pick
 
 LEADS = [
@@ -52,14 +52,17 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
         if when_ms and datetime.fromtimestamp(when_ms / 1000, timezone.utc) < cutoff:
             continue
 
+        coords = (feat.get("geometry") or {}).get("coordinates") or []
+        if len(coords) < 2 or not region.in_scope(coords[1], coords[0]):
+            continue
+
         place = p.get("place") or "an offshore region"
         key = f"quake:{feat.get('id')}"
         lead = pick(LEADS, key + ":l").format(mag=f"{mag:.1f}", place=place)
         notes = TSUNAMI_NOTES if p.get("tsunami") == 1 else AFTERSHOCK_NOTES
         text = f"{lead} {pick(notes, key + ':n')}"
 
-        coords = (feat.get("geometry") or {}).get("coordinates") or []
-        zone = tz.zone_for_coords(coords[0], coords[1]) if len(coords) >= 2 else None
+        zone = tz.zone_for_coords(coords[0], coords[1])
 
         signals.append(
             Signal(

@@ -11,7 +11,7 @@ from __future__ import annotations
 import requests
 
 from ..config import USER_AGENT
-from .. import tz
+from .. import tz, region
 from . import Signal, pick
 
 EVENTS_URL = "https://www.gdacs.org/gdacsapi/api/events/geteventlist/EVENTS4APP"
@@ -78,6 +78,10 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
         if etype not in wanted or ALERT_RANK.get(alert, 0) < min_rank:
             continue
 
+        centroid = tz.polygon_centroid(feat.get("geometry"))
+        if not centroid or not region.in_scope(centroid[1], centroid[0]):
+            continue
+
         label, actions = EVENT_META.get(etype, (etype or "Hazard", ["Follow local guidance."]))
         country = p.get("country") or ""
         name = p.get("name") or label
@@ -94,8 +98,7 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
         )
         text = f"{opener} {pick(actions, key + ':a')}"
         country_tag = "#" + country.replace(" ", "") if country else "#GDACS"
-        centroid = tz.polygon_centroid(feat.get("geometry"))
-        zone = tz.zone_for_coords(*centroid) if centroid else None
+        zone = tz.zone_for_coords(*centroid)
         signals.append(
             Signal(
                 category="global",

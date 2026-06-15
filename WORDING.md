@@ -2,7 +2,7 @@
 
 Every phrasing the bot can post. {curly braces} are filled in at post time. One variant is chosen per alert.
 
-**Every post is prefixed with a 24-hour local timestamp**, e.g. `16:33 CEST:` or `09:12 UTC+8:`.
+**Regions covered:** USA, Europe, and the Gulf states. **Timestamp prefix:** 24-hour local time, e.g. `16:33 CEST:`.
 
 ---
 
@@ -19,7 +19,7 @@ _Kp 7+:_
 1. Kp has climbed to {kp}, expanding the auroral oval toward lower latitudes. The aurora may appear over {regions} and at matching southern latitudes. Look poleward, well away from city lights.
 2. With Kp up to {kp}, the auroral oval is reaching lower latitudes. The aurora could be visible over {regions} and their southern equivalents. Find a dark spot and scan the poleward sky.
 
-`{regions}` by Kp level:
+`{regions}` by Kp:
 - Kp 5: Scotland, Scandinavia, and the northern US
 - Kp 6: Ireland, Denmark, and the northern US
 - Kp 7: the UK, central Europe, and the northern US
@@ -36,12 +36,11 @@ _Impact:_
 - X-class: Flares this strong can trigger widespread shortwave radio blackouts on the daylit side of Earth and impair GPS and HF communications.
 
 ## Space weather — solar alerts
-Posts NOAA's headline verbatim: `Space weather alert: {NOAA headline}`.
+`Space weather alert: {NOAA headline}`.
 
 ---
 
-## US weather (NWS) — announcement openers
-({article}=A/An, {event}=e.g. 'tornado warning', {where}=' for <place>'):
+## US weather (NWS) — openers
 1. {article} {event} is in effect{where}.
 2. {article} {event} has been issued{where}.
 3. {article} {event} is now active{where}.
@@ -215,6 +214,34 @@ Posts NOAA's headline verbatim: `Space weather alert: {NOAA headline}`.
 1. Dangerous avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.
 2. The avalanche danger is high in the backcountry. Avoid steep slopes and check the local avalanche forecast.
 
+**Flood Advisory**
+1. Minor flooding of low-lying and poor-drainage areas is expected. Avoid the usual problem spots and never drive through standing water.
+2. Nuisance flooding is likely in low spots. Give yourself extra time and steer around any water across the road.
+
+**Wind Advisory**
+1. Strong winds are expected. Secure light objects outside and take care driving high-profile vehicles.
+2. Gusty winds are on the way. Tie down loose items and watch for sudden crosswinds on the road.
+
+**Heat Advisory**
+1. Hot and humid conditions are expected. Drink plenty of water, take breaks in the shade, and check on those at risk.
+2. Dangerous heat is building. Stay hydrated, limit strenuous activity, and never leave anyone in a parked vehicle.
+
+**Winter Weather Advisory**
+1. Snow, sleet, or ice will make roads slick. Slow down, allow extra distance, and travel only if you need to.
+2. A wintry mix is expected to make travel hazardous. Take it slow and keep an eye on changing conditions.
+
+**Dense Fog Advisory**
+1. Dense fog is cutting visibility to a quarter mile or less. Slow down, use low-beam headlights, and leave extra room.
+2. Thick fog is making driving dangerous. Reduce speed, switch to low beams, and watch for slow or stopped traffic.
+
+**Freeze Warning**
+1. Sub-freezing temperatures are expected. Protect tender plants, pets, and any exposed pipes overnight.
+2. A hard freeze is on the way. Cover sensitive plants, bring pets inside, and guard against burst pipes.
+
+**Air Quality Alert**
+1. Air pollution is reaching unhealthy levels. Limit time outdoors, keep windows closed, and take it easy if you have breathing trouble.
+2. Poor air quality is expected. Reduce outdoor activity and consider a mask if you are sensitive to pollution.
+
 ## US weather (NWS) — Small Craft Advisory roundup
 1. Small craft advisories are in effect across {n} coastal zones. Inexperienced mariners and small craft should stay in port until conditions ease.
 2. Small craft advisories cover {n} stretches of coastal water. Small craft should remain in harbour until conditions improve.
@@ -222,27 +249,27 @@ Posts NOAA's headline verbatim: `Space weather alert: {NOAA headline}`.
 ---
 
 ## Europe (MeteoAlarm)
-European alerts use the same **announcement openers** with country + colour:
+Openers (country + colour):
 1. {article} {color} {hazard} warning is in effect for {label}{where}.
 2. {article} {color} {hazard} warning has been issued for {label}{where}.
 3. {article} {color} {hazard} warning is now active for {label}{where}.
 
-**Action wording is REUSED from the US lists above** — each European hazard maps to a US event:
-- thunder → uses **Severe Thunderstorm Warning** lines
-- wind → uses **High Wind Warning** lines
-- avalanche → uses **Avalanche Warning** lines
-- snow → uses **Winter Storm Warning** lines
-- ice → uses **Ice Storm Warning** lines
-- flood → uses **Flood Warning** lines
-- forest → uses **Red Flag Warning** lines
-- fire → uses **Red Flag Warning** lines
-- coast → uses **Coastal Flood Warning** lines
-- high-temp → uses **Extreme Heat Warning** lines
-- heat → uses **Extreme Heat Warning** lines
-- low-temp → uses **Extreme Cold Warning** lines
-- cold → uses **Extreme Cold Warning** lines
+**Action wording is reused from the US lists** — each European hazard maps to a US event:
+- thunder → **Severe Thunderstorm Warning**
+- wind → **High Wind Warning**
+- avalanche → **Avalanche Warning**
+- snow → **Winter Storm Warning**
+- ice → **Ice Storm Warning**
+- flood → **Flood Warning**
+- forest → **Red Flag Warning**
+- fire → **Red Flag Warning**
+- coast → **Coastal Flood Warning**
+- high-temp → **Extreme Heat Warning**
+- heat → **Extreme Heat Warning**
+- low-temp → **Extreme Cold Warning**
+- cold → **Extreme Cold Warning**
 
-These European-only hazards keep their own lines (no US equivalent):
+European-only hazards keep their own lines:
 **rain**
 1. Heavy rain may bring flooding. Avoid low lying roads and allow extra time to travel.
 2. Persistent heavy rain could cause flooding. Steer clear of low ground and plan for delays.
@@ -255,30 +282,16 @@ These European-only hazards keep their own lines (no US equivalent):
 1. Temperatures will reach an extreme. Limit your exposure and check on those at risk.
 2. An extreme in temperature is expected. Take it easy and look in on the vulnerable.
 
-**(default / other)**
+**(default)**
 1. Conditions could get rough. Stay alert and follow local guidance.
 2. The situation may turn unsafe. Stay aware and follow local advice.
 
 ---
 
-## Global multi-hazard (GDACS) — announcement openers
-({article}=A/An, {alert}=orange/red, {name}, {loc}, {detail}):
+## GDACS — volcanoes & wildfires (region-filtered)
 1. {article} {alert} alert is in effect for {name}{loc}{detail}.
 2. {article} {alert} alert has been issued for {name}{loc}{detail}.
 3. {article} {alert} alert is now active for {name}{loc}{detail}.
-
-## Global multi-hazard (GDACS) — per-hazard action lines
-**Tropical Cyclone**
-1. This is a dangerous storm. Follow evacuation orders and stay clear of the coast, where storm surge is deadliest.
-2. The system is dangerous. Heed evacuation orders and keep away from the coast, where surge poses the greatest risk.
-
-**Flood**
-1. Move to higher ground, keep clear of floodwater, and follow the instructions of local authorities.
-2. Get to higher ground, avoid the floodwater, and do as local authorities advise.
-
-**Earthquake**
-1. Aftershocks are possible. Stay clear of damaged buildings and be ready for further shaking.
-2. Expect possible aftershocks. Keep away from damaged structures and brace for more movement.
 
 **Volcano**
 1. Follow any exclusion zones and evacuation guidance issued by local authorities.
@@ -288,14 +301,6 @@ These European-only hazards keep their own lines (no US equivalent):
 1. Stay ready to evacuate at short notice and keep a close watch on local alerts.
 2. Be prepared to leave quickly and monitor local alerts closely.
 
-**Tsunami**
-1. Move to high ground or inland immediately and stay there until officials say it is safe.
-2. Get to high ground or head inland at once, and remain there until the all clear.
-
-**Drought**
-1. Conserve water where you can and follow local guidance.
-2. Use water sparingly and follow the advice of local authorities.
-
 ---
 
 ## Earthquakes (USGS) — lead
@@ -303,25 +308,24 @@ These European-only hazards keep their own lines (no US equivalent):
 2. A magnitude {mag} earthquake has hit {place}.
 3. A magnitude {mag} earthquake was recorded {place}.
 
-_Follow-up — tsunami:_
+_Tsunami note:_
 1. Coastal areas near the epicentre should follow any tsunami warnings issued by local authorities.
 2. A tsunami may follow. Coastal areas near the epicentre should heed local warnings.
 
-_Follow-up — no tsunami:_
+_No-tsunami note:_
 1. Aftershocks are possible. Stay clear of damaged structures and be ready for further shaking.
 2. Expect possible aftershocks. Keep away from weakened buildings and be ready for more shaking.
 
 ---
 
 ## Marine sea-state / high seas (Open-Meteo)
-({cat}=High/Very high/Phenomenal, {h}=wave height m, {area}=sea area):
 1. {cat} seas running to {h}m are reported in {area}. Small craft should stay in port and larger vessels should rig for heavy weather.
 2. Seas are building to {h}m ({low}) in {area}. Secure for heavy weather and keep well clear of exposed waters.
 
 ---
 
 ## Maritime security / military (NGA)
-**Missile/rocket launch hazard**
+**Launch hazard**
 1. A missile or rocket launch hazard area is active in {region}. Vessels should keep well clear until the operation is complete.
 2. Launch operations have closed off part of {region}. Steer clear of the hazard area until it reopens.
 
@@ -329,7 +333,7 @@ _Follow-up — no tsunami:_
 1. Drifting mines or unexploded ordnance have been reported in {region}. Post a lookout, reduce speed, and keep a safe distance from the area.
 2. A mine danger exists in {region}. Vessels should avoid the area and report any sighting to the authorities.
 
-**Naval gunfire / live-fire**
+**Gunfire / live-fire**
 1. Naval gunnery or live-fire operations are underway in {region}. Vessels should stand clear of the firing range until it is lifted.
 2. Live-fire exercises are taking place in {region}. Keep well clear of the affected area until the operation ends.
 
@@ -337,13 +341,13 @@ _Follow-up — no tsunami:_
 1. A naval or military exercise is closing off waters in {region}. Route around the area until it reopens.
 2. Military operations are restricting navigation in {region}. Give the area a wide berth until the exercise is complete.
 
-**GPS interference / jamming**
+**GPS interference**
 1. GPS interference has been reported in {region}. Verify your position by radar, visual bearings, or dead reckoning.
 2. Navigators report GPS jamming or spoofing in {region}. Cross-check your position and do not rely on GPS alone.
 
 ---
 
-## Outdoor safety (Open-Meteo) — extreme UV
+## Outdoor — extreme UV
 1. The UV index has reached {uv} in {name}, an extreme level. Cover up, wear sunglasses and sunscreen, and seek shade through the middle of the day.
 2. UV has spiked to {uv} in {name}, in the extreme range. Wear sunscreen and shades, cover exposed skin, and stay shaded around midday.
 

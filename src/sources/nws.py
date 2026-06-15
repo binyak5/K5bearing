@@ -194,6 +194,34 @@ ACTIONS = {
         "Dangerous avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.",
         "The avalanche danger is high in the backcountry. Avoid steep slopes and check the local avalanche forecast.",
     ],
+    "Flood Advisory": [
+        "Minor flooding of low-lying and poor-drainage areas is expected. Avoid the usual problem spots and never drive through standing water.",
+        "Nuisance flooding is likely in low spots. Give yourself extra time and steer around any water across the road.",
+    ],
+    "Wind Advisory": [
+        "Strong winds are expected. Secure light objects outside and take care driving high-profile vehicles.",
+        "Gusty winds are on the way. Tie down loose items and watch for sudden crosswinds on the road.",
+    ],
+    "Heat Advisory": [
+        "Hot and humid conditions are expected. Drink plenty of water, take breaks in the shade, and check on those at risk.",
+        "Dangerous heat is building. Stay hydrated, limit strenuous activity, and never leave anyone in a parked vehicle.",
+    ],
+    "Winter Weather Advisory": [
+        "Snow, sleet, or ice will make roads slick. Slow down, allow extra distance, and travel only if you need to.",
+        "A wintry mix is expected to make travel hazardous. Take it slow and keep an eye on changing conditions.",
+    ],
+    "Dense Fog Advisory": [
+        "Dense fog is cutting visibility to a quarter mile or less. Slow down, use low-beam headlights, and leave extra room.",
+        "Thick fog is making driving dangerous. Reduce speed, switch to low beams, and watch for slow or stopped traffic.",
+    ],
+    "Freeze Warning": [
+        "Sub-freezing temperatures are expected. Protect tender plants, pets, and any exposed pipes overnight.",
+        "A hard freeze is on the way. Cover sensitive plants, bring pets inside, and guard against burst pipes.",
+    ],
+    "Air Quality Alert": [
+        "Air pollution is reaching unhealthy levels. Limit time outdoors, keep windows closed, and take it easy if you have breathing trouble.",
+        "Poor air quality is expected. Reduce outdoor activity and consider a mask if you are sensitive to pollution.",
+    ],
 }
 
 # Primary hashtag per event type (a generic #WeatherAlert is always appended).
@@ -240,6 +268,13 @@ TAGS = {
     "High Wind Warning": "#HighWind",
     "Dust Storm Warning": "#DustStorm",
     "Avalanche Warning": "#Avalanche",
+    "Flood Advisory": "#Flood",
+    "Wind Advisory": "#Wind",
+    "Heat Advisory": "#Heat",
+    "Winter Weather Advisory": "#WinterWeather",
+    "Dense Fog Advisory": "#Fog",
+    "Freeze Warning": "#Freeze",
+    "Air Quality Alert": "#AirQuality",
 }
 
 
