@@ -9,7 +9,7 @@ account:
 # Cost control. Pay-per-use is ~$0.01/post. The monthly cap is a hard ceiling:
 # 800 posts/month = ~$8.00/month. The daily cap smooths posting across the day.
 limits:
-  max_posts_per_run: 2
+  max_posts_per_run: 1   # one post per run; most severe candidate goes first
   max_posts_per_day: 27
   max_posts_per_month: 800   # hard cost cap (~$8/month at $0.01/post)
 
