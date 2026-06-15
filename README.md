@@ -12,7 +12,7 @@ weather, and field readiness — sourced entirely from free US government feeds.
 | **Aurora visibility** watch (global viewline) | NOAA SWPC Kp index | Kp ≥ threshold (default 5) |
 | **Solar flares** (M/X-class) | NOAA SWPC GOES X-ray | New flare ≥ threshold class |
 | Solar storms / radio blackouts / radiation storms | NOAA SWPC alerts feed | New matching alert |
-| **Marine / sea / ocean** (storm surge, hurricane-force wind, gale, hazardous seas, special marine, small craft, freezing spray, high surf, rip current, beach hazards, coastal/lakeshore flood, tsunami) — **priority focus** | US National Weather Service | New active warning |
+| **Marine / sea / ocean** (storm surge, hurricane-force wind, gale, hazardous seas, special marine, freezing spray, high surf, rip current, beach hazards, coastal/lakeshore flood, tsunami) — **priority focus**; small-craft advisories collapse into one low-priority roundup so they don't flood | US National Weather Service | New active warning |
 | Severe weather — **US** land (tornado, hurricane, severe t-storm, flood, fire, winter, extreme heat/cold, high wind, dust, avalanche…) | US National Weather Service | New active warning |
 | Severe weather — **Europe** (~38 countries) | MeteoAlarm (EUMETNET) | New orange/red warning |
 | **Global multi-hazard** — tropical cyclones (all basins), floods, earthquakes, volcanoes, wildfires | GDACS (UN OCHA / EC JRC) | New orange/red event |

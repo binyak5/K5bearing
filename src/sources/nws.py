@@ -243,20 +243,27 @@ TAGS = {
 }
 
 
-# Marine / sea / ocean events — the account's focus. These get a ranking boost
-# so they surface ahead of land alerts of the same NWS severity.
-MARINE_EVENTS = {
+# Serious marine warnings — the account's focus. These get a ranking boost so
+# they surface ahead of land alerts of the same NWS severity. Routine marine
+# advisories/watches (small craft, freezing spray, high surf advisory, coastal
+# flood watch/advisory, beach hazards, gale/storm watch) are deliberately left
+# OFF this list so they don't crowd out the serious stuff.
+MARINE_PRIORITY = {
     "Storm Surge Warning", "Storm Surge Watch",
     "Hurricane Force Wind Warning", "Hurricane Force Wind Watch",
-    "Gale Warning", "Gale Watch", "Storm Warning", "Storm Watch",
-    "Hazardous Seas Warning", "Special Marine Warning", "Small Craft Advisory",
-    "Heavy Freezing Spray Warning", "Freezing Spray Advisory",
-    "High Surf Warning", "High Surf Advisory", "Rip Current Statement",
-    "Beach Hazards Statement", "Coastal Flood Warning", "Coastal Flood Watch",
-    "Coastal Flood Advisory", "Lakeshore Flood Warning",
-    "Tsunami Warning", "Tsunami Advisory", "Tsunami Watch",
+    "Gale Warning", "Storm Warning", "Hazardous Seas Warning",
+    "Special Marine Warning", "High Surf Warning", "Rip Current Statement",
+    "Heavy Freezing Spray Warning", "Coastal Flood Warning",
+    "Lakeshore Flood Warning", "Tsunami Warning", "Tsunami Advisory", "Tsunami Watch",
 }
 MARINE_BOOST = 15
+
+# Small Craft Advisories are extremely common; collapse them all into one
+# low-priority roundup per run rather than flooding the feed with each zone.
+SCA_ROUNDUP = [
+    "Small craft advisories are in effect across {n} coastal zones, so inexperienced mariners and small craft should stay in port until conditions ease.",
+    "Small craft advisories cover {n} stretches of coastal water, so small craft should remain in harbour until conditions improve.",
+]
 
 
 def _area_label(area_desc: str) -> str:
@@ -290,6 +297,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
     wanted = set(events)
     signals: list[Signal] = []
     seen_keys: set[str] = set()
+    sca_zones: set[str] = set()
 
     for feat in data.get("features", []):
         props = feat.get("properties", {})
@@ -298,6 +306,12 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
             continue
 
         area_desc = props.get("areaDesc", "")
+        # Small Craft Advisories are too numerous to post individually; just
+        # tally the distinct zones and emit one roundup after the loop.
+        if event == "Small Craft Advisory":
+            sca_zones.add(area_desc[:60])
+            continue
+
         # Collapse many simultaneous warnings of the same type+area into one post.
         key = f"weather:{event}:{area_desc[:60]}"
         if key in seen_keys:
@@ -305,7 +319,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         seen_keys.add(key)
 
         severity = SEVERITY_WEIGHT.get(props.get("severity", ""), 50)
-        if event in MARINE_EVENTS:
+        if event in MARINE_PRIORITY:
             severity = min(99, severity + MARINE_BOOST)  # this account's focus
         label = _area_label(area_desc)
         event_l = event.lower()
@@ -326,6 +340,21 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 dedup_key=key,
                 hashtags=[TAGS.get(event, "#Weather"), "#WeatherAlert"],
                 tz=zone,
+            )
+        )
+
+    # One low-priority roundup for all Small Craft Advisories, capped to a
+    # single post per dedup window so they can never flood the feed.
+    if sca_zones:
+        rkey = "weather:sca-roundup"
+        signals.append(
+            Signal(
+                category="weather",
+                severity=50,  # un-boosted: only posts when nothing serious is active
+                text=pick(SCA_ROUNDUP, rkey).format(n=len(sca_zones)),
+                dedup_key=rkey,
+                hashtags=["#Marine", "#WeatherAlert"],
+                tz=None,  # spans many zones -> UTC
             )
         )
     return signals
