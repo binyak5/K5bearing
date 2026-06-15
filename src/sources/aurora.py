@@ -10,19 +10,14 @@ from __future__ import annotations
 from . import Signal
 from . import swpc
 
-# Kp -> (Northern Hemisphere example regions, Southern Hemisphere example regions).
-# Each tier is cumulative — higher Kp means everything above plus these.
+# Kp -> short list of example regions where the aurora may be visible.
+# Higher Kp pushes the oval toward lower latitudes, so each tier reaches further.
 VIEWLINE = {
-    5: ("N. Scotland, Scandinavia, N. Germany, WA/MT/ND/MN/ME (US), S. Canada",
-        "Tasmania, southern NZ, southern Chile/Argentina"),
-    6: ("Ireland, England, Denmark, N. Poland, OR/IA/NY/MI (US)",
-        "Victoria & southern Australia, most of NZ"),
-    7: ("Central Europe (Czechia, S. Germany), NE/IL/OH/PA (US)",
-        "Southern Australia, northern NZ"),
-    8: ("France, Austria, Hungary, CO/KS/MO/VA (US)",
-        "Most of Australia, southern South America"),
-    9: ("S. Europe, central US — rare low-latitude display",
-        "Lower-latitude South America, South Africa"),
+    5: "Scotland, Scandinavia, and the northern US",
+    6: "Ireland, Denmark, and the northern US",
+    7: "the UK, central Europe, and the northern US",
+    8: "northern France, the Alps, and the central US",
+    9: "southern Europe and the central US, which is rare",
 }
 
 
@@ -31,18 +26,16 @@ def aurora_signal(kp_threshold: int) -> Signal | None:
     if kp is None or kp < kp_threshold:
         return None
     tier = min(int(kp), 9)
-    north, south = VIEWLINE.get(tier, VIEWLINE[5])
+    regions = VIEWLINE.get(tier, VIEWLINE[5])
     text = (
-        f"AURORA WATCH — Kp {kp:.0f}\n"
-        f"Possible overhead/low on the horizon:\n"
-        f"N: {north}\n"
-        f"S: {south}\n"
-        f"Look toward the poles, away from city lights."
+        f"Kp has climbed to {kp:.0f}, expanding the auroral oval toward lower "
+        f"latitudes, so the aurora may appear over {regions} and at matching "
+        "southern latitudes. Look poleward, well away from city lights."
     )
     return Signal(
         category="aurora",
         severity=45 + int(kp) * 4,  # below storm/compass alerts of the same Kp
         text=text,
         dedup_key=f"aurora:Kp{int(kp)}",
-        hashtags=["#K5Bearing", "#Aurora", "#Northernlights"],
+        hashtags=["#Aurora", "#SpaceWeather"],
     )

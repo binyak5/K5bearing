@@ -2,20 +2,17 @@
 
 Each invocation:
   1. Collects candidate signals from all enabled sources.
-  2. Adds the daily field-readiness digest if it's the configured hour.
-  3. Drops anything already posted (local dedup) or over the daily budget.
-  4. Posts the most severe candidates, up to the per-run cap.
+  2. Drops anything already posted (local dedup) or over the daily budget.
+  3. Posts the most severe candidates, up to the per-run cap.
 
 Run locally:   DRY_RUN=1 python -m src.main
 On CI:         python -m src.main   (with X_* secrets in the environment)
 """
 from __future__ import annotations
 
-from datetime import datetime, timezone
-
 from .config import load_config
 from .state import State
-from .formatter import render, daily_digest
+from .formatter import render
 from .poster import Poster
 from .sources import swpc, nws, meteoalarm, gdacs, aurora, Signal
 
@@ -65,20 +62,11 @@ def main() -> None:
     state = State()
     poster = Poster()
 
-    hour = datetime.now(timezone.utc).hour
     ttl = cfg["dedup_ttl_hours"]
     max_run = cfg["limits"]["max_posts_per_run"]
     max_day = cfg["limits"]["max_posts_per_day"]
 
     candidates = collect(cfg)
-
-    # Daily digest, once, at the configured hour.
-    if (
-        cfg["digest"]["enabled"]
-        and hour == cfg["digest"]["hour_utc"]
-        and not state.digest_sent_today()
-    ):
-        candidates.append(daily_digest(cfg))
 
     # Rank: most severe first.
     candidates.sort(key=lambda s: s.severity, reverse=True)
@@ -97,8 +85,6 @@ def main() -> None:
         if poster.post(text):
             state.mark_posted(sig.dedup_key)
             state.increment_today()
-            if sig.category == "digest":
-                state.mark_digest_sent()
             posted += 1
 
     if posted == 0:

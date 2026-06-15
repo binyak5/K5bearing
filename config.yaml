@@ -87,8 +87,3 @@ global_hazards:
   # Alert levels to post: Orange | Red. (Green is routine background noise.)
   min_alert: "Orange"
   event_types: ["TC", "FL", "EQ", "VO", "TS", "WF"]
-
-# Once-daily field-readiness digest.
-digest:
-  enabled: true
-  hour_utc: 13   # ~9am ET / 6am PT

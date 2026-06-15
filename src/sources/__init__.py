@@ -17,3 +17,4 @@ class Signal:
     text: str              # tweet body (<= 280 chars after hashtags)
     dedup_key: str
     hashtags: list[str] = field(default_factory=list)
+    tz: str | None = None  # IANA zone for the timestamp; None = UTC (global signals)

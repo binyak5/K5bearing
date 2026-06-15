@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 import requests
 
 from ..config import USER_AGENT
+from .. import tz
 from . import Signal
 
 FEED_BASE = "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"
@@ -24,7 +25,44 @@ NS = {
 # Ordering + ranking weight. Higher = more severe.
 SEVERITY_RANK = {"Moderate": 1, "Severe": 2, "Extreme": 3}
 SEVERITY_WEIGHT = {"Moderate": 55, "Severe": 78, "Extreme": 92}
-SEVERITY_BADGE = {"Moderate": "🟡", "Severe": "🟧", "Extreme": "🟥"}
+# MeteoAlarm severity -> public-facing colour word (yellow/orange/red).
+SEVERITY_COLOR = {"Moderate": "Yellow", "Severe": "Orange", "Extreme": "Red"}
+
+# Keyword in the event text -> flowing advisory sentence.
+HAZARD_ACTIONS = [
+    ("thunder", "Severe storms are likely, so stay indoors and away from windows until they pass."),
+    ("wind", "Strong winds are expected, so secure anything loose outside and keep away from exposed areas."),
+    ("rain", "Heavy rain may bring flooding, so avoid low lying roads and allow extra time to travel."),
+    ("flood", "Flooding is possible, so avoid low lying roads and do not drive through water of unknown depth."),
+    ("snow", "Snow and ice will make travel difficult, so only head out if your journey is necessary."),
+    ("ice", "Ice will make roads and paths treacherous, so take extra care and travel only if you need to."),
+    ("fog", "Visibility will be poor, so slow down and keep your lights on while driving."),
+    ("forest", "Fire risk is high, so avoid open flames and report any sign of fire immediately."),
+    ("fire", "Fire risk is high, so avoid open flames and report any sign of fire immediately."),
+    ("heat", "Temperatures will be dangerously high, so stay hydrated and out of the midday sun."),
+    ("temperature", "Temperatures will reach an extreme, so limit your exposure and check on those at risk."),
+    ("cold", "Temperatures will be dangerously low, so limit time outdoors and dress in warm layers."),
+    ("coast", "Coastal conditions will be dangerous, so stay well back from the shoreline and exposed paths."),
+    ("avalanche", "Avalanche risk is elevated, so stay off backcountry slopes and follow local guidance."),
+]
+
+
+def _action_for(event: str) -> str:
+    low = event.lower()
+    for kw, action in HAZARD_ACTIONS:
+        if kw in low:
+            return action
+    return "Stay alert and follow local guidance."
+
+
+def _hazard(event: str) -> str:
+    """Strip leading colour/severity words and trailing 'warning' to a clean noun."""
+    words = event.split()
+    drop = {"yellow", "orange", "red", "moderate", "severe", "extreme"}
+    words = [w for w in words if w.lower() not in drop]
+    if words and words[-1].lower() == "warning":
+        words = words[:-1]
+    return " ".join(words).lower() or "weather"
 
 
 def _text(entry: ET.Element, tag: str) -> str:
@@ -54,19 +92,27 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         groups.setdefault((event, severity), set()).add(area)
 
     label = country.replace("-", " ").title()
+    tag = "#" + label.replace(" ", "")
+    zone = tz.zone_for_country(country)
     signals: list[Signal] = []
     for (event, severity), areas in groups.items():
-        badge = SEVERITY_BADGE.get(severity, "⚠️")
+        color = SEVERITY_COLOR.get(severity, severity).lower()
+        article = "An" if color[:1] in "aeiou" else "A"
+        hazard = _hazard(event)
         n = len([a for a in areas if a])
-        where = f" — {n} area(s)" if n else ""
-        text = f"{badge} {severity.upper()} — {label}\n{event}{where}"
+        where = f", covering {n} regions" if n > 1 else ""
+        text = (
+            f"{article} {color} {hazard} warning is in effect for "
+            f"{label}{where}. {_action_for(event)}"
+        )
         signals.append(
             Signal(
                 category="weather_eu",
                 severity=SEVERITY_WEIGHT.get(severity, 60),
                 text=text,
                 dedup_key=f"eu:{country}:{event}:{severity}",
-                hashtags=["#K5Bearing", "#MeteoAlarm", "#WeatherAlert"],
+                hashtags=["#WeatherAlert", tag],
+                tz=zone,
             )
         )
     return signals

@@ -14,7 +14,13 @@ weather, and field readiness — sourced entirely from free US government feeds.
 | Severe weather — **US** (tornado, hurricane, severe t-storm, flash flood, red-flag fire, tsunami, blizzard…) | US National Weather Service | New active warning |
 | Severe weather — **Europe** (~38 countries) | MeteoAlarm (EUMETNET) | New orange/red warning |
 | **Global multi-hazard** — tropical cyclones (all basins), floods, earthquakes, volcanoes, wildfires | GDACS (UN OCHA / EC JRC) | New orange/red event |
-| Daily field-readiness digest | All sources combined | Once/day at a set hour |
+
+Every post is written as a timestamped advisory in plain, flowing prose
+(National Hurricane Center style), e.g. `15 Jun 2 am EDT: A tornado warning is
+in effect for ...`. The timestamp is in the **local time zone of the alert's
+location** (resolved from coordinates for US/global alerts and from country for
+Europe); global space-weather signals stay in UTC. The source agency is not
+named in-tweet — K5Bearing is the voice. No emoji, no sign-offs.
 
 **Coverage is worldwide.** Space-weather signals are inherently global — the Kp
 index is a *planetary* index and SWPC alerts are global. Severe-weather
@@ -40,8 +46,9 @@ and commits `state.json` back so dedup survives between runs.
 src/
   main.py        orchestrator
   config.py      load config.yaml + env credentials
+  tz.py          resolve each alert's local timezone (timezonefinder)
   state.py       dedup + daily-budget tracking (state.json)
-  formatter.py   tweet rendering + daily digest
+  formatter.py   timestamp + tweet rendering
   poster.py      X v2 client (tweepy), with DRY_RUN
   sources/
     swpc.py        solar + geomagnetic + compass (global)
@@ -117,7 +124,6 @@ Everything tunable lives in [`config.yaml`](config.yaml):
 > of active US alerts. The severity ranking + `max_posts_per_day` cap mean only
 > the most serious get posted, but raise the cap (and your budget) if you want
 > more through. At 12/day that's ~$3.60/month on pay-per-use.
-- `digest.hour_utc` — when the daily readiness post goes out.
 
 ## Disclaimer
 

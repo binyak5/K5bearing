@@ -42,40 +42,30 @@ def current_kp() -> float | None:
         return None
 
 
-def compass_status(kp: float | None) -> tuple[str, str]:
-    """Map Kp to a (label, advisory) for compass / magnetic navigation.
-
-    Geomagnetic storms transiently shift magnetic declination, which is what
-    degrades magnetic-compass accuracy — most severely at high latitudes.
-    """
-    if kp is None:
-        return "Unknown", "Compass reliability data unavailable."
-    if kp < 4:
-        return "Nominal", "Magnetic compass reliable. Standard declination applies."
-    if kp < 5:
-        return "Unsettled", "Minor declination drift possible at high latitudes."
-    if kp < 7:
-        return "Degraded", "Compass declination may swing several degrees. Cross-check bearings with GPS/landmarks."
-    return "Unreliable", "Significant magnetic disturbance. Do not trust compass alone — verify with GPS/celestial."
-
-
 def geomagnetic_signal(kp_threshold: int) -> Signal | None:
     kp = current_kp()
     if kp is None or kp < kp_threshold:
         return None
     level = G_SCALE.get(int(kp), "G1")
-    label, advisory = compass_status(kp)
-    text = (
-        f"GEOMAGNETIC STORM — {level} (Kp {kp:.0f})\n"
-        f"Compass: {label}. {advisory}"
-    )
+    if kp < 7:
+        advisory = (
+            f"A {level} geomagnetic storm is underway at Kp {kp:.0f}, and magnetic "
+            "north is drifting, so a compass can read a few degrees off true. "
+            "Check any bearing against GPS or a known landmark before you rely on it."
+        )
+    else:
+        advisory = (
+            f"A {level} geomagnetic storm is underway at Kp {kp:.0f}, and magnetic "
+            "north is swinging by several degrees, so treat any compass heading as "
+            "approximate and hold your course by GPS or a celestial bearing until it eases."
+        )
     # Dedup per storm level per day so escalations re-post but steady state doesn't.
     return Signal(
         category="geomagnetic",
         severity=50 + int(kp) * 5,
-        text=text,
+        text=advisory,
         dedup_key=f"geomag:{level}",
-        hashtags=["#K5Bearing", "#GeomagneticStorm", "#Compass"],
+        hashtags=["#SpaceWeather", "#Compass"],
     )
 
 
@@ -106,14 +96,14 @@ def solar_signals(watch_prefixes: list[str]) -> list[Signal]:
         if not headline:
             continue
         issued = (entry.get("issue_datetime") or "").strip()
-        text = f"SPACE WEATHER — {headline[:200]}"
+        text = f"Space weather alert: {headline[:210]}"
         signals.append(
             Signal(
                 category="solar",
                 severity=60,
                 text=text,
                 dedup_key=f"solar:{pid}:{issued}",
-                hashtags=["#K5Bearing", "#SolarStorm", "#SpaceWeather"],
+                hashtags=["#SpaceWeather", "#SolarStorm"],
             )
         )
     return signals

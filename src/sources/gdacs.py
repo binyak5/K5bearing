@@ -11,6 +11,7 @@ from __future__ import annotations
 import requests
 
 from ..config import USER_AGENT
+from .. import tz
 from . import Signal
 
 EVENTS_URL = "https://www.gdacs.org/gdacsapi/api/events/geteventlist/EVENTS4APP"
@@ -18,16 +19,16 @@ TIMEOUT = 25
 
 ALERT_RANK = {"Green": 0, "Orange": 1, "Red": 2}
 ALERT_WEIGHT = {"Orange": 72, "Red": 92}
-ALERT_BADGE = {"Orange": "🟧", "Red": "🟥"}
 
+# Event type -> (label, flowing advisory sentence).
 EVENT_META = {
-    "TC": ("🌀", "Tropical Cyclone"),
-    "FL": ("🌊", "Flood"),
-    "EQ": ("🌐", "Earthquake"),
-    "VO": ("🌋", "Volcano"),
-    "WF": ("🔥", "Wildfire"),
-    "TS": ("🌊", "Tsunami"),
-    "DR": ("🌵", "Drought"),
+    "TC": ("Tropical Cyclone", "This is a dangerous storm, so follow evacuation orders and stay clear of the coast, where storm surge is the deadliest threat."),
+    "FL": ("Flood", "Move to higher ground, keep clear of floodwater, and follow the instructions of local authorities."),
+    "EQ": ("Earthquake", "Aftershocks are possible, so stay clear of damaged buildings and be ready for further shaking."),
+    "VO": ("Volcano", "Follow any exclusion zones and evacuation guidance issued by local authorities."),
+    "WF": ("Wildfire", "Stay ready to evacuate at short notice and keep a close watch on local alerts."),
+    "TS": ("Tsunami", "Move to high ground or inland immediately and stay there until officials say it is safe."),
+    "DR": ("Drought", "Conserve water where you can and follow local guidance."),
 }
 
 
@@ -49,25 +50,29 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
         if etype not in wanted or ALERT_RANK.get(alert, 0) < min_rank:
             continue
 
-        emoji, label = EVENT_META.get(etype, ("⚠️", etype or "Hazard"))
+        label, action = EVENT_META.get(etype, (etype or "Hazard", "Follow local guidance."))
         country = p.get("country") or ""
         name = p.get("name") or label
         sev = p.get("severitydata") or {}
         sev_txt = sev.get("severitytext") or ""
 
-        line2 = name if name else f"{label} in {country}"
-        detail = f"\n{sev_txt}" if sev_txt else ""
-        loc = f" ({country})" if country and country not in name else ""
-        text = f"{ALERT_BADGE.get(alert,'⚠️')} {label.upper()}{loc}\n{line2}{detail}"
+        article = "An" if alert[:1] in "aeiouAEIOU" else "A"
+        loc = f" near {country}" if country and country not in name else ""
+        detail = f", currently {sev_txt.lower()}" if sev_txt else ""
+        text = f"{article} {alert.lower()} alert is in effect for {name}{loc}{detail}. {action}"
 
         eid = p.get("eventid") or name
+        country_tag = "#" + country.replace(" ", "") if country else "#GDACS"
+        centroid = tz.polygon_centroid(feat.get("geometry"))
+        zone = tz.zone_for_coords(*centroid) if centroid else None
         signals.append(
             Signal(
                 category="global",
                 severity=ALERT_WEIGHT.get(alert, 60),
                 text=text,
                 dedup_key=f"gdacs:{etype}:{eid}:{alert}",
-                hashtags=["#K5Bearing", "#GDACS", f"#{label.replace(' ', '')}"],
+                hashtags=["#" + label.replace(" ", ""), country_tag],
+                tz=zone,
             )
         )
     return signals
