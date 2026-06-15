@@ -28,7 +28,7 @@ OPENERS = [
 ACTIONS = {
     "Tornado Warning": [
         "Move to the lowest floor and an interior room away from windows, and stay there until the warning is lifted.",
-        "Get to a basement or a small interior room on the lowest floor now, and stay clear of windows until it passes.",
+        "Get to a basement or an interior room on the lowest floor now and stay clear of windows, as a tornado can drop fast from the wall cloud.",
     ],
     "Hurricane Warning": [
         "Destructive winds and storm surge are expected, so finish your preparations now and follow any evacuation orders without delay.",
@@ -48,7 +48,7 @@ ACTIONS = {
     ],
     "Blizzard Warning": [
         "Travel will become dangerous in near zero visibility, so stay off the roads and remain somewhere warm.",
-        "Whiteout conditions are expected, so avoid all travel and keep warm clothing and supplies within reach.",
+        "Blowing snow will bring ground blizzard whiteouts, so avoid all travel and keep warm clothing and supplies within reach.",
     ],
     "Extreme Wind Warning": [
         "Extreme winds are about to arrive, so move to the lowest floor and stay clear of windows until they pass.",
@@ -56,11 +56,11 @@ ACTIONS = {
     ],
     "Severe Thunderstorm Warning": [
         "Damaging winds and large hail are likely, so head indoors and keep away from windows until the storm moves through.",
-        "Strong winds and hail are on the way, so get inside, stay off the road, and wait for the storm to pass.",
+        "A supercell can bring damaging winds and large hail, so get inside, stay off the road, and wait for it to pass.",
     ],
     "Flash Flood Warning": [
         "Water can rise very quickly, so move to higher ground and never try to drive or walk through floodwater.",
-        "Flooding can hit within minutes, so climb to higher ground now and never enter water flowing across a road.",
+        "The flash-flood crest can arrive within minutes, so climb to higher ground now and never enter water flowing across a road.",
     ],
     "Flood Warning": [
         "Flooding is already underway, so avoid low lying roads and do not drive through water of unknown depth.",
@@ -107,7 +107,7 @@ ACTIONS = {
         "Storm force conditions may build offshore, so follow the forecast and be ready to remain in harbour.",
     ],
     "Hazardous Seas Warning": [
-        "Confused, dangerously steep seas are expected, so mariners should remain in port until conditions improve.",
+        "Dangerously steep and high seas are expected, so mariners should remain in port until conditions improve.",
         "Hazardous seas are building, so keep vessels in port and off the water until the swell eases.",
     ],
     "Special Marine Warning": [
@@ -175,7 +175,7 @@ ACTIONS = {
         "A damaging glaze of ice is on the way, so avoid driving and be ready for outages and falling branches.",
     ],
     "Extreme Cold Warning": [
-        "Dangerously cold air is moving in, so limit time outdoors and cover exposed skin to guard against frostbite.",
+        "A dangerous wind chill is setting in, so limit time outdoors and cover exposed skin to guard against frostbite.",
         "Bitter, dangerous cold is settling in, so stay inside where you can and bundle up against frostbite.",
     ],
     "Extreme Heat Warning": [
