@@ -39,7 +39,7 @@ META = {
         "Launch operations have closed off part of {region}, so steer clear of the hazard area until it reopens.",
     ]),
     "mine": (84, ["#MineDanger", "#Marine"], [
-        "Drifting mines or unexploded ordnance have been reported in {region}, so post a lookout, reduce speed, and give the area a wide berth.",
+        "Drifting mines or unexploded ordnance have been reported in {region}, so post a lookout, reduce speed, and keep a safe distance from the area.",
         "A mine danger exists in {region}, so vessels should avoid the area and report any sighting to the authorities.",
     ]),
     "gunfire": (80, ["#LiveFire", "#Marine"], [

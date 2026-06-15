@@ -48,11 +48,8 @@ def timestamp(zone: str | None = None) -> str:
         except Exception:
             tzinfo = timezone.utc
     now = datetime.now(tzinfo)
-    hour = now.strftime("%I").lstrip("0") or "12"
-    minute = now.strftime("%M")
-    ampm = now.strftime("%p").lower()
     label = _pretty_zone(now.strftime("%Z")) if tzinfo is not timezone.utc else "UTC"
-    return f"{hour}:{minute} {ampm} {label}:"
+    return f"{now.strftime('%H:%M')} {label}:"
 
 
 def render(signal: Signal) -> str:
