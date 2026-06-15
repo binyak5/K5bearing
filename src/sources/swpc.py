@@ -59,7 +59,7 @@ def geomagnetic_signal(kp_threshold: int) -> Signal | None:
             f"A {level} geomagnetic storm is underway at Kp {kp:.0f}, and magnetic "
             "north is drifting, so a compass can read a few degrees off true. "
             "Check any bearing against GPS or a known landmark before you rely on it.",
-            f"A {level} geomagnetic storm has set in at Kp {kp:.0f}, nudging magnetic "
+            f"A {level} geomagnetic storm has set in at Kp {kp:.0f}, pulling magnetic "
             "north off true, so a compass may be a few degrees out. Confirm any "
             "bearing with GPS or a fixed landmark before trusting it.",
         ]
@@ -113,7 +113,7 @@ def flare_signal(min_class: str = "M", max_age_hours: int = 6) -> Signal | None:
     if letter == "X":
         impact = (
             "Flares this strong can trigger widespread shortwave radio blackouts "
-            "on the daylit side of Earth and degrade GPS and HF communications."
+            "on the daylit side of Earth and impair GPS and HF communications."
         )
     else:  # M class
         impact = (

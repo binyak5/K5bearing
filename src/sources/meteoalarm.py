@@ -13,6 +13,7 @@ import requests
 from ..config import USER_AGENT
 from .. import tz
 from . import Signal, pick
+from . import nws  # reuse the US action wording for Europe
 
 FEED_BASE = "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"
 TIMEOUT = 25
@@ -35,78 +36,51 @@ OPENERS = [
     "{article} {color} {hazard} warning is now active for {label}{where}.",
 ]
 
-# Keyword in the event text -> a few vetted advisory phrasings.
-HAZARD_ACTIONS = [
-    ("thunder", [
-        "Severe storms are likely, so stay indoors and away from windows until they pass.",
-        "Violent thunderstorms are expected, so head inside and keep clear of windows.",
-    ]),
-    ("wind", [
-        "Strong winds are expected, so secure anything loose outside and keep away from exposed areas.",
-        "Powerful gusts are on the way, so tie down loose items and avoid open, exposed ground.",
-    ]),
-    ("rain", [
-        "Heavy rain may bring flooding, so avoid low lying roads and allow extra time to travel.",
-        "Persistent heavy rain could cause flooding, so steer clear of low ground and plan for delays.",
-    ]),
-    ("flood", [
-        "Flooding is possible, so avoid low lying roads and do not drive through water of unknown depth.",
-        "Rising water is likely, so keep away from low lying areas and never cross a flooded road.",
-    ]),
-    ("snow", [
-        "Snow and ice will make travel difficult, so only head out if necessary.",
-        "Heavy snow is expected, so postpone travel unless it is truly necessary.",
-    ]),
-    ("ice", [
-        "Ice will make roads and paths treacherous, so take extra care and travel only if you need to.",
-        "Icy surfaces are likely, so tread carefully and avoid driving where you can.",
-    ]),
-    ("fog", [
-        "Visibility will be poor, so slow down and keep your lights on while driving.",
-        "Dense fog is expected, so reduce speed and use dipped headlights on the road.",
-    ]),
-    ("forest", [
-        "Fire risk is high, so avoid open flames and report any sign of fire immediately.",
-        "Conditions favour fast moving fire, so hold off on flames and report smoke at once.",
-    ]),
-    ("fire", [
-        "Fire risk is high, so avoid open flames and report any sign of fire immediately.",
-        "Conditions favour fast moving fire, so hold off on flames and report smoke at once.",
-    ]),
-    ("heat", [
-        "Temperatures will be dangerously high, so stay hydrated and out of the midday sun.",
-        "A dangerous heat spell is expected, so drink plenty of water and avoid the midday heat.",
-    ]),
-    ("temperature", [
-        "Temperatures will reach an extreme, so limit your exposure and check on those at risk.",
-        "An extreme in temperature is expected, so take it easy and look in on the vulnerable.",
-    ]),
-    ("cold", [
-        "Temperatures will be dangerously low, so limit time outdoors and dress in warm layers.",
-        "Bitter cold is expected, so stay in where you can and wrap up in warm layers.",
-    ]),
-    ("coast", [
-        "Coastal conditions will be dangerous, so stay well back from the shoreline and exposed paths.",
-        "Rough seas are expected along the coast, so keep clear of the shore and exposed walkways.",
-    ]),
-    ("avalanche", [
-        "Avalanche risk is elevated, so stay off backcountry slopes and follow local guidance.",
-        "The avalanche danger is raised, so avoid steep backcountry terrain and heed local advice.",
-    ]),
+# MeteoAlarm hazard keyword -> the US NWS event whose (better, single-source)
+# action wording we reuse. Matched in order; the keyword is also the stable
+# dedup token, so per-region wording variations collapse into one post.
+# Hazards with no clean US equivalent (rain, fog, temperature) keep EU lines.
+HAZARD_MAP = [
+    ("thunder", ("nws", "Severe Thunderstorm Warning")),
+    ("wind", ("nws", "High Wind Warning")),
+    ("avalanche", ("nws", "Avalanche Warning")),
+    ("snow", ("nws", "Winter Storm Warning")),
+    ("ice", ("nws", "Ice Storm Warning")),
+    ("flood", ("nws", "Flood Warning")),
+    ("forest", ("nws", "Red Flag Warning")),
+    ("fire", ("nws", "Red Flag Warning")),
+    ("coast", ("nws", "Coastal Flood Warning")),
+    ("high-temp", ("nws", "Extreme Heat Warning")),
+    ("heat", ("nws", "Extreme Heat Warning")),
+    ("low-temp", ("nws", "Extreme Cold Warning")),
+    ("cold", ("nws", "Extreme Cold Warning")),
+    ("rain", ("eu", [
+        "Heavy rain may bring flooding. Avoid low lying roads and allow extra time to travel.",
+        "Persistent heavy rain could cause flooding. Steer clear of low ground and plan for delays.",
+    ])),
+    ("fog", ("eu", [
+        "Visibility will be poor. Slow down and keep your lights on while driving.",
+        "Dense fog is expected. Reduce speed and use dipped headlights on the road.",
+    ])),
+    ("temperature", ("eu", [
+        "Temperatures will reach an extreme. Limit your exposure and check on those at risk.",
+        "An extreme in temperature is expected. Take it easy and look in on the vulnerable.",
+    ])),
 ]
 
 DEFAULT_ACTIONS = [
-    "Conditions could become dangerous, so stay alert and follow local guidance.",
-    "The situation may turn hazardous, so stay aware and follow local advice.",
+    "Conditions could get rough. Stay alert and follow local guidance.",
+    "The situation may turn unsafe. Stay aware and follow local advice.",
 ]
 
 
-def _action_for(event: str, seed: str) -> str:
+def _classify(event: str) -> tuple[str, list[str]]:
+    """Return (stable dedup token, action variants) for a MeteoAlarm event."""
     low = event.lower()
-    for kw, actions in HAZARD_ACTIONS:
+    for kw, (kind, target) in HAZARD_MAP:
         if kw in low:
-            return pick(actions, seed)
-    return pick(DEFAULT_ACTIONS, seed)
+            return kw, (nws.ACTIONS[target] if kind == "nws" else target)
+    return "other", DEFAULT_ACTIONS
 
 
 def _hazard(event: str) -> str:
@@ -135,31 +109,35 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
     except (requests.RequestException, ET.ParseError):
         return []
 
-    # Collapse the many per-region entries into one signal per (event, severity).
-    groups: dict[tuple[str, str], set[str]] = {}
+    # Collapse all per-region entries of the same hazard into ONE signal per
+    # (hazard token, severity). Keying on the normalized token (not the raw
+    # event string, which varies by region) prevents the same event posting
+    # twice with different wording.
+    groups: dict[tuple[str, str], dict] = {}
     for entry in root.findall("a:entry", NS):
         severity = _text(entry, "severity")
         if SEVERITY_RANK.get(severity, 0) < min_rank:
             continue
         event = _text(entry, "event") or "Weather warning"
-        area = _text(entry, "areaDesc")
-        groups.setdefault((event, severity), set()).add(area)
+        token, actions = _classify(event)
+        g = groups.setdefault((token, severity), {"event": event, "actions": actions, "areas": set()})
+        g["areas"].add(_text(entry, "areaDesc"))
 
     label = country.replace("-", " ").title()
     tag = "#" + label.replace(" ", "")
     zone = tz.zone_for_country(country)
     signals: list[Signal] = []
-    for (event, severity), areas in groups.items():
+    for (token, severity), g in groups.items():
         color = SEVERITY_COLOR.get(severity, severity).lower()
         article = "An" if color[:1] in "aeiou" else "A"
-        hazard = _hazard(event)
-        n = len([a for a in areas if a])
+        hazard = _hazard(g["event"])
+        n = len([a for a in g["areas"] if a])
         where = f", covering {n} regions" if n > 1 else ""
-        key = f"eu:{country}:{event}:{severity}"
+        key = f"eu:{country}:{token}:{severity}"
         opener = pick(OPENERS, key + ":o").format(
             article=article, color=color, hazard=hazard, label=label, where=where
         )
-        text = f"{opener} {_action_for(event, key + ':a')}"
+        text = f"{opener} {pick(g['actions'], key + ':a')}"
         signals.append(
             Signal(
                 category="weather_eu",

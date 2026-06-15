@@ -44,7 +44,7 @@ META = {
     ]),
     "gunfire": (80, ["#LiveFire", "#Marine"], [
         "Naval gunnery or live-fire operations are underway in {region}, so vessels should stand clear of the firing range until it is lifted.",
-        "Live-fire exercises are taking place in {region}, so keep well clear of the danger zone until the operation ends.",
+        "Live-fire exercises are taking place in {region}, so keep well clear of the affected area until the operation ends.",
     ]),
     "exercise": (72, ["#NavalExercise", "#Marine"], [
         "A naval or military exercise is closing off waters in {region}, so route around the area until it reopens.",
