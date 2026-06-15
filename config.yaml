@@ -142,6 +142,13 @@ weather_eu:
     - norway
     - greece
 
+# Global maritime security / military navigation warnings (NGA Maritime Safety
+# Information broadcast warnings — worldwide ocean coverage).
+maritime_security:
+  enabled: true
+  # Which to post: launch | mine | gunfire | exercise | gps
+  categories: ["launch", "mine", "gunfire", "exercise", "gps"]
+
 # Global multi-hazard alerts via GDACS (worldwide: tropical cyclones in all
 # basins, floods, earthquakes, volcanoes, wildfires). Covers everywhere the
 # US/EU feeds don't — Asia, Africa, Latin America, Oceania.

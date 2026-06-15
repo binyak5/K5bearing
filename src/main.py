@@ -14,7 +14,7 @@ from .config import load_config
 from .state import State
 from .formatter import render
 from .poster import Poster
-from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, Signal
+from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -52,6 +52,11 @@ def collect(cfg: dict) -> list[Signal]:
                 cfg["weather_eu"]["countries"],
                 cfg["weather_eu"].get("min_severity", "Severe"),
             )
+        )
+
+    if cfg.get("maritime_security", {}).get("enabled"):
+        signals.extend(
+            nga.warning_signals(cfg["maritime_security"].get("categories", []))
         )
 
     if cfg.get("global_hazards", {}).get("enabled"):

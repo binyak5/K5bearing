@@ -15,6 +15,7 @@ weather, and field readiness — sourced entirely from free US government feeds.
 | **Marine / sea / ocean** (storm surge, hurricane-force wind, gale, hazardous seas, special marine, freezing spray, high surf, rip current, beach hazards, coastal/lakeshore flood, tsunami) — **priority focus**; small-craft advisories collapse into one low-priority roundup so they don't flood | US National Weather Service | New active warning |
 | Severe weather — **US** land (tornado, hurricane, severe t-storm, flood, fire, winter, extreme heat/cold, high wind, dust, avalanche…) | US National Weather Service | New active warning |
 | Severe weather — **Europe** (~38 countries) | MeteoAlarm (EUMETNET) | New orange/red warning |
+| **Maritime security / military** (worldwide) — missile/rocket launch hazard areas, naval gunfire & live-fire zones, mine danger areas, military exercises closing shipping lanes, GPS interference/jamming | NGA Maritime Safety Information | New in-force broadcast warning |
 | **Global multi-hazard** — tropical cyclones (all basins), floods, earthquakes, volcanoes, wildfires | GDACS (UN OCHA / EC JRC) | New orange/red event |
 | **Significant earthquakes** (worldwide) | USGS | New quake ≥ magnitude threshold |
 | **Outdoor safety** — extreme UV index | Open-Meteo (watchlist) | UV threshold crossed at a watched city |
@@ -64,6 +65,7 @@ src/
     nws.py         severe weather — US (incl. marine, winter, heat)
     meteoalarm.py  severe weather — Europe
     gdacs.py       global multi-hazard — rest of world
+    nga.py         maritime security / military nav warnings — worldwide
     usgs.py        significant earthquakes — worldwide
     outdoor.py     extreme UV index (Open-Meteo watchlist)
 config.yaml      thresholds, limits, schedule — tune this
