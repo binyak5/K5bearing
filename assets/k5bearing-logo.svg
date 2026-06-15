@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img">
+  <title>K5Bearing compass rose</title>
+  <desc>A solid white cardinal compass rose on a black background, with a pivot hub at the centre.</desc>
+  <rect x="0" y="0" width="600" height="600" fill="#000000"/>
+  <g fill="#ffffff">
+    <polygon points="423,177 336,300 423,423 300,336 177,423 264,300 177,177 300,264"/>
+    <polygon points="300,37 333.2,266.8 563,300 333.2,333.2 300,563 266.8,333.2 37,300 266.8,266.8"/>
+  </g>
+  <circle cx="300" cy="300" r="17" fill="#ffffff"/>
+  <circle cx="300" cy="300" r="8" fill="#000000"/>
+  <circle cx="300" cy="300" r="2.6" fill="#ffffff"/>
+</svg>
