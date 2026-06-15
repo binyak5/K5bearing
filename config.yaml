@@ -47,12 +47,11 @@ earthquakes:
   min_magnitude: 6.0     # M6.0+ is "strong"; lower to 5.5 for more volume
   max_age_hours: 6       # ignore quakes older than this on startup
 
-# Outdoor-safety watch (Open-Meteo): extreme UV and unhealthy air quality.
+# Outdoor-safety watch (Open-Meteo): extreme UV index.
 # Only fires when a watched location crosses the threshold.
 outdoor:
   enabled: true
   uv_threshold: 11       # 11+ = "extreme" (WHO scale)
-  aqi_threshold: 201     # 201+ = "very unhealthy" (US AQI)
   locations:
     - {name: "Phoenix",      lat: 33.45, lon: -112.07}
     - {name: "Los Angeles",  lat: 34.05, lon: -118.24}
@@ -82,13 +81,30 @@ weather:
     - "Flood Warning"
     - "Red Flag Warning"        # fire weather
     - "Fire Warning"
-    # Marine / coastal (on-brand for navigation)
-    - "Gale Warning"
+    # Marine / sea / ocean — the focus of this account
+    - "Storm Surge Warning"
+    - "Storm Surge Watch"
+    - "Hurricane Force Wind Warning"
+    - "Hurricane Force Wind Watch"
     - "Storm Warning"
+    - "Storm Watch"
+    - "Gale Warning"
+    - "Gale Watch"
+    - "Hazardous Seas Warning"
     - "Special Marine Warning"
+    - "Small Craft Advisory"
+    - "Heavy Freezing Spray Warning"
+    - "Freezing Spray Advisory"
     - "High Surf Warning"
+    - "High Surf Advisory"
     - "Rip Current Statement"
+    - "Beach Hazards Statement"
     - "Coastal Flood Warning"
+    - "Coastal Flood Watch"
+    - "Coastal Flood Advisory"
+    - "Lakeshore Flood Warning"
+    - "Tsunami Advisory"
+    - "Tsunami Watch"
     # Winter
     - "Winter Storm Warning"
     - "Ice Storm Warning"

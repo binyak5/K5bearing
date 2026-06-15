@@ -75,7 +75,6 @@ def collect(cfg: dict) -> list[Signal]:
             outdoor.outdoor_signals(
                 cfg["outdoor"].get("locations", []),
                 cfg["outdoor"].get("uv_threshold", 11),
-                cfg["outdoor"].get("aqi_threshold", 201),
             )
         )
 

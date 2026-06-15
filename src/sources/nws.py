@@ -74,29 +74,97 @@ ACTIONS = {
         "An active fire is threatening the area, so be ready to evacuate immediately and follow the instructions of local officials.",
         "A fire is bearing down on the area, so prepare to leave at once and do exactly as local officials direct.",
     ],
+    "Storm Surge Warning": [
+        "Life-threatening flooding from rising ocean water is expected, so follow evacuation orders and move inland to higher ground.",
+        "A dangerous surge of seawater is set to inundate the coast, so heed evacuation orders and get to higher ground inland.",
+    ],
+    "Storm Surge Watch": [
+        "Life-threatening coastal flooding from surge is possible, so review your evacuation plan and monitor official updates.",
+        "Dangerous surge flooding may develop along the coast, so ready your evacuation plan and track the latest advisories.",
+    ],
+    "Hurricane Force Wind Warning": [
+        "Hurricane force winds above 64 knots are expected at sea, so remain in port and keep all vessels well clear of open water.",
+        "Winds of hurricane force are expected offshore, so stay in harbour and keep every vessel out of exposed water.",
+    ],
+    "Hurricane Force Wind Watch": [
+        "Hurricane force winds are possible at sea, so monitor advisories closely and prepare to keep vessels in port.",
+        "Winds of hurricane force may develop offshore, so watch the advisories and be ready to stay in harbour.",
+    ],
     "Gale Warning": [
         "Gale force winds and rough seas are expected, so small craft should stay in port and larger vessels should secure for heavy weather.",
         "Gale conditions are building at sea, so keep small boats ashore and rig larger vessels for heavy weather.",
+    ],
+    "Gale Watch": [
+        "Gale force winds are possible at sea, so monitor the forecast and prepare to secure your vessel.",
+        "Gale conditions may develop offshore, so watch the forecast and ready your vessel for heavy weather.",
     ],
     "Storm Warning": [
         "Storm force winds are expected at sea, so remain in port and keep well clear of exposed and open water.",
         "Dangerous storm force winds are building offshore, so stay in harbour and avoid open water.",
     ],
+    "Storm Watch": [
+        "Storm force winds are possible at sea, so track the forecast and prepare to stay in port.",
+        "Storm force conditions may build offshore, so follow the forecast and be ready to remain in harbour.",
+    ],
+    "Hazardous Seas Warning": [
+        "Dangerously steep and high seas are expected, so mariners should remain in port until conditions improve.",
+        "Hazardous seas are building, so keep vessels in port and off the water until the swell eases.",
+    ],
     "Special Marine Warning": [
         "Sudden strong winds and dangerous seas are bearing down on the area, so head for harbour and secure your vessel now.",
         "A burst of strong winds and rough seas is moving in, so make for shelter and tie down your vessel right away.",
+    ],
+    "Small Craft Advisory": [
+        "Winds and seas are rough enough to endanger small boats, so inexperienced mariners and small craft should stay in port.",
+        "Conditions are hazardous for small vessels, so small craft should remain in harbour until the advisory ends.",
+    ],
+    "Heavy Freezing Spray Warning": [
+        "Heavy freezing spray will pile dangerous ice onto vessels, so keep decks clear and consider staying in port.",
+        "Rapid ice build-up from freezing spray is expected at sea, so clear decks often and stay in port if you can.",
+    ],
+    "Freezing Spray Advisory": [
+        "Freezing spray will coat vessels in ice, so clear it regularly and take care moving about the deck.",
+        "Ice from freezing spray is likely on deck and rigging, so clear it often and watch your footing.",
     ],
     "High Surf Warning": [
         "Large and powerful surf is striking the coast, so stay off rocks, jetties, and the beach face.",
         "Dangerous breakers are hitting the shore, so keep well back from jetties, rocks, and the water's edge.",
     ],
+    "High Surf Advisory": [
+        "Large breaking waves are expected along the coast, so use caution near the surf and stay off rocks and jetties.",
+        "Elevated surf is on the way, so keep clear of the waterline, jetties, and exposed rocks.",
+    ],
     "Rip Current Statement": [
         "Dangerous rip currents are running along the coast, so swim near a lifeguard and never fight the current if you are caught.",
         "Strong rip currents are likely at the beach, so stay near a lifeguard and swim parallel to shore to break free of one.",
     ],
+    "Beach Hazards Statement": [
+        "Hazardous conditions such as rip currents or sneaker waves are expected at the beach, so stay alert and heed lifeguard guidance.",
+        "Dangerous surf and currents are possible at the beach, so keep a close eye on the water and follow lifeguard advice.",
+    ],
     "Coastal Flood Warning": [
         "Coastal flooding is expected around high tide, so move vehicles to higher ground and stay off flooded roads.",
         "Tidal flooding is likely along the coast, so relocate vehicles early and avoid roads near the water.",
+    ],
+    "Coastal Flood Watch": [
+        "Coastal flooding is possible around high tide, so monitor advisories and be ready to move vehicles to higher ground.",
+        "Tidal flooding may develop along the coast, so watch the forecast and prepare to relocate vehicles early.",
+    ],
+    "Coastal Flood Advisory": [
+        "Minor coastal flooding is expected around high tide, so avoid flooded roads near the shore.",
+        "Some tidal flooding is likely near the coast, so steer clear of low roads close to the water.",
+    ],
+    "Lakeshore Flood Warning": [
+        "Flooding is expected along the lakeshore, so move vehicles to higher ground and stay off flooded roads.",
+        "Lakeshore flooding is underway, so relocate vehicles and avoid roads near the water.",
+    ],
+    "Tsunami Advisory": [
+        "Strong currents and waves dangerous to anyone in or near the water are expected, so leave the water and stay off the beach.",
+        "Dangerous currents and surges are expected at the coast, so get out of the water and keep off the beach and harbours.",
+    ],
+    "Tsunami Watch": [
+        "A distant earthquake may generate a tsunami, so stay tuned to official updates and be ready to move to high ground.",
+        "A tsunami is possible after a distant quake, so monitor official advisories and be ready to head for high ground.",
     ],
     "Winter Storm Warning": [
         "Heavy snow and ice are expected, so avoid travel and keep warm clothing and supplies within reach.",
@@ -142,12 +210,29 @@ TAGS = {
     "Flood Warning": "#Flood",
     "Red Flag Warning": "#FireWeather",
     "Fire Warning": "#Wildfire",
+    "Storm Surge Warning": "#StormSurge",
+    "Storm Surge Watch": "#StormSurge",
+    "Hurricane Force Wind Warning": "#Marine",
+    "Hurricane Force Wind Watch": "#Marine",
     "Gale Warning": "#Marine",
+    "Gale Watch": "#Marine",
     "Storm Warning": "#Marine",
+    "Storm Watch": "#Marine",
+    "Hazardous Seas Warning": "#Marine",
     "Special Marine Warning": "#Marine",
+    "Small Craft Advisory": "#Marine",
+    "Heavy Freezing Spray Warning": "#Marine",
+    "Freezing Spray Advisory": "#Marine",
     "High Surf Warning": "#HighSurf",
+    "High Surf Advisory": "#HighSurf",
     "Rip Current Statement": "#RipCurrent",
+    "Beach Hazards Statement": "#BeachSafety",
     "Coastal Flood Warning": "#CoastalFlood",
+    "Coastal Flood Watch": "#CoastalFlood",
+    "Coastal Flood Advisory": "#CoastalFlood",
+    "Lakeshore Flood Warning": "#Flood",
+    "Tsunami Advisory": "#Tsunami",
+    "Tsunami Watch": "#Tsunami",
     "Winter Storm Warning": "#WinterStorm",
     "Ice Storm Warning": "#IceStorm",
     "Extreme Cold Warning": "#ExtremeCold",
@@ -156,6 +241,22 @@ TAGS = {
     "Dust Storm Warning": "#DustStorm",
     "Avalanche Warning": "#Avalanche",
 }
+
+
+# Marine / sea / ocean events — the account's focus. These get a ranking boost
+# so they surface ahead of land alerts of the same NWS severity.
+MARINE_EVENTS = {
+    "Storm Surge Warning", "Storm Surge Watch",
+    "Hurricane Force Wind Warning", "Hurricane Force Wind Watch",
+    "Gale Warning", "Gale Watch", "Storm Warning", "Storm Watch",
+    "Hazardous Seas Warning", "Special Marine Warning", "Small Craft Advisory",
+    "Heavy Freezing Spray Warning", "Freezing Spray Advisory",
+    "High Surf Warning", "High Surf Advisory", "Rip Current Statement",
+    "Beach Hazards Statement", "Coastal Flood Warning", "Coastal Flood Watch",
+    "Coastal Flood Advisory", "Lakeshore Flood Warning",
+    "Tsunami Warning", "Tsunami Advisory", "Tsunami Watch",
+}
+MARINE_BOOST = 15
 
 
 def _area_label(area_desc: str) -> str:
@@ -204,6 +305,8 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         seen_keys.add(key)
 
         severity = SEVERITY_WEIGHT.get(props.get("severity", ""), 50)
+        if event in MARINE_EVENTS:
+            severity = min(99, severity + MARINE_BOOST)  # this account's focus
         label = _area_label(area_desc)
         event_l = event.lower()
         article = "An" if event_l[:1] in "aeiou" else "A"
