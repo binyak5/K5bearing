@@ -1,6 +1,7 @@
 """Assemble final tweet text: timestamped advisory body + hashtags."""
 from __future__ import annotations
 
+import re
 from datetime import datetime, timezone
 
 try:
@@ -11,6 +12,15 @@ except ImportError:  # pragma: no cover
 from .sources import Signal
 
 MAX_LEN = 280
+
+# Style rule: never join clauses with ", so ..." — split into two sentences,
+# e.g. "Seas are building, so secure for heavy weather" ->
+#      "Seas are building. Secure for heavy weather".
+_SO_JOIN = re.compile(r", so (\w)")
+
+
+def _split_so(text: str) -> str:
+    return _SO_JOIN.sub(lambda m: ". " + m.group(1).upper(), text)
 
 
 def timestamp(zone: str | None = None) -> str:
@@ -34,7 +44,7 @@ def timestamp(zone: str | None = None) -> str:
 
 def render(signal: Signal) -> str:
     """Prepend the local timestamp, append hashtags, and clamp to 280 chars."""
-    body = f"{timestamp(signal.tz)} {signal.text.strip()}"
+    body = f"{timestamp(signal.tz)} {_split_so(signal.text.strip())}"
     tags = " ".join(dict.fromkeys(signal.hashtags))  # de-dupe, keep order
     if not tags:
         return body[:MAX_LEN]
