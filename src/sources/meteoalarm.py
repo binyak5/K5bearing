@@ -12,7 +12,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal
+from . import Signal, pick
 
 FEED_BASE = "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"
 TIMEOUT = 25
@@ -28,31 +28,85 @@ SEVERITY_WEIGHT = {"Moderate": 55, "Severe": 78, "Extreme": 92}
 # MeteoAlarm severity -> public-facing colour word (yellow/orange/red).
 SEVERITY_COLOR = {"Moderate": "Yellow", "Severe": "Orange", "Extreme": "Red"}
 
-# Keyword in the event text -> flowing advisory sentence.
+# How the warning is announced; one is picked per alert for variety.
+OPENERS = [
+    "{article} {color} {hazard} warning is in effect for {label}{where}.",
+    "{article} {color} {hazard} warning has been issued for {label}{where}.",
+    "{article} {color} {hazard} warning is now active for {label}{where}.",
+]
+
+# Keyword in the event text -> a few vetted advisory phrasings.
 HAZARD_ACTIONS = [
-    ("thunder", "Severe storms are likely, so stay indoors and away from windows until they pass."),
-    ("wind", "Strong winds are expected, so secure anything loose outside and keep away from exposed areas."),
-    ("rain", "Heavy rain may bring flooding, so avoid low lying roads and allow extra time to travel."),
-    ("flood", "Flooding is possible, so avoid low lying roads and do not drive through water of unknown depth."),
-    ("snow", "Snow and ice will make travel difficult, so only head out if your journey is necessary."),
-    ("ice", "Ice will make roads and paths treacherous, so take extra care and travel only if you need to."),
-    ("fog", "Visibility will be poor, so slow down and keep your lights on while driving."),
-    ("forest", "Fire risk is high, so avoid open flames and report any sign of fire immediately."),
-    ("fire", "Fire risk is high, so avoid open flames and report any sign of fire immediately."),
-    ("heat", "Temperatures will be dangerously high, so stay hydrated and out of the midday sun."),
-    ("temperature", "Temperatures will reach an extreme, so limit your exposure and check on those at risk."),
-    ("cold", "Temperatures will be dangerously low, so limit time outdoors and dress in warm layers."),
-    ("coast", "Coastal conditions will be dangerous, so stay well back from the shoreline and exposed paths."),
-    ("avalanche", "Avalanche risk is elevated, so stay off backcountry slopes and follow local guidance."),
+    ("thunder", [
+        "Severe storms are likely, so stay indoors and away from windows until they pass.",
+        "Violent thunderstorms are expected, so head inside and keep clear of windows.",
+    ]),
+    ("wind", [
+        "Strong winds are expected, so secure anything loose outside and keep away from exposed areas.",
+        "Powerful gusts are on the way, so tie down loose items and avoid open, exposed ground.",
+    ]),
+    ("rain", [
+        "Heavy rain may bring flooding, so avoid low lying roads and allow extra time to travel.",
+        "Persistent heavy rain could cause flooding, so steer clear of low ground and plan for delays.",
+    ]),
+    ("flood", [
+        "Flooding is possible, so avoid low lying roads and do not drive through water of unknown depth.",
+        "Rising water is likely, so keep away from low lying areas and never cross a flooded road.",
+    ]),
+    ("snow", [
+        "Snow and ice will make travel difficult, so only head out if your journey is necessary.",
+        "Heavy snow is expected, so postpone travel unless it is truly necessary.",
+    ]),
+    ("ice", [
+        "Ice will make roads and paths treacherous, so take extra care and travel only if you need to.",
+        "Icy surfaces are likely, so tread carefully and avoid driving where you can.",
+    ]),
+    ("fog", [
+        "Visibility will be poor, so slow down and keep your lights on while driving.",
+        "Dense fog is expected, so reduce speed and use dipped headlights on the road.",
+    ]),
+    ("forest", [
+        "Fire risk is high, so avoid open flames and report any sign of fire immediately.",
+        "Conditions favour fast moving fire, so hold off on flames and report smoke at once.",
+    ]),
+    ("fire", [
+        "Fire risk is high, so avoid open flames and report any sign of fire immediately.",
+        "Conditions favour fast moving fire, so hold off on flames and report smoke at once.",
+    ]),
+    ("heat", [
+        "Temperatures will be dangerously high, so stay hydrated and out of the midday sun.",
+        "A dangerous heat spell is expected, so drink plenty of water and avoid the midday heat.",
+    ]),
+    ("temperature", [
+        "Temperatures will reach an extreme, so limit your exposure and check on those at risk.",
+        "An extreme in temperature is expected, so take it easy and look in on the vulnerable.",
+    ]),
+    ("cold", [
+        "Temperatures will be dangerously low, so limit time outdoors and dress in warm layers.",
+        "Bitter cold is expected, so stay in where you can and wrap up in warm layers.",
+    ]),
+    ("coast", [
+        "Coastal conditions will be dangerous, so stay well back from the shoreline and exposed paths.",
+        "Rough seas are expected along the coast, so keep clear of the shore and exposed walkways.",
+    ]),
+    ("avalanche", [
+        "Avalanche risk is elevated, so stay off backcountry slopes and follow local guidance.",
+        "The avalanche danger is raised, so avoid steep backcountry terrain and heed local advice.",
+    ]),
+]
+
+DEFAULT_ACTIONS = [
+    "Conditions could become dangerous, so stay alert and follow local guidance.",
+    "The situation may turn hazardous, so stay aware and follow local advice.",
 ]
 
 
-def _action_for(event: str) -> str:
+def _action_for(event: str, seed: str) -> str:
     low = event.lower()
-    for kw, action in HAZARD_ACTIONS:
+    for kw, actions in HAZARD_ACTIONS:
         if kw in low:
-            return action
-    return "Stay alert and follow local guidance."
+            return pick(actions, seed)
+    return pick(DEFAULT_ACTIONS, seed)
 
 
 def _hazard(event: str) -> str:
@@ -101,16 +155,17 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         hazard = _hazard(event)
         n = len([a for a in areas if a])
         where = f", covering {n} regions" if n > 1 else ""
-        text = (
-            f"{article} {color} {hazard} warning is in effect for "
-            f"{label}{where}. {_action_for(event)}"
+        key = f"eu:{country}:{event}:{severity}"
+        opener = pick(OPENERS, key + ":o").format(
+            article=article, color=color, hazard=hazard, label=label, where=where
         )
+        text = f"{opener} {_action_for(event, key + ':a')}"
         signals.append(
             Signal(
                 category="weather_eu",
                 severity=SEVERITY_WEIGHT.get(severity, 60),
                 text=text,
-                dedup_key=f"eu:{country}:{event}:{severity}",
+                dedup_key=key,
                 hashtags=["#WeatherAlert", tag],
                 tz=zone,
             )

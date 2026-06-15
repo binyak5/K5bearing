@@ -1,7 +1,22 @@
 """Signal sources for K5Bearing."""
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass, field
+
+
+def pick(options: list[str], seed: str) -> str:
+    """Choose one phrasing deterministically from a seed.
+
+    Same seed -> same choice (so a given alert always renders identically),
+    different seeds -> spread across the options (so the feed reads varied).
+    """
+    if not options:
+        return ""
+    if len(options) == 1:
+        return options[0]
+    h = int(hashlib.md5(str(seed).encode("utf-8")).hexdigest(), 16)
+    return options[h % len(options)]
 
 
 @dataclass

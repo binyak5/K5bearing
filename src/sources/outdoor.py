@@ -12,7 +12,20 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal
+from . import Signal, pick
+
+UV_VARIANTS = [
+    "The UV index has reached {uv} in {name}, an extreme level. Cover up, wear "
+    "sunglasses and sunscreen, and seek shade through the middle of the day.",
+    "UV has spiked to {uv} in {name}, in the extreme range. Wear sunscreen and "
+    "shades, cover exposed skin, and stay shaded around midday.",
+]
+AQI_VARIANTS = [
+    "Air quality in {name} has reached {aqi} on the US AQI, in the {cat} range. "
+    "Limit time outdoors, keep windows closed, and wear a mask if you must go out.",
+    "{name}'s air quality has hit {aqi} on the US AQI, in the {cat} range. Cut "
+    "back on time outside, keep windows shut, and mask up if you head out.",
+]
 
 AQ_URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
 TIMEOUT = 20
@@ -57,16 +70,13 @@ def outdoor_signals(locations: list[dict], uv_threshold: float, aqi_threshold: i
 
         uv = cur.get("uv_index")
         if uv is not None and uv >= uv_threshold:
+            uv_key = f"uv:{name}:{today}"
             signals.append(
                 Signal(
                     category="outdoor",
                     severity=48,
-                    text=(
-                        f"The UV index has reached {uv:.0f} in {name}, an extreme level. "
-                        "Cover up, wear sunglasses and sunscreen, and seek shade through "
-                        "the middle of the day."
-                    ),
-                    dedup_key=f"uv:{name}:{today}",
+                    text=pick(UV_VARIANTS, uv_key).format(uv=f"{uv:.0f}", name=name),
+                    dedup_key=uv_key,
                     hashtags=["#UVindex", "#OutdoorSafety"],
                     tz=zone,
                 )
@@ -74,16 +84,15 @@ def outdoor_signals(locations: list[dict], uv_threshold: float, aqi_threshold: i
 
         aqi = cur.get("us_aqi")
         if aqi is not None and aqi >= aqi_threshold:
+            aqi_key = f"aqi:{name}:{today}"
             signals.append(
                 Signal(
                     category="outdoor",
                     severity=52,
-                    text=(
-                        f"Air quality in {name} has reached {int(aqi)} on the US AQI, "
-                        f"in the {_aqi_category(int(aqi))} range. Limit time outdoors, "
-                        "keep windows closed, and wear a mask if you must go out."
+                    text=pick(AQI_VARIANTS, aqi_key).format(
+                        name=name, aqi=int(aqi), cat=_aqi_category(int(aqi))
                     ),
-                    dedup_key=f"aqi:{name}:{today}",
+                    dedup_key=aqi_key,
                     hashtags=["#AirQuality", "#OutdoorSafety"],
                     tz=zone,
                 )

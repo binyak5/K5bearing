@@ -12,7 +12,21 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal
+from . import Signal, pick
+
+LEADS = [
+    "A magnitude {mag} earthquake has struck {place}.",
+    "A magnitude {mag} earthquake has hit {place}.",
+    "A magnitude {mag} earthquake was recorded {place}.",
+]
+TSUNAMI_NOTES = [
+    "Coastal areas near the epicentre should follow any tsunami warnings issued by local authorities.",
+    "A tsunami may follow, so coastal areas near the epicentre should heed local warnings.",
+]
+AFTERSHOCK_NOTES = [
+    "Aftershocks are possible, so stay clear of damaged structures and be ready for further shaking.",
+    "Expect possible aftershocks, so keep away from weakened buildings and be ready for more shaking.",
+]
 
 # 4.5+ over the last day; we then filter by magnitude and recency ourselves.
 FEED_URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson"
@@ -39,11 +53,10 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
             continue
 
         place = p.get("place") or "an offshore region"
-        if p.get("tsunami") == 1:
-            note = "Coastal areas near the epicentre should follow any tsunami warnings issued by local authorities."
-        else:
-            note = "Aftershocks are possible, so stay clear of damaged structures and be ready for further shaking."
-        text = f"A magnitude {mag:.1f} earthquake has struck {place}. {note}"
+        key = f"quake:{feat.get('id')}"
+        lead = pick(LEADS, key + ":l").format(mag=f"{mag:.1f}", place=place)
+        notes = TSUNAMI_NOTES if p.get("tsunami") == 1 else AFTERSHOCK_NOTES
+        text = f"{lead} {pick(notes, key + ':n')}"
 
         coords = (feat.get("geometry") or {}).get("coordinates") or []
         zone = tz.zone_for_coords(coords[0], coords[1]) if len(coords) >= 2 else None
@@ -53,7 +66,7 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
                 category="earthquake",
                 severity=min(95, int(40 + mag * 8)),
                 text=text,
-                dedup_key=f"quake:{feat.get('id')}",
+                dedup_key=key,
                 hashtags=["#Earthquake", "#Seismic"],
                 tz=zone,
             )

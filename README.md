@@ -25,6 +25,10 @@ location** (resolved from coordinates for US/global alerts and from country for
 Europe); global space-weather signals stay in UTC. The source agency is not
 named in-tweet — K5Bearing is the voice. No emoji, no sign-offs.
 
+Each alert is phrased from several vetted variants (openers + per-hazard action
+lines) chosen deterministically from the alert's id, so the feed reads freshly
+written rather than copy-pasted while a given alert always renders the same way.
+
 **Coverage is worldwide.** Space-weather signals are inherently global — the Kp
 index is a *planetary* index and SWPC alerts are global. Severe-weather
 warnings come from the NWS (US) and MeteoAlarm (Europe), and **GDACS** adds the

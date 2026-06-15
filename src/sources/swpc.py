@@ -10,7 +10,7 @@ from datetime import datetime, timedelta, timezone
 import requests
 
 from ..config import USER_AGENT
-from . import Signal
+from . import Signal, pick
 
 KP_URL = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
 ALERTS_URL = "https://services.swpc.noaa.gov/products/alerts.json"
@@ -53,24 +53,31 @@ def geomagnetic_signal(kp_threshold: int) -> Signal | None:
     if kp is None or kp < kp_threshold:
         return None
     level = G_SCALE.get(int(kp), "G1")
+    key = f"geomag:{level}"
     if kp < 7:
-        advisory = (
+        variants = [
             f"A {level} geomagnetic storm is underway at Kp {kp:.0f}, and magnetic "
             "north is drifting, so a compass can read a few degrees off true. "
-            "Check any bearing against GPS or a known landmark before you rely on it."
-        )
+            "Check any bearing against GPS or a known landmark before you rely on it.",
+            f"A {level} geomagnetic storm has set in at Kp {kp:.0f}, nudging magnetic "
+            "north off true, so a compass may be a few degrees out. Confirm any "
+            "bearing with GPS or a fixed landmark before trusting it.",
+        ]
     else:
-        advisory = (
+        variants = [
             f"A {level} geomagnetic storm is underway at Kp {kp:.0f}, and magnetic "
             "north is swinging by several degrees, so treat any compass heading as "
-            "approximate and hold your course by GPS or a celestial bearing until it eases."
-        )
+            "approximate and hold your course by GPS or a celestial bearing until it eases.",
+            f"A {level} geomagnetic storm has ramped up to Kp {kp:.0f}, throwing magnetic "
+            "north off by several degrees, so trust GPS or a celestial bearing and treat "
+            "the compass as a rough guide until it settles.",
+        ]
     # Dedup per storm level per day so escalations re-post but steady state doesn't.
     return Signal(
         category="geomagnetic",
         severity=50 + int(kp) * 5,
-        text=advisory,
-        dedup_key=f"geomag:{level}",
+        text=pick(variants, key),
+        dedup_key=key,
         hashtags=["#SpaceWeather", "#Compass"],
     )
 
@@ -115,12 +122,17 @@ def flare_signal(min_class: str = "M", max_age_hours: int = 6) -> Signal | None:
         )
     hhmm = peaked.strftime("%H:%M")
     article = "An" if letter in ("A", "M", "X") else "A"  # letter-name sound
-    text = f"{article} {mclass} solar flare erupted, peaking at {hhmm} UTC. {impact}"
+    key = f"flare:{flare.get('max_time')}"
+    leads = [
+        f"{article} {mclass} solar flare erupted, peaking at {hhmm} UTC.",
+        f"The Sun fired off {article.lower()} {mclass} flare, peaking at {hhmm} UTC.",
+    ]
+    text = f"{pick(leads, key + ':l')} {impact}"
     return Signal(
         category="flare",
         severity=70 if letter == "X" else 62,
         text=text,
-        dedup_key=f"flare:{flare.get('max_time')}",
+        dedup_key=key,
         hashtags=["#SolarFlare", "#SpaceWeather"],
     )
 

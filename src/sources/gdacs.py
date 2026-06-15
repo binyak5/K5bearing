@@ -12,7 +12,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal
+from . import Signal, pick
 
 EVENTS_URL = "https://www.gdacs.org/gdacsapi/api/events/geteventlist/EVENTS4APP"
 TIMEOUT = 25
@@ -20,15 +20,43 @@ TIMEOUT = 25
 ALERT_RANK = {"Green": 0, "Orange": 1, "Red": 2}
 ALERT_WEIGHT = {"Orange": 72, "Red": 92}
 
-# Event type -> (label, flowing advisory sentence).
+# How the alert is announced; one is picked per event for variety.
+OPENERS = [
+    "{article} {alert} alert is in effect for {name}{loc}{detail}.",
+    "{article} {alert} alert has been issued for {name}{loc}{detail}.",
+    "{article} {alert} alert is now active for {name}{loc}{detail}.",
+]
+
+# Event type -> (label, list of vetted advisory phrasings).
 EVENT_META = {
-    "TC": ("Tropical Cyclone", "This is a dangerous storm, so follow evacuation orders and stay clear of the coast, where storm surge is the deadliest threat."),
-    "FL": ("Flood", "Move to higher ground, keep clear of floodwater, and follow the instructions of local authorities."),
-    "EQ": ("Earthquake", "Aftershocks are possible, so stay clear of damaged buildings and be ready for further shaking."),
-    "VO": ("Volcano", "Follow any exclusion zones and evacuation guidance issued by local authorities."),
-    "WF": ("Wildfire", "Stay ready to evacuate at short notice and keep a close watch on local alerts."),
-    "TS": ("Tsunami", "Move to high ground or inland immediately and stay there until officials say it is safe."),
-    "DR": ("Drought", "Conserve water where you can and follow local guidance."),
+    "TC": ("Tropical Cyclone", [
+        "This is a dangerous storm, so follow evacuation orders and stay clear of the coast, where storm surge is deadliest.",
+        "The system is dangerous, so heed evacuation orders and keep away from the coast, where surge poses the greatest risk.",
+    ]),
+    "FL": ("Flood", [
+        "Move to higher ground, keep clear of floodwater, and follow the instructions of local authorities.",
+        "Get to higher ground, avoid the floodwater, and do as local authorities advise.",
+    ]),
+    "EQ": ("Earthquake", [
+        "Aftershocks are possible, so stay clear of damaged buildings and be ready for further shaking.",
+        "Expect possible aftershocks, so keep away from damaged structures and brace for more movement.",
+    ]),
+    "VO": ("Volcano", [
+        "Follow any exclusion zones and evacuation guidance issued by local authorities.",
+        "Respect the exclusion zones and heed evacuation guidance from local authorities.",
+    ]),
+    "WF": ("Wildfire", [
+        "Stay ready to evacuate at short notice and keep a close watch on local alerts.",
+        "Be prepared to leave quickly and monitor local alerts closely.",
+    ]),
+    "TS": ("Tsunami", [
+        "Move to high ground or inland immediately and stay there until officials say it is safe.",
+        "Get to high ground or head inland at once, and remain there until the all clear.",
+    ]),
+    "DR": ("Drought", [
+        "Conserve water where you can and follow local guidance.",
+        "Use water sparingly and follow the advice of local authorities.",
+    ]),
 }
 
 
@@ -50,7 +78,7 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
         if etype not in wanted or ALERT_RANK.get(alert, 0) < min_rank:
             continue
 
-        label, action = EVENT_META.get(etype, (etype or "Hazard", "Follow local guidance."))
+        label, actions = EVENT_META.get(etype, (etype or "Hazard", ["Follow local guidance."]))
         country = p.get("country") or ""
         name = p.get("name") or label
         sev = p.get("severitydata") or {}
@@ -59,9 +87,12 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
         article = "An" if alert[:1] in "aeiouAEIOU" else "A"
         loc = f" near {country}" if country and country not in name else ""
         detail = f", currently {sev_txt.lower()}" if sev_txt else ""
-        text = f"{article} {alert.lower()} alert is in effect for {name}{loc}{detail}. {action}"
-
         eid = p.get("eventid") or name
+        key = f"gdacs:{etype}:{eid}:{alert}"
+        opener = pick(OPENERS, key + ":o").format(
+            article=article, alert=alert.lower(), name=name, loc=loc, detail=detail
+        )
+        text = f"{opener} {pick(actions, key + ':a')}"
         country_tag = "#" + country.replace(" ", "") if country else "#GDACS"
         centroid = tz.polygon_centroid(feat.get("geometry"))
         zone = tz.zone_for_coords(*centroid) if centroid else None
@@ -70,7 +101,7 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
                 category="global",
                 severity=ALERT_WEIGHT.get(alert, 60),
                 text=text,
-                dedup_key=f"gdacs:{etype}:{eid}:{alert}",
+                dedup_key=key,
                 hashtags=["#" + label.replace(" ", ""), country_tag],
                 tz=zone,
             )
