@@ -42,4 +42,5 @@ def aurora_signal(kp_threshold: int) -> Signal | None:
         text=pick(variants, key),
         dedup_key=key,
         hashtags=["#Aurora", "#SpaceWeather"],
+        tier="advisory",  # a "look up" nicety, not an emergency
     )

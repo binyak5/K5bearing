@@ -163,6 +163,7 @@ def warning_signals(categories: list[str]) -> list[Signal]:
                 dedup_key=key,
                 hashtags=hashtags,
                 tz=None,  # ocean areas span many zones -> UTC
+                tier="critical" if cat in ("launch", "mine", "gunfire") else "serious",
             )
         )
     return signals

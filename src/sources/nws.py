@@ -293,6 +293,23 @@ MARINE_PRIORITY = {
 }
 MARINE_BOOST = 15
 
+# Life-threatening events get the hard "Act now, do not wait." close. Advisories
+# (anything ending in "Advisory") get the calm "Heads up," lead. Everything else
+# posts as written. Tier is by the kind of alert, not the raw severity score.
+CRITICAL_EVENTS = {
+    "Tornado Warning", "Hurricane Warning", "Tsunami Warning",
+    "Extreme Wind Warning", "Storm Surge Warning",
+    "Hurricane Force Wind Warning", "Flash Flood Warning", "Fire Warning",
+}
+
+
+def _tier(event: str) -> str:
+    if event in CRITICAL_EVENTS:
+        return "critical"
+    if event.endswith("Advisory"):
+        return "advisory"
+    return "serious"
+
 # Small Craft Advisories are extremely common; collapse them all into one
 # low-priority roundup per run rather than flooding the feed with each zone.
 SCA_ROUNDUP = [
@@ -390,6 +407,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 dedup_key=key,
                 hashtags=[TAGS.get(event, "#Weather"), "#WeatherAlert"],
                 tz=zone,
+                tier=_tier(event),
             )
         )
 
@@ -405,6 +423,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 dedup_key=rkey,
                 hashtags=["#Marine", "#WeatherAlert"],
                 tz=None,  # spans many zones -> UTC
+                tier="advisory",
             )
         )
     return signals

@@ -138,6 +138,7 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
             article=article, color=color, hazard=hazard, label=label, where=where
         )
         text = f"{opener} {pick(g['actions'], key + ':a')}"
+        tier = "critical" if severity == "Extreme" else ("advisory" if severity == "Moderate" else "serious")
         signals.append(
             Signal(
                 category="weather_eu",
@@ -146,6 +147,7 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
                 dedup_key=key,
                 hashtags=["#WeatherAlert", tag],
                 tz=zone,
+                tier=tier,
             )
         )
     return signals

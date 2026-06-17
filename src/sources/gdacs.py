@@ -107,6 +107,7 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
                 dedup_key=key,
                 hashtags=["#" + label.replace(" ", ""), country_tag],
                 tz=zone,
+                tier="critical" if alert == "Red" else "serious",
             )
         )
     return signals

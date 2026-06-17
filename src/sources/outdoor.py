@@ -136,6 +136,7 @@ def outdoor_signals(
                     dedup_key=uv_key,
                     hashtags=["#UVindex", "#OutdoorSafety"],
                     tz=zone,
+                    tier="advisory",
                 )
             )
 
@@ -164,6 +165,7 @@ def outdoor_signals(
                     dedup_key=pm_key,
                     hashtags=["#AirQuality", "#WildfireSmoke"],
                     tz=zone,
+                    tier="advisory",
                 )
             )
     return signals

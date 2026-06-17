@@ -161,6 +161,7 @@ def wind_signals(areas: list[dict], gale_kt: float) -> list[Signal]:
                 dedup_key=key,
                 hashtags=["#GaleWarning", "#Marine"],
                 tz=None,
+                tier="critical" if cat == "Hurricane-force" else "serious",
             )
         )
     return signals
@@ -262,6 +263,7 @@ def sea_signals(areas: list[dict], threshold: float) -> list[Signal]:
                 dedup_key=key,
                 hashtags=["#HighSeas", "#Marine"],
                 tz=None,  # open sea spans many zones -> UTC
+                tier="critical" if cat == "Phenomenal" else "serious",
             )
         )
     return signals

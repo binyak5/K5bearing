@@ -85,13 +85,34 @@ def _fit(prefix: str, text: str) -> str:
     return out
 
 
-def render(signal: Signal) -> str:
-    """Prepend the local timestamp and fit to 280 chars. No hashtags.
+_CRITICAL_CLOSE = " Act now, do not wait."
 
-    Never truncates mid-sentence: a too-long post is trimmed back to whole
-    sentences so it always ends cleanly.
+
+def _apply_tier(text: str, tier: str) -> str:
+    """Give the body dynamic range by tier: a hard call-to-action on the most
+    dangerous alerts, a calmer lead on low-stakes ones, default left alone."""
+    if tier == "critical":
+        if not text.rstrip().endswith(_CRITICAL_CLOSE.strip()):
+            return text.rstrip() + _CRITICAL_CLOSE
+        return text
+    if tier == "advisory":
+        first = text.split(" ", 1)[0]
+        # Lowercase the first word ("A"/"An"/"The"/normal words) but leave
+        # multi-letter acronyms (UV, HF, GPS) intact so we never get "uV"/"gPS".
+        is_acronym = len(first) >= 2 and first.isupper()
+        if text[:1].isupper() and not is_acronym:
+            text = text[0].lower() + text[1:]
+        return "Heads up, " + text
+    return text
+
+
+def render(signal: Signal) -> str:
+    """Prepend the local timestamp, apply the voice tier, and fit to 280 chars.
+    No hashtags. Never truncates mid-sentence: a too-long post is trimmed back
+    to whole sentences so it always ends cleanly.
     """
-    return _fit(f"{timestamp(signal.tz)} ", _split_so(signal.text.strip()))
+    body = _apply_tier(_split_so(signal.text.strip()), getattr(signal, "tier", "serious"))
+    return _fit(f"{timestamp(signal.tz)} ", body)
 
 
 # Numbers that drift run-to-run for the same event (a Kp of 5 then 6, seas at

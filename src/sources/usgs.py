@@ -72,6 +72,7 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
                 dedup_key=key,
                 hashtags=["#Earthquake", "#Seismic"],
                 tz=zone,
+                tier="critical" if p.get("tsunami") == 1 or mag >= 7.0 else "serious",
             )
         )
     return signals
