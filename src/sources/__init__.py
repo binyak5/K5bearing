@@ -25,6 +25,29 @@ def gather(fn, items: list, workers: int = 12) -> list:
     return results
 
 
+def region_list(names, budget: int = 130) -> str:
+    """Join area/region names into a readable list, naming as many as fit in
+    ~budget chars, then 'and N other areas' for the rest. Used so posts say
+    *where* (the actual regions) rather than just a country or a count.
+    """
+    names = [n for n in dict.fromkeys(n for n in names if n)]  # de-dupe, keep order
+    if not names:
+        return ""
+    if len(names) == 1:
+        return names[0]
+    chosen: list[str] = []
+    for n in names:
+        if chosen and len(", ".join(chosen + [n])) > budget:
+            break
+        chosen.append(n)
+    remaining = len(names) - len(chosen)
+    if remaining > 0:
+        return ", ".join(chosen) + f", and {remaining} other area" + ("s" if remaining != 1 else "")
+    if len(chosen) == 2:
+        return f"{chosen[0]} and {chosen[1]}"
+    return ", ".join(chosen[:-1]) + f", and {chosen[-1]}"
+
+
 def pick(options: list[str], seed: str) -> str:
     """Choose one phrasing deterministically from a seed.
 

@@ -12,7 +12,10 @@ except ImportError:  # pragma: no cover
 
 from .sources import Signal
 
-MAX_LEN = 280
+# Wording targets ~280 (the classic limit) so posts stay tight, but the account
+# is on X Premium now, so this is a soft ceiling we only trim at — a post may run
+# a bit over when it needs to (e.g. naming several affected regions).
+MAX_LEN = 400
 
 # Style rule: never join clauses with ", so ..." — split into two sentences,
 # e.g. "Seas are building, so secure for heavy weather" ->
