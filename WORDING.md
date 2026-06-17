@@ -417,6 +417,22 @@ _"{hail}" becomes " and hail" or " and large hail" when hail is detected._
 
 ---
 
+## Gulf states — extreme heat (Open-Meteo)
+1. Dangerous heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and check on anyone living or working outdoors.
+2. Brutal heat has settled over {name}, {temp}°C and feeling like {feels}°C. Keep outdoor time to the early hours, stay hydrated, and watch closely for heat stress.
+
+## Gulf states — shamal / high winds (Open-Meteo)
+_NW winds use the shamal lines; winds from other directions use the generic ones._
+_Shamal:_
+1. A shamal is blasting {name}, winds at {wind} km/h and gusting to {gust}. Expect blowing dust and dropping visibility. Secure loose objects and take care on exposed roads.
+2. Strong shamal winds are raking {name} at {wind} km/h, gusting to {gust}. Dust will cut visibility and rattle anything loose. Tie things down and drive with care.
+
+_Other strong winds:_
+1. Strong winds are raking {name} at {wind} km/h and gusting to {gust}. Expect blowing dust and reduced visibility. Secure loose objects and take care outdoors.
+2. A strong blow has set in over {name}, winds at {wind} km/h and gusts to {gust}. Watch for flying dust and poor visibility, and tie down anything loose.
+
+---
+
 ## City weather update — Rotterdam (scheduled, not an alert)
 _Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
 

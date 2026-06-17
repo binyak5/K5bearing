@@ -19,6 +19,7 @@ limits:
   # these just keep the mix balanced on busy days.
   category_daily_caps:
     cityweather: 2    # the scheduled Rotterdam update (morning + evening)
+    gulf: 4           # Gulf-state heat / shamal-wind alerts
     weather: 8        # US NWS (the largest source)
     weather_eu: 4     # Europe MeteoAlarm
     maritime: 5       # NGA navigation warnings (can spike on a busy day)
@@ -84,6 +85,31 @@ earthquakes:
   enabled: true
   min_magnitude: 5.0     # lower bar since we're region-limited (Europe/Gulf quakes are smaller)
   max_age_hours: 6       # ignore quakes older than this on startup
+
+# Gulf-state weather alerts the official feeds miss (NWS is US-only, MeteoAlarm
+# is Europe-only): extreme heat and shamal winds, from Open-Meteo (keyless).
+# Fires once per city per day per hazard. Temps in °C, winds in km/h.
+gulf_weather:
+  enabled: true
+  heat_feels_c: 47       # feels-like (apparent) temperature at/above this = dangerous heat
+  wind_gust_kmh: 55      # wind gusts at/above this = shamal / high-wind alert
+  locations:
+    # UAE
+    - {name: "Dubai",       lat: 25.20, lon: 55.27, tz: "Asia/Dubai"}
+    - {name: "Abu Dhabi",   lat: 24.45, lon: 54.38, tz: "Asia/Dubai"}
+    - {name: "Sharjah",     lat: 25.35, lon: 55.39, tz: "Asia/Dubai"}
+    - {name: "Al Ain",      lat: 24.21, lon: 55.74, tz: "Asia/Dubai"}
+    # Saudi Arabia
+    - {name: "Riyadh",      lat: 24.71, lon: 46.68, tz: "Asia/Riyadh"}
+    - {name: "Jeddah",      lat: 21.49, lon: 39.19, tz: "Asia/Riyadh"}
+    - {name: "Dammam",      lat: 26.43, lon: 50.10, tz: "Asia/Riyadh"}
+    # Qatar / Bahrain / Kuwait
+    - {name: "Doha",        lat: 25.29, lon: 51.53, tz: "Asia/Qatar"}
+    - {name: "Manama",      lat: 26.23, lon: 50.59, tz: "Asia/Bahrain"}
+    - {name: "Kuwait City", lat: 29.38, lon: 47.99, tz: "Asia/Kuwait"}
+    # Oman
+    - {name: "Muscat",      lat: 23.59, lon: 58.41, tz: "Asia/Muscat"}
+    - {name: "Salalah",     lat: 17.02, lon: 54.09, tz: "Asia/Muscat"}
 
 # Routine twice-daily city weather update (not an alert), Open-Meteo, in local
 # time and degrees Celsius. Fires once in the morning window and once in the
