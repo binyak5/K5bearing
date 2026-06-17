@@ -143,7 +143,7 @@ _Impact:_
 
 **Special Marine Warning**
 1. Sudden strong winds and severe seas are bearing down on the area. Head for harbour and secure your vessel now.
-2. A squall of strong winds and rough seas is moving in. Make for the nearest harbour and secure everything right away.
+2. A squall of strong winds and rough seas is moving in. Make for the nearest harbour and secure everything.
 
 **Small Craft Advisory**
 1. Winds and seas are rough enough to endanger small boats. Inexperienced mariners and small craft should stay in port.
