@@ -53,12 +53,45 @@ def timestamp(zone: str | None = None) -> str:
     return f"{now.strftime('%H:%M')} {label}:"
 
 
+# Sentence boundary: end punctuation followed by a space. Used to trim a too-
+# long post back to a whole number of sentences rather than chopping mid-word.
+_SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
+
+
+def _fit(prefix: str, text: str) -> str:
+    """Return prefix+text trimmed to MAX_LEN without ever cutting mid-sentence.
+
+    Drops whole trailing sentences until it fits, so the post always reads as a
+    complete thought. Only if a single sentence alone still overflows do we fall
+    back to a word-boundary trim (our own variants never hit this; it guards
+    against unexpectedly long feed-supplied text).
+    """
+    if len(prefix) + len(text) <= MAX_LEN:
+        return prefix + text
+    sentences = _SENTENCE_SPLIT.split(text)
+    while len(sentences) > 1:
+        sentences.pop()
+        candidate = prefix + " ".join(sentences)
+        if len(candidate) <= MAX_LEN:
+            return candidate
+    # A single oversized sentence: trim at the last word that fits.
+    words = sentences[0].split()
+    out = prefix.rstrip()
+    for w in words:
+        nxt = (out + " " + w) if out != prefix.rstrip() else prefix + w
+        if len(nxt) > MAX_LEN:
+            break
+        out = nxt
+    return out
+
+
 def render(signal: Signal) -> str:
-    """Prepend the local timestamp and clamp to 280 chars. No hashtags."""
-    body = f"{timestamp(signal.tz)} {_split_so(signal.text.strip())}"
-    if len(body) > MAX_LEN:
-        body = body[: MAX_LEN - 1].rstrip() + "…"
-    return body
+    """Prepend the local timestamp and fit to 280 chars. No hashtags.
+
+    Never truncates mid-sentence: a too-long post is trimmed back to whole
+    sentences so it always ends cleanly.
+    """
+    return _fit(f"{timestamp(signal.tz)} ", _split_so(signal.text.strip()))
 
 
 # Numbers that drift run-to-run for the same event (a Kp of 5 then 6, seas at

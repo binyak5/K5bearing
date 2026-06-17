@@ -31,6 +31,19 @@ CATEGORIES = [
     ("exercise", ["NAVAL EXERCISE", "MILITARY EXERCISE", "MILITARY OPERATION",
                   "NAVAL OPERATION", "HAZARDOUS OPERATIONS", "SUBMARINE",
                   "WARSHIP", "MILITARY ACTIVITY", "EXERCISE"]),
+    # Sea ice / icebergs. Avoid the bare word "ICE" (matches NOTICE, SERVICE...).
+    ("ice", ["ICEBERG", "GROWLER", "PACK ICE", "SEA ICE", "DRIFT ICE",
+             "ICE FIELD", "GLACIAL ICE", "BERGY", "ICE LIMIT", "ICE EDGE"]),
+    # Drifting hazards and subsea cable/pipeline work.
+    ("cable", ["SUBMARINE CABLE", "CABLE OPERATION", "CABLE LAYING", "PIPELINE",
+               "DERELICT", "ADRIFT", "DRIFTING OBJECT", "DRIFTING VESSEL",
+               "ABANDONED VESSEL", "CONTAINER ADRIFT", "SUBMERGED OBJECT",
+               "HAZARD TO NAVIGATION", "OBSTRUCTION"]),
+    # Generic disruption at a strategic chokepoint (kept last so specific
+    # hazards above win; this only catches otherwise-unclassified warnings).
+    ("chokepoint", ["STRAIT OF HORMUZ", "BAB-EL-MANDEB", "BAB EL MANDEB",
+                    "STRAIT OF GIBRALTAR", "SUEZ CANAL", "STRAIT OF DOVER",
+                    "DARDANELLES", "BOSPORUS", "BOSPHORUS", "KERCH STRAIT"]),
 ]
 
 # Per-bucket: ranking weight, hashtags, and phrasing variants ({region} filled in).
@@ -52,8 +65,20 @@ META = {
         "Military operations are restricting navigation in {region}, so give the area a wide berth until the exercise is complete.",
     ]),
     "gps": (78, ["#GPSInterference", "#Navigation"], [
-        "GPS interference has been reported in {region}, so verify your position by radar, visual bearings, or dead reckoning.",
-        "Navigators report GPS jamming or spoofing in {region}, so cross-check your position and do not rely on GPS alone.",
+        "GPS is being jammed across {region}, positions spoofed or knocked out cold. Trust nothing the receiver hands you. Fix your position by radar, visual bearings, and dead reckoning.",
+        "Navigators report GPS interference in {region}, the kind that drags your fix off or freezes it dead. Cross-check every position against radar and landmarks, and do not steer on GPS alone.",
+    ]),
+    "ice": (80, ["#SeaIce", "#Marine"], [
+        "Ice is drifting into the shipping lanes across {region}. Icebergs and growlers ride low and hard to spot. Post a lookout, cut your speed, and give any ice a wide margin.",
+        "An ice hazard is in force in {region}, bergs and growlers adrift in the sea lanes. Slow down, keep radar and a lookout on watch, and steer well clear.",
+    ]),
+    "cable": (74, ["#NavWarning", "#Marine"], [
+        "A drifting hazard is in force in {region}, adrift objects or subsea cable and pipeline work in the area. Post a lookout, give it room, and report any sighting.",
+        "Mariners are warned of an obstruction in {region}, from derelict vessels and debris to cable and pipeline operations. Keep clear, slow down, and steer around the marked area.",
+    ]),
+    "chokepoint": (76, ["#NavWarning", "#Marine"], [
+        "A navigation hazard is in force in {region}, one of the world's busiest chokepoints. Traffic is dense and the margins are thin. Slow down, keep a sharp watch, and follow the routing in force.",
+        "Mariners are warned of disruption in {region}, a strategic strait where shipping funnels tight. Expect congestion and stay alert to traffic and instructions until it clears.",
     ]),
 }
 
@@ -90,6 +115,12 @@ def _region(text: str, nav_area: str) -> str:
     region = ", ".join(dict.fromkeys(geo))
     if not region:
         return NAVAREA_NAME.get(nav_area, "international waters")
+    # Keep the region name from dominating the post; fall back to the first
+    # part (or the nav-area name) if the joined header runs long.
+    if len(region) > 50:
+        region = geo[0]
+        if len(region) > 50:
+            return NAVAREA_NAME.get(nav_area, "international waters")
     first = geo[0].upper()
     if any(w in first for w in _WATER_WORDS) and not first.startswith("THE"):
         region = "the " + region

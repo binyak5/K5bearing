@@ -1,8 +1,9 @@
-"""Outdoor-safety signals from Open-Meteo (keyless): extreme UV index and
-dust storms for a watchlist of locations.
+"""Outdoor-safety signals from Open-Meteo (keyless): extreme UV index, dust
+storms, wildfire-smoke air quality, and violent thunderstorms for a watchlist
+of locations.
 
-Unlike the event feeds, UV and dust are continuous values, so we poll a
-configured set of places and only post when one crosses a high threshold.
+Unlike the event feeds, these are continuous values, so we poll a configured
+set of places and only post when one crosses a high threshold.
 """
 from __future__ import annotations
 
@@ -28,7 +29,27 @@ DUST_VARIANTS = [
     "outside, close everything up, and protect your eyes and lungs.",
 ]
 
+PM25_VARIANTS = [
+    "Smoke and haze have fouled the air over {name}, fine particulate climbing to "
+    "{pm} µg/m³. Keep the windows shut, limit time outside, and mask up if the air "
+    "looks thick.",
+    "Air quality over {name} has turned hazardous as smoke drives fine particulate "
+    "to {pm} µg/m³. Stay indoors where you can, run filtration, and protect your "
+    "lungs if you head out.",
+]
+
+LIGHTNING_VARIANTS = [
+    "Violent thunderstorms are erupting over {name}, packing dangerous lightning"
+    "{hail}. Get indoors, stay off open ground and water, and unplug what you can.",
+    "A strong thunderstorm is hammering {name} with frequent lightning{hail}. Seek "
+    "solid shelter, keep clear of tall isolated objects, and wait it out.",
+]
+
+# WMO weather codes for thunderstorms -> hail clause.
+THUNDER_CODES = {95: "", 96: " and hail", 99: " and large hail"}
+
 AQ_URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
+FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 TIMEOUT = 20
 
 
@@ -37,7 +58,7 @@ def _current(lat: float, lon: float) -> dict | None:
         resp = requests.get(
             AQ_URL,
             headers={"User-Agent": USER_AGENT},
-            params={"latitude": lat, "longitude": lon, "current": "uv_index,dust"},
+            params={"latitude": lat, "longitude": lon, "current": "uv_index,dust,pm2_5"},
             timeout=TIMEOUT,
         )
         resp.raise_for_status()
@@ -46,7 +67,52 @@ def _current(lat: float, lon: float) -> dict | None:
         return None
 
 
-def outdoor_signals(locations: list[dict], uv_threshold: float, dust_threshold: float) -> list[Signal]:
+def _weather_code(lat: float, lon: float) -> int | None:
+    try:
+        resp = requests.get(
+            FORECAST_URL,
+            headers={"User-Agent": USER_AGENT},
+            params={"latitude": lat, "longitude": lon, "current": "weather_code"},
+            timeout=TIMEOUT,
+        )
+        resp.raise_for_status()
+        return resp.json().get("current", {}).get("weather_code")
+    except (requests.RequestException, ValueError):
+        return None
+
+
+def lightning_signals(locations: list[dict]) -> list[Signal]:
+    """Violent thunderstorms (WMO codes 95/96/99) over the watched locations."""
+    today = datetime.now(timezone.utc).date().isoformat()
+    signals: list[Signal] = []
+    for loc in locations:
+        name = loc.get("name")
+        lat, lon = loc.get("lat"), loc.get("lon")
+        if name is None or lat is None or lon is None:
+            continue
+        code = _weather_code(lat, lon)
+        if code not in THUNDER_CODES:
+            continue
+        key = f"storm:{name}:{today}"
+        signals.append(
+            Signal(
+                category="outdoor",
+                severity=58,
+                text=pick(LIGHTNING_VARIANTS, key).format(name=name, hail=THUNDER_CODES[code]),
+                dedup_key=key,
+                hashtags=["#Lightning", "#SevereWeather"],
+                tz=tz.zone_for_coords(lon, lat),
+            )
+        )
+    return signals
+
+
+def outdoor_signals(
+    locations: list[dict],
+    uv_threshold: float,
+    dust_threshold: float,
+    pm25_threshold: float,
+) -> list[Signal]:
     today = datetime.now(timezone.utc).date().isoformat()
     signals: list[Signal] = []
     for loc in locations:
@@ -83,6 +149,20 @@ def outdoor_signals(locations: list[dict], uv_threshold: float, dust_threshold: 
                     text=pick(DUST_VARIANTS, dust_key).format(name=name, dust=int(dust)),
                     dedup_key=dust_key,
                     hashtags=["#DustStorm", "#AirQuality"],
+                    tz=zone,
+                )
+            )
+
+        pm = cur.get("pm2_5")
+        if pm is not None and pm >= pm25_threshold:
+            pm_key = f"pm25:{name}:{today}"
+            signals.append(
+                Signal(
+                    category="outdoor",
+                    severity=54,
+                    text=pick(PM25_VARIANTS, pm_key).format(name=name, pm=int(pm)),
+                    dedup_key=pm_key,
+                    hashtags=["#AirQuality", "#WildfireSmoke"],
                     tz=zone,
                 )
             )

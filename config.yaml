@@ -53,18 +53,25 @@ radiation:
   enabled: true
   min_scale: 1     # S1 (minor) and up
 
+# HF radio blackouts from solar flares (NOAA R-scale, 1-5).
+radio_blackout:
+  enabled: true
+  min_scale: 1     # R1 (minor) and up
+
 # Significant earthquakes (USGS), filtered to USA / Europe / Gulf.
 earthquakes:
   enabled: true
   min_magnitude: 5.0     # lower bar since we're region-limited (Europe/Gulf quakes are smaller)
   max_age_hours: 6       # ignore quakes older than this on startup
 
-# Outdoor-safety watch (Open-Meteo): extreme UV index.
-# Only fires when a watched location crosses the threshold.
+# Outdoor-safety watch (Open-Meteo): extreme UV, dust storms, wildfire-smoke
+# air quality, and violent thunderstorms. Only fires when a watched location
+# crosses the threshold.
 outdoor:
   enabled: true
   uv_threshold: 11       # 11+ = "extreme" (WHO scale)
   dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm (common in the Gulf)
+  pm25_threshold: 90     # fine particulate µg/m³; 90+ = hazardous smoke/haze
   locations:
     # USA
     - {name: "Phoenix",      lat: 33.45, lon: -112.07}
@@ -178,6 +185,10 @@ marine_seas:
   enabled: true
   wave_height_threshold: 4.0   # metres; 4 m+ = "high seas" (WMO)
   fog_visibility_m: 1000       # dense fog at sea when visibility drops below this
+  wind_gale_kt: 34             # gale-force at sea (Beaufort 8); 48 = storm, 64 = hurricane
+  swell_period_s: 13           # long-period swell danger when period >= this AND
+  swell_height_m: 2.0          # swell height >= this (deceptively dangerous groundswell)
+  surf_wave_m: 2.5             # rough-bar / surf-zone risk at the coastal entrances below
   areas:
     # USA
     - {name: "Gulf of Mexico",       lat: 25.0, lon: -90.0}
@@ -199,13 +210,37 @@ marine_seas:
     - {name: "Gulf of Oman",         lat: 24.5, lon: 58.5}
     - {name: "Arabian Sea",          lat: 20.0, lon: 60.0}
     - {name: "Red Sea",              lat: 20.0, lon: 38.0}
+  # Coastal entrances / bars / inlets watched for rough-bar and surf-zone risk
+  # (breaking seas right at the mouth, distinct from the offshore areas above).
+  coastal:
+    # USA
+    - {name: "Columbia River Bar",   lat: 46.24, lon: -124.08}
+    - {name: "San Francisco Bar",    lat: 37.75, lon: -122.65}
+    - {name: "Morro Bay entrance",   lat: 35.36, lon: -120.87}
+    - {name: "Outer Banks",          lat: 35.25, lon: -75.53}
+    - {name: "Cape May inlet",       lat: 38.94, lon: -74.88}
+    # Europe
+    - {name: "Wadden Sea approaches", lat: 53.50, lon: 6.20}
+    - {name: "Portuguese west coast", lat: 39.30, lon: -9.40}
+    - {name: "Bay of Biscay coast",   lat: 43.50, lon: -1.55}
+    # Gulf
+    - {name: "Strait of Hormuz approaches", lat: 26.50, lon: 56.40}
+
+# Harmful algal bloom / red tide monitoring for the US Pacific coast, from the
+# CalHABMAP shore-station network (SCCOOS ERDDAP, keyless). Fires when a station
+# reports a Pseudo-nitzschia bloom or a domoic-acid spike.
+algal_blooms:
+  enabled: true
+  cell_threshold: 100000   # Pseudo-nitzschia cells/L; 100k+ = a notable bloom
+  da_threshold: 1.0        # domoic acid ng/mL; toxin level worth flagging
+  lookback_days: 14        # stations sample roughly weekly, so look back a couple weeks
 
 # Global maritime security / military navigation warnings (NGA Maritime Safety
 # Information broadcast warnings — worldwide ocean coverage).
 maritime_security:
   enabled: true
-  # Which to post: launch | mine | gunfire | exercise | gps
-  categories: ["launch", "mine", "gunfire", "exercise", "gps"]
+  # Which to post: launch | mine | gunfire | exercise | gps | ice | cable | chokepoint
+  categories: ["launch", "mine", "gunfire", "exercise", "gps", "ice", "cable", "chokepoint"]
 
 # GDACS multi-hazard, region-filtered. Limited to volcanoes and wildfires only:
 # floods/quakes/cyclones/tsunamis in our regions are already covered by NWS,

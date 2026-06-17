@@ -26,6 +26,9 @@ NGA_KEYWORDS = {
     # Gulf waters
     "PERSIAN GULF", "ARABIAN GULF", "GULF OF OMAN", "ARABIAN SEA", "RED SEA",
     "GULF OF ADEN", "STRAIT OF HORMUZ",
+    # Strategic chokepoints (in/bordering our regions)
+    "GIBRALTAR", "BOSPORUS", "BOSPHORUS", "DARDANELLES", "SUEZ",
+    "BAB-EL-MANDEB", "BAB EL MANDEB", "STRAIT OF DOVER", "KERCH",
 }
 
 

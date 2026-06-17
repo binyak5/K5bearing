@@ -39,6 +39,10 @@ _Impact:_
 1. A solar radiation storm has reached S{level} ({label}). Polar flights can lose HF radio and satellite navigation may degrade.
 2. Solar radiation has surged to an S{level} ({label}) storm. Expect HF blackouts over the poles and possible satellite navigation glitches.
 
+## Space weather — radio blackout (NOAA R-scale)
+1. A radio blackout has surged to R{level} ({label}), the Sun jamming high-frequency radio across the daylit side of Earth. Mariners and aviators leaning on HF should expect dropouts and dead air until it fades.
+2. Solar flaring has driven an R{level} ({label}) radio blackout, smothering high-frequency radio on the sunlit face of the planet. Expect HF comms to wash out and navigation signals to wander until it clears.
+
 ## Space weather — solar alerts
 `Space weather alert: {NOAA headline}`.
 
@@ -330,6 +334,28 @@ _No-tsunami note:_
 1. Dense fog has settled over {area}, dropping visibility to around {v} m. Slow down, sound your fog signals, and post a lookout.
 2. Thick fog is blanketing {area}, with visibility under {v} m. Cut your speed, keep a sharp lookout, and lean on radar and signals.
 
+## Marine wind — gale / storm / hurricane-force at sea (Open-Meteo)
+_{cat} is Gale-force, Storm-force, or Hurricane-force depending on speed._
+1. {cat} winds are raking {area} at {w} knots and gusting to {g}. Small craft have no business out there, and larger vessels should batten down and rig for heavy weather.
+2. A {cat_low} blow has set in over {area}, winds at {w} knots and gusts to {g}. Hold port if you are small, and lash down everything topside if you are not.
+
+## Marine — long-period swell (Open-Meteo)
+1. A long-period swell is marching into {area}, {h} m sets rolling through every {p} seconds. It looks calm offshore, but harbor mouths and surf zones will turn dangerous. Stay off exposed rocks and jetties.
+2. Powerful long-period groundswell is pushing into {area}, {h} m and spaced {p} seconds apart. That energy stacks up fast in the shallows. Expect sneaker sets and treacherous surf around inlets and bars.
+
+## Marine — rough bar / surf zone (Open-Meteo)
+1. Seas are breaking heavily across {area}, {h} m waves stacking up at the entrance. Bar and surf-zone conditions are dangerous. Time any crossing for slack water or stay in.
+2. A rough bar is running at {area}, where {h} m swells pile into the shallows and break hard. Small craft should hold off until it lays down.
+
+## Marine — harmful algal bloom / red tide (CalHABMAP, US Pacific coast)
+_Cell-count bloom:_
+1. A toxic algal bloom is flaring off {name}, Pseudo-nitzschia surging to {cells} cells per litre. These blooms carry domoic acid. Steer clear of discolored water, leave the shellfish alone, and keep pets off the beach.
+2. A harmful bloom is taking hold off {name}, Pseudo-nitzschia running to {cells} cells per litre. The water can turn toxic with domoic acid. Avoid discolored patches and do not harvest shellfish until it clears.
+
+_Domoic-acid spike:_
+1. Domoic acid is spiking off {name}, the bloom toxin climbing to {da} ng/mL. Do not harvest or eat local shellfish, and keep well clear of any discolored water.
+2. A toxic bloom is poisoning the water off {name}, domoic acid measured at {da} ng/mL. Leave shellfish alone and stay out of discolored water until levels drop.
+
 ---
 
 ## Maritime security / military (NGA)
@@ -350,8 +376,20 @@ _No-tsunami note:_
 2. Military operations are restricting navigation in {region}. Give the area a wide berth until the exercise is complete.
 
 **GPS interference**
-1. GPS interference has been reported in {region}. Verify your position by radar, visual bearings, or dead reckoning.
-2. Navigators report GPS jamming or spoofing in {region}. Cross-check your position and do not rely on GPS alone.
+1. GPS is being jammed across {region}, positions spoofed or knocked out cold. Trust nothing the receiver hands you. Fix your position by radar, visual bearings, and dead reckoning.
+2. Navigators report GPS interference in {region}, the kind that drags your fix off or freezes it dead. Cross-check every position against radar and landmarks, and do not steer on GPS alone.
+
+**Sea ice / iceberg**
+1. Ice is drifting into the shipping lanes across {region}. Icebergs and growlers ride low and hard to spot. Post a lookout, cut your speed, and give any ice a wide margin.
+2. An ice hazard is in force in {region}, bergs and growlers adrift in the sea lanes. Slow down, keep radar and a lookout on watch, and steer well clear.
+
+**Cable / pipeline / drifting hazard**
+1. A drifting hazard is in force in {region}, adrift objects or subsea cable and pipeline work in the area. Post a lookout, give it room, and report any sighting.
+2. Mariners are warned of an obstruction in {region}, from derelict vessels and debris to cable and pipeline operations. Keep clear, slow down, and steer around the marked area.
+
+**Strait / chokepoint**
+1. A navigation hazard is in force in {region}, one of the world's busiest chokepoints. Traffic is dense and the margins are thin. Slow down, keep a sharp watch, and follow the routing in force.
+2. Mariners are warned of disruption in {region}, a strategic strait where shipping funnels tight. Expect congestion and stay alert to traffic and instructions until it clears.
 
 ---
 
@@ -362,4 +400,13 @@ _No-tsunami note:_
 ## Outdoor — dust storm
 1. A dust storm is sweeping {name}, with airborne dust at {dust} µg/m³. Stay indoors, seal up windows, and mask up if you must go out.
 2. Thick dust has engulfed {name}, pushing levels to {dust} µg/m³. Limit time outside, close everything up, and protect your eyes and lungs.
+
+## Outdoor — wildfire smoke / PM2.5 air quality
+1. Smoke and haze have fouled the air over {name}, fine particulate climbing to {pm} µg/m³. Keep the windows shut, limit time outside, and mask up if the air looks thick.
+2. Air quality over {name} has turned hazardous as smoke drives fine particulate to {pm} µg/m³. Stay indoors where you can, run filtration, and protect your lungs if you head out.
+
+## Outdoor — violent thunderstorm / lightning
+_"{hail}" becomes " and hail" or " and large hail" when hail is detected._
+1. Violent thunderstorms are erupting over {name}, packing dangerous lightning{hail}. Get indoors, stay off open ground and water, and unplug what you can.
+2. A strong thunderstorm is hammering {name} with frequent lightning{hail}. Seek solid shelter, keep clear of tall isolated objects, and wait it out.
 

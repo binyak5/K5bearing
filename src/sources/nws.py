@@ -301,16 +301,31 @@ SCA_ROUNDUP = [
 ]
 
 
+# Cap the whole area label so a long marine-zone name can't blow the 280
+# budget. (NWS coastal-waters zones can run to 70+ chars on their own.)
+_MAX_LABEL = 50
+
+
+def _clip(name: str, limit: int = _MAX_LABEL) -> str:
+    """Shorten an over-long name at a word boundary."""
+    if len(name) <= limit:
+        return name
+    out = name[:limit].rsplit(" ", 1)[0].rstrip(" ,")
+    return out or name[:limit].rstrip(" ,")
+
+
 def _area_label(area_desc: str) -> str:
-    """Condense NWS areaDesc ('Centre, PA; Clearfield, PA; ...') to prose."""
+    """Condense NWS areaDesc ('Centre, PA; Clearfield, PA; ...') to prose,
+    bounded to _MAX_LABEL so it can never dominate the post."""
     areas = [a.strip() for a in area_desc.split(";") if a.strip()]
     if not areas:
         return ""
     if len(areas) == 1:
-        return areas[0]
-    if len(areas) == 2:
+        return _clip(areas[0])
+    if len(areas) == 2 and len(areas[0]) + len(areas[1]) + 5 <= _MAX_LABEL:
         return f"{areas[0]} and {areas[1]}"
-    return f"{areas[0]} and {len(areas) - 1} other areas"
+    suffix = f" and {len(areas) - 1} other areas"
+    return _clip(areas[0], _MAX_LABEL - len(suffix)) + suffix
 
 
 def weather_signals(events: list[str], area: str = "") -> list[Signal]:

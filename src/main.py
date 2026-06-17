@@ -14,7 +14,7 @@ from .config import load_config
 from .state import State
 from .formatter import render, fingerprint
 from .poster import Poster
-from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, Signal
+from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, hab, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -46,6 +46,11 @@ def collect(cfg: dict) -> list[Signal]:
         if sig:
             signals.append(sig)
 
+    if cfg.get("radio_blackout", {}).get("enabled"):
+        sig = swpc.blackout_signal(cfg["radio_blackout"].get("min_scale", 1))
+        if sig:
+            signals.append(sig)
+
     if cfg["weather"]["enabled"]:
         signals.extend(
             nws.weather_signals(cfg["weather"]["events"], cfg["weather"].get("area", ""))
@@ -60,12 +65,24 @@ def collect(cfg: dict) -> list[Signal]:
         )
 
     if cfg.get("marine_seas", {}).get("enabled"):
-        areas = cfg["marine_seas"].get("areas", [])
+        ms = cfg["marine_seas"]
+        areas = ms.get("areas", [])
+        signals.extend(marine.sea_signals(areas, ms.get("wave_height_threshold", 4.0)))
+        signals.extend(marine.fog_signals(areas, ms.get("fog_visibility_m", 1000)))
+        signals.extend(marine.wind_signals(areas, ms.get("wind_gale_kt", 34)))
         signals.extend(
-            marine.sea_signals(areas, cfg["marine_seas"].get("wave_height_threshold", 4.0))
+            marine.swell_signals(areas, ms.get("swell_period_s", 13), ms.get("swell_height_m", 2.0))
         )
+        signals.extend(marine.surf_signals(ms.get("coastal", []), ms.get("surf_wave_m", 2.5)))
+
+    if cfg.get("algal_blooms", {}).get("enabled"):
+        ab = cfg["algal_blooms"]
         signals.extend(
-            marine.fog_signals(areas, cfg["marine_seas"].get("fog_visibility_m", 1000))
+            hab.hab_signals(
+                ab.get("cell_threshold", 100000),
+                ab.get("da_threshold", 1.0),
+                ab.get("lookback_days", 14),
+            )
         )
 
     if cfg.get("maritime_security", {}).get("enabled"):
@@ -90,13 +107,16 @@ def collect(cfg: dict) -> list[Signal]:
         )
 
     if cfg.get("outdoor", {}).get("enabled"):
+        locations = cfg["outdoor"].get("locations", [])
         signals.extend(
             outdoor.outdoor_signals(
-                cfg["outdoor"].get("locations", []),
+                locations,
                 cfg["outdoor"].get("uv_threshold", 11),
                 cfg["outdoor"].get("dust_threshold", 500),
+                cfg["outdoor"].get("pm25_threshold", 55),
             )
         )
+        signals.extend(outdoor.lightning_signals(locations))
 
     return signals
 

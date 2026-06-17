@@ -19,6 +19,8 @@ SCALES_URL = "https://services.swpc.noaa.gov/products/noaa-scales.json"
 
 # NOAA S-scale (solar radiation storm) level -> label.
 S_LABEL = {1: "minor", 2: "moderate", 3: "strong", 4: "severe", 5: "extreme"}
+# NOAA R-scale (HF radio blackout) level -> label.
+R_LABEL = {1: "minor", 2: "moderate", 3: "strong", 4: "severe", 5: "extreme"}
 
 TIMEOUT = 20
 
@@ -166,6 +168,34 @@ def radiation_signal(min_scale: int = 1) -> Signal | None:
         text=pick(variants, key),
         dedup_key=key,
         hashtags=["#SolarRadiation", "#SpaceWeather"],
+    )
+
+
+def blackout_signal(min_scale: int = 1) -> Signal | None:
+    """Current HF radio blackout from the NOAA R-scale."""
+    try:
+        data = _get_json(SCALES_URL)
+    except (requests.RequestException, ValueError):
+        return None
+    raw = ((data or {}).get("0", {}).get("R") or {}).get("Scale")
+    try:
+        level = int(raw) if raw is not None else 0
+    except (TypeError, ValueError):
+        return None
+    if level < min_scale:
+        return None
+    label = R_LABEL.get(level, "minor")
+    key = f"blackout:R{level}"
+    variants = [
+        f"A radio blackout has surged to R{level} ({label}), the Sun jamming high-frequency radio across the daylit side of Earth. Mariners and aviators leaning on HF should expect dropouts and dead air until it fades.",
+        f"Solar flaring has driven an R{level} ({label}) radio blackout, smothering high-frequency radio on the sunlit face of the planet. Expect HF comms to wash out and navigation signals to wander until it clears.",
+    ]
+    return Signal(
+        category="blackout",
+        severity=60 + level * 3,
+        text=pick(variants, key),
+        dedup_key=key,
+        hashtags=["#RadioBlackout", "#SpaceWeather"],
     )
 
 
