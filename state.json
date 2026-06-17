@@ -1,16 +1,17 @@
 {
   "daily": {
     "2026-06-15": 22,
-    "2026-06-17": 5
+    "2026-06-17": 6
   },
   "daily_cat": {
     "2026-06-17": {
       "maritime": 1,
+      "weather": 1,
       "weather_eu": 4
     }
   },
   "monthly": {
-    "2026-06": 27
+    "2026-06": 28
   },
   "posted": {
     "eu:poland:Orange Wind warning:Severe": "2026-06-15T17:33:30.835497+00:00",
@@ -22,6 +23,7 @@
     "eu:switzerland:heat:Extreme": "2026-06-17T09:03:05.356719+00:00",
     "fp:01370bc3e111e613": "2026-06-17T13:26:54.339292+00:00",
     "fp:09204959a2f8a110": "2026-06-17T08:40:34.983913+00:00",
+    "fp:25d4ca779270b528": "2026-06-17T14:22:36.940478+00:00",
     "fp:4c1312bfdc0d256d": "2026-06-17T13:42:08.302948+00:00",
     "fp:6b82073d2b5bef0f": "2026-06-17T14:02:33.658953+00:00",
     "fp:8cc33a6d58f19369": "2026-06-17T09:03:05.356735+00:00",
@@ -36,6 +38,7 @@
     "weather:Flood Warning:Vernon, LA": "2026-06-15T20:37:57.185886+00:00",
     "weather:Red Flag Warning:Colville Reservation": "2026-06-15T19:33:13.180002+00:00",
     "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
+    "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
     "weather:Special Marine Warning:Coastal waters from Altamaha Sound to Fernandina Beach FL ou": "2026-06-15T21:02:29.616925+00:00",
     "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
     "weather:Special Marine Warning:Coastal waters from Jupiter Inlet to Deerfield Beach FL out ": "2026-06-15T20:03:21.072413+00:00",
