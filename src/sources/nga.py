@@ -155,11 +155,13 @@ def warning_signals(categories: list[str]) -> list[Signal]:
             continue
         region = _region(text, str(w.get("navArea", "")))
         severity, hashtags, variants = META[cat]
-        # Dedup by hazard + region, not message number: the same hazard (e.g. a
-        # mine danger) is broadcast across many message numbers for one area, so
-        # keying on those produced near-identical back-to-back posts. One key per
-        # hazard+region collapses them (within a run, and across the dedup TTL).
-        key = f"nga:{cat}:{region.lower()}"
+        # Dedup by hazard + primary sea, not message number: the same hazard
+        # (e.g. a mine danger) is broadcast across many message numbers and under
+        # slightly different region labels ("the Black Sea" vs "the Black Sea,
+        # Romania") for one area. Keying on the hazard plus the leading sea name
+        # (the part before any comma) collapses them all to one post per window.
+        primary = region.split(",")[0].strip().lower()
+        key = f"nga:{cat}:{primary}"
         if key in seen:
             continue
         seen.add(key)
