@@ -12,6 +12,26 @@ limits:
   max_posts_per_run: 1   # one post per run; most severe candidate goes first
   max_posts_per_day: 22
   max_posts_per_month: 660   # hard cost cap (~$9.90/month at $0.015/post)
+  # Per-category daily caps so one noisy source can't eat the whole budget.
+  # When a category is maxed, the next-best candidate from another category
+  # posts instead. Categories not listed here are uncapped. The sum is well
+  # above max_posts_per_day on purpose: the daily cap stays the real ceiling,
+  # these just keep the mix balanced on busy days.
+  category_daily_caps:
+    weather: 8        # US NWS (the largest source)
+    weather_eu: 4     # Europe MeteoAlarm
+    maritime: 5       # NGA navigation warnings (can spike on a busy day)
+    marine: 5         # sea-state, swell, wind, fog, surf
+    outdoor: 4        # UV, dust, smoke, lightning
+    earthquake: 3
+    global: 2         # GDACS volcanoes / wildfires
+    hab: 2            # red tide
+    geomagnetic: 3
+    aurora: 2
+    solar: 3
+    flare: 3
+    radiation: 2
+    blackout: 2
 
 # Don't repost the same signal within this many hours (dedup TTL). Long enough
 # that multi-day warnings don't repeat in the feed.

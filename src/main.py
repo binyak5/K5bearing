@@ -130,6 +130,7 @@ def main() -> None:
     max_run = cfg["limits"]["max_posts_per_run"]
     max_day = cfg["limits"]["max_posts_per_day"]
     max_month = cfg["limits"].get("max_posts_per_month", 500)
+    cat_caps = cfg["limits"].get("category_daily_caps", {})  # {category: max/day}
 
     candidates = collect(cfg)
 
@@ -149,6 +150,13 @@ def main() -> None:
         if state.already_posted(sig.dedup_key, ttl):
             continue
 
+        # Per-category daily cap: keep one noisy source (e.g. maritime on a busy
+        # day) from eating the whole budget. Skip to the next-best candidate
+        # from another category instead.
+        cap = cat_caps.get(sig.category)
+        if cap is not None and state.posts_today_in(sig.category) >= cap:
+            continue
+
         # Content backstop: suppress anything that renders to the same words as
         # a recent post, even if it arrived under a different dedup_key (e.g.
         # the same event from two sources). Catches the cross-source dupes that
@@ -161,7 +169,7 @@ def main() -> None:
         if poster.post(text):
             state.mark_posted(sig.dedup_key)
             state.mark_posted(fp)
-            state.increment_today()
+            state.increment_today(sig.category)
             posted += 1
 
     if posted == 0:

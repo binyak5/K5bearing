@@ -20,7 +20,7 @@ def _now() -> datetime:
 class State:
     def __init__(self, path: Path = STATE_PATH):
         self.path = path
-        self._data = {"posted": {}, "daily": {}, "monthly": {}}
+        self._data = {"posted": {}, "daily": {}, "monthly": {}, "daily_cat": {}}
         if path.exists():
             try:
                 self._data = json.loads(path.read_text())
@@ -29,6 +29,7 @@ class State:
         self._data.setdefault("posted", {})
         self._data.setdefault("daily", {})
         self._data.setdefault("monthly", {})
+        self._data.setdefault("daily_cat", {})  # {date: {category: count}}
 
     # --- dedup ---------------------------------------------------------
     def already_posted(self, key: str, ttl_hours: int) -> bool:
@@ -48,11 +49,18 @@ class State:
     def posts_this_month(self) -> int:
         return self._data["monthly"].get(_now().strftime("%Y-%m"), 0)
 
-    def increment_today(self) -> None:
+    def posts_today_in(self, category: str) -> int:
+        """How many posts of this category have gone out today."""
+        return self._data["daily_cat"].get(_now().date().isoformat(), {}).get(category, 0)
+
+    def increment_today(self, category: str | None = None) -> None:
         day = _now().date().isoformat()
         self._data["daily"][day] = self._data["daily"].get(day, 0) + 1
         month = _now().strftime("%Y-%m")
         self._data["monthly"][month] = self._data["monthly"].get(month, 0) + 1
+        if category:
+            cats = self._data["daily_cat"].setdefault(day, {})
+            cats[category] = cats.get(category, 0) + 1
 
     # --- persistence ---------------------------------------------------
     def prune(self, ttl_hours: int) -> None:
@@ -65,6 +73,9 @@ class State:
         keep = {(_now().date() - timedelta(days=d)).isoformat() for d in range(3)}
         self._data["daily"] = {
             k: v for k, v in self._data["daily"].items() if k in keep
+        }
+        self._data["daily_cat"] = {
+            k: v for k, v in self._data["daily_cat"].items() if k in keep
         }
         # Keep this month and last month so the monthly cap survives the rollover.
         months = {_now().strftime("%Y-%m"), (_now().replace(day=1) - timedelta(days=1)).strftime("%Y-%m")}
