@@ -421,8 +421,8 @@ _"{hail}" becomes " and hail" or " and large hail" when hail is detected._
 _Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
 
 _Morning:_
-1. Rotterdam, good morning. It is {temp}°C with {cond}, on the way to a high of {high}°C and a low of {low}°C. Winds are {wdesc} near {wind} km/h.
-2. Morning over Rotterdam. {temp}°C to start with {cond}, the day reaching {high}°C and easing to {low}°C. Winds are {wdesc} near {wind} km/h.
+1. Rotterdam this morning, it's {temp}°C with {cond}, on the way to a high of {high}°C and a low of {low}°C. Winds are {wdesc} near {wind} km/h.
+2. Rotterdam this morning, it's {temp}°C with {cond} to start. The day reaches {high}°C and eases to {low}°C, with winds {wdesc} near {wind} km/h.
 
 _Evening:_
 1. Rotterdam this evening, {temp}°C with {cond}. Overnight settles to {low}°C, and tomorrow climbs to {high}°C with {cond_tmr}.
