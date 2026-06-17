@@ -157,8 +157,16 @@ def main() -> None:
 
     candidates = collect(cfg)
 
-    # Rank: most severe first.
-    candidates.sort(key=lambda s: s.severity, reverse=True)
+    # Ranking priority (highest first):
+    #   1. the scheduled Rotterdam update (severity 1000) — always first in its window
+    #   2. critical alerts (life-threatening) — boosted above all routine alerts
+    #   3. everything else, by severity
+    # No topic/source is favored anymore beyond this.
+    CRITICAL_BOOST = 200
+    candidates.sort(
+        key=lambda s: s.severity + (CRITICAL_BOOST if s.tier == "critical" else 0),
+        reverse=True,
+    )
 
     def topic_of(sig) -> str:
         return sig.topic or sig.category

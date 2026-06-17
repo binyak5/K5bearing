@@ -287,20 +287,6 @@ TAGS = {
 }
 
 
-# Serious marine warnings — the account's focus. These get a ranking boost so
-# they surface ahead of land alerts of the same NWS severity. Routine marine
-# advisories/watches (small craft, freezing spray, high surf advisory, coastal
-# flood watch/advisory, beach hazards, gale/storm watch) are deliberately left
-# OFF this list so they don't crowd out the serious stuff.
-MARINE_PRIORITY = {
-    "Storm Surge Warning", "Storm Surge Watch",
-    "Hurricane Force Wind Warning", "Hurricane Force Wind Watch",
-    "Gale Warning", "Storm Warning", "Hazardous Seas Warning",
-    "Special Marine Warning", "High Surf Warning", "Rip Current Statement",
-    "Heavy Freezing Spray Warning", "Coastal Flood Warning",
-    "Lakeshore Flood Warning", "Tsunami Warning", "Tsunami Advisory", "Tsunami Watch",
-}
-MARINE_BOOST = 15
 
 # Advisories (anything ending in "Advisory") get the calm "Heads up," lead;
 # everything else, including these life-threatening events, posts as written.
@@ -416,8 +402,6 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         seen_keys.add(key)
 
         severity = SEVERITY_WEIGHT.get(props.get("severity", ""), 50)
-        if event in MARINE_PRIORITY:
-            severity = min(99, severity + MARINE_BOOST)  # this account's focus
         label = _area_label(area_desc)
         event_l = event.lower()
         article = "An" if event_l[:1] in "aeiou" else "A"
