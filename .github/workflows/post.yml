@@ -1,18 +1,20 @@
 name: K5Bearing signals
 
+# Single trigger source on purpose. cron-job.org pings this dispatch every
+# 20 min; runs finish in ~2 min, so two runs can never overlap. Using BOTH a
+# GitHub schedule and cron-job.org previously let two runs fire seconds apart,
+# and the second read state.json before the first committed -> duplicate post.
+# (Manual runs from the Actions tab still work via this same dispatch.)
 on:
-  schedule:
-    # Every 15 minutes, offset off the top of the hour (GitHub delays
-    # :00 runs the most under load). Scheduling is best-effort either way.
-    - cron: "7,22,37,52 * * * *"
-  workflow_dispatch:        # allow manual runs from the Actions tab
+  workflow_dispatch:
     inputs:
       dry_run:
         description: "Run without posting"
         type: boolean
         default: false
 
-# Prevent overlapping runs from racing on state.json.
+# Belt-and-suspenders: even if two dispatches ever land close together,
+# serialize them so they can't race on state.json.
 concurrency:
   group: k5bearing-post
   cancel-in-progress: false
