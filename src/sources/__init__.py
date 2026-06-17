@@ -77,7 +77,6 @@ class Signal:
     hashtags: list[str] = field(default_factory=list)
     tz: str | None = None  # IANA zone for the timestamp; None = UTC (global signals)
     # Voice tier, set by the source from the *kind* of alert (not raw severity):
-    #   "critical" -> life-threatening, gets an "Act now, do not wait." close
-    #   "serious"  -> default, posts as written
     #   "advisory" -> low-stakes, softened with a "Heads up," lead
+    #   anything else ("serious"/"critical") -> posts as written
     tier: str = "serious"

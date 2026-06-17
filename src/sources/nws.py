@@ -293,9 +293,9 @@ MARINE_PRIORITY = {
 }
 MARINE_BOOST = 15
 
-# Life-threatening events get the hard "Act now, do not wait." close. Advisories
-# (anything ending in "Advisory") get the calm "Heads up," lead. Everything else
-# posts as written. Tier is by the kind of alert, not the raw severity score.
+# Advisories (anything ending in "Advisory") get the calm "Heads up," lead;
+# everything else, including these life-threatening events, posts as written.
+# The "critical" tag is kept for ranking/clarity though it no longer alters text.
 CRITICAL_EVENTS = {
     "Tornado Warning", "Hurricane Warning", "Tsunami Warning",
     "Extreme Wind Warning", "Storm Surge Warning",
