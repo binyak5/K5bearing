@@ -261,7 +261,7 @@ _Impact:_
 ---
 
 ## Europe (MeteoAlarm)
-Openers (country + colour):
+Openers (colour + named region(s) + country). `{label}` is the affected region(s) — one or two names, else the first plus "and N other areas" — and `{where}` is " in {country}". If no region name is given, `{label}` falls back to the country and `{where}` is empty.
 1. {article} {color} {hazard} warning is in effect for {label}{where}.
 2. {article} {color} {hazard} warning has been issued for {label}{where}.
 3. {article} {color} {hazard} warning is now active for {label}{where}.

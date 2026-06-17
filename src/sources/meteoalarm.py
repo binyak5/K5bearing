@@ -100,6 +100,31 @@ def _text(entry: ET.Element, tag: str) -> str:
     return (el.text or "").strip() if el is not None and el.text else ""
 
 
+# Cap the named-regions label so a long list can't dominate the post.
+_MAX_REGION = 45
+
+
+def _clip(s: str, limit: int = _MAX_REGION) -> str:
+    if len(s) <= limit:
+        return s
+    out = s[:limit].rsplit(" ", 1)[0].rstrip(" ,")
+    return out or s[:limit].rstrip(" ,")
+
+
+def _regions_label(areas) -> str:
+    """Name the affected regions instead of just counting them: one or two
+    names, otherwise the first plus a count (mirrors the US area-label style)."""
+    names = sorted({a for a in areas if a})
+    if not names:
+        return ""
+    if len(names) == 1:
+        return _clip(names[0])
+    if len(names) == 2 and len(names[0]) + len(names[1]) + 5 <= _MAX_REGION:
+        return f"{names[0]} and {names[1]}"
+    suffix = f" and {len(names) - 1} other areas"
+    return _clip(names[0], _MAX_REGION - len(suffix)) + suffix
+
+
 def _country_signals(country: str, min_rank: int) -> list[Signal]:
     url = FEED_BASE + country
     try:
@@ -123,16 +148,18 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         g = groups.setdefault((token, severity), {"event": event, "actions": actions, "areas": set()})
         g["areas"].add(_text(entry, "areaDesc"))
 
-    label = country.replace("-", " ").title()
-    tag = "#" + label.replace(" ", "")
+    country_title = country.replace("-", " ").title()
+    tag = "#" + country_title.replace(" ", "")
     zone = tz.zone_for_country(country)
     signals: list[Signal] = []
     for (token, severity), g in groups.items():
         color = SEVERITY_COLOR.get(severity, severity).lower()
         article = "An" if color[:1] in "aeiou" else "A"
         hazard = _hazard(g["event"])
-        n = len([a for a in g["areas"] if a])
-        where = f", covering {n} regions" if n > 1 else ""
+        # Name the actual regions affected, then the country, instead of a count.
+        region_label = _regions_label(g["areas"])
+        label = region_label or country_title
+        where = f" in {country_title}" if region_label else ""
         key = f"eu:{country}:{token}:{severity}"
         opener = pick(OPENERS, key + ":o").format(
             article=article, color=color, hazard=hazard, label=label, where=where
