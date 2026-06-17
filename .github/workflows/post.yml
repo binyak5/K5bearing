@@ -2,9 +2,9 @@ name: K5Bearing signals
 
 on:
   schedule:
-    # Every 20 minutes, offset off the top of the hour (GitHub delays
+    # Every 15 minutes, offset off the top of the hour (GitHub delays
     # :00 runs the most under load). Scheduling is best-effort either way.
-    - cron: "7,27,47 * * * *"
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:        # allow manual runs from the Actions tab
     inputs:
       dry_run:
@@ -45,12 +45,25 @@ jobs:
       - name: Persist posting state
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
-          if ! git diff --quiet state.json 2>/dev/null; then
-            git config user.name "k5bearing-bot"
-            git config user.email "bot@users.noreply.github.com"
-            git add state.json
-            git commit -m "chore: update posting state [skip ci]"
-            git push
-          else
+          if git diff --quiet state.json 2>/dev/null; then
             echo "state.json unchanged"
+            exit 0
           fi
+          git config user.name "k5bearing-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state.json
+          git commit -m "chore: update posting state [skip ci]"
+          # Retry against a moving remote: if the push is rejected because the
+          # branch advanced, rebase our state commit on top and try again. A
+          # silently-lost state commit is the #1 cause of duplicate posts, so we
+          # must never let the push fail quietly.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "state pushed (attempt $attempt)"
+              exit 0
+            fi
+            echo "push rejected, rebasing and retrying (attempt $attempt)"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          done
+          echo "ERROR: could not persist state.json after 5 attempts" >&2
+          exit 1

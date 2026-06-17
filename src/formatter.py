@@ -1,6 +1,7 @@
 """Assemble final tweet text: timestamped advisory body + hashtags."""
 from __future__ import annotations
 
+import hashlib
 import re
 from datetime import datetime, timezone
 
@@ -58,3 +59,25 @@ def render(signal: Signal) -> str:
     if len(body) > MAX_LEN:
         body = body[: MAX_LEN - 1].rstrip() + "…"
     return body
+
+
+# Numbers that drift run-to-run for the same event (a Kp of 5 then 6, seas at
+# 4 m then 5 m) shouldn't read as a distinct alert, so the fingerprint keeps
+# only letters. Place names and the alert wording — the parts that actually
+# distinguish one event from another — are what's left.
+_FP_STRIP = re.compile(r"[^a-z ]+")
+_FP_WS = re.compile(r"\s+")
+
+
+def fingerprint(signal: Signal) -> str:
+    """A content hash of the alert body, independent of timestamp and numbers.
+
+    Two signals that render to the same words (e.g. the same warning surfaced
+    by two different sources, or under two different dedup-key formats) share a
+    fingerprint, so the second one is suppressed even though its dedup_key
+    differs. This is the backstop behind the per-source dedup_key.
+    """
+    text = _split_so(signal.text.strip()).lower()
+    text = _FP_STRIP.sub(" ", text)
+    text = _FP_WS.sub(" ", text).strip()
+    return "fp:" + hashlib.md5(text.encode("utf-8")).hexdigest()[:16]

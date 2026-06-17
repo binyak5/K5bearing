@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from .config import load_config
 from .state import State
-from .formatter import render
+from .formatter import render, fingerprint
 from .poster import Poster
 from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, Signal
 
@@ -129,9 +129,18 @@ def main() -> None:
         if state.already_posted(sig.dedup_key, ttl):
             continue
 
+        # Content backstop: suppress anything that renders to the same words as
+        # a recent post, even if it arrived under a different dedup_key (e.g.
+        # the same event from two sources). Catches the cross-source dupes that
+        # key-based dedup alone can miss.
+        fp = fingerprint(sig)
+        if state.already_posted(fp, ttl):
+            continue
+
         text = render(sig)
         if poster.post(text):
             state.mark_posted(sig.dedup_key)
+            state.mark_posted(fp)
             state.increment_today()
             posted += 1
 
