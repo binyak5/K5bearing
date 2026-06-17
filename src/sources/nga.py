@@ -145,6 +145,7 @@ def warning_signals(categories: list[str]) -> list[Signal]:
         return []
 
     signals: list[Signal] = []
+    seen: set[str] = set()
     for w in data.get("broadcast-warn", []):
         text = w.get("text") or ""
         cat = _classify(text)
@@ -154,7 +155,14 @@ def warning_signals(categories: list[str]) -> list[Signal]:
             continue
         region = _region(text, str(w.get("navArea", "")))
         severity, hashtags, variants = META[cat]
-        key = f"nga:{w.get('navArea')}:{w.get('msgYear')}:{w.get('msgNumber')}"
+        # Dedup by hazard + region, not message number: the same hazard (e.g. a
+        # mine danger) is broadcast across many message numbers for one area, so
+        # keying on those produced near-identical back-to-back posts. One key per
+        # hazard+region collapses them (within a run, and across the dedup TTL).
+        key = f"nga:{cat}:{region.lower()}"
+        if key in seen:
+            continue
+        seen.add(key)
         signals.append(
             Signal(
                 category="maritime",
