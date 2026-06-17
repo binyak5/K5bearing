@@ -12,7 +12,7 @@ from datetime import datetime, timedelta, timezone
 import requests
 
 from ..config import USER_AGENT
-from . import Signal, pick
+from . import Signal, pick, gather
 
 ERDDAP = "https://erddap.sccoos.org/erddap/tabledap/{dataset}.json"
 VARS = "time,pDA,tDA,Pseudo_nitzschia_seriata_group,Pseudo_nitzschia_delicatissima_group"
@@ -65,8 +65,9 @@ def _recent_rows(dataset: str, cutoff_iso: str) -> list[list]:
 
 def hab_signals(cell_threshold: float, da_threshold: float, lookback_days: int = 14) -> list[Signal]:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=lookback_days)).strftime("%Y-%m-%dT00:00:00Z")
-    signals: list[Signal] = []
-    for name, dataset in STATIONS:
+
+    def _one(station: tuple) -> Signal | None:
+        name, dataset = station
         rows = _recent_rows(dataset, cutoff)
         # Rows come time-ascending; keep the most recent one over threshold.
         best = None  # (time, cells, da)
@@ -78,7 +79,7 @@ def hab_signals(cell_threshold: float, da_threshold: float, lookback_days: int =
             if cells >= cell_threshold or da >= da_threshold:
                 best = (t, cells, da)  # later rows overwrite -> latest wins
         if best is None:
-            continue
+            return None
         t, cells, da = best
         day = (t or "")[:10]
         key = f"hab:{dataset}:{day}"
@@ -87,14 +88,13 @@ def hab_signals(cell_threshold: float, da_threshold: float, lookback_days: int =
             text = pick(DA_VARIANTS, key).format(name=name, da=round(da, 1))
         else:
             text = pick(CELL_VARIANTS, key).format(name=name, cells=f"{int(cells):,}")
-        signals.append(
-            Signal(
-                category="hab",
-                severity=64,
-                text=text,
-                dedup_key=key,
-                hashtags=["#RedTide", "#Marine"],
-                tz=TZ,
-            )
+        return Signal(
+            category="hab",
+            severity=64,
+            text=text,
+            dedup_key=key,
+            hashtags=["#RedTide", "#Marine"],
+            tz=TZ,
         )
-    return signals
+
+    return gather(_one, STATIONS)

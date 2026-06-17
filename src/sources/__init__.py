@@ -2,7 +2,27 @@
 from __future__ import annotations
 
 import hashlib
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
+
+
+def gather(fn, items: list, workers: int = 12) -> list:
+    """Run fn over items concurrently and flatten the results into one list.
+
+    The sources are almost entirely network-bound (one or more HTTP calls per
+    watched location/area), so doing them sequentially makes a run take
+    minutes. A small thread pool collapses that to roughly the slowest single
+    item. fn may return a Signal, a list of Signals, or None.
+    """
+    results: list = []
+    if not items:
+        return results
+    with ThreadPoolExecutor(max_workers=min(workers, len(items))) as pool:
+        for r in pool.map(fn, items):
+            if r is None:
+                continue
+            results.extend(r if isinstance(r, list) else [r])
+    return results
 
 
 def pick(options: list[str], seed: str) -> str:

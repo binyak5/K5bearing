@@ -12,7 +12,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick
+from . import Signal, pick, gather
 from . import nws  # reuse the US action wording for Europe
 
 FEED_BASE = "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"
@@ -155,10 +155,7 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
 
 def weather_signals(countries: list[str], min_severity: str = "Severe") -> list[Signal]:
     min_rank = SEVERITY_RANK.get(min_severity, 2)
-    signals: list[Signal] = []
-    for country in countries:
-        signals.extend(_country_signals(country, min_rank))
-    return signals
+    return gather(lambda c: _country_signals(c, min_rank), countries)
 
 
 def active_count(countries: list[str], min_severity: str = "Severe") -> int:

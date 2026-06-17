@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 import requests
 
 from ..config import USER_AGENT
-from . import Signal, pick
+from . import Signal, pick, gather
 
 FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 TIMEOUT = 20
@@ -52,15 +52,15 @@ def _current(lat: float, lon: float) -> dict | None:
 
 
 def gulf_signals(locations: list[dict], heat_feels_c: float, wind_gust_kmh: float) -> list[Signal]:
-    signals: list[Signal] = []
-    for loc in locations:
+    def _one(loc: dict) -> list[Signal]:
+        signals: list[Signal] = []
         name, lat, lon = loc.get("name"), loc.get("lat"), loc.get("lon")
         zone = loc.get("tz", "UTC")
         if name is None or lat is None or lon is None:
-            continue
+            return signals
         cur = _current(lat, lon)
         if not cur:
-            continue
+            return signals
         try:
             today = datetime.now(ZoneInfo(zone)).date().isoformat()
         except Exception:
@@ -106,4 +106,6 @@ def gulf_signals(locations: list[dict], heat_feels_c: float, wind_gust_kmh: floa
                     tz=zone,
                 )
             )
-    return signals
+        return signals
+
+    return gather(_one, locations)

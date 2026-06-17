@@ -13,7 +13,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick
+from . import Signal, pick, gather
 
 UV_VARIANTS = [
     "The UV index has reached {uv} in {name}, an extreme level. Cover up, wear "
@@ -84,27 +84,26 @@ def _weather_code(lat: float, lon: float) -> int | None:
 def lightning_signals(locations: list[dict]) -> list[Signal]:
     """Violent thunderstorms (WMO codes 95/96/99) over the watched locations."""
     today = datetime.now(timezone.utc).date().isoformat()
-    signals: list[Signal] = []
-    for loc in locations:
+
+    def _one(loc: dict) -> Signal | None:
         name = loc.get("name")
         lat, lon = loc.get("lat"), loc.get("lon")
         if name is None or lat is None or lon is None:
-            continue
+            return None
         code = _weather_code(lat, lon)
         if code not in THUNDER_CODES:
-            continue
+            return None
         key = f"storm:{name}:{today}"
-        signals.append(
-            Signal(
-                category="outdoor",
-                severity=58,
-                text=pick(LIGHTNING_VARIANTS, key).format(name=name, hail=THUNDER_CODES[code]),
-                dedup_key=key,
-                hashtags=["#Lightning", "#SevereWeather"],
-                tz=tz.zone_for_coords(lon, lat),
-            )
+        return Signal(
+            category="outdoor",
+            severity=58,
+            text=pick(LIGHTNING_VARIANTS, key).format(name=name, hail=THUNDER_CODES[code]),
+            dedup_key=key,
+            hashtags=["#Lightning", "#SevereWeather"],
+            tz=tz.zone_for_coords(lon, lat),
         )
-    return signals
+
+    return gather(_one, locations)
 
 
 def outdoor_signals(
@@ -114,21 +113,22 @@ def outdoor_signals(
     pm25_threshold: float,
 ) -> list[Signal]:
     today = datetime.now(timezone.utc).date().isoformat()
-    signals: list[Signal] = []
-    for loc in locations:
+
+    def _one(loc: dict) -> list[Signal]:
         name = loc.get("name")
         lat, lon = loc.get("lat"), loc.get("lon")
         if name is None or lat is None or lon is None:
-            continue
+            return []
         cur = _current(lat, lon)
         if not cur:
-            continue
+            return []
         zone = tz.zone_for_coords(lon, lat)
+        out: list[Signal] = []
 
         uv = cur.get("uv_index")
         if uv is not None and uv >= uv_threshold:
             uv_key = f"uv:{name}:{today}"
-            signals.append(
+            out.append(
                 Signal(
                     category="outdoor",
                     severity=48,
@@ -143,7 +143,7 @@ def outdoor_signals(
         dust = cur.get("dust")
         if dust is not None and dust >= dust_threshold:
             dust_key = f"dust:{name}:{today}"
-            signals.append(
+            out.append(
                 Signal(
                     category="outdoor",
                     severity=60,
@@ -157,7 +157,7 @@ def outdoor_signals(
         pm = cur.get("pm2_5")
         if pm is not None and pm >= pm25_threshold:
             pm_key = f"pm25:{name}:{today}"
-            signals.append(
+            out.append(
                 Signal(
                     category="outdoor",
                     severity=54,
@@ -168,4 +168,6 @@ def outdoor_signals(
                     tier="advisory",
                 )
             )
-    return signals
+        return out
+
+    return gather(_one, locations)

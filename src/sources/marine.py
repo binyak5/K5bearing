@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 import requests
 
 from ..config import USER_AGENT
-from . import Signal, pick
+from . import Signal, pick, gather
 
 MARINE_URL = "https://marine-api.open-meteo.com/v1/marine"
 FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
@@ -136,134 +136,129 @@ def _swell(lat: float, lon: float) -> tuple[float | None, float | None]:
 def wind_signals(areas: list[dict], gale_kt: float) -> list[Signal]:
     """Gale, storm, or hurricane-force winds over the watched sea areas."""
     today = datetime.now(timezone.utc).date().isoformat()
-    signals: list[Signal] = []
-    for a in areas:
+
+    def _one(a: dict) -> Signal | None:
         name, lat, lon = a.get("name"), a.get("lat"), a.get("lon")
         if name is None or lat is None or lon is None:
-            continue
+            return None
         spd, gust = _wind(lat, lon)
         ref = gust if gust is not None else spd  # gusts are what hit you
         if ref is None or ref < gale_kt:
-            continue
+            return None
         cat, weight = _wind_category(ref)
         key = f"seawind:{name}:{today}"
-        signals.append(
-            Signal(
-                category="marine",
-                severity=weight,
-                text=pick(WIND_VARIANTS, key).format(
-                    cat=cat,
-                    cat_low=cat.lower(),
-                    area="the " + name,
-                    w=round(spd) if spd is not None else round(ref),
-                    g=round(gust) if gust is not None else round(ref),
-                ),
-                dedup_key=key,
-                hashtags=["#GaleWarning", "#Marine"],
-                tz=None,
-                tier="critical" if cat == "Hurricane-force" else "serious",
-            )
+        return Signal(
+            category="marine",
+            severity=weight,
+            text=pick(WIND_VARIANTS, key).format(
+                cat=cat,
+                cat_low=cat.lower(),
+                area="the " + name,
+                w=round(spd) if spd is not None else round(ref),
+                g=round(gust) if gust is not None else round(ref),
+            ),
+            dedup_key=key,
+            hashtags=["#GaleWarning", "#Marine"],
+            tz=None,
+            tier="critical" if cat == "Hurricane-force" else "serious",
         )
-    return signals
+
+    return gather(_one, areas)
 
 
 def swell_signals(areas: list[dict], period_s: float, height_m: float) -> list[Signal]:
     """Dangerous long-period swell over the watched sea areas."""
     today = datetime.now(timezone.utc).date().isoformat()
-    signals: list[Signal] = []
-    for a in areas:
+
+    def _one(a: dict) -> Signal | None:
         name, lat, lon = a.get("name"), a.get("lat"), a.get("lon")
         if name is None or lat is None or lon is None:
-            continue
+            return None
         h, p = _swell(lat, lon)
         if h is None or p is None or p < period_s or h < height_m:
-            continue
+            return None
         key = f"swell:{name}:{today}"
-        signals.append(
-            Signal(
-                category="marine",
-                severity=74,
-                text=pick(SWELL_VARIANTS, key).format(area="the " + name, h=round(h, 1), p=round(p)),
-                dedup_key=key,
-                hashtags=["#GroundSwell", "#Marine"],
-                tz=None,
-            )
+        return Signal(
+            category="marine",
+            severity=74,
+            text=pick(SWELL_VARIANTS, key).format(area="the " + name, h=round(h, 1), p=round(p)),
+            dedup_key=key,
+            hashtags=["#GroundSwell", "#Marine"],
+            tz=None,
         )
-    return signals
+
+    return gather(_one, areas)
 
 
 def surf_signals(zones: list[dict], threshold: float) -> list[Signal]:
     """Rough-bar / surf-zone risk at coastal entrances and inlets."""
     today = datetime.now(timezone.utc).date().isoformat()
-    signals: list[Signal] = []
-    for z in zones:
+
+    def _one(z: dict) -> Signal | None:
         name, lat, lon = z.get("name"), z.get("lat"), z.get("lon")
         if name is None or lat is None or lon is None:
-            continue
+            return None
         h = _wave_height(lat, lon)
         if h is None or h < threshold:
-            continue
+            return None
         key = f"surf:{name}:{today}"
-        signals.append(
-            Signal(
-                category="marine",
-                severity=70,
-                text=pick(SURF_VARIANTS, key).format(area="the " + name, h=round(h, 1)),
-                dedup_key=key,
-                hashtags=["#SurfZone", "#Marine"],
-                tz=None,
-            )
+        return Signal(
+            category="marine",
+            severity=70,
+            text=pick(SURF_VARIANTS, key).format(area="the " + name, h=round(h, 1)),
+            dedup_key=key,
+            hashtags=["#SurfZone", "#Marine"],
+            tz=None,
         )
-    return signals
+
+    return gather(_one, zones)
 
 
 def fog_signals(areas: list[dict], visibility_m: float) -> list[Signal]:
     """Dense fog at sea (low visibility) for the watched sea areas."""
     today = datetime.now(timezone.utc).date().isoformat()
-    signals: list[Signal] = []
-    for a in areas:
+
+    def _one(a: dict) -> Signal | None:
         name, lat, lon = a.get("name"), a.get("lat"), a.get("lon")
         if name is None or lat is None or lon is None:
-            continue
+            return None
         vis = _visibility(lat, lon)
         if vis is None or vis >= visibility_m:
-            continue
+            return None
         key = f"marinefog:{name}:{today}"
-        signals.append(
-            Signal(
-                category="marine",
-                severity=72,
-                text=pick(FOG_VARIANTS, key).format(area="the " + name, v=int(round(vis / 50) * 50)),
-                dedup_key=key,
-                hashtags=["#MarineFog", "#Marine"],
-                tz=None,
-            )
+        return Signal(
+            category="marine",
+            severity=72,
+            text=pick(FOG_VARIANTS, key).format(area="the " + name, v=int(round(vis / 50) * 50)),
+            dedup_key=key,
+            hashtags=["#MarineFog", "#Marine"],
+            tz=None,
         )
-    return signals
+
+    return gather(_one, areas)
 
 
 def sea_signals(areas: list[dict], threshold: float) -> list[Signal]:
     today = datetime.now(timezone.utc).date().isoformat()
-    signals: list[Signal] = []
-    for a in areas:
+
+    def _one(a: dict) -> Signal | None:
         name, lat, lon = a.get("name"), a.get("lat"), a.get("lon")
         if name is None or lat is None or lon is None:
-            continue
+            return None
         h = _wave_height(lat, lon)
         if h is None or h < threshold:
-            continue
+            return None
         cat, weight = _category(h)
         area = "the " + name
         key = f"seas:{name}:{today}"
-        signals.append(
-            Signal(
-                category="marine",
-                severity=weight,
-                text=pick(VARIANTS, key).format(cat=cat, low=cat.lower(), h=round(h), area=area),
-                dedup_key=key,
-                hashtags=["#HighSeas", "#Marine"],
-                tz=None,  # open sea spans many zones -> UTC
-                tier="critical" if cat == "Phenomenal" else "serious",
-            )
+        return Signal(
+            category="marine",
+            severity=weight,
+            text=pick(VARIANTS, key).format(cat=cat, low=cat.lower(), h=round(h), area=area),
+            dedup_key=key,
+            hashtags=["#HighSeas", "#Marine"],
+            tz=None,  # open sea spans many zones -> UTC
+            tier="critical" if cat == "Phenomenal" else "serious",
         )
-    return signals
+
+    return gather(_one, areas)

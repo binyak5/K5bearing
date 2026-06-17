@@ -23,6 +23,7 @@ permissions:
 jobs:
   post:
     runs-on: ubuntu-latest
+    timeout-minutes: 8        # safety net: never let a slow run hang and block the queue
     steps:
       - uses: actions/checkout@v4
 
