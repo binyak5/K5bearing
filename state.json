@@ -1,18 +1,18 @@
 {
   "daily": {
     "2026-06-15": 22,
-    "2026-06-17": 14
+    "2026-06-17": 15
   },
   "daily_cat": {
     "2026-06-17": {
       "maritime": 4,
-      "weather": 6,
+      "weather": 7,
       "weather_eu": 4
     }
   },
-  "last_topic": "maritime",
+  "last_topic": "marine",
   "monthly": {
-    "2026-06": 36
+    "2026-06": 37
   },
   "posted": {
     "eu:poland:Orange Wind warning:Severe": "2026-06-15T17:33:30.835497+00:00",
@@ -33,6 +33,7 @@
     "fp:6b82073d2b5bef0f": "2026-06-17T14:02:33.658953+00:00",
     "fp:6d398340d31f8ff1": "2026-06-17T15:42:07.320777+00:00",
     "fp:8cc33a6d58f19369": "2026-06-17T09:03:05.356735+00:00",
+    "fp:9801be3a6afa5a86": "2026-06-17T17:22:39.913724+00:00",
     "fp:c5cf9b81dc00d861": "2026-06-17T15:02:30.494962+00:00",
     "fp:d1ce14443b4f1457": "2026-06-17T16:22:35.653274+00:00",
     "fp:d7ed2091b019680f": "2026-06-17T17:02:54.166408+00:00",
@@ -59,6 +60,7 @@
     "weather:Special Marine Warning:Flagler Beach to Volusia-Brevard County Line 0-20 nm": "2026-06-15T18:46:19.113742+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain": "2026-06-15T20:48:22.393677+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain; Mississippi Sound; Lake Borgne": "2026-06-15T19:07:38.560502+00:00",
+    "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
     "weather:Special Marine Warning:S of Ocracoke Inlet NC to Cape Lookout NC out to 20 NM": "2026-06-15T18:16:39.036101+00:00",
     "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00"
   }
