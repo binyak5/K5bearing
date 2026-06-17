@@ -30,8 +30,8 @@ OPENERS = [
 # Event type -> (label, list of vetted advisory phrasings).
 EVENT_META = {
     "TC": ("Tropical Cyclone", [
-        "This is a dangerous storm, so follow evacuation orders and stay clear of the coast, where storm surge is deadliest.",
-        "The system is dangerous, so heed evacuation orders and keep away from the coast, where surge poses the greatest risk.",
+        "This is a severe storm, so follow evacuation orders and stay clear of the coast, where storm surge is deadliest.",
+        "This is a severe system, so heed evacuation orders and keep away from the coast, where surge poses the greatest risk.",
     ]),
     "FL": ("Flood", [
         "Move to higher ground, keep clear of floodwater, and follow the instructions of local authorities.",

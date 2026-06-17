@@ -90,7 +90,7 @@ _CRITICAL_CLOSE = " Act now, do not wait."
 
 def _apply_tier(text: str, tier: str) -> str:
     """Give the body dynamic range by tier: a hard call-to-action on the most
-    dangerous alerts, a calmer lead on low-stakes ones, default left alone."""
+    severe alerts, a calmer lead on low-stakes ones, default left alone."""
     if tier == "critical":
         if not text.rstrip().endswith(_CRITICAL_CLOSE.strip()):
             return text.rstrip() + _CRITICAL_CLOSE

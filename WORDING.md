@@ -80,7 +80,7 @@ _Impact:_
 2. Head for high ground or move well inland immediately. Do not return until authorities give the all clear.
 
 **Blizzard Warning**
-1. Travel will become dangerous in near zero visibility. Stay off the roads and remain somewhere warm.
+1. Conditions will turn severe in near zero visibility. Stay off the roads and remain somewhere warm.
 2. Blowing snow will bring ground blizzard whiteouts. Avoid all travel and keep warm clothing and supplies within reach.
 
 **Extreme Wind Warning**
@@ -109,11 +109,11 @@ _Impact:_
 
 **Storm Surge Warning**
 1. Life-threatening flooding from rising ocean water is expected. Follow evacuation orders and move inland to higher ground.
-2. A dangerous surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground inland.
+2. A severe surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground inland.
 
 **Storm Surge Watch**
 1. Life-threatening coastal flooding from surge is possible. Review your evacuation plan and monitor official updates.
-2. Dangerous surge flooding may develop along the coast. Ready your evacuation plan and track the latest alerts.
+2. Severe surge flooding may develop along the coast. Ready your evacuation plan and track the latest alerts.
 
 **Hurricane Force Wind Warning**
 1. Hurricane force winds above 64 knots are expected at sea. Remain in port and keep all vessels well clear of open water.
@@ -140,11 +140,11 @@ _Impact:_
 2. Storm force conditions may build offshore. Follow the forecast and be ready to remain in harbour.
 
 **Hazardous Seas Warning**
-1. Dangerously steep and high seas are expected. Mariners should remain in port until conditions improve.
+1. Severe, steep and high seas are expected. Mariners should remain in port until conditions improve.
 2. Hazardous seas are building. Keep vessels in port and off the water until the swell eases.
 
 **Special Marine Warning**
-1. Sudden strong winds and dangerous seas are bearing down on the area. Head for harbour and secure your vessel now.
+1. Sudden strong winds and severe seas are bearing down on the area. Head for harbour and secure your vessel now.
 2. A squall of strong winds and rough seas is moving in. Make for the nearest harbour and secure everything right away.
 
 **Small Craft Advisory**
@@ -152,7 +152,7 @@ _Impact:_
 2. Conditions are hazardous for small vessels. Small craft should remain in harbour until the advisory ends.
 
 **Heavy Freezing Spray Warning**
-1. Heavy freezing spray will pile dangerous ice onto vessels. Keep decks clear and consider staying in port.
+1. Heavy freezing spray will coat vessels in severe icing. Keep decks clear and consider staying in port.
 2. Rapid ice build-up from freezing spray is expected at sea. Clear decks often and stay in port if you can.
 
 **Freezing Spray Advisory**
@@ -161,19 +161,19 @@ _Impact:_
 
 **High Surf Warning**
 1. Large and powerful surf is striking the coast. Stay off rocks, seawalls, and the beach face.
-2. Dangerous breakers are hitting the shore. Keep well back from seawalls, rocks, and the water's edge.
+2. Severe breakers are hitting the shore. Keep well back from seawalls, rocks, and the water's edge.
 
 **High Surf Advisory**
 1. Large breaking waves are expected along the coast. Use caution near the surf and stay off rocks and seawalls.
 2. Elevated surf is on the way. Keep clear of the waterline, seawalls, and exposed rocks.
 
 **Rip Current Statement**
-1. Dangerous rip currents are running along the coast. Swim near a lifeguard and never fight the current if you are caught.
+1. Severe rip currents are running along the coast. Swim near a lifeguard and never fight the current if you are caught.
 2. Strong rip currents are likely at the beach. Stay near a lifeguard and swim parallel to shore to break free of one.
 
 **Beach Hazards Statement**
 1. Hazardous conditions such as rip currents or sneaker waves are expected at the beach. Stay alert and heed lifeguard guidance.
-2. Dangerous surf and currents are possible at the beach. Keep a close eye on the water and follow lifeguard advice.
+2. Severe surf and currents are possible at the beach. Keep a close eye on the water and follow lifeguard advice.
 
 **Coastal Flood Warning**
 1. Coastal flooding is expected around high tide. Move vehicles to higher ground and stay off flooded roads.
@@ -192,8 +192,8 @@ _Impact:_
 2. Lakeshore flooding is underway. Relocate vehicles and avoid roads near the water.
 
 **Tsunami Advisory**
-1. Strong currents and waves dangerous to anyone in or near the water are expected. Leave the water and stay off the beach.
-2. Dangerous currents and surges are expected at the coast. Get out of the water and keep off the beach and harbours.
+1. Strong currents and severe waves are expected for anyone in or near the water. Leave the water and stay off the beach.
+2. Severe currents and surges are expected at the coast. Get out of the water and keep off the beach and harbours.
 
 **Tsunami Watch**
 1. A distant earthquake may trigger a tsunami. Keep an eye on official alerts and be ready to move to high ground.
@@ -208,12 +208,12 @@ _Impact:_
 2. A damaging glaze of ice is on the way. Avoid driving and be ready for outages and falling branches.
 
 **Extreme Cold Warning**
-1. A dangerous wind chill is setting in. Limit time outdoors and cover exposed skin to guard against frostbite.
+1. A severe wind chill is setting in. Limit time outdoors and cover exposed skin to guard against frostbite.
 2. Bitter wind chill is settling in. Stay inside where you can and guard against frostbite.
 
 **Extreme Heat Warning**
-1. Dangerous heat is building. Stay hydrated, find cool air, and check on anyone at risk.
-2. A dangerous heat wave is setting in. Drink plenty of water, seek cool spaces, and look out for the vulnerable.
+1. Severe heat is building. Stay hydrated, find cool air, and check on anyone at risk.
+2. A severe heat wave is setting in. Drink plenty of water, seek cool spaces, and look out for the vulnerable.
 
 **High Wind Warning**
 1. Violent winds are expected. Secure loose objects and watch for downed limbs and power lines.
@@ -224,7 +224,7 @@ _Impact:_
 2. Blinding dust is cutting visibility to nothing. Leave the roadway, switch off your lights, and stay put.
 
 **Avalanche Warning**
-1. Dangerous avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.
+1. Severe avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.
 2. The avalanche danger is high in the backcountry. Avoid steep slopes and check the local avalanche forecast.
 
 **Flood Advisory**
@@ -237,7 +237,7 @@ _Impact:_
 
 **Heat Advisory**
 1. Hot and humid conditions are expected. Drink plenty of water, take breaks in the shade, and check on those at risk.
-2. Dangerous heat is building. Stay hydrated, limit strenuous activity, and never leave anyone in a parked vehicle.
+2. Severe heat is building. Stay hydrated, limit strenuous activity, and never leave anyone in a parked vehicle.
 
 **Winter Weather Advisory**
 1. Snow, sleet, or ice will make roads slick. Slow down, allow extra distance, and travel only if you need to.
@@ -245,7 +245,7 @@ _Impact:_
 
 **Dense Fog Advisory**
 1. Dense fog is cutting visibility to a quarter mile or less. Slow down, use low-beam headlights, and leave extra room.
-2. Thick fog is making driving dangerous. Reduce speed, switch to low beams, and watch for slow or stopped traffic.
+2. Thick fog is making driving conditions severe. Reduce speed, switch to low beams, and watch for slow or stopped traffic.
 
 **Freeze Warning**
 1. Sub-freezing temperatures are expected. Protect tender plants, pets, and any exposed pipes overnight.
@@ -345,11 +345,11 @@ _{cat} is Gale-force, Storm-force, or Hurricane-force depending on speed._
 2. A {cat_low} blow has set in over {area}, winds at {w} knots and gusts to {g}. Hold port if you are small, and lash down everything topside if you are not.
 
 ## Marine — long-period swell (Open-Meteo)
-1. A long-period swell is marching into {area}, {h} m sets rolling through every {p} seconds. It looks calm offshore, but harbor mouths and surf zones will turn dangerous. Stay off exposed rocks and jetties.
+1. A long-period swell is marching into {area}, {h} m sets rolling through every {p} seconds. It looks calm offshore, but harbor mouths and surf zones will see severe conditions. Stay off exposed rocks and jetties.
 2. Powerful long-period groundswell is pushing into {area}, {h} m and spaced {p} seconds apart. That energy stacks up fast in the shallows. Expect sneaker sets and treacherous surf around inlets and bars.
 
 ## Marine — rough bar / surf zone (Open-Meteo)
-1. Seas are breaking heavily across {area}, {h} m waves stacking up at the entrance. Bar and surf-zone conditions are dangerous. Time any crossing for slack water or stay in.
+1. Seas are breaking heavily across {area}, {h} m waves stacking up at the entrance. Bar and surf-zone conditions are severe. Time any crossing for slack water or stay in.
 2. A rough bar is running at {area}, where {h} m swells pile into the shallows and break hard. Small craft should hold off until it lays down.
 
 ## Marine — harmful algal bloom / red tide (CalHABMAP, US Pacific coast)
@@ -412,13 +412,13 @@ _Domoic-acid spike:_
 
 ## Outdoor — violent thunderstorm / lightning
 _"{hail}" becomes " and hail" or " and large hail" when hail is detected._
-1. Violent thunderstorms are erupting over {name}, packing dangerous lightning{hail}. Get indoors, stay off open ground and water, and unplug what you can.
+1. Violent thunderstorms are erupting over {name}, packing severe lightning{hail}. Get indoors, stay off open ground and water, and unplug what you can.
 2. A strong thunderstorm is hammering {name} with frequent lightning{hail}. Seek solid shelter, keep clear of tall isolated objects, and wait it out.
 
 ---
 
 ## Gulf states — extreme heat (Open-Meteo)
-1. Dangerous heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and check on anyone living or working outdoors.
+1. Severe heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and check on anyone living or working outdoors.
 2. Brutal heat has settled over {name}, {temp}°C and feeling like {feels}°C. Keep outdoor time to the early hours, stay hydrated, and watch closely for heat stress.
 
 ## Gulf states — shamal / high winds (Open-Meteo)

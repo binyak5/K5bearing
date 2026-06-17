@@ -47,7 +47,7 @@ ACTIONS = {
         "Head for high ground or move well inland immediately. Do not return until authorities give the all clear.",
     ],
     "Blizzard Warning": [
-        "Travel will become dangerous in near zero visibility. Stay off the roads and remain somewhere warm.",
+        "Conditions will turn severe in near zero visibility. Stay off the roads and remain somewhere warm.",
         "Blowing snow will bring ground blizzard whiteouts. Avoid all travel and keep warm clothing and supplies within reach.",
     ],
     "Extreme Wind Warning": [
@@ -76,11 +76,11 @@ ACTIONS = {
     ],
     "Storm Surge Warning": [
         "Life-threatening flooding from rising ocean water is expected. Follow evacuation orders and move inland to higher ground.",
-        "A dangerous surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground inland.",
+        "A severe surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground inland.",
     ],
     "Storm Surge Watch": [
         "Life-threatening coastal flooding from surge is possible. Review your evacuation plan and monitor official updates.",
-        "Dangerous surge flooding may develop along the coast. Ready your evacuation plan and track the latest alerts.",
+        "Severe surge flooding may develop along the coast. Ready your evacuation plan and track the latest alerts.",
     ],
     "Hurricane Force Wind Warning": [
         "Hurricane force winds above 64 knots are expected at sea. Remain in port and keep all vessels well clear of open water.",
@@ -107,11 +107,11 @@ ACTIONS = {
         "Storm force conditions may build offshore. Follow the forecast and be ready to remain in harbour.",
     ],
     "Hazardous Seas Warning": [
-        "Dangerously steep and high seas are expected. Mariners should remain in port until conditions improve.",
+        "Severe, steep and high seas are expected. Mariners should remain in port until conditions improve.",
         "Hazardous seas are building. Keep vessels in port and off the water until the swell eases.",
     ],
     "Special Marine Warning": [
-        "Sudden strong winds and dangerous seas are bearing down on the area. Head for harbour and secure your vessel now.",
+        "Sudden strong winds and severe seas are bearing down on the area. Head for harbour and secure your vessel now.",
         "A squall of strong winds and rough seas is moving in. Make for the nearest harbour and secure everything right away.",
     ],
     "Small Craft Advisory": [
@@ -119,7 +119,7 @@ ACTIONS = {
         "Conditions are hazardous for small vessels. Small craft should remain in harbour until the advisory ends.",
     ],
     "Heavy Freezing Spray Warning": [
-        "Heavy freezing spray will pile dangerous ice onto vessels. Keep decks clear and consider staying in port.",
+        "Heavy freezing spray will coat vessels in severe icing. Keep decks clear and consider staying in port.",
         "Rapid ice build-up from freezing spray is expected at sea. Clear decks often and stay in port if you can.",
     ],
     "Freezing Spray Advisory": [
@@ -128,19 +128,19 @@ ACTIONS = {
     ],
     "High Surf Warning": [
         "Large and powerful surf is striking the coast. Stay off rocks, seawalls, and the beach face.",
-        "Dangerous breakers are hitting the shore. Keep well back from seawalls, rocks, and the water's edge.",
+        "Severe breakers are hitting the shore. Keep well back from seawalls, rocks, and the water's edge.",
     ],
     "High Surf Advisory": [
         "Large breaking waves are expected along the coast. Use caution near the surf and stay off rocks and seawalls.",
         "Elevated surf is on the way. Keep clear of the waterline, seawalls, and exposed rocks.",
     ],
     "Rip Current Statement": [
-        "Dangerous rip currents are running along the coast. Swim near a lifeguard and never fight the current if you are caught.",
+        "Severe rip currents are running along the coast. Swim near a lifeguard and never fight the current if you are caught.",
         "Strong rip currents are likely at the beach. Stay near a lifeguard and swim parallel to shore to break free of one.",
     ],
     "Beach Hazards Statement": [
         "Hazardous conditions such as rip currents or sneaker waves are expected at the beach. Stay alert and heed lifeguard guidance.",
-        "Dangerous surf and currents are possible at the beach. Keep a close eye on the water and follow lifeguard advice.",
+        "Severe surf and currents are possible at the beach. Keep a close eye on the water and follow lifeguard advice.",
     ],
     "Coastal Flood Warning": [
         "Coastal flooding is expected around high tide. Move vehicles to higher ground and stay off flooded roads.",
@@ -159,8 +159,8 @@ ACTIONS = {
         "Lakeshore flooding is underway. Relocate vehicles and avoid roads near the water.",
     ],
     "Tsunami Advisory": [
-        "Strong currents and waves dangerous to anyone in or near the water are expected. Leave the water and stay off the beach.",
-        "Dangerous currents and surges are expected at the coast. Get out of the water and keep off the beach and harbours.",
+        "Strong currents and severe waves are expected for anyone in or near the water. Leave the water and stay off the beach.",
+        "Severe currents and surges are expected at the coast. Get out of the water and keep off the beach and harbours.",
     ],
     "Tsunami Watch": [
         "A distant earthquake may trigger a tsunami. Keep an eye on official alerts and be ready to move to high ground.",
@@ -175,12 +175,12 @@ ACTIONS = {
         "A damaging glaze of ice is on the way. Avoid driving and be ready for outages and falling branches.",
     ],
     "Extreme Cold Warning": [
-        "A dangerous wind chill is setting in. Limit time outdoors and cover exposed skin to guard against frostbite.",
+        "A severe wind chill is setting in. Limit time outdoors and cover exposed skin to guard against frostbite.",
         "Bitter wind chill is settling in. Stay inside where you can and guard against frostbite.",
     ],
     "Extreme Heat Warning": [
-        "Dangerous heat is building. Stay hydrated, find cool air, and check on anyone at risk.",
-        "A dangerous heat wave is setting in. Drink plenty of water, seek cool spaces, and look out for the vulnerable.",
+        "Severe heat is building. Stay hydrated, find cool air, and check on anyone at risk.",
+        "A severe heat wave is setting in. Drink plenty of water, seek cool spaces, and look out for the vulnerable.",
     ],
     "High Wind Warning": [
         "Violent winds are expected. Secure loose objects and watch for downed limbs and power lines.",
@@ -191,7 +191,7 @@ ACTIONS = {
         "Blinding dust is cutting visibility to nothing. Leave the roadway, switch off your lights, and stay put.",
     ],
     "Avalanche Warning": [
-        "Dangerous avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.",
+        "Severe avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.",
         "The avalanche danger is high in the backcountry. Avoid steep slopes and check the local avalanche forecast.",
     ],
     "Flood Advisory": [
@@ -204,7 +204,7 @@ ACTIONS = {
     ],
     "Heat Advisory": [
         "Hot and humid conditions are expected. Drink plenty of water, take breaks in the shade, and check on those at risk.",
-        "Dangerous heat is building. Stay hydrated, limit strenuous activity, and never leave anyone in a parked vehicle.",
+        "Severe heat is building. Stay hydrated, limit strenuous activity, and never leave anyone in a parked vehicle.",
     ],
     "Winter Weather Advisory": [
         "Snow, sleet, or ice will make roads slick. Slow down, allow extra distance, and travel only if you need to.",
@@ -212,7 +212,7 @@ ACTIONS = {
     ],
     "Dense Fog Advisory": [
         "Dense fog is cutting visibility to a quarter mile or less. Slow down, use low-beam headlights, and leave extra room.",
-        "Thick fog is making driving dangerous. Reduce speed, switch to low beams, and watch for slow or stopped traffic.",
+        "Thick fog is making driving conditions severe. Reduce speed, switch to low beams, and watch for slow or stopped traffic.",
     ],
     "Freeze Warning": [
         "Sub-freezing temperatures are expected. Protect tender plants, pets, and any exposed pipes overnight.",

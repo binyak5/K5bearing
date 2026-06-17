@@ -39,7 +39,7 @@ PM25_VARIANTS = [
 ]
 
 LIGHTNING_VARIANTS = [
-    "Violent thunderstorms are erupting over {name}, packing dangerous lightning"
+    "Violent thunderstorms are erupting over {name}, packing severe lightning"
     "{hail}. Get indoors, stay off open ground and water, and unplug what you can.",
     "A strong thunderstorm is hammering {name} with frequent lightning{hail}. Seek "
     "solid shelter, keep clear of tall isolated objects, and wait it out.",

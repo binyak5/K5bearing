@@ -34,6 +34,15 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      # Pull the freshest state.json right before posting. If a prior run
+      # committed a post seconds ago (or runs briefly overlap), this picks it
+      # up so we never re-post off stale state.
+      - name: Refresh posting state
+        run: |
+          git config user.name "k5bearing-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+
       - name: Post signals
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}

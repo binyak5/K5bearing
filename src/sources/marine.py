@@ -35,12 +35,12 @@ WIND_VARIANTS = [
 ]
 
 SWELL_VARIANTS = [
-    "A long-period swell is marching into {area}, {h} m sets rolling through every {p} seconds. It looks calm offshore, but harbor mouths and surf zones will turn dangerous. Stay off exposed rocks and jetties.",
+    "A long-period swell is marching into {area}, {h} m sets rolling through every {p} seconds. It looks calm offshore, but harbor mouths and surf zones will see severe conditions. Stay off exposed rocks and jetties.",
     "Powerful long-period groundswell is pushing into {area}, {h} m and spaced {p} seconds apart. That energy stacks up fast in the shallows. Expect sneaker sets and treacherous surf around inlets and bars.",
 ]
 
 SURF_VARIANTS = [
-    "Seas are breaking heavily across {area}, {h} m waves stacking up at the entrance. Bar and surf-zone conditions are dangerous. Time any crossing for slack water or stay in.",
+    "Seas are breaking heavily across {area}, {h} m waves stacking up at the entrance. Bar and surf-zone conditions are severe. Time any crossing for slack water or stay in.",
     "A rough bar is running at {area}, where {h} m swells pile into the shallows and break hard. Small craft should hold off until it lays down.",
 ]
 
@@ -167,7 +167,7 @@ def wind_signals(areas: list[dict], gale_kt: float) -> list[Signal]:
 
 
 def swell_signals(areas: list[dict], period_s: float, height_m: float) -> list[Signal]:
-    """Dangerous long-period swell over the watched sea areas."""
+    """Severe long-period swell over the watched sea areas."""
     today = datetime.now(timezone.utc).date().isoformat()
 
     def _one(a: dict) -> Signal | None:

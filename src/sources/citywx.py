@@ -139,7 +139,10 @@ def city_signals(locations: list[dict], morning: list, evening: list) -> list[Si
         signals.append(
             Signal(
                 category="cityweather",
-                severity=65,   # reliably wins a slot, but genuine emergencies (>=85) still come first
+                # High priority so it posts at the FIRST run inside the window
+                # (first thing in the morning / evening). A genuine top-tier
+                # emergency (>=95, e.g. a major quake or tsunami) still goes first.
+                severity=94,
                 text=text,
                 dedup_key=key,
                 hashtags=["#Rotterdam", "#Weather"],

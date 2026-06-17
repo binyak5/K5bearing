@@ -17,7 +17,7 @@ FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 TIMEOUT = 20
 
 HEAT_VARIANTS = [
-    "Dangerous heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and check on anyone living or working outdoors.",
+    "Severe heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and check on anyone living or working outdoors.",
     "Brutal heat has settled over {name}, {temp}°C and feeling like {feels}°C. Keep outdoor time to the early hours, stay hydrated, and watch closely for heat stress.",
 ]
 
