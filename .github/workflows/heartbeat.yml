@@ -1,0 +1,67 @@
+name: K5Bearing heartbeat
+
+# Daily safety net: if the bot hasn't posted in 24h, open an issue that
+# @-mentions the owner, which GitHub emails to them. Catches a dead trigger
+# (cron-job.org down) or a stuck pipeline. No secrets required.
+#
+# Note: this uses GitHub's scheduled cron, which is best-effort — it may run a
+# little late, but an enabled scheduled workflow does fire ~daily.
+on:
+  schedule:
+    - cron: "0 9 * * *"       # ~09:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for silence
+        id: check
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          try:
+              data = json.load(open("state.json"))
+          except Exception:
+              data = {}
+          stamps = []
+          for v in (data.get("posted") or {}).values():
+              try:
+                  stamps.append(datetime.fromisoformat(v))
+              except Exception:
+                  pass
+          last = max(stamps) if stamps else None
+          now = datetime.now(timezone.utc)
+          if last is None:
+              silent, hours, last_s = True, "an unknown number of", "never"
+          else:
+              h = (now - last).total_seconds() / 3600
+              silent, hours, last_s = h > 24, f"{h:.0f}", last.strftime("%Y-%m-%d %H:%M UTC")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"silent={'true' if silent else 'false'}\n")
+              f.write(f"hours={hours}\n")
+              f.write(f"last={last_s}\n")
+          print(f"silent={silent} hours={hours} last={last_s}")
+          PY
+
+      - name: Open issue if silent
+        if: steps.check.outputs.silent == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          open_count=$(gh issue list --state open --search "K5Bearing silent in:title" --json number --jq 'length')
+          if [ "$open_count" = "0" ]; then
+            gh issue create \
+              --title "K5Bearing silent: no posts in ${{ steps.check.outputs.hours }}h" \
+              --body "@binyak5 the bot has not posted since ${{ steps.check.outputs.last }}. The trigger (cron-job.org) or the posting workflow may be down — check the Actions tab and cron-job.org. Close this issue once it is posting again."
+            echo "opened outage issue"
+          else
+            echo "outage issue already open; not duplicating"
+          fi
