@@ -34,13 +34,11 @@ WX = {
 }
 
 MORNING_VARIANTS = [
-    "Rotterdam this morning, it's {temp}°C with {cond}, on the way to a high of {high}°C and a low of {low}°C. Winds are {wdesc} near {wind} km/h.",
-    "Rotterdam this morning, it's {temp}°C with {cond} to start. The day reaches {high}°C and eases to {low}°C, with winds {wdesc} near {wind} km/h.",
+    "Rotterdam this morning, it's {temp}°C with {cond}. The day reaches {high}°C and eases to {low}°C, with winds {wdesc} near {wind} km/h.",
 ]
 
 EVENING_VARIANTS = [
     "Rotterdam this evening, {temp}°C with {cond}. Overnight settles to {low}°C, and tomorrow climbs to {high}°C with {cond_tmr}.",
-    "Evening over Rotterdam. {temp}°C with {cond} right now. Tonight dips to {low}°C, and tomorrow tops out at {high}°C with {cond_tmr}.",
 ]
 
 

@@ -130,7 +130,6 @@ def flare_signal(min_class: str = "M", max_age_hours: int = 6) -> Signal | None:
     article = "An" if letter in ("A", "M", "X") else "A"  # letter-name sound
     key = f"flare:{flare.get('max_time')}"
     leads = [
-        f"{article} {mclass} solar flare erupted, peaking at {hhmm} UTC.",
         f"The Sun fired off {article.lower()} {mclass} flare, peaking at {hhmm} UTC.",
     ]
     text = f"{pick(leads, key + ':l')} {impact}"

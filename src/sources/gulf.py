@@ -28,8 +28,7 @@ SHAMAL_VARIANTS = [
 ]
 
 WIND_VARIANTS = [
-    "Strong winds are raking {name} at {wind} km/h and gusting to {gust}. Expect blowing dust and reduced visibility. Secure loose objects and take care outdoors.",
-    "A strong blow has set in over {name}, winds at {wind} km/h and gusts to {gust}. Watch for flying dust and poor visibility, and tie down anything loose.",
+    "A strong blow has set in over {name}, winds at {wind} km/h and gusts to {gust}. Expect blowing dust and reduced visibility. Secure loose objects and take care outdoors.",
 ]
 
 

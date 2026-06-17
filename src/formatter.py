@@ -85,7 +85,7 @@ def _fit(prefix: str, text: str) -> str:
     return out
 
 
-_CRITICAL_CLOSE = " Act now, do not wait."
+_CRITICAL_CLOSE = " Act now, don't wait."
 
 
 def _apply_tier(text: str, tier: str) -> str:

@@ -34,14 +34,12 @@ STATIONS = [
 
 # Fired by a Pseudo-nitzschia cell-count bloom.
 CELL_VARIANTS = [
-    "A toxic algal bloom is flaring off {name}, Pseudo-nitzschia surging to {cells} cells per litre. These blooms carry domoic acid. Steer clear of discolored water, leave the shellfish alone, and keep pets off the beach.",
     "A harmful bloom is taking hold off {name}, Pseudo-nitzschia running to {cells} cells per litre. The water can turn toxic with domoic acid. Avoid discolored patches and do not harvest shellfish until it clears.",
 ]
 
 # Fired by a domoic acid spike.
 DA_VARIANTS = [
     "Domoic acid is spiking off {name}, the bloom toxin climbing to {da} ng/mL. Do not harvest or eat local shellfish, and keep well clear of any discolored water.",
-    "A toxic bloom is poisoning the water off {name}, domoic acid measured at {da} ng/mL. Leave shellfish alone and stay out of discolored water until levels drop.",
 ]
 
 

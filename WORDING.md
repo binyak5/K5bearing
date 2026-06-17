@@ -5,7 +5,7 @@ Every phrasing the bot can post. {curly braces} are filled in at post time. One 
 **Regions:** USA, Europe, Gulf states. **Prefix:** 24-hour local time, e.g. `16:33 CEST:`. **No hashtags.**
 
 **Voice tiers** — every alert is tiered by the *kind* of event, giving the feed dynamic range:
-- 🔴 **Critical** (life-threatening): the body ends with **"Act now, do not wait."** Applies to tornado, hurricane, tsunami, storm-surge, extreme/hurricane-force wind, flash flood, and fire warnings; red-level GDACS volcano/wildfire; M7+ or tsunami-flagged quakes; hurricane-force winds and phenomenal seas at sea; launch / mine / live-fire maritime hazards; red (extreme) European warnings.
+- 🔴 **Critical** (life-threatening): the body ends with **"Act now, don't wait."** Applies to tornado, hurricane, tsunami, storm-surge, extreme/hurricane-force wind, flash flood, and fire warnings; red-level GDACS volcano/wildfire; M7+ or tsunami-flagged quakes; hurricane-force winds and phenomenal seas at sea; launch / mine / live-fire maritime hazards; red (extreme) European warnings.
 - 🟠 **Serious** (default): posts exactly as written below.
 - 🟡 **Advisory** (low-stakes): the body is softened with a **"Heads up,"** lead. Applies to anything ending in "Advisory", the small-craft roundup, aurora, extreme-UV, and wildfire-smoke air quality.
 
@@ -33,8 +33,7 @@ _Kp 7+:_
 
 ## Space weather — solar flare
 _Lead:_
-1. {article} {class} solar flare erupted, peaking at {time} UTC.
-2. The Sun fired off {article} {class} flare, peaking at {time} UTC.
+1. The Sun fired off {article} {class} flare, peaking at {time} UTC.
 
 _Impact:_
 - M-class: Flares this strong can cause brief HF (shortwave) radio blackouts on the daylit side of Earth.
@@ -354,12 +353,10 @@ _{cat} is Gale-force, Storm-force, or Hurricane-force depending on speed._
 
 ## Marine — harmful algal bloom / red tide (CalHABMAP, US Pacific coast)
 _Cell-count bloom:_
-1. A toxic algal bloom is flaring off {name}, Pseudo-nitzschia surging to {cells} cells per litre. These blooms carry domoic acid. Steer clear of discolored water, leave the shellfish alone, and keep pets off the beach.
-2. A harmful bloom is taking hold off {name}, Pseudo-nitzschia running to {cells} cells per litre. The water can turn toxic with domoic acid. Avoid discolored patches and do not harvest shellfish until it clears.
+1. A harmful bloom is taking hold off {name}, Pseudo-nitzschia running to {cells} cells per litre. The water can turn toxic with domoic acid. Avoid discolored patches and do not harvest shellfish until it clears.
 
 _Domoic-acid spike:_
 1. Domoic acid is spiking off {name}, the bloom toxin climbing to {da} ng/mL. Do not harvest or eat local shellfish, and keep well clear of any discolored water.
-2. A toxic bloom is poisoning the water off {name}, domoic acid measured at {da} ng/mL. Leave shellfish alone and stay out of discolored water until levels drop.
 
 ---
 
@@ -428,8 +425,7 @@ _Shamal:_
 2. Strong shamal winds are raking {name} at {wind} km/h, gusting to {gust}. Dust will cut visibility and rattle anything loose. Tie things down and drive with care.
 
 _Other strong winds:_
-1. Strong winds are raking {name} at {wind} km/h and gusting to {gust}. Expect blowing dust and reduced visibility. Secure loose objects and take care outdoors.
-2. A strong blow has set in over {name}, winds at {wind} km/h and gusts to {gust}. Watch for flying dust and poor visibility, and tie down anything loose.
+1. A strong blow has set in over {name}, winds at {wind} km/h and gusts to {gust}. Expect blowing dust and reduced visibility. Secure loose objects and take care outdoors.
 
 ---
 
@@ -437,10 +433,8 @@ _Other strong winds:_
 _Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
 
 _Morning:_
-1. Rotterdam this morning, it's {temp}°C with {cond}, on the way to a high of {high}°C and a low of {low}°C. Winds are {wdesc} near {wind} km/h.
-2. Rotterdam this morning, it's {temp}°C with {cond} to start. The day reaches {high}°C and eases to {low}°C, with winds {wdesc} near {wind} km/h.
+1. Rotterdam this morning, it's {temp}°C with {cond}. The day reaches {high}°C and eases to {low}°C, with winds {wdesc} near {wind} km/h.
 
 _Evening:_
 1. Rotterdam this evening, {temp}°C with {cond}. Overnight settles to {low}°C, and tomorrow climbs to {high}°C with {cond_tmr}.
-2. Evening over Rotterdam. {temp}°C with {cond} right now. Tonight dips to {low}°C, and tomorrow tops out at {high}°C with {cond_tmr}.
 
