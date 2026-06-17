@@ -80,3 +80,6 @@ class Signal:
     #   "advisory" -> low-stakes, softened with a "Heads up," lead
     #   anything else ("serious"/"critical") -> posts as written
     tier: str = "serious"
+    # Coarse subject ("flood", "wind", "heat"...) used to avoid posting the same
+    # topic twice in a row. Falls back to `category` when left blank.
+    topic: str = ""

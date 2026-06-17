@@ -30,6 +30,7 @@ class State:
         self._data.setdefault("daily", {})
         self._data.setdefault("monthly", {})
         self._data.setdefault("daily_cat", {})  # {date: {category: count}}
+        self._data.setdefault("last_topic", "")  # topic of the most recent post
 
     # --- dedup ---------------------------------------------------------
     def already_posted(self, key: str, ttl_hours: int) -> bool:
@@ -41,6 +42,13 @@ class State:
 
     def mark_posted(self, key: str) -> None:
         self._data["posted"][key] = _now().isoformat()
+
+    # --- last posted topic (avoid same subject back-to-back) -----------
+    def last_topic(self) -> str:
+        return self._data.get("last_topic", "")
+
+    def set_last_topic(self, topic: str) -> None:
+        self._data["last_topic"] = topic or ""
 
     # --- daily + monthly counters -------------------------------------
     def posts_today(self) -> int:

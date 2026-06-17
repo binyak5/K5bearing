@@ -157,40 +157,59 @@ def main() -> None:
     # Rank: most severe first.
     candidates.sort(key=lambda s: s.severity, reverse=True)
 
+    def topic_of(sig) -> str:
+        return sig.topic or sig.category
+
+    def eligible(sig) -> bool:
+        if state.already_posted(sig.dedup_key, ttl):
+            return False
+        # Per-category daily cap: keep one noisy source (e.g. maritime on a busy
+        # day) from eating the whole budget.
+        cap = cat_caps.get(sig.category)
+        if cap is not None and state.posts_today_in(sig.category) >= cap:
+            return False
+        # Content backstop: suppress anything that renders to the same words as a
+        # recent post even under a different dedup_key (cross-source dupes).
+        if state.already_posted(fingerprint(sig), ttl):
+            return False
+        return True
+
     posted = 0
-    for sig in candidates:
-        if posted >= max_run:
-            break
+    last_topic = state.last_topic()
+    remaining = list(candidates)
+    while posted < max_run:
         if state.posts_this_month() >= max_month:
             print("monthly post budget reached; stopping (cost cap).")
             break
         if state.posts_today() >= max_day:
             print("daily post budget reached; stopping.")
             break
-        if state.already_posted(sig.dedup_key, ttl):
-            continue
 
-        # Per-category daily cap: keep one noisy source (e.g. maritime on a busy
-        # day) from eating the whole budget. Skip to the next-best candidate
-        # from another category instead.
-        cap = cat_caps.get(sig.category)
-        if cap is not None and state.posts_today_in(sig.category) >= cap:
-            continue
+        # Pick the most severe eligible signal whose topic differs from the last
+        # post. Critical alerts may repeat a topic; otherwise a same-topic signal
+        # is only used as a fallback when nothing else is available this run.
+        choice = None
+        fallback = None
+        for sig in remaining:
+            if not eligible(sig):
+                continue
+            if topic_of(sig) == last_topic and sig.tier != "critical":
+                fallback = fallback or sig
+                continue
+            choice = sig
+            break
+        choice = choice or fallback
+        if choice is None:
+            break
 
-        # Content backstop: suppress anything that renders to the same words as
-        # a recent post, even if it arrived under a different dedup_key (e.g.
-        # the same event from two sources). Catches the cross-source dupes that
-        # key-based dedup alone can miss.
-        fp = fingerprint(sig)
-        if state.already_posted(fp, ttl):
-            continue
-
-        text = render(sig)
-        if poster.post(text):
-            state.mark_posted(sig.dedup_key)
-            state.mark_posted(fp)
-            state.increment_today(sig.category)
+        if poster.post(render(choice)):
+            state.mark_posted(choice.dedup_key)
+            state.mark_posted(fingerprint(choice))
+            state.increment_today(choice.category)
+            last_topic = topic_of(choice)
+            state.set_last_topic(last_topic)
             posted += 1
+        remaining.remove(choice)
 
     if posted == 0:
         print("no new signals to post.")

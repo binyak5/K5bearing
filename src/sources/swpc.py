@@ -208,12 +208,23 @@ def _alert_headline(message: str) -> str:
     return ""
 
 
-def solar_signals(watch_prefixes: list[str]) -> list[Signal]:
+def _parse_issue(s: str) -> datetime | None:
+    """SWPC issue_datetime like '2026-06-17 14:20:00.000' (UTC, no tz)."""
+    for fmt in ("%Y-%m-%d %H:%M:%S.%f", "%Y-%m-%d %H:%M:%S"):
+        try:
+            return datetime.strptime(s.strip(), fmt).replace(tzinfo=timezone.utc)
+        except (ValueError, AttributeError):
+            continue
+    return None
+
+
+def solar_signals(watch_prefixes: list[str], max_age_hours: int = 24) -> list[Signal]:
     try:
         rows = _get_json(ALERTS_URL)
     except (requests.RequestException, ValueError):
         return []
 
+    now = datetime.now(timezone.utc)
     signals: list[Signal] = []
     # Newest first; only consider the most recent handful.
     for entry in rows[:25]:
@@ -225,6 +236,10 @@ def solar_signals(watch_prefixes: list[str]) -> list[Signal]:
         if not headline:
             continue
         issued = (entry.get("issue_datetime") or "").strip()
+        # Freshness: skip alerts issued more than max_age_hours ago.
+        issued_dt = _parse_issue(issued)
+        if issued_dt is not None and (now - issued_dt) > timedelta(hours=max_age_hours):
+            continue
         text = f"Space weather alert: {headline[:210]}"
         signals.append(
             Signal(

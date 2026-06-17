@@ -79,6 +79,14 @@ def hab_signals(cell_threshold: float, da_threshold: float, lookback_days: int =
         if best is None:
             return None
         t, cells, da = best
+        # Freshness: only post if the qualifying reading is recent (last ~36h),
+        # not an old bloom from earlier in the lookback window.
+        try:
+            reading_dt = datetime.fromisoformat((t or "").replace("Z", "+00:00"))
+            if datetime.now(timezone.utc) - reading_dt > timedelta(hours=36):
+                return None
+        except (ValueError, TypeError):
+            return None
         day = (t or "")[:10]
         key = f"hab:{dataset}:{day}"
         # Lead with whichever signal is the stronger driver of the alert.

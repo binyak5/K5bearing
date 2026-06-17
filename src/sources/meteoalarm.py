@@ -7,6 +7,7 @@ Severity is standardized: Moderate (yellow), Severe (orange), Extreme (red).
 from __future__ import annotations
 
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
 
 import requests
 
@@ -100,6 +101,27 @@ def _text(entry: ET.Element, tag: str) -> str:
     return (el.text or "").strip() if el is not None and el.text else ""
 
 
+# MeteoAlarm hazard token -> coarse topic (shared vocab with the US _topic).
+_EU_TOPIC = {
+    "thunder": "thunderstorm", "wind": "wind", "avalanche": "avalanche",
+    "snow": "winter", "ice": "winter", "flood": "flood", "forest": "fire",
+    "fire": "fire", "coast": "flood", "rain": "flood", "fog": "fog",
+    "high-temp": "heat", "heat": "heat", "low-temp": "cold", "cold": "cold",
+    "temperature": "temperature",
+}
+
+
+def _eu_topic(token: str) -> str:
+    return _EU_TOPIC.get(token, "weather")
+
+
+def _parse_dt(s: str):
+    try:
+        return datetime.fromisoformat(s)
+    except (ValueError, TypeError):
+        return None
+
+
 def _country_signals(country: str, min_rank: int) -> list[Signal]:
     url = FEED_BASE + country
     try:
@@ -113,10 +135,20 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
     # (hazard token, severity). Keying on the normalized token (not the raw
     # event string, which varies by region) prevents the same event posting
     # twice with different wording.
+    now = datetime.now(timezone.utc)
+    today = now.date()
     groups: dict[tuple[str, str], dict] = {}
     for entry in root.findall("a:entry", NS):
         severity = _text(entry, "severity")
         if SEVERITY_RANK.get(severity, 0) < min_rank:
+            continue
+        # Freshness: only warnings in effect today. Drop expired ones and ones
+        # that don't start until a future day.
+        onset = _parse_dt(_text(entry, "onset") or _text(entry, "effective"))
+        expires = _parse_dt(_text(entry, "expires"))
+        if expires is not None and expires < now:
+            continue
+        if onset is not None and onset.date() > today:
             continue
         event = _text(entry, "event") or "Weather warning"
         token, actions = _classify(event)
@@ -150,6 +182,7 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
                 hashtags=["#WeatherAlert", tag],
                 tz=zone,
                 tier=tier,
+                topic=_eu_topic(token),
             )
         )
     return signals

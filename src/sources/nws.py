@@ -310,6 +310,40 @@ def _tier(event: str) -> str:
         return "advisory"
     return "serious"
 
+
+def _topic(event: str) -> str:
+    """Coarse subject for the no-repeat-in-a-row rule (shared vocab with EU)."""
+    e = event.lower()
+    if "tornado" in e:
+        return "tornado"
+    if "tsunami" in e:
+        return "tsunami"
+    if "flood" in e or "surge" in e:
+        return "flood"
+    if "hurricane" in e or "tropical" in e:
+        return "tropical"
+    if "thunderstorm" in e:
+        return "thunderstorm"
+    if "fire" in e or "red flag" in e:
+        return "fire"
+    if "snow" in e or "blizzard" in e or "ice" in e or "winter" in e or "freez" in e:
+        return "winter"
+    if "heat" in e:
+        return "heat"
+    if "cold" in e or "chill" in e:
+        return "cold"
+    if "dust" in e:
+        return "dust"
+    if "avalanche" in e:
+        return "avalanche"
+    if "fog" in e:
+        return "fog"
+    if "air quality" in e:
+        return "air"
+    if any(w in e for w in ("surf", "rip current", "seas", "marine", "spray", "gale", "storm", "wind")):
+        return "marine" if any(w in e for w in ("surf", "rip", "seas", "marine", "spray", "gale")) else "wind"
+    return "weather"
+
 # Small Craft Advisories are extremely common; collapse them all into one
 # low-priority roundup per run rather than flooding the feed with each zone.
 SCA_ROUNDUP = [
@@ -387,6 +421,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 hashtags=[TAGS.get(event, "#Weather"), "#WeatherAlert"],
                 tz=zone,
                 tier=_tier(event),
+                topic=_topic(event),
             )
         )
 
@@ -403,6 +438,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 hashtags=["#Marine", "#WeatherAlert"],
                 tz=None,  # spans many zones -> UTC
                 tier="advisory",
+                topic="marine",
             )
         )
     return signals
