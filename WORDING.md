@@ -52,6 +52,7 @@ _Impact:_
 ---
 
 ## US weather (NWS) — openers
+`{where}` is " for {named areas} in the US" (the country is always stated; areas are named like the European warnings).
 1. {article} {event} is in effect{where}.
 2. {article} {event} has been issued{where}.
 3. {article} {event} is now active{where}.
@@ -254,8 +255,8 @@ _Impact:_
 2. Poor air quality is expected. Reduce outdoor activity and consider a mask if you are sensitive to pollution.
 
 ## US weather (NWS) — Small Craft Advisory roundup
-1. Small craft advisories are in effect across {n} coastal zones. Inexperienced mariners and small craft should stay in port until conditions ease.
-2. Small craft advisories cover {n} stretches of coastal water. Small craft should remain in harbour until conditions improve.
+1. Small craft advisories are in effect across {n} US coastal zones. Inexperienced mariners and small craft should stay in port until conditions ease.
+2. Small craft advisories cover {n} stretches of US coastal water. Small craft should remain in harbour until conditions improve.
 
 ---
 

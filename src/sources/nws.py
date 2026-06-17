@@ -356,8 +356,8 @@ def _topic(event: str) -> str:
 # Small Craft Advisories are extremely common; collapse them all into one
 # low-priority roundup per run rather than flooding the feed with each zone.
 SCA_ROUNDUP = [
-    "Small craft advisories are in effect across {n} coastal zones. Inexperienced mariners and small craft should stay in port until conditions ease.",
-    "Small craft advisories cover {n} stretches of coastal water. Small craft should remain in harbour until conditions improve.",
+    "Small craft advisories are in effect across {n} US coastal zones. Inexperienced mariners and small craft should stay in port until conditions ease.",
+    "Small craft advisories cover {n} stretches of US coastal water. Small craft should remain in harbour until conditions improve.",
 ]
 
 
@@ -421,7 +421,9 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         label = _area_label(area_desc)
         event_l = event.lower()
         article = "An" if event_l[:1] in "aeiou" else "A"
-        where = f" for {label}" if label else ""
+        # State the country (these are all US alerts); mirrors the European
+        # "... in {country}" pattern.
+        where = f" for {label} in the US" if label else " in the US"
         opener = pick(OPENERS, key + ":o").format(article=article, event=event_l, where=where)
         action = pick(ACTIONS.get(event, []), key + ":a")
         text = f"{opener} {action}".strip()

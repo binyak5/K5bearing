@@ -20,6 +20,19 @@ from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, m
 def collect(cfg: dict) -> list[Signal]:
     signals: list[Signal] = []
 
+    # Scheduled Rotterdam update first: it's the one post that must not be missed,
+    # so make its single Open-Meteo call before the run's heavy burst of calls
+    # (marine/outdoor/gulf) that can briefly rate-limit the API.
+    if cfg.get("city_weather", {}).get("enabled"):
+        cw = cfg["city_weather"]
+        signals.extend(
+            citywx.city_signals(
+                cw.get("locations", []),
+                cw.get("morning_hours", [7, 12]),
+                cw.get("evening_hours", [19, 24]),
+            )
+        )
+
     if cfg["geomagnetic"]["enabled"]:
         sig = swpc.geomagnetic_signal(cfg["geomagnetic"]["kp_alert_threshold"])
         if sig:
@@ -113,16 +126,6 @@ def collect(cfg: dict) -> list[Signal]:
                 gw.get("locations", []),
                 gw.get("heat_feels_c", 47),
                 gw.get("wind_gust_kmh", 55),
-            )
-        )
-
-    if cfg.get("city_weather", {}).get("enabled"):
-        cw = cfg["city_weather"]
-        signals.extend(
-            citywx.city_signals(
-                cw.get("locations", []),
-                cw.get("morning_hours", [7, 12]),
-                cw.get("evening_hours", [19, 24]),
             )
         )
 

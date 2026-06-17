@@ -8,6 +8,7 @@ The posting loop's dedup (keyed per city/date/slot) keeps it to once per slot.
 """
 from __future__ import annotations
 
+import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -72,24 +73,28 @@ def _slot(now: datetime, morning: list, evening: list) -> str | None:
 
 
 def _forecast(lat: float, lon: float, zone: str) -> dict | None:
-    try:
-        resp = requests.get(
-            FORECAST_URL,
-            headers={"User-Agent": USER_AGENT},
-            params={
-                "latitude": lat,
-                "longitude": lon,
-                "current": "temperature_2m,weather_code,wind_speed_10m",
-                "daily": "temperature_2m_max,temperature_2m_min,weather_code",
-                "timezone": zone,
-                "forecast_days": 2,
-            },
-            timeout=TIMEOUT,
-        )
-        resp.raise_for_status()
-        return resp.json()
-    except (requests.RequestException, ValueError):
-        return None
+    # This is the scheduled Rotterdam update, which must not be missed because of
+    # a transient hiccup (Open-Meteo can briefly rate-limit during a run's burst
+    # of calls). Retry a few times before giving up.
+    params = {
+        "latitude": lat,
+        "longitude": lon,
+        "current": "temperature_2m,weather_code,wind_speed_10m",
+        "daily": "temperature_2m_max,temperature_2m_min,weather_code",
+        "timezone": zone,
+        "forecast_days": 2,
+    }
+    for attempt in range(3):
+        try:
+            resp = requests.get(
+                FORECAST_URL, headers={"User-Agent": USER_AGENT}, params=params, timeout=TIMEOUT
+            )
+            resp.raise_for_status()
+            return resp.json()
+        except (requests.RequestException, ValueError):
+            if attempt < 2:
+                time.sleep(2)
+    return None
 
 
 def city_signals(locations: list[dict], morning: list, evening: list) -> list[Signal]:
