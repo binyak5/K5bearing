@@ -1,17 +1,17 @@
 {
   "daily": {
     "2026-06-15": 22,
-    "2026-06-17": 9
+    "2026-06-17": 10
   },
   "daily_cat": {
     "2026-06-17": {
       "maritime": 2,
-      "weather": 3,
+      "weather": 4,
       "weather_eu": 4
     }
   },
   "monthly": {
-    "2026-06": 31
+    "2026-06": 32
   },
   "posted": {
     "eu:poland:Orange Wind warning:Severe": "2026-06-15T17:33:30.835497+00:00",
@@ -28,6 +28,7 @@
     "fp:439d05510757d21a": "2026-06-17T14:42:12.282245+00:00",
     "fp:4c1312bfdc0d256d": "2026-06-17T13:42:08.302948+00:00",
     "fp:6b82073d2b5bef0f": "2026-06-17T14:02:33.658953+00:00",
+    "fp:6d398340d31f8ff1": "2026-06-17T15:42:07.320777+00:00",
     "fp:8cc33a6d58f19369": "2026-06-17T09:03:05.356735+00:00",
     "fp:c5cf9b81dc00d861": "2026-06-17T15:02:30.494962+00:00",
     "nga:12:2023:93": "2026-06-17T14:02:33.658932+00:00",
@@ -51,6 +52,7 @@
     "weather:Special Marine Warning:Flagler Beach to Volusia-Brevard County Line 0-20 nm": "2026-06-15T18:46:19.113742+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain": "2026-06-15T20:48:22.393677+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain; Mississippi Sound; Lake Borgne": "2026-06-15T19:07:38.560502+00:00",
-    "weather:Special Marine Warning:S of Ocracoke Inlet NC to Cape Lookout NC out to 20 NM": "2026-06-15T18:16:39.036101+00:00"
+    "weather:Special Marine Warning:S of Ocracoke Inlet NC to Cape Lookout NC out to 20 NM": "2026-06-15T18:16:39.036101+00:00",
+    "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00"
   }
 }
