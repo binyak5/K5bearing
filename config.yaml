@@ -18,6 +18,7 @@ limits:
   # above max_posts_per_day on purpose: the daily cap stays the real ceiling,
   # these just keep the mix balanced on busy days.
   category_daily_caps:
+    cityweather: 2    # the scheduled Rotterdam update (morning + evening)
     weather: 8        # US NWS (the largest source)
     weather_eu: 4     # Europe MeteoAlarm
     maritime: 5       # NGA navigation warnings (can spike on a busy day)
@@ -83,6 +84,16 @@ earthquakes:
   enabled: true
   min_magnitude: 5.0     # lower bar since we're region-limited (Europe/Gulf quakes are smaller)
   max_age_hours: 6       # ignore quakes older than this on startup
+
+# Routine twice-daily city weather update (not an alert), Open-Meteo, in local
+# time and degrees Celsius. Fires once in the morning window and once in the
+# evening window per city per day.
+city_weather:
+  enabled: true
+  morning_hours: [7, 12]    # local-time window for the morning update [start, end)
+  evening_hours: [19, 24]   # local-time window for the evening update [start, end)
+  locations:
+    - {name: "Rotterdam", lat: 51.92, lon: 4.48, tz: "Europe/Amsterdam"}
 
 # Outdoor-safety watch (Open-Meteo): extreme UV, dust storms, wildfire-smoke
 # air quality, and violent thunderstorms. Only fires when a watched location

@@ -415,3 +415,16 @@ _"{hail}" becomes " and hail" or " and large hail" when hail is detected._
 1. Violent thunderstorms are erupting over {name}, packing dangerous lightning{hail}. Get indoors, stay off open ground and water, and unplug what you can.
 2. A strong thunderstorm is hammering {name} with frequent lightning{hail}. Seek solid shelter, keep clear of tall isolated objects, and wait it out.
 
+---
+
+## City weather update — Rotterdam (scheduled, not an alert)
+_Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
+
+_Morning:_
+1. Rotterdam, good morning. It is {temp}°C with {cond}, on the way to a high of {high}°C and a low of {low}°C. Winds are {wdesc} near {wind} km/h.
+2. Morning over Rotterdam. {temp}°C to start with {cond}, the day reaching {high}°C and easing to {low}°C. Winds are {wdesc} near {wind} km/h.
+
+_Evening:_
+1. Rotterdam this evening, {temp}°C with {cond}. Overnight settles to {low}°C, and tomorrow climbs to {high}°C with {cond_tmr}.
+2. Evening over Rotterdam. {temp}°C with {cond} right now. Tonight dips to {low}°C, and tomorrow tops out at {high}°C with {cond_tmr}.
+

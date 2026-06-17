@@ -14,7 +14,7 @@ from .config import load_config
 from .state import State
 from .formatter import render, fingerprint
 from .poster import Poster
-from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, hab, Signal
+from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -103,6 +103,16 @@ def collect(cfg: dict) -> list[Signal]:
             usgs.quake_signals(
                 cfg["earthquakes"].get("min_magnitude", 6.0),
                 cfg["earthquakes"].get("max_age_hours", 6),
+            )
+        )
+
+    if cfg.get("city_weather", {}).get("enabled"):
+        cw = cfg["city_weather"]
+        signals.extend(
+            citywx.city_signals(
+                cw.get("locations", []),
+                cw.get("morning_hours", [7, 12]),
+                cw.get("evening_hours", [19, 24]),
             )
         )
 
