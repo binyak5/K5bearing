@@ -116,8 +116,8 @@ gulf_weather:
 # evening window per city per day.
 city_weather:
   enabled: true
-  morning_hours: [7, 12]    # local-time window for the morning update [start, end)
-  evening_hours: [19, 24]   # local-time window for the evening update [start, end)
+  morning_hours: [7, 8]     # local-time window for the morning update [start, end): 07:00-08:00
+  evening_hours: [19, 20]   # local-time window for the evening update [start, end): 19:00-20:00
   locations:
     - {name: "Rotterdam", lat: 51.92, lon: 4.48, tz: "Europe/Amsterdam"}
 
