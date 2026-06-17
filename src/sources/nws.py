@@ -4,11 +4,20 @@ Public GeoJSON API, no key required. Docs: https://www.weather.gov/documentation
 """
 from __future__ import annotations
 
+from datetime import datetime, timezone
+
 import requests
 
 from ..config import USER_AGENT
 from .. import tz
 from . import Signal, pick, region_list
+
+
+def _parse_dt(s: str):
+    try:
+        return datetime.fromisoformat(s)
+    except (ValueError, TypeError):
+        return None
 
 ALERTS_URL = "https://api.weather.gov/alerts/active"
 TIMEOUT = 20
@@ -375,6 +384,8 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         return []
 
     wanted = set(events)
+    now = datetime.now(timezone.utc)
+    today = now.date()
     signals: list[Signal] = []
     seen_keys: set[str] = set()
     sca_zones: set[str] = set()
@@ -383,6 +394,12 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         props = feat.get("properties", {})
         event = props.get("event", "")
         if event not in wanted:
+            continue
+
+        # Freshness: the active feed is already non-expired; also drop alerts
+        # that don't take effect until a future day (keep ones in effect today).
+        onset = _parse_dt(props.get("onset") or props.get("effective"))
+        if onset is not None and onset.astimezone(timezone.utc).date() > today:
             continue
 
         area_desc = props.get("areaDesc", "")
