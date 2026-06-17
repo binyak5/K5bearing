@@ -4,10 +4,7 @@ Every phrasing the bot can post. {curly braces} are filled in at post time. One 
 
 **Regions:** USA, Europe, Gulf states. **Prefix:** 24-hour local time, e.g. `16:33 CEST:`. **No hashtags.**
 
-**Voice tiers** — every alert is tiered by the *kind* of event, giving the feed dynamic range:
-- 🔴 **Critical** (life-threatening): the body ends with **"Act now, don't wait."** Applies to tornado, hurricane, tsunami, storm-surge, extreme/hurricane-force wind, flash flood, and fire warnings; red-level GDACS volcano/wildfire; M7+ or tsunami-flagged quakes; hurricane-force winds and phenomenal seas at sea; launch / mine / live-fire maritime hazards; red (extreme) European warnings.
-- 🟠 **Serious** (default): posts exactly as written below.
-- 🟡 **Advisory** (low-stakes): the body is softened with a **"Heads up,"** lead. Applies to anything ending in "Advisory", the small-craft roundup, aurora, extreme-UV, and wildfire-smoke air quality.
+**Voice** — most alerts post exactly as written below. Low-stakes ones are softened with a **"Heads up,"** lead: anything ending in "Advisory", the small-craft roundup, aurora, extreme-UV, and wildfire-smoke air quality. We inform; we don't issue commands.
 
 ---
 

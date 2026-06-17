@@ -88,16 +88,9 @@ def _fit(prefix: str, text: str) -> str:
     return out
 
 
-_CRITICAL_CLOSE = " Act now, don't wait."
-
-
 def _apply_tier(text: str, tier: str) -> str:
-    """Give the body dynamic range by tier: a hard call-to-action on the most
-    severe alerts, a calmer lead on low-stakes ones, default left alone."""
-    if tier == "critical":
-        if not text.rstrip().endswith(_CRITICAL_CLOSE.strip()):
-            return text.rstrip() + _CRITICAL_CLOSE
-        return text
+    """Soften low-stakes ('advisory') alerts with a calmer lead. Everything else
+    posts as written — we inform, we don't issue commands."""
     if tier == "advisory":
         first = text.split(" ", 1)[0]
         # Lowercase the first word ("A"/"An"/"The"/normal words) but leave
