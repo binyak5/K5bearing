@@ -154,6 +154,7 @@ def main() -> None:
     max_day = cfg["limits"]["max_posts_per_day"]
     max_month = cfg["limits"].get("max_posts_per_month", 500)
     cat_caps = cfg["limits"].get("category_daily_caps", {})  # {category: max/day}
+    min_gap = cfg["limits"].get("min_minutes_between_posts", 0)
 
     candidates = collect(cfg)
 
@@ -191,6 +192,11 @@ def main() -> None:
     def exempt(sig) -> bool:
         return sig.category == "cityweather"
 
+    # Spacing: hold routine posts to at least min_gap minutes apart so the feed
+    # is evenly paced and the daily budget lasts. The scheduled Rotterdam update
+    # ignores this (it posts in its window regardless).
+    gap_ok = state.minutes_since_last_post() >= min_gap
+
     posted = 0
     last_topic = state.last_topic()
     remaining = list(candidates)
@@ -201,11 +207,12 @@ def main() -> None:
         # Pick the most severe eligible signal whose topic differs from the last
         # post. Critical alerts may repeat a topic; otherwise a same-topic signal
         # is only used as a fallback when nothing else is available this run.
-        # When the budget is full, only exempt (scheduled) posts may still go.
+        # Non-exempt posts must clear the budget and the minimum spacing gap;
+        # the scheduled Rotterdam update is exempt from both.
         choice = None
         fallback = None
         for sig in remaining:
-            if (day_full or month_full) and not exempt(sig):
+            if not exempt(sig) and (day_full or month_full or not gap_ok):
                 continue
             if not eligible(sig):
                 continue
@@ -224,6 +231,7 @@ def main() -> None:
             state.mark_posted(choice.dedup_key)
             state.mark_posted(fingerprint(choice))
             state.increment_today(choice.category)
+            state.mark_post_time()
             last_topic = topic_of(choice)
             state.set_last_topic(last_topic)
             posted += 1

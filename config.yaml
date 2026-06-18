@@ -13,6 +13,11 @@ limits:
   max_posts_per_run: 1   # one post per run; most severe candidate goes first
   max_posts_per_day: 44
   max_posts_per_month: 1320  # hard cost cap (~$19.80/month at $0.015/post)
+  # Minimum minutes between posts. The trigger fires every ~20 min, but the bot
+  # waits at least this long between posts, spacing the feed evenly across the
+  # day instead of burning the budget early. The scheduled Rotterdam update is
+  # exempt. (With a 20-min trigger, 35 here yields ~40-min real spacing.)
+  min_minutes_between_posts: 35
   # Per-category daily caps so one noisy source can't eat the whole budget.
   # When a category is maxed, the next-best candidate from another category
   # posts instead. Categories not listed here are uncapped. The sum is well

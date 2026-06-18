@@ -31,6 +31,7 @@ class State:
         self._data.setdefault("monthly", {})
         self._data.setdefault("daily_cat", {})  # {date: {category: count}}
         self._data.setdefault("last_topic", "")  # topic of the most recent post
+        self._data.setdefault("last_post_at", "")  # timestamp of the most recent post
 
     # --- dedup ---------------------------------------------------------
     def already_posted(self, key: str, ttl_hours: int) -> bool:
@@ -49,6 +50,19 @@ class State:
 
     def set_last_topic(self, topic: str) -> None:
         self._data["last_topic"] = topic or ""
+
+    # --- spacing between posts ----------------------------------------
+    def minutes_since_last_post(self) -> float:
+        ts = self._data.get("last_post_at")
+        if not ts:
+            return float("inf")
+        try:
+            return (_now() - datetime.fromisoformat(ts)).total_seconds() / 60
+        except (ValueError, TypeError):
+            return float("inf")
+
+    def mark_post_time(self) -> None:
+        self._data["last_post_at"] = _now().isoformat()
 
     # --- daily + monthly counters -------------------------------------
     def posts_today(self) -> int:
