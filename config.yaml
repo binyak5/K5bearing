@@ -19,21 +19,22 @@ limits:
   # run -> an even 40 minutes apart, with no jitter skips (a 20-min run is always
   # under the gap, a 40-min run always over). The Rotterdam update is exempt.
   min_minutes_between_posts: 30
-  # Per-category daily caps so one noisy source can't eat the whole budget.
-  # When a category is maxed, the next-best candidate from another category
-  # posts instead. Categories not listed here are uncapped. The sum is well
-  # above max_posts_per_day on purpose: the daily cap stays the real ceiling,
-  # these just keep the mix balanced on busy days.
+  # Per-category daily caps so no single source dominates the whole feed. These
+  # are generous on purpose: the daily cap (44), the 40-min spacing, and the
+  # no-same-topic-in-a-row rule are the real balancers. The caps just stop one
+  # category taking ALL the slots. They must sum well above max_posts_per_day,
+  # or the feed starves (goes silent) once the active sources hit their caps
+  # even though budget remains. Categories not listed are uncapped.
   category_daily_caps:
     cityweather: 2    # the scheduled Rotterdam update (morning + evening)
-    gulf: 4           # Gulf-state heat / shamal-wind alerts
-    weather: 8        # US NWS (the largest source)
-    weather_eu: 4     # Europe MeteoAlarm
-    maritime: 5       # NGA navigation warnings (can spike on a busy day)
-    marine: 5         # sea-state, swell, wind, fog, surf
-    outdoor: 4        # UV, dust, smoke, lightning
-    earthquake: 3
-    global: 2         # GDACS volcanoes / wildfires
+    gulf: 6           # Gulf-state heat / shamal-wind alerts
+    weather: 18       # US NWS (by far the largest, most active source)
+    weather_eu: 8     # Europe MeteoAlarm
+    maritime: 8       # NGA navigation warnings (can spike on a busy day)
+    marine: 8         # sea-state, swell, wind, fog, surf
+    outdoor: 6        # UV, dust, smoke, lightning
+    earthquake: 4
+    global: 3         # GDACS volcanoes / wildfires
     hab: 2            # red tide
     geomagnetic: 3
     aurora: 2
