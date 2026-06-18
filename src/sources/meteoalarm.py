@@ -32,7 +32,7 @@ SEVERITY_COLOR = {"Moderate": "Yellow", "Severe": "Orange", "Extreme": "Red"}
 
 # How the warning is announced; one is picked per alert for variety.
 OPENERS = [
-    "{article} {color} {hazard} warning is in effect for {label}{where}.",
+    "{article} {color} {hazard} warning is active for {label}{where}.",
     "{article} {color} {hazard} warning has been issued for {label}{where}.",
     "{article} {color} {hazard} warning is now active for {label}{where}.",
 ]

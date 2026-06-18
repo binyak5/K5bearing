@@ -53,7 +53,7 @@ _Impact:_
 
 ## US weather (NWS) — openers
 `{where}` is " for {named areas} in the US" (the country is always stated; areas are named like the European warnings).
-1. {article} {event} is in effect{where}.
+1. {article} {event} is active{where}.
 2. {article} {event} has been issued{where}.
 3. {article} {event} is now active{where}.
 
@@ -262,7 +262,7 @@ _Impact:_
 
 ## Europe (MeteoAlarm)
 Openers (colour + named region(s) + country). `{label}` names the affected regions (as many as fit, then "and N other areas" for the rest) and `{where}` is " in {country}". If the feed gives no region name, `{label}` falls back to the country and `{where}` is empty.
-1. {article} {color} {hazard} warning is in effect for {label}{where}.
+1. {article} {color} {hazard} warning is active for {label}{where}.
 2. {article} {color} {hazard} warning has been issued for {label}{where}.
 3. {article} {color} {hazard} warning is now active for {label}{where}.
 
@@ -301,7 +301,7 @@ European-only hazards keep their own lines:
 ---
 
 ## GDACS — volcanoes & wildfires (region-filtered)
-1. {article} {alert} alert is in effect for {name}{loc}{detail}.
+1. {article} {alert} alert is active for {name}{loc}{detail}.
 2. {article} {alert} alert has been issued for {name}{loc}{detail}.
 3. {article} {alert} alert is now active for {name}{loc}{detail}.
 

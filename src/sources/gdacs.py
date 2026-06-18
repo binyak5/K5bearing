@@ -22,7 +22,7 @@ ALERT_WEIGHT = {"Orange": 72, "Red": 92}
 
 # How the alert is announced; one is picked per event for variety.
 OPENERS = [
-    "{article} {alert} alert is in effect for {name}{loc}{detail}.",
+    "{article} {alert} alert is active for {name}{loc}{detail}.",
     "{article} {alert} alert has been issued for {name}{loc}{detail}.",
     "{article} {alert} alert is now active for {name}{loc}{detail}.",
 ]

@@ -27,7 +27,7 @@ SEVERITY_WEIGHT = {"Extreme": 90, "Severe": 75, "Moderate": 55, "Minor": 40}
 
 # How the alert is announced; one is picked per alert for variety.
 OPENERS = [
-    "{article} {event} is in effect{where}.",
+    "{article} {event} is active{where}.",
     "{article} {event} has been issued{where}.",
     "{article} {event} is now active{where}.",
 ]
