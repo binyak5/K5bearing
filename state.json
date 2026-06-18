@@ -1,7 +1,7 @@
 {
   "daily": {
     "2026-06-17": 21,
-    "2026-06-18": 3
+    "2026-06-18": 4
   },
   "daily_cat": {
     "2026-06-17": {
@@ -11,12 +11,12 @@
       "weather_eu": 4
     },
     "2026-06-18": {
-      "weather": 3
+      "weather": 4
     }
   },
   "last_topic": "tornado",
   "monthly": {
-    "2026-06": 46
+    "2026-06": 47
   },
   "posted": {
     "dust:Kuwait City:2026-06-17": "2026-06-17T18:42:02.244478+00:00",
@@ -51,6 +51,7 @@
     "fp:d5acbac048f158ca": "2026-06-17T19:22:07.576175+00:00",
     "fp:d770f0ee91f64b1f": "2026-06-17T18:22:09.548869+00:00",
     "fp:d7ed2091b019680f": "2026-06-17T17:02:54.166408+00:00",
+    "fp:e58c2fdd72bd04dc": "2026-06-18T01:02:26.932518+00:00",
     "fp:fcb11816ac6f2036": "2026-06-17T18:42:02.244531+00:00",
     "nga:12:2023:93": "2026-06-17T14:02:33.658932+00:00",
     "nga:A:2022:789": "2026-06-15T17:17:39.867133+00:00",
@@ -84,6 +85,7 @@
     "weather:Special Marine Warning:S of Ocracoke Inlet NC to Cape Lookout NC out to 20 NM": "2026-06-15T18:16:39.036101+00:00",
     "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00",
     "weather:Tornado Warning:Clay, IN; Parke, IN; Putnam, IN; Vigo, IN": "2026-06-18T00:21:56.760600+00:00",
-    "weather:Tornado Warning:Clay, IN; Vigo, IN": "2026-06-18T00:41:56.190607+00:00"
+    "weather:Tornado Warning:Clay, IN; Vigo, IN": "2026-06-18T00:41:56.190607+00:00",
+    "weather:Tornado Warning:Cumberland, IL; Effingham, IL; Jasper, IL; Shelby, IL": "2026-06-18T01:02:26.932451+00:00"
   }
 }
