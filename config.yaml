@@ -13,12 +13,12 @@ limits:
   max_posts_per_run: 1   # one post per run; most severe candidate goes first
   max_posts_per_day: 44
   max_posts_per_month: 1320  # hard cost cap (~$19.80/month at $0.015/post)
-  # Minimum minutes between posts — a safety backstop only. The cron-job.org
-  # trigger now fires every 35 min and is the real pacing control; this just
-  # prevents a double-post if the trigger ever fires twice in quick succession.
-  # Keep it well below the trigger interval so it never skips a legitimate run.
-  # The scheduled Rotterdam update is exempt.
-  min_minutes_between_posts: 20
+  # Minimum minutes between posts. This is what actually paces the feed (cron
+  # can't express "every 40 min" since 40 doesn't divide 60). With cron-job.org
+  # firing every 20 min, a 30-min gap here means the bot posts on every OTHER
+  # run -> an even 40 minutes apart, with no jitter skips (a 20-min run is always
+  # under the gap, a 40-min run always over). The Rotterdam update is exempt.
+  min_minutes_between_posts: 30
   # Per-category daily caps so one noisy source can't eat the whole budget.
   # When a category is maxed, the next-best candidate from another category
   # posts instead. Categories not listed here are uncapped. The sum is well
