@@ -28,7 +28,7 @@ limits:
   category_daily_caps:
     cityweather: 2    # the scheduled Rotterdam update (morning + evening)
     gulf: 6           # Gulf-state heat / shamal-wind alerts
-    weather: 18       # US NWS (by far the largest, most active source)
+    weather: 13       # US NWS — capped to ~35% of a full day's feed for regional balance
     weather_eu: 8     # Europe MeteoAlarm
     maritime: 8       # NGA navigation warnings (can spike on a busy day)
     marine: 8         # sea-state, swell, wind, fog, surf
