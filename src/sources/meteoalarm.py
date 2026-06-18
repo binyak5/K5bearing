@@ -85,12 +85,18 @@ def _classify(event: str) -> tuple[str, list[str]]:
 
 
 def _hazard(event: str) -> str:
-    """Strip leading colour/severity words and trailing 'warning' to a clean noun."""
+    """Reduce a MeteoAlarm event to a clean hazard noun, so openers read
+    consistently as '{colour} {hazard} warning' (e.g. 'orange heatwave warning').
+    Handles both 'Heatwave warning' and Belgium-style 'warning for heatwave'.
+    """
     words = event.split()
     drop = {"yellow", "orange", "red", "moderate", "severe", "extreme"}
     words = [w for w in words if w.lower() not in drop]
     if words and words[-1].lower() == "warning":
         words = words[:-1]
+    # Strip a leading "warning for"/"warning of" phrasing -> just the hazard.
+    if len(words) >= 2 and words[0].lower() == "warning" and words[1].lower() in ("for", "of"):
+        words = words[2:]
     return " ".join(words).lower() or "weather"
 
 
