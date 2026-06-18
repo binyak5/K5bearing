@@ -205,7 +205,7 @@ def main() -> None:
         month_full = state.posts_this_month() >= max_month
 
         # Pick the most severe eligible signal whose topic differs from the last
-        # post. No topic repeats back-to-back (even critical); a same-topic signal
+        # post. Critical alerts may repeat a topic; otherwise a same-topic signal
         # is only used as a fallback when nothing else is available this run.
         # Non-exempt posts must clear the budget and the minimum spacing gap;
         # the scheduled Rotterdam update is exempt from both.
@@ -216,7 +216,7 @@ def main() -> None:
                 continue
             if not eligible(sig):
                 continue
-            if topic_of(sig) == last_topic:
+            if topic_of(sig) == last_topic and sig.tier != "critical":
                 fallback = fallback or sig
                 continue
             choice = sig

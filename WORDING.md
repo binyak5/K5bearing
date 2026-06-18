@@ -6,7 +6,7 @@ Every phrasing the bot can post. {curly braces} are filled in at post time. One 
 
 **Voice** — most alerts post exactly as written below. Low-stakes ones are softened with a **"Heads up,"** lead: anything ending in "Advisory", the small-craft roundup, aurora, extreme-UV, and wildfire-smoke air quality. We inform; we don't issue commands.
 
-**Freshness** — only alerts current *today* are posted (expired or future-day European warnings, stale red-tide readings, and old space-weather alerts are dropped). **No repeats** — the feed won't post the same topic (flood, wind, heat…) twice in a row, even for different places (and even for critical alerts) — unless nothing else is available to post that run.
+**Freshness** — only alerts current *today* are posted (expired or future-day European warnings, stale red-tide readings, and old space-weather alerts are dropped). **No repeats** — the feed won't post the same topic (flood, wind, heat…) twice in a row, even for different places, unless it's a critical alert or nothing else is available.
 
 ---
 
