@@ -185,23 +185,28 @@ def main() -> None:
             return False
         return True
 
+    # The scheduled Rotterdam update is exempt from the budget caps: it's a
+    # fixed, tiny number of posts a day and must never be dropped just because
+    # routine alerts used up the daily budget earlier.
+    def exempt(sig) -> bool:
+        return sig.category == "cityweather"
+
     posted = 0
     last_topic = state.last_topic()
     remaining = list(candidates)
     while posted < max_run:
-        if state.posts_this_month() >= max_month:
-            print("monthly post budget reached; stopping (cost cap).")
-            break
-        if state.posts_today() >= max_day:
-            print("daily post budget reached; stopping.")
-            break
+        day_full = state.posts_today() >= max_day
+        month_full = state.posts_this_month() >= max_month
 
         # Pick the most severe eligible signal whose topic differs from the last
         # post. Critical alerts may repeat a topic; otherwise a same-topic signal
         # is only used as a fallback when nothing else is available this run.
+        # When the budget is full, only exempt (scheduled) posts may still go.
         choice = None
         fallback = None
         for sig in remaining:
+            if (day_full or month_full) and not exempt(sig):
+                continue
             if not eligible(sig):
                 continue
             if topic_of(sig) == last_topic and sig.tier != "critical":
@@ -211,6 +216,8 @@ def main() -> None:
             break
         choice = choice or fallback
         if choice is None:
+            if day_full:
+                print("daily post budget reached (only scheduled posts allowed).")
             break
 
         if poster.post(render(choice)):
