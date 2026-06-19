@@ -1,0 +1,22 @@
+name: tests
+
+# Run the unit suite on every code push and PR. The posting workflow commits
+# state.json with "[skip ci]", so those routine commits never trigger this.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest

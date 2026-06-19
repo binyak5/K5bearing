@@ -1,0 +1,80 @@
+"""Pure (non-network) helpers in the source modules."""
+from src.sources import nws, meteoalarm, nga, marine
+
+
+# --- nws._tier -----------------------------------------------------------
+def test_tier_critical_event():
+    assert nws._tier("Tornado Warning") == "critical"
+
+
+def test_tier_flash_flood_is_not_critical():
+    """We deliberately removed Flash Flood from CRITICAL_EVENTS so it can't
+    dominate the feed — guard against it sneaking back in."""
+    assert nws._tier("Flash Flood Warning") == "serious"
+
+
+def test_tier_advisory_suffix():
+    assert nws._tier("Heat Advisory") == "advisory"
+
+
+# --- nws._topic ----------------------------------------------------------
+def test_topic_mapping():
+    assert nws._topic("Flash Flood Warning") == "flood"
+    assert nws._topic("Tornado Warning") == "tornado"
+    assert nws._topic("Extreme Heat Warning") == "heat"
+    # Marine warnings map via the sea/wind keywords.
+    assert nws._topic("Gale Warning") == "marine"
+    assert nws._topic("High Surf Warning") == "marine"
+    # Small Craft Advisory has no marine keyword, so _topic returns "weather" —
+    # harmless, because the SCA roundup signal sets topic="marine" explicitly and
+    # individual SCAs are never routed through _topic.
+    assert nws._topic("Small Craft Advisory") == "weather"
+
+
+# --- nws.EVENT_FLOOR sanity (the pure-severity safety net) ---------------
+def test_event_floor_keeps_lifethreat_high():
+    for ev in ("Tornado Warning", "Hurricane Warning", "Storm Surge Warning"):
+        assert nws.EVENT_FLOOR[ev] >= 95
+    # Official marine warnings floored to match the modeled marine scale.
+    assert nws.EVENT_FLOOR["Gale Warning"] == 74
+    assert nws.EVENT_FLOOR["Hurricane Force Wind Warning"] == 95
+
+
+# --- meteoalarm._hazard / _classify / _eu_topic --------------------------
+def test_hazard_strips_colour_and_warning():
+    assert meteoalarm._hazard("Severe thunderstorm warning") == "thunderstorm"
+
+
+def test_hazard_handles_warning_for_phrasing():
+    assert meteoalarm._hazard("warning for heatwave") == "heatwave"
+
+
+def test_classify_maps_forest_to_fire_topic():
+    token, _actions = meteoalarm._classify("Forest fire warning")
+    assert token == "forest"
+    assert meteoalarm._eu_topic(token) == "fire"
+
+
+# --- nga._classify / _titlecase ------------------------------------------
+def test_nga_classify_buckets():
+    assert nga._classify("GPS JAMMING reported in the area") == "gps"
+    assert nga._classify("MINE DANGER AREA established") == "mine"
+    assert nga._classify("nothing relevant here") is None
+
+
+def test_nga_titlecase_keeps_small_words_lower():
+    assert nga._titlecase("BLACK SEA") == "Black Sea"
+    assert nga._titlecase("GULF OF OMAN") == "Gulf of Oman"
+
+
+# --- marine wave / wind categories + their weights -----------------------
+def test_marine_sea_categories_ordered():
+    assert marine._category(5.0) == ("High", 74)
+    assert marine._category(7.0) == ("Very high", 86)
+    assert marine._category(10.0) == ("Phenomenal", 95)
+
+
+def test_marine_wind_categories_ordered():
+    assert marine._wind_category(40)[1] == 74    # Gale-force
+    assert marine._wind_category(50)[1] == 86    # Storm-force
+    assert marine._wind_category(70)[1] == 95    # Hurricane-force
