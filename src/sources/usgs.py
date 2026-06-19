@@ -15,17 +15,13 @@ from .. import tz, region
 from . import Signal, pick
 
 LEADS = [
-    "A magnitude {mag} earthquake has struck {place}.",
     "A magnitude {mag} earthquake has hit {place}.",
-    "A magnitude {mag} earthquake was recorded {place}.",
 ]
 TSUNAMI_NOTES = [
     "Coastal areas near the epicentre should follow any tsunami warnings issued by local authorities.",
-    "A tsunami may follow, so coastal areas near the epicentre should heed local warnings.",
 ]
 AFTERSHOCK_NOTES = [
-    "Aftershocks are possible, so stay clear of damaged structures and be ready for further shaking.",
-    "Expect possible aftershocks, so keep away from weakened buildings and be ready for more shaking.",
+    "Expect possible aftershocks. Keep away from weakened buildings and be ready for further shaking.",
 ]
 
 # 4.5+ over the last day; we then filter by magnitude and recency ourselves.
@@ -67,7 +63,9 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
         signals.append(
             Signal(
                 category="earthquake",
-                severity=min(95, int(40 + mag * 8)),
+                # M5≈75, M6≈86, M7≈97 — keeps great quakes at the top without
+                # letting a minor M5 outrank serious severe-weather warnings.
+                severity=min(98, int(20 + mag * 11)),
                 text=text,
                 dedup_key=key,
                 hashtags=["#Earthquake", "#Seismic"],

@@ -18,7 +18,7 @@ EVENTS_URL = "https://www.gdacs.org/gdacsapi/api/events/geteventlist/EVENTS4APP"
 TIMEOUT = 25
 
 ALERT_RANK = {"Green": 0, "Orange": 1, "Red": 2}
-ALERT_WEIGHT = {"Orange": 72, "Red": 92}
+ALERT_WEIGHT = {"Orange": 84, "Red": 96}
 
 # How the alert is announced; one is picked per event for variety.
 OPENERS = [
@@ -41,12 +41,10 @@ EVENT_META = {
         "Expect possible aftershocks, so keep away from damaged structures and brace for more movement.",
     ]),
     "VO": ("Volcano", [
-        "Follow any exclusion zones and evacuation guidance issued by local authorities.",
         "Respect the exclusion zones and heed evacuation guidance from local authorities.",
     ]),
     "WF": ("Wildfire", [
         "Stay ready to evacuate at short notice and keep a close watch on local alerts.",
-        "Be prepared to leave quickly and monitor local alerts closely.",
     ]),
     "TS": ("Tsunami", [
         "Move to high ground or inland immediately and stay there until officials say it is safe.",

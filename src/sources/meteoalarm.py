@@ -26,7 +26,7 @@ NS = {
 
 # Ordering + ranking weight. Higher = more severe.
 SEVERITY_RANK = {"Moderate": 1, "Severe": 2, "Extreme": 3}
-SEVERITY_WEIGHT = {"Moderate": 55, "Severe": 78, "Extreme": 92}
+SEVERITY_WEIGHT = {"Moderate": 55, "Severe": 79, "Extreme": 96}
 # MeteoAlarm severity -> public-facing colour word (yellow/orange/red).
 SEVERITY_COLOR = {"Moderate": "Yellow", "Severe": "Orange", "Extreme": "Red"}
 
@@ -55,22 +55,18 @@ HAZARD_MAP = [
     ("low-temp", ("nws", "Extreme Cold Warning")),
     ("cold", ("nws", "Extreme Cold Warning")),
     ("rain", ("eu", [
-        "Heavy rain may bring flooding. Avoid low lying roads and allow extra time to travel.",
         "Persistent heavy rain could cause flooding. Steer clear of low ground and plan for delays.",
     ])),
     ("fog", ("eu", [
-        "Visibility will be poor. Slow down and keep your lights on while driving.",
-        "Dense fog is expected. Reduce speed and use dipped headlights on the road.",
+        "Dense fog is expected. Visibility will be poor. Reduce speed and use headlights on the road.",
     ])),
     ("temperature", ("eu", [
-        "Temperatures will reach an extreme. Limit your exposure and check on those at risk.",
-        "An extreme in temperature is expected. Take it easy and look in on the vulnerable.",
+        "Temperatures will reach an extreme. Take it easy and look in on the vulnerable.",
     ])),
 ]
 
 DEFAULT_ACTIONS = [
     "Conditions could get rough. Stay alert and follow local guidance.",
-    "The situation may turn unsafe. Stay aware and follow local advice.",
 ]
 
 

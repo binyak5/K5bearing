@@ -23,13 +23,11 @@ TIMEOUT = 20
 THUNDER_CODES = {95, 96, 99}
 
 HEAT_VARIANTS = [
-    "Severe heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and check on anyone living or working outdoors.",
-    "Brutal heat has settled over {name}, {temp}°C and feeling like {feels}°C. Keep outdoor time to the early hours, stay hydrated, and watch closely for heat stress.",
+    "Severe heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.",
 ]
 
 # Winds out of the NW are the classic Gulf "shamal".
 SHAMAL_VARIANTS = [
-    "A shamal is blasting {name}, winds at {wind} km/h and gusting to {gust}. Expect blowing dust and dropping visibility. Secure loose objects and take care on exposed roads.",
     "Strong shamal winds are raking {name} at {wind} km/h, gusting to {gust}. Dust will cut visibility and rattle anything loose. Tie things down and drive with care.",
 ]
 
@@ -38,23 +36,19 @@ WIND_VARIANTS = [
 ]
 
 FOG_VARIANTS = [
-    "Dense fog has closed in over {name}, visibility down to about {vis} m. Slow right down, switch to low-beam headlights, and leave plenty of room on the road.",
-    "Thick fog is blanketing {name} with visibility near {vis} m. Reduce speed, use dipped headlights, and watch for sudden slow or stopped traffic.",
+    "Thick fog is blanketing {name} with visibility near {vis} m. Reduce speed, switch to low-beam headlights, and watch for sudden slow or stopped traffic.",
 ]
 
 THUNDER_VARIANTS = [
     "Thunderstorms are breaking out over {name}, with lightning, sudden downpours, and gusty winds. Head indoors away from windows and off exposed ground until they pass.",
-    "A thunderstorm is rolling over {name}, bringing lightning and heavy rain. Get inside, stay clear of open areas, and hold off on driving until it moves through.",
 ]
 
 RAIN_VARIANTS = [
-    "Heavy rain is hammering {name} at about {rain} mm in the hour, and the hard ground sheds it fast. Avoid wadis and low crossings, and never drive through floodwater.",
-    "Intense rainfall has hit {name}, around {rain} mm in the hour. Flash flooding can come quickly off the dry ground. Steer clear of low-lying roads and wadis.",
+    "Heavy rain is hammering {name} at about {rain} mm in the hour, and the hard ground sheds it fast. Avoid wadis and low crossings.",
 ]
 
 DUST_VARIANTS = [
-    "A dust storm has engulfed {name}, airborne dust at {dust} µg/m³. Visibility and air quality are plummeting. Stay indoors, seal windows, and mask up if you must go out.",
-    "Thick dust is choking the air over {name} at {dust} µg/m³. Keep windows shut, limit time outside, and wear a mask if you have to be out in it.",
+    "Thick dust is choking the air over {name} at {dust} µg/m³. Visibility and air quality are plummeting. Stay indoors and seal windows.",
 ]
 
 
@@ -124,7 +118,7 @@ def gulf_signals(
             signals.append(
                 Signal(
                     category="gulf",
-                    severity=70,
+                    severity=72,
                     text=pick(HEAT_VARIANTS, key).format(
                         name=name, temp=round(temp if temp is not None else ref), feels=round(ref)
                     ),
@@ -146,7 +140,7 @@ def gulf_signals(
             signals.append(
                 Signal(
                     category="gulf",
-                    severity=68,
+                    severity=70,
                     text=pick(variants, key).format(
                         name=name,
                         wind=round(wind) if wind is not None else round(gust),
@@ -185,7 +179,7 @@ def gulf_signals(
             signals.append(
                 Signal(
                     category="gulf",
-                    severity=75,
+                    severity=76,
                     text=pick(THUNDER_VARIANTS, key).format(name=name),
                     dedup_key=key,
                     hashtags=["#Storm", "#Gulf"],
@@ -202,7 +196,7 @@ def gulf_signals(
             signals.append(
                 Signal(
                     category="gulf",
-                    severity=78,
+                    severity=80,
                     text=pick(RAIN_VARIANTS, key).format(name=name, rain=round(rain)),
                     dedup_key=key,
                     hashtags=["#Flood", "#Gulf"],

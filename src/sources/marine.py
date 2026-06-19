@@ -20,13 +20,11 @@ FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 TIMEOUT = 20
 
 VARIANTS = [
-    "{cat} seas running to {h}m are reported in {area}, so small craft should stay in port and larger vessels should rig for heavy weather.",
     "Seas are building to {h}m ({low}) in {area}, so secure for heavy weather and keep well clear of exposed waters.",
 ]
 
 FOG_VARIANTS = [
     "Dense fog has settled over {area}, dropping visibility to around {v} m. Slow down, sound your fog signals, and post a lookout.",
-    "Thick fog is blanketing {area}, with visibility under {v} m. Cut your speed, keep a sharp lookout, and lean on radar and signals.",
 ]
 
 WIND_VARIANTS = [
@@ -35,32 +33,26 @@ WIND_VARIANTS = [
 ]
 
 SWELL_VARIANTS = [
-    "A long-period swell is marching into {area}, {h} m sets rolling through every {p} seconds. It looks calm offshore, but harbor mouths and surf zones will see severe conditions. Stay off exposed rocks and jetties.",
     "Powerful long-period groundswell is pushing into {area}, {h} m and spaced {p} seconds apart. That energy stacks up fast in the shallows. Expect sneaker sets and treacherous surf around inlets and bars.",
-]
-
-SURF_VARIANTS = [
-    "Seas are breaking heavily across {area}, {h} m waves stacking up at the entrance. Bar and surf-zone conditions are severe. Time any crossing for slack water or stay in.",
-    "A rough bar is running at {area}, where {h} m swells pile into the shallows and break hard. Small craft should hold off until it lays down.",
 ]
 
 
 def _wind_category(kt: float) -> tuple[str, int]:
     """Return (label, ranking weight) for a sustained/gust wind in knots."""
     if kt >= 64:
-        return "Hurricane-force", 90
+        return "Hurricane-force", 95
     if kt >= 48:
-        return "Storm-force", 84
-    return "Gale-force", 78
+        return "Storm-force", 86
+    return "Gale-force", 74
 
 
 def _category(h: float) -> tuple[str, int]:
     """Return (label, ranking weight) for a significant wave height in metres."""
     if h >= 9:
-        return "Phenomenal", 88
+        return "Phenomenal", 95
     if h >= 6:
-        return "Very high", 82
-    return "High", 76
+        return "Very high", 86
+    return "High", 74
 
 
 def _wave_height(lat: float, lon: float) -> float | None:
@@ -180,7 +172,7 @@ def swell_signals(areas: list[dict], period_s: float, height_m: float) -> list[S
         key = f"swell:{name}:{today}"
         return Signal(
             category="marine",
-            severity=74,
+            severity=70,
             text=pick(SWELL_VARIANTS, key).format(area="the " + name, h=round(h, 1), p=round(p)),
             dedup_key=key,
             hashtags=["#GroundSwell", "#Marine"],
@@ -188,30 +180,6 @@ def swell_signals(areas: list[dict], period_s: float, height_m: float) -> list[S
         )
 
     return gather(_one, areas)
-
-
-def surf_signals(zones: list[dict], threshold: float) -> list[Signal]:
-    """Rough-bar / surf-zone risk at coastal entrances and inlets."""
-    today = datetime.now(timezone.utc).date().isoformat()
-
-    def _one(z: dict) -> Signal | None:
-        name, lat, lon = z.get("name"), z.get("lat"), z.get("lon")
-        if name is None or lat is None or lon is None:
-            return None
-        h = _wave_height(lat, lon)
-        if h is None or h < threshold:
-            return None
-        key = f"surf:{name}:{today}"
-        return Signal(
-            category="marine",
-            severity=70,
-            text=pick(SURF_VARIANTS, key).format(area="the " + name, h=round(h, 1)),
-            dedup_key=key,
-            hashtags=["#SurfZone", "#Marine"],
-            tz=None,
-        )
-
-    return gather(_one, zones)
 
 
 def fog_signals(areas: list[dict], visibility_m: float) -> list[Signal]:
@@ -228,7 +196,7 @@ def fog_signals(areas: list[dict], visibility_m: float) -> list[Signal]:
         key = f"marinefog:{name}:{today}"
         return Signal(
             category="marine",
-            severity=72,
+            severity=70,
             text=pick(FOG_VARIANTS, key).format(area="the " + name, v=int(round(vis / 50) * 50)),
             dedup_key=key,
             hashtags=["#MarineFog", "#Marine"],

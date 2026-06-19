@@ -48,37 +48,29 @@ CATEGORIES = [
 
 # Per-bucket: ranking weight, hashtags, and phrasing variants ({region} filled in).
 META = {
-    "launch": (84, ["#LaunchHazard", "#Marine"], [
+    "launch": (88, ["#LaunchHazard", "#Marine"], [
         "A missile or rocket launch hazard area is active in {region}, so vessels should keep well clear until the operation is complete.",
-        "Launch operations have closed off part of {region}, so steer clear of the hazard area until it reopens.",
     ]),
-    "mine": (84, ["#MineDanger", "#Marine"], [
-        "Drifting mines or unexploded ordnance have been reported in {region}, so post a lookout, reduce speed, and keep a safe distance from the area.",
-        "A mine danger exists in {region}, so vessels should avoid the area and report any sighting to the authorities.",
+    "mine": (88, ["#MineDanger", "#Marine"], [
+        "Drifting mines or unexploded ordnance have been reported in {region}. Vessels should avoid the area and report any sighting to the authorities. Keep a safe distance from the area.",
     ]),
-    "gunfire": (80, ["#LiveFire", "#Marine"], [
-        "Naval gunnery or live-fire operations are underway in {region}, so vessels should stand clear of the firing range until it is lifted.",
-        "Live-fire exercises are taking place in {region}, so keep well clear of the affected area until the operation ends.",
+    "gunfire": (84, ["#LiveFire", "#Marine"], [
+        "Naval gunnery or live-fire operations are underway in {region}. Keep well clear of the affected area until it's lifted.",
     ]),
-    "exercise": (72, ["#NavalExercise", "#Marine"], [
+    "exercise": (70, ["#NavalExercise", "#Marine"], [
         "A naval or military exercise is closing off waters in {region}, so route around the area until it reopens.",
-        "Military operations are restricting navigation in {region}, so give the area a wide berth until the exercise is complete.",
     ]),
-    "gps": (78, ["#GPSInterference", "#Navigation"], [
-        "GPS is being jammed across {region}, positions spoofed or knocked out cold. Trust nothing the receiver hands you. Fix your position by radar, visual bearings, and dead reckoning.",
-        "Navigators report GPS interference in {region}, the kind that drags your fix off or freezes it dead. Cross-check every position against radar and landmarks, and do not steer on GPS alone.",
+    "gps": (74, ["#GPSInterference", "#Navigation"], [
+        "GPS is being jammed across {region}, positions spoofed or knocked out cold. Don't trust anything the receiver hands you. Fix your position by radar, visual bearings, and dead reckoning.",
     ]),
-    "ice": (80, ["#SeaIce", "#Marine"], [
-        "Ice is drifting into the shipping lanes across {region}. Icebergs and growlers ride low and hard to spot. Post a lookout, cut your speed, and give any ice a wide margin.",
-        "An ice hazard is in force in {region}, bergs and growlers adrift in the sea lanes. Slow down, keep radar and a lookout on watch, and steer well clear.",
+    "ice": (76, ["#SeaIce", "#Marine"], [
+        "Ice is drifting into the shipping lanes across {region}. Bergs and growlers adrift in the sea lanes. Slow down, keep radar and a lookout on watch, and steer well clear.",
     ]),
-    "cable": (74, ["#NavWarning", "#Marine"], [
-        "A drifting hazard is in force in {region}, adrift objects or subsea cable and pipeline work in the area. Post a lookout, give it room, and report any sighting.",
-        "Mariners are warned of an obstruction in {region}, from derelict vessels and debris to cable and pipeline operations. Keep clear, slow down, and steer around the marked area.",
+    "cable": (70, ["#NavWarning", "#Marine"], [
+        "A drifting hazard is in force in {region}, adrift objects or subsea cable and pipeline work in the area. Keep clear, slow down, and steer around the marked area.",
     ]),
-    "chokepoint": (76, ["#NavWarning", "#Marine"], [
+    "chokepoint": (72, ["#NavWarning", "#Marine"], [
         "A navigation hazard is in force in {region}, one of the world's busiest chokepoints. Traffic is dense and the margins are thin. Slow down, keep a sharp watch, and follow the routing in force.",
-        "Mariners are warned of disruption in {region}, a strategic strait where shipping funnels tight. Expect congestion and stay alert to traffic and instructions until it clears.",
     ]),
 }
 

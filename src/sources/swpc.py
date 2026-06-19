@@ -16,6 +16,7 @@ KP_URL = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
 ALERTS_URL = "https://services.swpc.noaa.gov/products/alerts.json"
 FLARES_URL = "https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json"
 SCALES_URL = "https://services.swpc.noaa.gov/products/noaa-scales.json"
+PLASMA_URL = "https://services.swpc.noaa.gov/products/solar-wind/plasma-2-hour.json"
 
 # NOAA S-scale (solar radiation storm) level -> label.
 S_LABEL = {1: "minor", 2: "moderate", 3: "strong", 4: "severe", 5: "extreme"}
@@ -71,20 +72,57 @@ def geomagnetic_signal(kp_threshold: int) -> Signal | None:
         ]
     else:
         variants = [
-            f"A {level} geomagnetic storm is underway at Kp {kp:.0f}, and magnetic "
-            "north is swinging by several degrees, so treat any compass heading as "
-            "approximate and hold your course by GPS or a celestial bearing until it eases.",
             f"A {level} geomagnetic storm has ramped up to Kp {kp:.0f}, throwing magnetic "
             "north off by several degrees, so trust GPS or a celestial bearing and treat "
             "the compass as a rough guide until it settles.",
         ]
     # Dedup per storm level per day so escalations re-post but steady state doesn't.
+    # G1(kp5)=64 ... G5(kp9)=88: space weather sits in the upper-"serious" band,
+    # on-theme for a compass brand but below the life-threatening weather tier.
     return Signal(
         category="geomagnetic",
-        severity=50 + int(kp) * 5,
+        severity=34 + int(kp) * 6,
         text=pick(variants, key),
         dedup_key=key,
         hashtags=["#SpaceWeather", "#Compass"],
+    )
+
+
+def solar_wind_signal(speed_threshold: float = 600) -> Signal | None:
+    """High-speed solar wind stream from the NOAA real-time plasma feed
+    (DSCOVR/ACE). A fast stream stirs the magnetic field — on brand for the
+    compass/bearing angle. Fires once per day when speed crosses the threshold.
+    """
+    try:
+        rows = _get_json(PLASMA_URL)
+    except (requests.RequestException, ValueError):
+        return None
+    if not rows or len(rows) < 2:
+        return None
+    # rows[0] is the header ["time_tag","density","speed","temperature"];
+    # scan from the newest end for the latest valid speed reading.
+    speed = None
+    for row in reversed(rows[1:]):
+        try:
+            speed = float(row[2])
+            break
+        except (TypeError, ValueError, IndexError):
+            continue
+    if speed is None or speed < speed_threshold:
+        return None
+    spd = round(speed)
+    key = f"solarwind:{datetime.now(timezone.utc).date().isoformat()}"
+    text = (
+        f"The solar wind is screaming past Earth at {spd} km/s, a high-speed stream "
+        "raking the magnetic field. Expect the compass needle to grow restless and "
+        "the aurora to push toward lower latitudes."
+    )
+    return Signal(
+        category="solarwind",
+        severity=70,
+        text=text,
+        dedup_key=key,
+        hashtags=["#SpaceWeather", "#SolarWind"],
     )
 
 
@@ -135,7 +173,7 @@ def flare_signal(min_class: str = "M", max_age_hours: int = 6) -> Signal | None:
     text = f"{pick(leads, key + ':l')} {impact}"
     return Signal(
         category="flare",
-        severity=70 if letter == "X" else 62,
+        severity=80 if letter == "X" else 62,
         text=text,
         dedup_key=key,
         hashtags=["#SolarFlare", "#SpaceWeather"],
@@ -163,7 +201,7 @@ def radiation_signal(min_scale: int = 1) -> Signal | None:
     ]
     return Signal(
         category="radiation",
-        severity=63 + level * 3,
+        severity=64 + level * 4,
         text=pick(variants, key),
         dedup_key=key,
         hashtags=["#SolarRadiation", "#SpaceWeather"],
@@ -191,7 +229,7 @@ def blackout_signal(min_scale: int = 1) -> Signal | None:
     ]
     return Signal(
         category="blackout",
-        severity=60 + level * 3,
+        severity=62 + level * 4,
         text=pick(variants, key),
         dedup_key=key,
         hashtags=["#RadioBlackout", "#SpaceWeather"],
@@ -244,7 +282,7 @@ def solar_signals(watch_prefixes: list[str], max_age_hours: int = 24) -> list[Si
         signals.append(
             Signal(
                 category="solar",
-                severity=60,
+                severity=62,
                 text=text,
                 dedup_key=f"solar:{pid}:{issued}",
                 hashtags=["#SpaceWeather", "#SolarStorm"],

@@ -11,6 +11,7 @@ On CI:         python -m src.main   (with X_* secrets in the environment)
 from __future__ import annotations
 
 from .config import load_config
+from .validate import assert_valid
 from .state import State
 from .formatter import render, fingerprint
 from .poster import Poster
@@ -54,6 +55,11 @@ def collect(cfg: dict) -> list[Signal]:
         if sig:
             signals.append(sig)
 
+    if cfg.get("solar_wind", {}).get("enabled"):
+        sig = swpc.solar_wind_signal(cfg["solar_wind"].get("speed_threshold_kms", 600))
+        if sig:
+            signals.append(sig)
+
     if cfg.get("radiation", {}).get("enabled"):
         sig = swpc.radiation_signal(cfg["radiation"].get("min_scale", 1))
         if sig:
@@ -86,7 +92,6 @@ def collect(cfg: dict) -> list[Signal]:
         signals.extend(
             marine.swell_signals(areas, ms.get("swell_period_s", 13), ms.get("swell_height_m", 2.0))
         )
-        signals.extend(marine.surf_signals(ms.get("coastal", []), ms.get("surf_wave_m", 2.5)))
 
     if cfg.get("algal_blooms", {}).get("enabled"):
         ab = cfg["algal_blooms"]
@@ -139,7 +144,6 @@ def collect(cfg: dict) -> list[Signal]:
                 locations,
                 cfg["outdoor"].get("uv_threshold", 11),
                 cfg["outdoor"].get("dust_threshold", 500),
-                cfg["outdoor"].get("pm25_threshold", 55),
             )
         )
         signals.extend(outdoor.lightning_signals(locations))
@@ -149,6 +153,7 @@ def collect(cfg: dict) -> list[Signal]:
 
 def main() -> None:
     cfg = load_config()
+    assert_valid(cfg)  # fail loudly on config drift before spending any API budget
     state = State()
     poster = Poster()
 
