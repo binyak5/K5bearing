@@ -2,7 +2,7 @@
   "daily": {
     "2026-06-17": 21,
     "2026-06-18": 31,
-    "2026-06-19": 16
+    "2026-06-19": 17
   },
   "daily_cat": {
     "2026-06-17": {
@@ -21,14 +21,14 @@
     },
     "2026-06-19": {
       "cityweather": 1,
-      "weather": 10,
+      "weather": 11,
       "weather_eu": 5
     }
   },
-  "last_post_at": "2026-06-19T09:42:10.149734+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-06-19T10:21:57.965917+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 90
+    "2026-06": 91
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -79,6 +79,7 @@
     "fp:60d531019b77e90c": "2026-06-18T03:02:16.175661+00:00",
     "fp:62bc0b14c85e9a7e": "2026-06-18T22:41:59.280619+00:00",
     "fp:64d309dfe1318d37": "2026-06-17T17:42:42.952863+00:00",
+    "fp:67e7e8dca4197eff": "2026-06-19T10:21:57.965889+00:00",
     "fp:687d05622e8e9550": "2026-06-17T16:42:08.541738+00:00",
     "fp:6b82073d2b5bef0f": "2026-06-17T14:02:33.658953+00:00",
     "fp:6d398340d31f8ff1": "2026-06-17T15:42:07.320777+00:00",
@@ -145,6 +146,7 @@
     "weather:Flash Flood Warning:Baldwin, AL; Escambia, AL; Escambia, FL; Santa Rosa, FL": "2026-06-18T20:42:25.211769+00:00",
     "weather:Flash Flood Warning:Baldwin, AL; Escambia, AL; Mobile, AL; Escambia, FL": "2026-06-19T01:21:58.459805+00:00",
     "weather:Flash Flood Warning:Chattahoochee, GA; Harris, GA; Muscogee, GA": "2026-06-19T04:02:21.777228+00:00",
+    "weather:Flash Flood Warning:Comanche, OK": "2026-06-19T10:21:57.965840+00:00",
     "weather:Flash Flood Warning:Dale, AL; Geneva, AL; Henry, AL; Houston, AL; Early, GA": "2026-06-19T02:42:20.095314+00:00",
     "weather:Flash Flood Warning:El Paso, TX": "2026-06-19T06:22:07.653794+00:00",
     "weather:Flash Flood Warning:George, MS; Stone, MS": "2026-06-19T00:02:19.411541+00:00",
