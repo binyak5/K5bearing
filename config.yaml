@@ -60,7 +60,7 @@ geomagnetic:
 
 # Aurora-visibility watch, derived from the Kp index (global viewline).
 aurora:
-  enabled: true
+  enabled: false
   # Kp at/above which aurora may be visible at populated latitudes.
   kp_threshold: 5
 
@@ -167,7 +167,6 @@ weather:
     - "Hurricane Warning"
     - "Hurricane Watch"
     - "Tropical Storm Warning"
-    - "Tsunami Warning"
     - "Blizzard Warning"
     - "Extreme Wind Warning"
     - "Severe Thunderstorm Warning"
@@ -197,8 +196,6 @@ weather:
     - "Coastal Flood Watch"
     - "Coastal Flood Advisory"
     - "Lakeshore Flood Warning"
-    - "Tsunami Advisory"
-    - "Tsunami Watch"
     # Winter
     - "Winter Storm Warning"
     - "Ice Storm Warning"
@@ -243,6 +240,10 @@ weather_eu:
     - sweden
     - norway
     - greece
+    - ukraine
+    - czechia
+    - hungary
+    - finland
 
 # Marine sea-state (high-seas) warnings via Open-Meteo, for named sea areas.
 # Gives Europe (and global) marine coverage where there's no official feed.
@@ -304,8 +305,8 @@ algal_blooms:
 # Information broadcast warnings — worldwide ocean coverage).
 maritime_security:
   enabled: true
-  # Which to post: launch | mine | gunfire | exercise | gps | ice | cable | chokepoint
-  categories: ["launch", "mine", "gunfire", "exercise", "gps", "ice", "cable", "chokepoint"]
+  # Which to post: launch | mine | gunfire | gps | ice | cable | chokepoint
+  categories: ["launch", "mine", "gunfire", "gps", "ice", "cable", "chokepoint"]
 
 # GDACS multi-hazard, region-filtered. Limited to volcanoes and wildfires only:
 # floods/quakes/cyclones/tsunamis in our regions are already covered by NWS,

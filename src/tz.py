@@ -46,6 +46,7 @@ COUNTRY_ZONES = {
     "spain": "Europe/Madrid",
     "sweden": "Europe/Stockholm",
     "switzerland": "Europe/Zurich",
+    "ukraine": "Europe/Kyiv",
     "united-kingdom": "Europe/London",
 }
 

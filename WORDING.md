@@ -4,7 +4,7 @@ Every phrasing the bot can post. {curly braces} are filled in at post time. One 
 
 **Regions:** USA, Europe, Gulf states. **Prefix:** 24-hour local time, e.g. `16:33 CEST:`. **No hashtags.**
 
-**Voice** — most alerts post exactly as written below. Low-stakes ones are softened with a **"Heads up,"** lead: anything ending in "Advisory", the small-craft roundup, aurora, extreme-UV, and wildfire-smoke air quality. We inform; we don't issue commands.
+**Voice** — most alerts post exactly as written below. Low-stakes ones are softened with a **"Heads up,"** lead: anything ending in "Advisory", the small-craft roundup, extreme-UV, and wildfire-smoke air quality. We inform; we don't issue commands.
 
 **Freshness** — only alerts current *today* are posted (expired or future-day European warnings, stale red-tide readings, and old space-weather alerts are dropped). **No repeats** — the feed won't post the same topic (flood, wind, heat…) twice in a row, even for different places, unless it's a critical alert or nothing else is available.
 
@@ -18,17 +18,6 @@ _Kp 5–6:_
 _Kp 7+:_
 1. A {level} geomagnetic storm is underway at Kp {kp}, and magnetic north is swinging by several degrees. Treat any compass heading as approximate and hold your course by GPS or a celestial bearing until it eases.
 2. A {level} geomagnetic storm has ramped up to Kp {kp}, throwing magnetic north off by several degrees. Trust GPS or a celestial bearing and treat the compass as a rough guide until it settles.
-
-## Space weather — aurora
-1. Kp has climbed to {kp}, expanding the auroral oval toward lower latitudes. The aurora may appear over {regions} and at matching southern latitudes. Look poleward, well away from city lights.
-2. With Kp up to {kp}, the auroral oval is reaching lower latitudes. The aurora could be visible over {regions} and their southern equivalents. Find a dark spot and scan the poleward sky.
-
-`{regions}` by Kp:
-- Kp 5: Scotland, Scandinavia, and the northern US
-- Kp 6: Ireland, Denmark, and the northern US
-- Kp 7: the UK, central Europe, and the northern US
-- Kp 8: northern France, the Alps, and the central US
-- Kp 9: southern Europe and the central US, which is rare
 
 ## Space weather — solar flare
 _Lead:_
@@ -72,10 +61,6 @@ _Impact:_
 **Tropical Storm Warning**
 1. Tropical storm-force winds are expected. Secure anything loose outside and stay indoors as conditions worsen.
 2. Tropical storm-force winds are on the way. Tie down loose items and head inside before the weather turns rough.
-
-**Tsunami Warning**
-1. Move to high ground or inland right away. Stay there until officials confirm it is safe to return.
-2. Head for high ground or move well inland immediately. Do not return until authorities give the all clear.
 
 **Blizzard Warning**
 1. Conditions will turn severe in near zero visibility. Stay off the roads and remain somewhere warm.
@@ -188,14 +173,6 @@ _Impact:_
 **Lakeshore Flood Warning**
 1. Flooding is expected along the lakeshore. Move vehicles to higher ground and stay off flooded roads.
 2. Lakeshore flooding is underway. Relocate vehicles and avoid roads near the water.
-
-**Tsunami Advisory**
-1. Strong currents and severe waves are expected for anyone in or near the water. Leave the water and stay off the beach.
-2. Severe currents and surges are expected at the coast. Get out of the water and keep off the beach and harbours.
-
-**Tsunami Watch**
-1. A distant earthquake may trigger a tsunami. Keep an eye on official alerts and be ready to move to high ground.
-2. A tsunami is possible after a distant quake. Monitor official alerts and be ready to head for high ground.
 
 **Winter Storm Warning**
 1. Heavy snow and ice are expected. Avoid travel and keep warm clothing and supplies within reach.
@@ -369,10 +346,6 @@ _Domoic-acid spike:_
 **Gunfire / live-fire**
 1. Naval gunnery or live-fire operations are underway in {region}. Vessels should stand clear of the firing range until it is lifted.
 2. Live-fire exercises are taking place in {region}. Keep well clear of the affected area until the operation ends.
-
-**Military exercise**
-1. A naval or military exercise is closing off waters in {region}. Route around the area until it reopens.
-2. Military operations are restricting navigation in {region}. Give the area a wide berth until the exercise is complete.
 
 **GPS interference**
 1. GPS is being jammed across {region}, positions spoofed or knocked out cold. Trust nothing the receiver hands you. Fix your position by radar, visual bearings, and dead reckoning.
