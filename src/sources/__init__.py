@@ -83,3 +83,7 @@ class Signal:
     # Coarse subject ("flood", "wind", "heat"...) used to avoid posting the same
     # topic twice in a row. Falls back to `category` when left blank.
     topic: str = ""
+    # ISO 3166-1 alpha-2 country code (e.g. "CH", "US", "AE"), shown right after
+    # the timezone in the timestamp prefix. Blank for country-less signals
+    # (space weather, open-sea marine areas, multi-country navigation warnings).
+    country: str = ""

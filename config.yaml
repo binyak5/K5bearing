@@ -19,29 +19,30 @@ limits:
   # run -> an even 40 minutes apart, with no jitter skips (a 20-min run is always
   # under the gap, a 40-min run always over). The Rotterdam update is exempt.
   min_minutes_between_posts: 30
-  # Per-category daily caps so no single source dominates the whole feed. These
-  # are generous on purpose: the daily cap (44), the 40-min spacing, and the
-  # no-same-topic-in-a-row rule are the real balancers. The caps just stop one
-  # category taking ALL the slots. They must sum well above max_posts_per_day,
-  # or the feed starves (goes silent) once the active sources hit their caps
-  # even though budget remains. Categories not listed are uncapped.
+  # Per-category daily caps so no single source dominates the whole feed. Tuned
+  # to reserve ~25% of the day's 44 posts for each of the three regions (US,
+  # Europe, Gulf = 33 slots) and keep the rest tight so they can't backfill into
+  # that reserved space on a quiet day. The caps still sum above max_posts_per_day
+  # so the feed never goes fully silent when a region is calm — the remaining
+  # categories absorb the slack — but far less than before. Categories not listed
+  # are uncapped.
   category_daily_caps:
-    cityweather: 2    # the scheduled Rotterdam update (morning + evening)
-    gulf: 6           # Gulf-state heat / shamal-wind alerts
-    weather: 13       # US NWS — capped to ~35% of a full day's feed for regional balance
-    weather_eu: 8     # Europe MeteoAlarm
-    maritime: 8       # NGA navigation warnings (can spike on a busy day)
-    marine: 8         # sea-state, swell, wind, fog, surf
-    outdoor: 6        # UV, dust, smoke, lightning
-    earthquake: 4
-    global: 3         # GDACS volcanoes / wildfires
-    hab: 2            # red tide
-    geomagnetic: 3
-    aurora: 2
-    solar: 3
-    flare: 3
-    radiation: 2
-    blackout: 2
+    cityweather: 2    # the scheduled Rotterdam update (morning + evening); exempt from budget
+    gulf: 11          # Gulf alerts — ~25% of a full day's feed (regional balance)
+    weather: 11       # US NWS — ~25% of a full day's feed (regional balance)
+    weather_eu: 11    # Europe MeteoAlarm — ~25% of a full day's feed (regional balance)
+    maritime: 4       # NGA navigation warnings (tightened from 8)
+    marine: 4         # sea-state, swell, wind, fog, surf (tightened from 8)
+    outdoor: 4        # UV, dust, smoke, lightning (tightened from 6)
+    earthquake: 3     # (tightened from 4)
+    global: 2         # GDACS volcanoes / wildfires (tightened from 3)
+    hab: 1            # red tide (tightened from 2)
+    geomagnetic: 2    # (tightened from 3)
+    aurora: 1         # (disabled; tightened from 2)
+    solar: 2          # (tightened from 3)
+    flare: 2          # (tightened from 3)
+    radiation: 1      # (tightened from 2)
+    blackout: 1       # (tightened from 2)
 
 # Don't repost the same signal within this many hours (dedup TTL). Long enough
 # that multi-day warnings don't repeat in the feed.
@@ -95,29 +96,40 @@ earthquakes:
   max_age_hours: 6       # ignore quakes older than this on startup
 
 # Gulf-state weather alerts the official feeds miss (NWS is US-only, MeteoAlarm
-# is Europe-only): extreme heat and shamal winds, from Open-Meteo (keyless).
+# is Europe-only): extreme heat, shamal winds, dense fog, thunderstorms, heavy
+# rain / flash flooding, and dust storms, from Open-Meteo (keyless).
 # Fires once per city per day per hazard. Temps in °C, winds in km/h.
 gulf_weather:
   enabled: true
   heat_feels_c: 47       # feels-like (apparent) temperature at/above this = dangerous heat
   wind_gust_kmh: 55      # wind gusts at/above this = shamal / high-wind alert
+  fog_visibility_m: 1000 # dense fog when visibility drops below this (metres)
+  rain_mm: 7             # heavy rain / flash-flood risk at/above this (mm in the hour)
+  dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm (air-quality feed)
   locations:
     # UAE
-    - {name: "Dubai",       lat: 25.20, lon: 55.27, tz: "Asia/Dubai"}
-    - {name: "Abu Dhabi",   lat: 24.45, lon: 54.38, tz: "Asia/Dubai"}
-    - {name: "Sharjah",     lat: 25.35, lon: 55.39, tz: "Asia/Dubai"}
-    - {name: "Al Ain",      lat: 24.21, lon: 55.74, tz: "Asia/Dubai"}
+    - {name: "Dubai",          lat: 25.20, lon: 55.27, tz: "Asia/Dubai"}
+    - {name: "Abu Dhabi",      lat: 24.45, lon: 54.38, tz: "Asia/Dubai"}
+    - {name: "Sharjah",        lat: 25.35, lon: 55.39, tz: "Asia/Dubai"}
+    - {name: "Al Ain",         lat: 24.21, lon: 55.74, tz: "Asia/Dubai"}
+    - {name: "Ras Al Khaimah", lat: 25.79, lon: 55.94, tz: "Asia/Dubai"}
+    - {name: "Fujairah",       lat: 25.13, lon: 56.33, tz: "Asia/Dubai"}
     # Saudi Arabia
-    - {name: "Riyadh",      lat: 24.71, lon: 46.68, tz: "Asia/Riyadh"}
-    - {name: "Jeddah",      lat: 21.49, lon: 39.19, tz: "Asia/Riyadh"}
-    - {name: "Dammam",      lat: 26.43, lon: 50.10, tz: "Asia/Riyadh"}
+    - {name: "Riyadh",         lat: 24.71, lon: 46.68, tz: "Asia/Riyadh"}
+    - {name: "Jeddah",         lat: 21.49, lon: 39.19, tz: "Asia/Riyadh"}
+    - {name: "Dammam",         lat: 26.43, lon: 50.10, tz: "Asia/Riyadh"}
+    - {name: "Mecca",          lat: 21.39, lon: 39.86, tz: "Asia/Riyadh"}
+    - {name: "Medina",         lat: 24.52, lon: 39.57, tz: "Asia/Riyadh"}
+    - {name: "Tabuk",          lat: 28.38, lon: 36.57, tz: "Asia/Riyadh"}
     # Qatar / Bahrain / Kuwait
-    - {name: "Doha",        lat: 25.29, lon: 51.53, tz: "Asia/Qatar"}
-    - {name: "Manama",      lat: 26.23, lon: 50.59, tz: "Asia/Bahrain"}
-    - {name: "Kuwait City", lat: 29.38, lon: 47.99, tz: "Asia/Kuwait"}
+    - {name: "Doha",           lat: 25.29, lon: 51.53, tz: "Asia/Qatar"}
+    - {name: "Manama",         lat: 26.23, lon: 50.59, tz: "Asia/Bahrain"}
+    - {name: "Kuwait City",    lat: 29.38, lon: 47.99, tz: "Asia/Kuwait"}
     # Oman
-    - {name: "Muscat",      lat: 23.59, lon: 58.41, tz: "Asia/Muscat"}
-    - {name: "Salalah",     lat: 17.02, lon: 54.09, tz: "Asia/Muscat"}
+    - {name: "Muscat",         lat: 23.59, lon: 58.41, tz: "Asia/Muscat"}
+    - {name: "Salalah",        lat: 17.02, lon: 54.09, tz: "Asia/Muscat"}
+    - {name: "Sohar",          lat: 24.34, lon: 56.71, tz: "Asia/Muscat"}
+    - {name: "Sur",            lat: 22.57, lon: 59.53, tz: "Asia/Muscat"}
 
 # Routine twice-daily city weather update (not an alert), Open-Meteo, in local
 # time and degrees Celsius. Fires once in the morning window and once in the
@@ -191,7 +203,6 @@ weather:
     - "High Surf Warning"
     - "High Surf Advisory"
     - "Rip Current Statement"
-    - "Beach Hazards Statement"
     - "Coastal Flood Warning"
     - "Coastal Flood Watch"
     - "Coastal Flood Advisory"
@@ -230,12 +241,10 @@ weather_eu:
     - france
     - germany
     - netherlands
-    - belgium
     - spain
     - portugal
     - italy
     - switzerland
-    - austria
     - poland
     - sweden
     - norway
@@ -244,6 +253,9 @@ weather_eu:
     - czechia
     - hungary
     - finland
+    - serbia
+    - slovakia
+    - slovenia
 
 # Marine sea-state (high-seas) warnings via Open-Meteo, for named sea areas.
 # Gives Europe (and global) marine coverage where there's no official feed.

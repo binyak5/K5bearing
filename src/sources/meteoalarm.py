@@ -168,10 +168,11 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         color = SEVERITY_COLOR.get(severity, severity).lower()
         article = "An" if color[:1] in "aeiou" else "A"
         hazard = _hazard(g["event"])
-        # Name the actual regions affected, then the country, instead of a count.
+        # Name the actual regions affected. The country now rides in the
+        # timestamp prefix as its ISO code, so it's no longer repeated here.
         region_label = region_list(sorted(g["areas"]))
         label = region_label or country_title
-        where = f" in {country_title}" if region_label else ""
+        where = ""
         key = f"eu:{country}:{token}:{severity}"
         opener = pick(OPENERS, key + ":o").format(
             article=article, color=color, hazard=hazard, label=label, where=where
@@ -188,6 +189,7 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
                 tz=zone,
                 tier=tier,
                 topic=_eu_topic(token),
+                country=tz.code_for_country(country) or "",
             )
         )
     return signals

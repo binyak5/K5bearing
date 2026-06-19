@@ -151,6 +151,9 @@ def city_signals(locations: list[dict], morning: list, evening: list) -> list[Si
                 dedup_key=key,
                 hashtags=["#Rotterdam", "#Weather"],
                 tz=zone,
+                # No country code on purpose: the scheduled Rotterdam update is
+                # meant to stand out from the alert feed, so it keeps the plain
+                # "time + zone:" prefix.
             )
         )
     return signals

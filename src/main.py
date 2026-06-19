@@ -126,6 +126,9 @@ def collect(cfg: dict) -> list[Signal]:
                 gw.get("locations", []),
                 gw.get("heat_feels_c", 47),
                 gw.get("wind_gust_kmh", 55),
+                gw.get("fog_visibility_m", 1000),
+                gw.get("rain_mm", 7),
+                gw.get("dust_threshold", 500),
             )
         )
 
@@ -158,16 +161,10 @@ def main() -> None:
 
     candidates = collect(cfg)
 
-    # Ranking priority (highest first):
-    #   1. the scheduled Rotterdam update (severity 1000) — always first in its window
-    #   2. critical alerts (life-threatening) — boosted above all routine alerts
-    #   3. everything else, by severity
-    # No topic/source is favored anymore beyond this.
-    CRITICAL_BOOST = 200
-    candidates.sort(
-        key=lambda s: s.severity + (CRITICAL_BOOST if s.tier == "critical" else 0),
-        reverse=True,
-    )
+    # Ranking is by raw severity, highest first. No topic, source, or tier gets a
+    # boost — severity alone decides priority. (The scheduled Rotterdam update
+    # still sorts to the top simply because its severity is set to 1000.)
+    candidates.sort(key=lambda s: s.severity, reverse=True)
 
     def topic_of(sig) -> str:
         return sig.topic or sig.category
@@ -205,10 +202,11 @@ def main() -> None:
         month_full = state.posts_this_month() >= max_month
 
         # Pick the most severe eligible signal whose topic differs from the last
-        # post. Critical alerts may repeat a topic; otherwise a same-topic signal
-        # is only used as a fallback when nothing else is available this run.
-        # Non-exempt posts must clear the budget and the minimum spacing gap;
-        # the scheduled Rotterdam update is exempt from both.
+        # post. This no-repeat-in-a-row rule applies uniformly to every topic —
+        # nothing is exempt — so a same-topic signal is only used as a fallback
+        # when nothing else is available this run. Non-exempt posts must clear
+        # the budget and the minimum spacing gap; the scheduled Rotterdam update
+        # is exempt from both.
         choice = None
         fallback = None
         for sig in remaining:
@@ -216,7 +214,7 @@ def main() -> None:
                 continue
             if not eligible(sig):
                 continue
-            if topic_of(sig) == last_topic and sig.tier != "critical":
+            if topic_of(sig) == last_topic:
                 fallback = fallback or sig
                 continue
             choice = sig

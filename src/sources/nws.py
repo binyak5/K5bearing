@@ -290,10 +290,15 @@ TAGS = {
 # Advisories (anything ending in "Advisory") get the calm "Heads up," lead;
 # everything else, including these life-threatening events, posts as written.
 # The "critical" tag is kept for ranking/clarity though it no longer alters text.
+# Flash Flood Warning is deliberately NOT critical: it's high-volume (one per
+# affected area on any rainy day) and the +200 critical boost plus the
+# same-topic-exemption let it dominate the whole feed. Kept as "serious" so it
+# still posts at its severity weight but competes fairly and obeys the
+# no-repeat-topic-in-a-row rule.
 CRITICAL_EVENTS = {
     "Tornado Warning", "Hurricane Warning", "Tsunami Warning",
     "Extreme Wind Warning", "Storm Surge Warning",
-    "Hurricane Force Wind Warning", "Flash Flood Warning", "Fire Warning",
+    "Hurricane Force Wind Warning", "Fire Warning",
 }
 
 
@@ -404,9 +409,9 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         label = _area_label(area_desc)
         event_l = event.lower()
         article = "An" if event_l[:1] in "aeiou" else "A"
-        # State the country (these are all US alerts); mirrors the European
-        # "... in {country}" pattern.
-        where = f" for {label} in the US" if label else " in the US"
+        # The country (always US here) now rides in the timestamp prefix as its
+        # ISO code, so it's no longer repeated in the body.
+        where = f" for {label}" if label else ""
         opener = pick(OPENERS, key + ":o").format(article=article, event=event_l, where=where)
         action = pick(ACTIONS.get(event, []), key + ":a")
         text = f"{opener} {action}".strip()
@@ -424,6 +429,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 tz=zone,
                 tier=_tier(event),
                 topic=_topic(event),
+                country="US",
             )
         )
 
@@ -441,6 +447,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 tz=None,  # spans many zones -> UTC
                 tier="advisory",
                 topic="marine",
+                country="US",
             )
         )
     return signals

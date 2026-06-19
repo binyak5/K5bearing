@@ -50,6 +50,29 @@ COUNTRY_ZONES = {
     "united-kingdom": "Europe/London",
 }
 
+# MeteoAlarm country slug -> ISO 3166-1 alpha-2 code (the "official"
+# abbreviation shown after the timezone, e.g. Switzerland -> CH).
+COUNTRY_CODES = {
+    "andorra": "AD", "austria": "AT", "belgium": "BE", "bosnia-herzegovina": "BA",
+    "bulgaria": "BG", "croatia": "HR", "cyprus": "CY", "czechia": "CZ",
+    "denmark": "DK", "estonia": "EE", "finland": "FI", "france": "FR",
+    "germany": "DE", "greece": "GR", "hungary": "HU", "iceland": "IS",
+    "ireland": "IE", "israel": "IL", "italy": "IT", "latvia": "LV",
+    "lithuania": "LT", "luxembourg": "LU", "malta": "MT", "moldova": "MD",
+    "montenegro": "ME", "netherlands": "NL", "north-macedonia": "MK",
+    "norway": "NO", "poland": "PL", "portugal": "PT", "romania": "RO",
+    "serbia": "RS", "slovakia": "SK", "slovenia": "SI", "spain": "ES",
+    "sweden": "SE", "switzerland": "CH", "ukraine": "UA", "united-kingdom": "GB",
+}
+
+# IANA zone -> ISO alpha-2, for the coordinate-based sources (Gulf cities, the
+# Rotterdam city update) that carry a timezone rather than a country slug.
+ZONE_CODES = {
+    "Asia/Dubai": "AE", "Asia/Riyadh": "SA", "Asia/Qatar": "QA",
+    "Asia/Bahrain": "BH", "Asia/Kuwait": "KW", "Asia/Muscat": "OM",
+    "Europe/Amsterdam": "NL",
+}
+
 _finder = None
 
 
@@ -71,6 +94,16 @@ def zone_for_coords(lon: float, lat: float) -> str | None:
 
 def zone_for_country(slug: str) -> str | None:
     return COUNTRY_ZONES.get((slug or "").lower())
+
+
+def code_for_country(slug: str) -> str | None:
+    """ISO alpha-2 code for a MeteoAlarm country slug ('switzerland' -> 'CH')."""
+    return COUNTRY_CODES.get((slug or "").lower())
+
+
+def code_for_zone(zone: str) -> str | None:
+    """ISO alpha-2 code for an IANA timezone ('Asia/Dubai' -> 'AE')."""
+    return ZONE_CODES.get(zone or "")
 
 
 def polygon_centroid(geometry: dict | None) -> tuple[float, float] | None:

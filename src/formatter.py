@@ -108,7 +108,12 @@ def render(signal: Signal) -> str:
     to whole sentences so it always ends cleanly.
     """
     body = _apply_tier(_split_so(signal.text.strip()), getattr(signal, "tier", "serious"))
-    return _fit(f"{timestamp(signal.tz)} ", body)
+    # "HH:MM CEST:" -> "HH:MM CEST CH:" when the signal carries a country code.
+    ts = timestamp(signal.tz)
+    country = getattr(signal, "country", "")
+    if country:
+        ts = ts[:-1] + f" {country}:"
+    return _fit(f"{ts} ", body)
 
 
 # Numbers that drift run-to-run for the same event (a Kp of 5 then 6, seas at
