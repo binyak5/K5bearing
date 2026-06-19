@@ -29,7 +29,6 @@ SEVERITY_WEIGHT = {"Extreme": 90, "Severe": 75, "Moderate": 55, "Minor": 40}
 OPENERS = [
     "{article} {event} is active{where}.",
     "{article} {event} has been issued{where}.",
-    "{article} {event} is now active{where}.",
 ]
 
 # Flowing safety guidance per event type. Each event has a few vetted phrasings;

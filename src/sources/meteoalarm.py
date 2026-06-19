@@ -34,7 +34,6 @@ SEVERITY_COLOR = {"Moderate": "Yellow", "Severe": "Orange", "Extreme": "Red"}
 OPENERS = [
     "{article} {color} {hazard} warning is active for {label}{where}.",
     "{article} {color} {hazard} warning has been issued for {label}{where}.",
-    "{article} {color} {hazard} warning is now active for {label}{where}.",
 ]
 
 # MeteoAlarm hazard keyword -> the US NWS event whose (better, single-source)

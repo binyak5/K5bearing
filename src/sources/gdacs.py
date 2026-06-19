@@ -24,7 +24,6 @@ ALERT_WEIGHT = {"Orange": 72, "Red": 92}
 OPENERS = [
     "{article} {alert} alert is active for {name}{loc}{detail}.",
     "{article} {alert} alert has been issued for {name}{loc}{detail}.",
-    "{article} {alert} alert is now active for {name}{loc}{detail}.",
 ]
 
 # Event type -> (label, list of vetted advisory phrasings).
