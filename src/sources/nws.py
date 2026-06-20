@@ -291,6 +291,16 @@ def _area_label(area_desc: str) -> str:
     return region_list(names)
 
 
+def _is_excluded(area_desc: str, excluded: set[str]) -> bool:
+    """True if every state/territory the alert covers is in the excluded set, so
+    an alert confined to e.g. Puerto Rico is dropped but a mainland alert that
+    merely also touches an excluded area is kept."""
+    if not excluded:
+        return False
+    codes = {st for _, st in (_split_state(s) for s in area_desc.split(";")) if st}
+    return bool(codes and codes <= excluded)
+
+
 def _geo_tag(area_desc: str) -> str:
     """The "USA, <state>" geo tag for a US alert. NWS areaDesc lists each county
     as 'County, ST', so we read the state from the first segment that has one and
@@ -302,10 +312,13 @@ def _geo_tag(area_desc: str) -> str:
     return "USA"
 
 
-def weather_signals(events: list[str], area: str = "") -> list[Signal]:
+def weather_signals(events: list[str], area: str = "", exclude: list[str] | None = None) -> list[Signal]:
     params = {"status": "actual", "message_type": "alert"}
     if area:
         params["area"] = area
+    # State/territory codes to drop (e.g. PR, GU). An alert is skipped only when
+    # every area it covers is excluded, so a multi-area mainland alert is kept.
+    excluded = {c.upper() for c in (exclude or [])}
     try:
         resp = requests.get(
             ALERTS_URL,
@@ -338,6 +351,9 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
             continue
 
         area_desc = props.get("areaDesc", "")
+        # Drop alerts confined to excluded states/territories (e.g. PR, GU).
+        if _is_excluded(area_desc, excluded):
+            continue
         # Small Craft Advisories are too numerous to post individually; just
         # tally the distinct zones and emit one roundup after the loop.
         if event == "Small Craft Advisory":

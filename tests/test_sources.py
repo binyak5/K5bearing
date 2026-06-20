@@ -30,6 +30,22 @@ def test_area_label_keeps_state_when_multiple_states():
     assert "LA" in out and "TX" in out
 
 
+# --- nws._is_excluded: drop territory-only alerts ------------------------
+_EXC = {"PR", "VI", "GU", "AS", "MP"}
+
+
+def test_is_excluded_drops_territory_only_alert():
+    assert nws._is_excluded("Mayaguez and Vicinity, PR", _EXC)
+    assert nws._is_excluded("St. Thomas, VI; St. John, VI", _EXC)
+
+
+def test_is_excluded_keeps_mainland_and_mixed():
+    assert not nws._is_excluded("Travis, TX", _EXC)
+    assert not nws._is_excluded("Travis, TX; San Juan, PR", _EXC)  # mixed -> keep
+    assert not nws._is_excluded("Coastal waters out 10 nm", _EXC)  # no code -> keep
+    assert not nws._is_excluded("Travis, TX", set())               # nothing excluded
+
+
 # --- nws._tier -----------------------------------------------------------
 def test_tier_critical_event():
     assert nws._tier("Tornado Warning") == "critical"

@@ -76,7 +76,11 @@ def collect(cfg: dict) -> list[Signal]:
 
     if cfg["weather"]["enabled"]:
         signals.extend(
-            nws.weather_signals(cfg["weather"]["events"], cfg["weather"].get("area", ""))
+            nws.weather_signals(
+                cfg["weather"]["events"],
+                cfg["weather"].get("area", ""),
+                cfg["weather"].get("exclude_areas", []),
+            )
         )
 
     if cfg.get("weather_eu", {}).get("enabled"):

@@ -230,6 +230,13 @@ weather:
     - "Air Quality Alert"
   # Optional: restrict to a US state/area code (e.g. "FL"). Empty = nationwide.
   area: ""
+  # US states/territories to drop (NWS area codes). Nationwide minus these.
+  exclude_areas:
+    - PR   # Puerto Rico
+    - VI   # U.S. Virgin Islands
+    - GU   # Guam
+    - AS   # American Samoa
+    - MP   # Northern Mariana Islands
 
 # Severe-weather warnings for Europe via MeteoAlarm (EUMETNET).
 weather_eu:
