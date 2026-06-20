@@ -10,7 +10,6 @@ try:
 except ImportError:  # pragma: no cover
     ZoneInfo = None
 
-from . import tz
 from .sources import Signal
 
 # Wording targets ~280 (the classic limit) so posts stay tight, but the account
@@ -152,12 +151,12 @@ def render(signal: Signal) -> str:
     to whole sentences so it always ends cleanly.
     """
     body = _apply_tier(_split_so(signal.text.strip()), getattr(signal, "tier", "serious"))
-    # "HH:MM CEST:" -> "HH:MM CEST Europe, Switzerland:" when the signal carries a
-    # country code (expanded to "Continent, Country"; falls back to the bare code).
+    # "HH:MM CEST:" -> "HH:MM CEST EU, France:" when the signal carries a geo tag.
+    # Sources build the "REGION, place" tag (USA + state, EU/GCC + country).
     ts = timestamp(signal.tz)
     country = getattr(signal, "country", "")
     if country:
-        ts = ts[:-1] + f" {tz.country_label(country) or country}:"
+        ts = ts[:-1] + f" {country}:"
     return _fit(f"{ts} ", body)
 
 

@@ -273,6 +273,20 @@ def _area_label(area_desc: str) -> str:
     return region_list([a.strip() for a in area_desc.split(";") if a.strip()])
 
 
+def _geo_tag(area_desc: str) -> str:
+    """The "USA, <state>" geo tag for a US alert. NWS areaDesc lists each county
+    as 'County, ST', so we read the state abbreviation from the first segment
+    that has one and spell it out. Falls back to plain "USA" (e.g. marine zones
+    that carry no state)."""
+    for seg in area_desc.split(";"):
+        parts = seg.rsplit(",", 1)
+        if len(parts) == 2:
+            st = tz.state_name(parts[1].strip())
+            if st:
+                return f"USA, {st}"
+    return "USA"
+
+
 def weather_signals(events: list[str], area: str = "") -> list[Signal]:
     params = {"status": "actual", "message_type": "alert"}
     if area:
@@ -325,8 +339,8 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
         label = _area_label(area_desc)
         event_l = event.lower()
         article = "An" if event_l[:1] in "aeiou" else "A"
-        # The country (always US here) now rides in the timestamp prefix as its
-        # ISO code, so it's no longer repeated in the body.
+        # The location (always US here) now rides in the timestamp prefix as
+        # "USA, <state>", so it's no longer repeated in the body.
         where = f" for {label}" if label else ""
         opener = pick(OPENERS, key + ":o").format(article=article, event=event_l, where=where)
         action = pick(ACTIONS.get(event, []), key + ":a")
@@ -345,7 +359,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 tz=zone,
                 tier=_tier(event),
                 topic=_topic(event),
-                country="US",
+                country=_geo_tag(area_desc),
             )
         )
 
@@ -363,7 +377,7 @@ def weather_signals(events: list[str], area: str = "") -> list[Signal]:
                 tz=None,  # spans many zones -> UTC
                 tier="advisory",
                 topic="marine",
-                country="US",
+                country="USA",
             )
         )
     return signals

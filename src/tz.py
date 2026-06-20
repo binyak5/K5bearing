@@ -140,11 +140,36 @@ def code_for_zone(zone: str) -> str | None:
     return ZONE_CODES.get(zone or "")
 
 
-def country_label(code: str | None) -> str | None:
-    """ISO alpha-2 code -> 'Continent, Full Name' ('FR' -> 'Europe, France').
-    Returns None for an empty or unknown code so callers can fall back."""
+def country_name(code: str | None) -> str | None:
+    """ISO alpha-2 code -> full country name ('FR' -> 'France'), or None."""
     info = COUNTRY_INFO.get((code or "").upper())
-    return f"{info[0]}, {info[1]}" if info else None
+    return info[1] if info else None
+
+
+# US state / territory abbreviation -> full name, for the "USA, <state>" geo tag
+# parsed out of NWS areaDesc ("Travis, TX; ..." -> "Texas").
+US_STATES = {
+    "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas",
+    "CA": "California", "CO": "Colorado", "CT": "Connecticut", "DE": "Delaware",
+    "FL": "Florida", "GA": "Georgia", "HI": "Hawaii", "ID": "Idaho",
+    "IL": "Illinois", "IN": "Indiana", "IA": "Iowa", "KS": "Kansas",
+    "KY": "Kentucky", "LA": "Louisiana", "ME": "Maine", "MD": "Maryland",
+    "MA": "Massachusetts", "MI": "Michigan", "MN": "Minnesota", "MS": "Mississippi",
+    "MO": "Missouri", "MT": "Montana", "NE": "Nebraska", "NV": "Nevada",
+    "NH": "New Hampshire", "NJ": "New Jersey", "NM": "New Mexico", "NY": "New York",
+    "NC": "North Carolina", "ND": "North Dakota", "OH": "Ohio", "OK": "Oklahoma",
+    "OR": "Oregon", "PA": "Pennsylvania", "RI": "Rhode Island", "SC": "South Carolina",
+    "SD": "South Dakota", "TN": "Tennessee", "TX": "Texas", "UT": "Utah",
+    "VT": "Vermont", "VA": "Virginia", "WA": "Washington", "WV": "West Virginia",
+    "WI": "Wisconsin", "WY": "Wyoming", "DC": "Washington, D.C.",
+    "PR": "Puerto Rico", "VI": "U.S. Virgin Islands", "GU": "Guam",
+    "AS": "American Samoa", "MP": "Northern Mariana Islands",
+}
+
+
+def state_name(abbr: str | None) -> str | None:
+    """US state abbreviation -> full name ('TX' -> 'Texas'), or None."""
+    return US_STATES.get((abbr or "").upper())
 
 
 def polygon_centroid(geometry: dict | None) -> tuple[float, float] | None:

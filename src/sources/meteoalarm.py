@@ -185,7 +185,7 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
                 tz=zone,
                 tier=tier,
                 topic=_eu_topic(token),
-                country=tz.code_for_country(country) or "",
+                country=f"EU, {tz.country_name(tz.code_for_country(country)) or country_title}",
             )
         )
     return signals

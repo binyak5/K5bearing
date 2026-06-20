@@ -1,7 +1,7 @@
 name: K5Bearing signals
 
 # Single trigger source on purpose. cron-job.org pings this dispatch every
-# 20 min; runs finish in ~2 min, so two runs can never overlap. Using BOTH a
+# 30 min; runs finish in ~2 min, so two runs can never overlap. Using BOTH a
 # GitHub schedule and cron-job.org previously let two runs fire seconds apart,
 # and the second read state.json before the first committed -> duplicate post.
 # (Manual runs from the Actions tab still work via this same dispatch.)

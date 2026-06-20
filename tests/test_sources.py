@@ -2,6 +2,20 @@
 from src.sources import nws, meteoalarm, nga, marine
 
 
+# --- nws._geo_tag: "USA, <state>" from areaDesc -------------------------
+def test_geo_tag_reads_state_from_area_desc():
+    assert nws._geo_tag("Travis, TX; Williamson, TX") == "USA, Texas"
+    assert nws._geo_tag("Coastal Los Angeles County, CA") == "USA, California"
+
+
+def test_geo_tag_first_state_when_multiple():
+    assert nws._geo_tag("Cameron, LA; Jefferson, TX") == "USA, Louisiana"
+
+
+def test_geo_tag_falls_back_to_usa_without_state():
+    assert nws._geo_tag("Coastal waters out 10 nm") == "USA"
+
+
 # --- nws._tier -----------------------------------------------------------
 def test_tier_critical_event():
     assert nws._tier("Tornado Warning") == "critical"

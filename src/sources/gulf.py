@@ -104,6 +104,10 @@ def gulf_signals(
         if not cur:
             return signals
         cc = tz.code_for_zone(zone) or ""
+        # Geo tag for the timestamp prefix: "GCC, <country>" (e.g. Asia/Dubai -> AE
+        # -> "GCC, United Arab Emirates"), or plain "GCC" if the name is unknown.
+        cname = tz.country_name(cc)
+        geo = f"GCC, {cname}" if cname else "GCC"
         try:
             today = datetime.now(ZoneInfo(zone)).date().isoformat()
         except Exception:
@@ -126,7 +130,7 @@ def gulf_signals(
                     hashtags=["#ExtremeHeat", "#Gulf"],
                     tz=zone,
                     topic="heat",
-                    country=cc,
+                    country=geo,
                     card={
                         "value": f"{round(ref)}°C",
                         "event": "Extreme heat",
@@ -156,7 +160,7 @@ def gulf_signals(
                     hashtags=["#Shamal", "#Gulf"],
                     tz=zone,
                     topic="wind",
-                    country=cc,
+                    country=geo,
                     card={
                         "value": f"{round(gust)} KM/H",
                         "event": "Shamal" if is_shamal else "High wind",
@@ -180,7 +184,7 @@ def gulf_signals(
                     tz=zone,
                     tier="advisory",
                     topic="fog",
-                    country=cc,
+                    country=geo,
                     card={
                         "value": f"{round(vis / 10) * 10} M",
                         "event": "Dense fog",
@@ -203,7 +207,7 @@ def gulf_signals(
                     hashtags=["#Storm", "#Gulf"],
                     tz=zone,
                     topic="thunderstorm",
-                    country=cc,
+                    country=geo,
                     card={
                         "value": "Lightning",
                         "event": "Thunderstorm",
@@ -226,7 +230,7 @@ def gulf_signals(
                     hashtags=["#Flood", "#Gulf"],
                     tz=zone,
                     topic="flood",
-                    country=cc,
+                    country=geo,
                     card={
                         "value": f"{round(rain)} MM/H",
                         "event": "Flash flood",
@@ -249,7 +253,7 @@ def gulf_signals(
                     hashtags=["#DustStorm", "#Gulf"],
                     tz=zone,
                     topic="dust",
-                    country=cc,
+                    country=geo,
                     card={
                         "value": f"{round(dust)} µg/m³",
                         "event": "Dust storm",
