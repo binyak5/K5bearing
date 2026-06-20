@@ -10,11 +10,15 @@ On CI:         python -m src.main   (with X_* secrets in the environment)
 """
 from __future__ import annotations
 
+import os
+import tempfile
+
 from .config import load_config
 from .validate import assert_valid
 from .state import State
 from .formatter import render, fingerprint
 from .poster import Poster
+from . import card
 from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, gulf, Signal
 
 
@@ -163,6 +167,7 @@ def main() -> None:
     max_month = cfg["limits"].get("max_posts_per_month", 500)
     cat_caps = cfg["limits"].get("category_daily_caps", {})  # {category: max/day}
     min_gap = cfg["limits"].get("min_minutes_between_posts", 0)
+    media_enabled = cfg.get("media", {}).get("enabled", False)
 
     candidates = collect(cfg)
 
@@ -230,7 +235,20 @@ def main() -> None:
                 print("daily post budget reached (only scheduled posts allowed).")
             break
 
-        if poster.post(render(choice)):
+        # Attach a media card to signals that carry card data (the per-event
+        # selection lives in the sources: only chosen event types set `card`).
+        image_path = None
+        if media_enabled and getattr(choice, "card", None):
+            try:
+                fd, image_path = tempfile.mkstemp(suffix=".png", prefix="k5card_")
+                os.close(fd)
+                if card.card_png_for(choice, image_path) is None:
+                    image_path = None
+            except Exception as exc:  # rendering must never block the post
+                print(f"card render failed: {exc}")
+                image_path = None
+
+        if poster.post(render(choice), image_path):
             state.mark_posted(choice.dedup_key)
             state.mark_posted(fingerprint(choice))
             state.increment_today(choice.category)
@@ -238,6 +256,8 @@ def main() -> None:
             last_topic = topic_of(choice)
             state.set_last_topic(last_topic)
             posted += 1
+        if image_path and os.path.exists(image_path):
+            os.remove(image_path)
         remaining.remove(choice)
 
     if posted == 0:

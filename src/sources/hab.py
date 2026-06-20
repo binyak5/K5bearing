@@ -19,17 +19,17 @@ VARS = "time,pDA,tDA,Pseudo_nitzschia_seriata_group,Pseudo_nitzschia_delicatissi
 TIMEOUT = 25
 TZ = "America/Los_Angeles"  # the whole CalHABMAP network is on the US Pacific coast
 
-# (display location, ERDDAP dataset id) for the CalHABMAP shore stations.
+# (display location, ERDDAP dataset id, lat, lon) for the CalHABMAP shore stations.
 STATIONS = [
-    ("San Diego", "HABs-ScrippsPier"),
-    ("Newport Beach", "HABs-NewportBeachPier"),
-    ("Santa Monica", "HABs-SantaMonicaPier"),
-    ("Santa Barbara", "HABs-StearnsWharf"),
-    ("Avila Beach", "HABs-CalPolyPier"),
-    ("Monterey", "HABs-MontereyWharf"),
-    ("Santa Cruz", "HABs-SantaCruzWharf"),
-    ("Bodega Bay", "HABs-BodegaMarineLab"),
-    ("Humboldt", "HABs-TrinidadPier"),
+    ("San Diego", "HABs-ScrippsPier", 32.87, -117.25),
+    ("Newport Beach", "HABs-NewportBeachPier", 33.61, -117.93),
+    ("Santa Monica", "HABs-SantaMonicaPier", 34.01, -118.50),
+    ("Santa Barbara", "HABs-StearnsWharf", 34.41, -119.69),
+    ("Avila Beach", "HABs-CalPolyPier", 35.17, -120.74),
+    ("Monterey", "HABs-MontereyWharf", 36.61, -121.89),
+    ("Santa Cruz", "HABs-SantaCruzWharf", 36.96, -122.02),
+    ("Bodega Bay", "HABs-BodegaMarineLab", 38.32, -123.07),
+    ("Humboldt", "HABs-TrinidadPier", 41.06, -124.15),
 ]
 
 # Fired by a Pseudo-nitzschia cell-count bloom.
@@ -65,7 +65,7 @@ def hab_signals(cell_threshold: float, da_threshold: float, lookback_days: int =
     cutoff = (datetime.now(timezone.utc) - timedelta(days=lookback_days)).strftime("%Y-%m-%dT00:00:00Z")
 
     def _one(station: tuple) -> Signal | None:
-        name, dataset = station
+        name, dataset, lat, lon = station
         rows = _recent_rows(dataset, cutoff)
         # Rows come time-ascending; keep the most recent one over threshold.
         best = None  # (time, cells, da)
@@ -101,6 +101,12 @@ def hab_signals(cell_threshold: float, da_threshold: float, lookback_days: int =
             dedup_key=key,
             hashtags=["#RedTide", "#Marine"],
             tz=TZ,
+            card={
+                "value": "RED TIDE",
+                "event": "Algal bloom",
+                "detail": f"{name}, CA",
+                "lat": lat, "lon": lon,
+            },
         )
 
     return gather(_one, STATIONS)

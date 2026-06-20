@@ -27,6 +27,37 @@ def _split_so(text: str) -> str:
     return _SO_JOIN.sub(lambda m: ". " + m.group(1).upper(), text)
 
 
+# Official zone abbreviations for in-scope zones that Python's strftime("%Z")
+# reports only as a numeric offset (the tz database carries no short name for
+# them). US and EU zones already return proper names (EDT, CEST, GMT), so they
+# don't need an entry. These are the Middle East / Caucasus / Turkey zones that
+# fall inside our Gulf and eastern-Europe scope. None of them observe DST, so a
+# single fixed abbreviation per zone is correct year-round.
+ZONE_ABBR = {
+    # Gulf Standard Time (UTC+4)
+    "Asia/Dubai": "GST",
+    "Asia/Muscat": "GST",
+    # Arabia Standard Time (UTC+3)
+    "Asia/Riyadh": "AST",
+    "Asia/Qatar": "AST",
+    "Asia/Bahrain": "AST",
+    "Asia/Kuwait": "AST",
+    "Asia/Aden": "AST",
+    "Asia/Baghdad": "AST",
+    # Iran Standard Time (UTC+3:30)
+    "Asia/Tehran": "IRST",
+    # Afghanistan Time (UTC+4:30)
+    "Asia/Kabul": "AFT",
+    # Türkiye Time (UTC+3)
+    "Europe/Istanbul": "TRT",
+    "Asia/Istanbul": "TRT",
+    # Caucasus (UTC+4)
+    "Asia/Tbilisi": "GET",
+    "Asia/Yerevan": "AMT",
+    "Asia/Baku": "AZT",
+}
+
+
 def _pretty_zone(label: str) -> str:
     """Turn a numeric offset abbreviation ('+08', '-0530') into 'UTC+8' /
     'UTC-5:30'. Named zones (EDT, CEST, BST) pass through unchanged.
@@ -38,6 +69,18 @@ def _pretty_zone(label: str) -> str:
             minutes = int(digits[2:4]) if len(digits) >= 4 else 0
             return f"UTC{sign}{hours}" + (f":{minutes:02d}" if minutes else "")
     return label
+
+
+def _zone_label(zone: str | None, abbr: str) -> str:
+    """The short zone name to print. Prefer the tz database's own abbreviation;
+    fall back to our official-abbreviation map when it only gives a numeric
+    offset (e.g. Gulf zones report '+04'), and to 'UTC±N' if even that is unknown.
+    """
+    if abbr[:1] not in "+-":
+        return abbr                      # tz db already has a name (EDT, CEST...)
+    if zone in ZONE_ABBR:
+        return ZONE_ABBR[zone]           # our official name (GST, AST...)
+    return _pretty_zone(abbr)            # last resort: UTC±N
 
 
 def timestamp(zone: str | None = None) -> str:
@@ -52,7 +95,7 @@ def timestamp(zone: str | None = None) -> str:
         except Exception:
             tzinfo = timezone.utc
     now = datetime.now(tzinfo)
-    label = _pretty_zone(now.strftime("%Z")) if tzinfo is not timezone.utc else "UTC"
+    label = _zone_label(zone, now.strftime("%Z")) if tzinfo is not timezone.utc else "UTC"
     return f"{now.strftime('%H:%M')} {label}:"
 
 

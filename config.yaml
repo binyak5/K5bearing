@@ -54,6 +54,16 @@ dedup_ttl_hours: 48
 # NWS is US-only and MeteoAlarm is Europe-only already.
 regions: ["usa", "europe", "gulf"]
 
+# Media cards: attach a generated black/Eurostile card image (with the dotted
+# region map + orange location dot) to posts. Which event types get a card is
+# chosen per-event in the sources (only those set `card` data); this flag is the
+# master on/off switch. Off by default — flip to true to go live.
+# Card-enabled events: all Gulf hazards; marine high-seas / storm- & hurricane-
+# force wind / swell / fog; outdoor lightning; earthquakes; GDACS volcano &
+# wildfire; red tide; NGA launch & gunfire.
+media:
+  enabled: false
+
 # Geomagnetic / compass thresholds (planetary K-index, 0-9).
 geomagnetic:
   enabled: true

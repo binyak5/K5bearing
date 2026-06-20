@@ -127,6 +127,12 @@ def gulf_signals(
                     tz=zone,
                     topic="heat",
                     country=cc,
+                    card={
+                        "value": f"{round(ref)}°C",
+                        "event": "Extreme heat",
+                        "detail": name,
+                        "lat": lat, "lon": lon,
+                    },
                 )
             )
 
@@ -151,6 +157,12 @@ def gulf_signals(
                     tz=zone,
                     topic="wind",
                     country=cc,
+                    card={
+                        "value": f"{round(gust)} KM/H",
+                        "event": "Shamal" if is_shamal else "High wind",
+                        "detail": name,
+                        "lat": lat, "lon": lon,
+                    },
                 )
             )
 
@@ -169,6 +181,12 @@ def gulf_signals(
                     tier="advisory",
                     topic="fog",
                     country=cc,
+                    card={
+                        "value": f"{round(vis / 10) * 10} M",
+                        "event": "Dense fog",
+                        "detail": name,
+                        "lat": lat, "lon": lon,
+                    },
                 )
             )
 
@@ -186,6 +204,12 @@ def gulf_signals(
                     tz=zone,
                     topic="thunderstorm",
                     country=cc,
+                    card={
+                        "value": "Lightning",
+                        "event": "Thunderstorm",
+                        "detail": name,
+                        "lat": lat, "lon": lon,
+                    },
                 )
             )
 
@@ -203,6 +227,12 @@ def gulf_signals(
                     tz=zone,
                     topic="flood",
                     country=cc,
+                    card={
+                        "value": f"{round(rain)} MM/H",
+                        "event": "Flash flood",
+                        "detail": name,
+                        "lat": lat, "lon": lon,
+                    },
                 )
             )
 
@@ -220,6 +250,12 @@ def gulf_signals(
                     tz=zone,
                     topic="dust",
                     country=cc,
+                    card={
+                        "value": f"{round(dust)} µg/m³",
+                        "event": "Dust storm",
+                        "detail": name,
+                        "lat": lat, "lon": lon,
+                    },
                 )
             )
         return signals

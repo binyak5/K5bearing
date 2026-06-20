@@ -71,6 +71,13 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
                 hashtags=["#Earthquake", "#Seismic"],
                 tz=zone,
                 tier="critical" if p.get("tsunami") == 1 or mag >= 7.0 else "serious",
+                card={
+                    "value": f"M {mag:.1f}",
+                    "event": "Earthquake",
+                    "detail": place,
+                    "lat": coords[1],
+                    "lon": coords[0],
+                },
             )
         )
     return signals

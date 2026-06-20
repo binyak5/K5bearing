@@ -87,6 +87,12 @@ def lightning_signals(locations: list[dict]) -> list[Signal]:
             dedup_key=key,
             hashtags=["#Lightning", "#SevereWeather"],
             tz=tz.zone_for_coords(lon, lat),
+            card={
+                "value": "Lightning",
+                "event": "Thunderstorm",
+                "detail": name,
+                "lat": lat, "lon": lon,
+            },
         )
 
     return gather(_one, locations)

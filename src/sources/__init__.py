@@ -87,3 +87,8 @@ class Signal:
     # the timezone in the timestamp prefix. Blank for country-less signals
     # (space weather, open-sea marine areas, multi-country navigation warnings).
     country: str = ""
+    # Optional media-card data. When set (by sources that have a clean headline
+    # value + coordinates), the poster can render and attach a card image:
+    #   {"value", "event", "detail", "meta", "lat", "lon"}
+    # lat/lon drive the dotted-map region + orange dot; omit them for a no-map card.
+    card: dict | None = None

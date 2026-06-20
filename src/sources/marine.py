@@ -139,6 +139,15 @@ def wind_signals(areas: list[dict], gale_kt: float) -> list[Signal]:
             return None
         cat, weight = _wind_category(ref)
         key = f"seawind:{name}:{today}"
+        # Cards only for storm- and hurricane-force (gale-force posts text-only).
+        card = None
+        if cat in ("Storm-force", "Hurricane-force"):
+            card = {
+                "value": f"{round(ref)} KT",
+                "event": cat.replace("-force", " wind"),
+                "detail": name,
+                "lat": lat, "lon": lon,
+            }
         return Signal(
             category="marine",
             severity=weight,
@@ -153,6 +162,7 @@ def wind_signals(areas: list[dict], gale_kt: float) -> list[Signal]:
             hashtags=["#GaleWarning", "#Marine"],
             tz=None,
             tier="critical" if cat == "Hurricane-force" else "serious",
+            card=card,
         )
 
     return gather(_one, areas)
@@ -177,6 +187,12 @@ def swell_signals(areas: list[dict], period_s: float, height_m: float) -> list[S
             dedup_key=key,
             hashtags=["#GroundSwell", "#Marine"],
             tz=None,
+            card={
+                "value": f"{round(h, 1)} M",
+                "event": "Groundswell",
+                "detail": name,
+                "lat": lat, "lon": lon,
+            },
         )
 
     return gather(_one, areas)
@@ -201,6 +217,12 @@ def fog_signals(areas: list[dict], visibility_m: float) -> list[Signal]:
             dedup_key=key,
             hashtags=["#MarineFog", "#Marine"],
             tz=None,
+            card={
+                "value": f"{int(round(vis / 50) * 50)} M",
+                "event": "Marine fog",
+                "detail": name,
+                "lat": lat, "lon": lon,
+            },
         )
 
     return gather(_one, areas)
@@ -227,6 +249,12 @@ def sea_signals(areas: list[dict], threshold: float) -> list[Signal]:
             hashtags=["#HighSeas", "#Marine"],
             tz=None,  # open sea spans many zones -> UTC
             tier="critical" if cat == "Phenomenal" else "serious",
+            card={
+                "value": f"{round(h)} M",
+                "event": "High seas",
+                "detail": name,
+                "lat": lat, "lon": lon,
+            },
         )
 
     return gather(_one, areas)

@@ -3,3 +3,4 @@ tweepy>=4.14
 PyYAML>=6.0
 timezonefinder>=6.2
 tzdata>=2024.1
+Pillow>=10.0

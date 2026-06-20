@@ -7,6 +7,7 @@ from src.formatter import (
     _apply_tier,
     _fit,
     render,
+    timestamp,
     fingerprint,
     MAX_LEN,
 )
@@ -38,6 +39,33 @@ def test_pretty_zone_numeric():
 def test_pretty_zone_named_passthrough():
     assert _pretty_zone("CEST") == "CEST"
     assert _pretty_zone("EDT") == "EDT"
+
+
+# --- timestamp: official abbreviations for offset-only Gulf zones ----------
+def test_timestamp_gulf_zones_use_official_abbr():
+    # These zones report only a numeric offset via strftime, so without the
+    # map they'd read "UTC+4"/"UTC+3". They must show their official names.
+    assert timestamp("Asia/Dubai").endswith("GST:")
+    assert timestamp("Asia/Muscat").endswith("GST:")
+    assert timestamp("Asia/Riyadh").endswith("AST:")
+    assert timestamp("Asia/Qatar").endswith("AST:")
+
+
+def test_timestamp_named_zone_passthrough():
+    # US/EU zones already carry an abbreviation; it must pass through unchanged.
+    assert re.search(r" [A-Z]{2,5}:$", timestamp("America/New_York"))
+    assert " UTC+" not in timestamp("America/New_York")
+
+
+def test_timestamp_half_hour_offset_zones():
+    # Half-hour offset zones still print their official abbreviation, not UTC+N.
+    assert timestamp("Asia/Tehran").endswith("IRST:")
+    assert timestamp("Asia/Kabul").endswith("AFT:")
+
+
+def test_timestamp_unmapped_offset_zone_falls_back_to_utc():
+    # An offset-only zone we don't map should still degrade gracefully to UTC±N.
+    assert "UTC+" in timestamp("Asia/Tashkent")
 
 
 # --- _apply_tier: advisory softening --------------------------------------

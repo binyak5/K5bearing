@@ -26,15 +26,29 @@ class Poster:
                 access_token=creds["access_token"],
                 access_token_secret=creds["access_token_secret"],
             )
+            # v1.1 API is still required for media upload (v2 has no upload route).
+            auth = tweepy.OAuth1UserHandler(
+                creds["api_key"], creds["api_secret"],
+                creds["access_token"], creds["access_token_secret"],
+            )
+            self._api = tweepy.API(auth)
 
-    def post(self, text: str) -> bool:
+    def post(self, text: str, image_path: str | None = None) -> bool:
         if self.dry_run:
             print("--- DRY RUN (not posted) ---")
             print(text)
-            print(f"[{len(text)} chars]")
+            print(f"[{len(text)} chars]" + (f" + media: {image_path}" if image_path else ""))
             return True
         try:
-            resp = self._client.create_tweet(text=text)
+            media_ids = None
+            if image_path:
+                try:
+                    media = self._api.media_upload(image_path)
+                    media_ids = [media.media_id_string]
+                except tweepy.TweepyException as exc:
+                    # Never let a card-render/upload hiccup block the post itself.
+                    print(f"media upload failed, posting text-only: {exc}", file=sys.stderr)
+            resp = self._client.create_tweet(text=text, media_ids=media_ids)
             tweet_id = resp.data.get("id") if resp and resp.data else "?"
             print(f"posted: https://x.com/i/web/status/{tweet_id}")
             return True

@@ -127,6 +127,22 @@ def _classify(text: str) -> str | None:
     return None
 
 
+def _launch_kind(upper: str) -> str:
+    """What's being launched, for the card's main value."""
+    if "MISSILE" in upper:
+        return "Missile"
+    return "Rocket"  # rocket firing / space launch
+
+
+def _fire_kind(upper: str) -> str:
+    """What kind of live fire, for the card's main value."""
+    if "TORPEDO" in upper:
+        return "Torpedo"
+    if "GUNNERY" in upper or "GUNFIRE" in upper:
+        return "Gunnery"
+    return "Live fire"
+
+
 def warning_signals(categories: list[str]) -> list[Signal]:
     wanted = set(categories)
     try:
@@ -157,6 +173,14 @@ def warning_signals(categories: list[str]) -> list[Signal]:
         if key in seen:
             continue
         seen.add(key)
+        # Cards only for launch + gunfire. NGA gives no coordinates, only a named
+        # region, so these are map-less cards (region label, no orange dot). The
+        # label says the kind of alert; the big value says what it is.
+        card = None
+        if cat == "launch":
+            card = {"value": _launch_kind(text.upper()), "event": "Launch alert", "detail": region}
+        elif cat == "gunfire":
+            card = {"value": _fire_kind(text.upper()), "event": "Live fire alert", "detail": region}
         signals.append(
             Signal(
                 category="maritime",
@@ -166,6 +190,7 @@ def warning_signals(categories: list[str]) -> list[Signal]:
                 hashtags=hashtags,
                 tz=None,  # ocean areas span many zones -> UTC
                 tier="critical" if cat in ("launch", "mine", "gunfire") else "serious",
+                card=card,
             )
         )
     return signals

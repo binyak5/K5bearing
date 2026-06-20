@@ -105,6 +105,13 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
                 hashtags=["#" + label.replace(" ", ""), country_tag],
                 tz=zone,
                 tier="critical" if alert == "Red" else "serious",
+                card={
+                    "value": f"{alert} ALERT",
+                    "event": label,
+                    "detail": name,
+                    "lat": centroid[1],
+                    "lon": centroid[0],
+                },
             )
         )
     return signals
