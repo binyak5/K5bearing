@@ -73,6 +73,40 @@ ZONE_CODES = {
     "Europe/Amsterdam": "NL",
 }
 
+# ISO alpha-2 -> (continent, full country name), for the geographic tag printed
+# after the timezone in each post, e.g. 'CEST Europe, France:'. Covers every
+# country the sources can stamp: the US (NWS), the MeteoAlarm European network,
+# and the Gulf states. Continent follows geography (the Gulf states and Israel
+# are in Asia); anything unmapped falls back to the bare code.
+COUNTRY_INFO = {
+    "US": ("North America", "United States"),
+    # Europe (MeteoAlarm network + the Rotterdam city update)
+    "AD": ("Europe", "Andorra"), "AT": ("Europe", "Austria"),
+    "BE": ("Europe", "Belgium"), "BA": ("Europe", "Bosnia and Herzegovina"),
+    "BG": ("Europe", "Bulgaria"), "HR": ("Europe", "Croatia"),
+    "CY": ("Europe", "Cyprus"), "CZ": ("Europe", "Czechia"),
+    "DK": ("Europe", "Denmark"), "EE": ("Europe", "Estonia"),
+    "FI": ("Europe", "Finland"), "FR": ("Europe", "France"),
+    "DE": ("Europe", "Germany"), "GR": ("Europe", "Greece"),
+    "HU": ("Europe", "Hungary"), "IS": ("Europe", "Iceland"),
+    "IE": ("Europe", "Ireland"), "IT": ("Europe", "Italy"),
+    "LV": ("Europe", "Latvia"), "LT": ("Europe", "Lithuania"),
+    "LU": ("Europe", "Luxembourg"), "MT": ("Europe", "Malta"),
+    "MD": ("Europe", "Moldova"), "ME": ("Europe", "Montenegro"),
+    "NL": ("Europe", "Netherlands"), "MK": ("Europe", "North Macedonia"),
+    "NO": ("Europe", "Norway"), "PL": ("Europe", "Poland"),
+    "PT": ("Europe", "Portugal"), "RO": ("Europe", "Romania"),
+    "RS": ("Europe", "Serbia"), "SK": ("Europe", "Slovakia"),
+    "SI": ("Europe", "Slovenia"), "ES": ("Europe", "Spain"),
+    "SE": ("Europe", "Sweden"), "CH": ("Europe", "Switzerland"),
+    "UA": ("Europe", "Ukraine"), "GB": ("Europe", "United Kingdom"),
+    # Asia (Gulf states + Israel)
+    "IL": ("Asia", "Israel"), "AE": ("Asia", "United Arab Emirates"),
+    "SA": ("Asia", "Saudi Arabia"), "QA": ("Asia", "Qatar"),
+    "BH": ("Asia", "Bahrain"), "KW": ("Asia", "Kuwait"),
+    "OM": ("Asia", "Oman"),
+}
+
 _finder = None
 
 
@@ -104,6 +138,13 @@ def code_for_country(slug: str) -> str | None:
 def code_for_zone(zone: str) -> str | None:
     """ISO alpha-2 code for an IANA timezone ('Asia/Dubai' -> 'AE')."""
     return ZONE_CODES.get(zone or "")
+
+
+def country_label(code: str | None) -> str | None:
+    """ISO alpha-2 code -> 'Continent, Full Name' ('FR' -> 'Europe, France').
+    Returns None for an empty or unknown code so callers can fall back."""
+    info = COUNTRY_INFO.get((code or "").upper())
+    return f"{info[0]}, {info[1]}" if info else None
 
 
 def polygon_centroid(geometry: dict | None) -> tuple[float, float] | None:

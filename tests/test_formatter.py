@@ -93,10 +93,22 @@ def test_render_has_time_prefix():
     assert PREFIX.match(out)
 
 
-def test_render_includes_country_code():
+def test_render_includes_country_label():
     out = render(_sig("A red wind warning is active for X.", tz="Europe/Zurich", country="CH"))
-    # "HH:MM CEST CH: ..." — the code sits right before the colon.
-    assert re.search(r"\d{2}:\d{2} \S+ CH: ", out)
+    # "HH:MM CEST Europe, Switzerland: ..." — continent, full name before the colon.
+    assert "Europe, Switzerland: " in out
+
+
+def test_render_country_label_gulf_and_us():
+    gulf = render(_sig("Severe heat is gripping Dubai.", tz="Asia/Dubai", country="AE"))
+    assert "Asia, United Arab Emirates: " in gulf
+    us = render(_sig("A tornado warning is active.", tz="America/Chicago", country="US"))
+    assert "North America, United States: " in us
+
+
+def test_render_unknown_country_falls_back_to_code():
+    out = render(_sig("A warning is active.", tz="Europe/Paris", country="ZZ"))
+    assert re.search(r"\d{2}:\d{2} \S+ ZZ: ", out)
 
 
 def test_render_without_country_has_no_trailing_code():
