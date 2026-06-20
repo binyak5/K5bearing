@@ -267,6 +267,9 @@ weather_eu:
     - serbia
     - slovakia
     - slovenia
+    - bosnia-herzegovina
+    - iceland
+    - estonia
 
 # Marine sea-state (high-seas) warnings via Open-Meteo, for named sea areas.
 # Gives Europe (and global) marine coverage where there's no official feed.
