@@ -16,6 +16,20 @@ def test_geo_tag_falls_back_to_usa_without_state():
     assert nws._geo_tag("Coastal waters out 10 nm") == "USA"
 
 
+# --- nws._area_label: drop the repeated state on single-state alerts -----
+def test_area_label_strips_state_when_single_state():
+    # State is already in the "USA, Texas" tag, so it's dropped from the body.
+    out = nws._area_label("Travis, TX; Williamson, TX; Hays, TX")
+    assert "TX" not in out
+    assert out == "Travis, Williamson, and Hays"
+
+
+def test_area_label_keeps_state_when_multiple_states():
+    # The tag can only name one state, so multi-state lists keep ', ST'.
+    out = nws._area_label("Cameron, LA; Jefferson, TX")
+    assert "LA" in out and "TX" in out
+
+
 # --- nws._tier -----------------------------------------------------------
 def test_tier_critical_event():
     assert nws._tier("Tornado Warning") == "critical"

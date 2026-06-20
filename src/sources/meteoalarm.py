@@ -32,8 +32,8 @@ SEVERITY_COLOR = {"Moderate": "Yellow", "Severe": "Orange", "Extreme": "Red"}
 
 # How the warning is announced; one is picked per alert for variety.
 OPENERS = [
-    "{article} {color} {hazard} warning is active for {label}{where}.",
-    "{article} {color} {hazard} warning has been issued for {label}{where}.",
+    "{article} {color} {hazard} warning is active{where}.",
+    "{article} {color} {hazard} warning has been issued{where}.",
 ]
 
 # MeteoAlarm hazard keyword -> the US NWS event whose (better, single-source)
@@ -164,14 +164,14 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         color = SEVERITY_COLOR.get(severity, severity).lower()
         article = "An" if color[:1] in "aeiou" else "A"
         hazard = _hazard(g["event"])
-        # Name the actual regions affected. The country now rides in the
-        # timestamp prefix as its ISO code, so it's no longer repeated here.
+        # Name the actual sub-regions affected. The country now rides in the
+        # timestamp prefix ("EU, France"), so we never restate it here: with no
+        # named sub-regions we just say the warning is active, no "for {country}".
         region_label = region_list(sorted(g["areas"]))
-        label = region_label or country_title
-        where = ""
+        where = f" for {region_label}" if region_label else ""
         key = f"eu:{country}:{token}:{severity}"
         opener = pick(OPENERS, key + ":o").format(
-            article=article, color=color, hazard=hazard, label=label, where=where
+            article=article, color=color, hazard=hazard, where=where
         )
         text = f"{opener} {pick(g['actions'], key + ':a')}"
         tier = "critical" if severity == "Extreme" else ("advisory" if severity == "Moderate" else "serious")

@@ -267,23 +267,38 @@ SCA_ROUNDUP = [
 ]
 
 
+def _split_state(seg: str) -> tuple[str, str | None]:
+    """Split an NWS area segment 'Travis, TX' into ('Travis', 'TX'). Returns
+    (segment, None) when the trailing token isn't a US state abbreviation
+    (e.g. marine zones like 'Coastal waters out 10 nm')."""
+    parts = seg.rsplit(",", 1)
+    if len(parts) == 2 and tz.state_name(parts[1].strip()):
+        return parts[0].strip(), parts[1].strip().upper()
+    return seg.strip(), None
+
+
 def _area_label(area_desc: str) -> str:
     """Name the NWS areas ('Centre, PA; Clearfield, PA; ...') as a readable
-    list, capped at a sensible length with 'and N other areas' for the rest."""
-    return region_list([a.strip() for a in area_desc.split(";") if a.strip()])
+    list, capped at a sensible length with 'and N other areas' for the rest.
+
+    When every county is in one state, that state is already shown in the
+    "USA, <state>" geo tag, so we drop the repeated ', ST' from the body list
+    ('Travis and Williamson'). Multi-state alerts keep the state for clarity."""
+    segs = [a.strip() for a in area_desc.split(";") if a.strip()]
+    pairs = [_split_state(s) for s in segs]
+    states = {st for _, st in pairs if st}
+    names = [place for place, _ in pairs] if len(states) == 1 else segs
+    return region_list(names)
 
 
 def _geo_tag(area_desc: str) -> str:
     """The "USA, <state>" geo tag for a US alert. NWS areaDesc lists each county
-    as 'County, ST', so we read the state abbreviation from the first segment
-    that has one and spell it out. Falls back to plain "USA" (e.g. marine zones
-    that carry no state)."""
+    as 'County, ST', so we read the state from the first segment that has one and
+    spell it out. Falls back to plain "USA" (e.g. marine zones with no state)."""
     for seg in area_desc.split(";"):
-        parts = seg.rsplit(",", 1)
-        if len(parts) == 2:
-            st = tz.state_name(parts[1].strip())
-            if st:
-                return f"USA, {st}"
+        _, st = _split_state(seg)
+        if st:
+            return f"USA, {tz.state_name(st)}"
     return "USA"
 
 
