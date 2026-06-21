@@ -157,7 +157,7 @@ ACTIONS = {
         "Severe avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.",
     ],
     "Freeze Warning": [
-        "A hard sub-freeze is on the way. Cover sensitive plants, bring pets inside, and guard against burst pipes.",
+        "A hard sub-freeze is on the way. Cover anything frost-sensitive and guard against burst pipes.",
     ],
     "Air Quality Alert": [
         "Air pollution is reaching unhealthy levels. Limit time outdoors, keep windows closed, and take it easy if you have breathing trouble.",
