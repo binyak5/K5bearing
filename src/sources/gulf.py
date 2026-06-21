@@ -14,7 +14,6 @@ import requests
 from ..config import USER_AGENT
 from .. import tz
 from . import Signal, pick, gather, forecast_temp
-from . import nws  # reuse the US/EU cold-alert advice wording
 
 FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 AIR_QUALITY_URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
@@ -27,9 +26,11 @@ HEAT_VARIANTS = [
     "Severe heat is gripping {name}. Highs near {temp}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.",
 ]
 
-# Lead only; the advice clause is shared with the US/EU cold alerts (below).
+# Gulf cold is mild by global standards (a few degrees above freezing), so the
+# advice is calibrated to that — bundle up and frost risk, NOT the frostbite /
+# extreme-cold wording the US and EU use for genuinely dangerous cold.
 COLD_VARIANTS = [
-    "A cold snap is gripping {name}. Lows near {low}°C.",
+    "A cold snap is gripping {name}. Lows near {low}°C. Wrap up warm overnight and watch for frost in low-lying and rural areas.",
 ]
 
 # Winds out of the NW are the classic Gulf "shamal".
@@ -157,8 +158,7 @@ def gulf_signals(
                 Signal(
                     category="gulf",
                     severity=66,
-                    text=(pick(COLD_VARIANTS, key).format(name=name, low=low)
-                          + " " + pick(nws.ACTIONS["Extreme Cold Warning"], key)),
+                    text=pick(COLD_VARIANTS, key).format(name=name, low=low),
                     dedup_key=key,
                     hashtags=["#ColdWave", "#Gulf"],
                     tz=zone,
