@@ -123,7 +123,7 @@ gulf_weather:
   fog_visibility_m: 1000 # dense fog when visibility drops below this (metres)
   rain_mm: 7             # heavy rain / flash-flood risk at/above this (mm in the hour)
   dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm (air-quality feed)
-  cold_c: 5              # forecast overnight low at/below this (°C) = cold snap
+  cold_c: 2              # forecast overnight low at/below this (°C) = freeze/frost (US Freeze Warning tier)
   locations:
     # UAE
     - {name: "Dubai",          lat: 25.20, lon: 55.27, tz: "Asia/Dubai"}

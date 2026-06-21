@@ -14,6 +14,7 @@ import requests
 from ..config import USER_AGENT
 from .. import tz
 from . import Signal, pick, gather, forecast_temp
+from . import nws  # reuse the US Freeze Warning advice (same near-freezing tier)
 
 FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 AIR_QUALITY_URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
@@ -26,11 +27,11 @@ HEAT_VARIANTS = [
     "Severe heat is gripping {name}. Highs near {temp}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.",
 ]
 
-# Gulf cold is mild by global standards (a few degrees above freezing), so the
-# advice is calibrated to that — bundle up and frost risk, NOT the frostbite /
-# extreme-cold wording the US and EU use for genuinely dangerous cold.
+# A Gulf cold snap is the near-freezing tier (frost/freeze risk), the equivalent
+# of a US Freeze Warning — so it reuses that alert's advice (cover plants, pipes),
+# NOT the Extreme Cold Warning frostbite line, which is for far colder weather.
 COLD_VARIANTS = [
-    "A cold snap is gripping {name}. Lows near {low}°C. Wrap up warm overnight and watch for frost in low-lying and rural areas.",
+    "A cold snap is gripping {name}. Lows near {low}°C.",
 ]
 
 # Winds out of the NW are the classic Gulf "shamal".
@@ -100,7 +101,7 @@ def gulf_signals(
     fog_visibility_m: float = 1000,
     rain_mm: float = 7,
     dust_threshold: float = 500,
-    cold_c: float = 5,
+    cold_c: float = 2,
 ) -> list[Signal]:
     def _one(loc: dict) -> list[Signal]:
         signals: list[Signal] = []
@@ -149,8 +150,9 @@ def gulf_signals(
             )
 
         # Cold snap — rare but real in Gulf winters (desert nights, northern
-        # highlands). Uses the day's forecast low; fires when it drops to the
-        # threshold. Air temperature, in °C, like the heat line.
+        # highlands near freezing). Uses the day's forecast low; fires at/below
+        # the threshold. Air temperature in °C, like the heat line; the advice is
+        # the US Freeze Warning's, the same near-freezing tier.
         low = forecast_temp(lat, lon, which="min", unit="celsius")
         if low is not None and low <= cold_c:
             key = f"gulfcold:{name}:{today}"
@@ -158,7 +160,8 @@ def gulf_signals(
                 Signal(
                     category="gulf",
                     severity=66,
-                    text=pick(COLD_VARIANTS, key).format(name=name, low=low),
+                    text=(pick(COLD_VARIANTS, key).format(name=name, low=low)
+                          + " " + pick(nws.ACTIONS["Freeze Warning"], key)),
                     dedup_key=key,
                     hashtags=["#ColdWave", "#Gulf"],
                     tz=zone,
