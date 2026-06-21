@@ -23,7 +23,7 @@ TIMEOUT = 20
 THUNDER_CODES = {95, 96, 99}
 
 HEAT_VARIANTS = [
-    "Severe heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.",
+    "Severe heat is gripping {name}. Highs near {feels}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.",
 ]
 
 # Winds out of the NW are the classic Gulf "shamal".
@@ -123,9 +123,7 @@ def gulf_signals(
                 Signal(
                     category="gulf",
                     severity=72,
-                    text=pick(HEAT_VARIANTS, key).format(
-                        name=name, temp=round(temp if temp is not None else ref), feels=round(ref)
-                    ),
+                    text=pick(HEAT_VARIANTS, key).format(name=name, feels=round(ref)),
                     dedup_key=key,
                     hashtags=["#ExtremeHeat", "#Gulf"],
                     tz=zone,
