@@ -13,21 +13,27 @@ _FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 _GEOCODE_URL = "https://geocoding-api.open-meteo.com/v1/search"
 
 
-def forecast_high_c(lat: float, lon: float, timeout: int = 15) -> int | None:
-    """Today's forecast max 2 m air temperature (°C, rounded) at a point, from
-    Open-Meteo (keyless). None on any failure, so callers degrade gracefully.
-    Used to state the degree a heat warning will reach when the alert feed
-    itself carries no temperature (NWS, MeteoAlarm)."""
+def forecast_temp(lat: float, lon: float, which: str = "max",
+                  unit: str = "celsius", timeout: int = 15) -> int | None:
+    """Today's forecast extreme 2 m air temperature (rounded) at a point, from
+    Open-Meteo (keyless). `which` is "max" (daytime high) or "min" (overnight
+    low); `unit` is "celsius" or "fahrenheit". None on any failure, so callers
+    degrade gracefully. Used to state the degree a heat/cold warning will reach
+    when the alert feed itself carries no temperature (NWS, MeteoAlarm)."""
+    var = "temperature_2m_max" if which == "max" else "temperature_2m_min"
+    params = {"latitude": lat, "longitude": lon, "daily": var,
+              "timezone": "auto", "forecast_days": 1}
+    if unit == "fahrenheit":
+        params["temperature_unit"] = "fahrenheit"
     try:
         resp = requests.get(
             _FORECAST_URL,
             headers={"User-Agent": USER_AGENT},
-            params={"latitude": lat, "longitude": lon,
-                    "daily": "temperature_2m_max", "timezone": "auto", "forecast_days": 1},
+            params=params,
             timeout=timeout,
         )
         resp.raise_for_status()
-        vals = (resp.json().get("daily") or {}).get("temperature_2m_max") or []
+        vals = (resp.json().get("daily") or {}).get(var) or []
         return round(vals[0]) if vals and vals[0] is not None else None
     except (requests.RequestException, ValueError, IndexError):
         return None

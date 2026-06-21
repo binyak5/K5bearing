@@ -13,7 +13,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick, gather, region_list, geocode, forecast_high_c
+from . import Signal, pick, gather, region_list, geocode, forecast_temp
 from . import nws  # reuse the US action wording for Europe
 
 FEED_BASE = "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"
@@ -173,18 +173,20 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         opener = pick(OPENERS, key + ":o").format(
             article=article, color=color, hazard=hazard, where=where
         )
-        # Heat warnings carry only a colour level (no temperature, no coords), so
-        # state an approximate degree: geocode the first named region and take the
-        # day's forecast high there. One figure for a multi-region warning, so it
-        # may understate the hottest spot; skipped silently if lookup fails.
-        heat = ""
-        if token in ("high-temp", "heat") and g["areas"]:
+        # Heat/cold warnings carry only a colour level (no temperature, no coords),
+        # so state an approximate degree: geocode the first named region and take
+        # the day's forecast extreme there. One figure for a multi-region warning,
+        # so it may under/overstate the worst spot; skipped silently on failure.
+        # Europe reads in Celsius.
+        clause = ""
+        which = "max" if token in ("high-temp", "heat") else ("min" if token in ("low-temp", "cold") else None)
+        if which and g["areas"]:
             coords = geocode(sorted(g["areas"])[0])
             if coords:
-                t = forecast_high_c(coords[0], coords[1])
+                t = forecast_temp(coords[0], coords[1], which=which, unit="celsius")
                 if t is not None:
-                    heat = f" Highs near {t}°C."
-        text = f"{opener}{heat} {pick(g['actions'], key + ':a')}"
+                    clause = f" {'Highs' if which == 'max' else 'Lows'} near {t}°C."
+        text = f"{opener}{clause} {pick(g['actions'], key + ':a')}"
         tier = "critical" if severity == "Extreme" else ("advisory" if severity == "Moderate" else "serious")
         signals.append(
             Signal(

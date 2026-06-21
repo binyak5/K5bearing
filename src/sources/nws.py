@@ -10,7 +10,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick, region_list, forecast_high_c
+from . import Signal, pick, region_list, forecast_temp
 
 
 def _parse_dt(s: str):
@@ -337,14 +337,15 @@ def weather_signals(events: list[str], area: str = "", exclude: list[str] | None
     signals: list[Signal] = []
     seen_keys: set[str] = set()
     sca_zones: set[str] = set()
-    # Cache heat-high lookups by ~0.5° cell so a heat wave spanning many adjacent
-    # counties makes only a handful of Open-Meteo calls, not one per county.
-    temp_cache: dict[tuple[float, float], int | None] = {}
+    # Cache temperature lookups by ~0.5° cell (+ which extreme) so a heat or cold
+    # wave spanning many adjacent counties makes only a handful of Open-Meteo
+    # calls, not one per county. US alerts read in Fahrenheit.
+    temp_cache: dict[tuple, int | None] = {}
 
-    def heat_high(centroid):
-        cell = (round(centroid[1] * 2) / 2, round(centroid[0] * 2) / 2)
+    def area_temp(centroid, which):
+        cell = (round(centroid[1] * 2) / 2, round(centroid[0] * 2) / 2, which)
         if cell not in temp_cache:
-            temp_cache[cell] = forecast_high_c(centroid[1], centroid[0])
+            temp_cache[cell] = forecast_temp(centroid[1], centroid[0], which=which, unit="fahrenheit")
         return temp_cache[cell]
 
     for feat in data.get("features", []):
@@ -388,14 +389,21 @@ def weather_signals(events: list[str], area: str = "", exclude: list[str] | None
         centroid = tz.polygon_centroid(feat.get("geometry"))
         zone = tz.zone_for_coords(*centroid) if centroid else None
 
-        # Heat alerts carry no temperature in the feed, so state the degree it
-        # will reach from the day's forecast high at the alert's centroid.
-        heat = ""
-        if _topic(event) == "heat" and centroid:
-            t = heat_high(centroid)
-            if t is not None:
-                heat = f" Highs near {t}°C."
-        text = f"{opener}{heat} {action}".strip()
+        # Heat/cold alerts carry no temperature in the feed, so state the degree
+        # they will reach from the day's forecast extreme at the alert's centroid.
+        # US alerts use Fahrenheit.
+        clause = ""
+        if centroid:
+            topic = _topic(event)
+            if topic == "heat":
+                t = area_temp(centroid, "max")
+                if t is not None:
+                    clause = f" Highs near {t}°F."
+            elif topic == "cold" or "freeze" in event_l or "frost" in event_l:
+                t = area_temp(centroid, "min")
+                if t is not None:
+                    clause = f" Lows near {t}°F."
+        text = f"{opener}{clause} {action}".strip()
 
         signals.append(
             Signal(
