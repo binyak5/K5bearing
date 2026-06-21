@@ -5,6 +5,52 @@ import hashlib
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 
+import requests
+
+from ..config import USER_AGENT
+
+_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
+_GEOCODE_URL = "https://geocoding-api.open-meteo.com/v1/search"
+
+
+def forecast_high_c(lat: float, lon: float, timeout: int = 15) -> int | None:
+    """Today's forecast max 2 m air temperature (°C, rounded) at a point, from
+    Open-Meteo (keyless). None on any failure, so callers degrade gracefully.
+    Used to state the degree a heat warning will reach when the alert feed
+    itself carries no temperature (NWS, MeteoAlarm)."""
+    try:
+        resp = requests.get(
+            _FORECAST_URL,
+            headers={"User-Agent": USER_AGENT},
+            params={"latitude": lat, "longitude": lon,
+                    "daily": "temperature_2m_max", "timezone": "auto", "forecast_days": 1},
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        vals = (resp.json().get("daily") or {}).get("temperature_2m_max") or []
+        return round(vals[0]) if vals and vals[0] is not None else None
+    except (requests.RequestException, ValueError, IndexError):
+        return None
+
+
+def geocode(name: str, timeout: int = 15) -> tuple[float, float] | None:
+    """First (lat, lon) match for a place name via Open-Meteo geocoding, or None.
+    Used where an alert names a region but gives no coordinates (MeteoAlarm)."""
+    try:
+        resp = requests.get(
+            _GEOCODE_URL,
+            headers={"User-Agent": USER_AGENT},
+            params={"name": name, "count": 1},
+            timeout=timeout,
+        )
+        resp.raise_for_status()
+        results = resp.json().get("results") or []
+        if results:
+            return results[0].get("latitude"), results[0].get("longitude")
+    except (requests.RequestException, ValueError):
+        pass
+    return None
+
 
 def gather(fn, items: list, workers: int = 12) -> list:
     """Run fn over items concurrently and flatten the results into one list.

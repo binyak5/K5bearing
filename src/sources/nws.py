@@ -10,7 +10,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick, region_list
+from . import Signal, pick, region_list, forecast_high_c
 
 
 def _parse_dt(s: str):
@@ -337,6 +337,15 @@ def weather_signals(events: list[str], area: str = "", exclude: list[str] | None
     signals: list[Signal] = []
     seen_keys: set[str] = set()
     sca_zones: set[str] = set()
+    # Cache heat-high lookups by ~0.5° cell so a heat wave spanning many adjacent
+    # counties makes only a handful of Open-Meteo calls, not one per county.
+    temp_cache: dict[tuple[float, float], int | None] = {}
+
+    def heat_high(centroid):
+        cell = (round(centroid[1] * 2) / 2, round(centroid[0] * 2) / 2)
+        if cell not in temp_cache:
+            temp_cache[cell] = forecast_high_c(centroid[1], centroid[0])
+        return temp_cache[cell]
 
     for feat in data.get("features", []):
         props = feat.get("properties", {})
@@ -375,10 +384,18 @@ def weather_signals(events: list[str], area: str = "", exclude: list[str] | None
         where = f" for {label}" if label else ""
         opener = pick(OPENERS, key + ":o").format(article=article, event=event_l, where=where)
         action = pick(ACTIONS.get(event, []), key + ":a")
-        text = f"{opener} {action}".strip()
 
         centroid = tz.polygon_centroid(feat.get("geometry"))
         zone = tz.zone_for_coords(*centroid) if centroid else None
+
+        # Heat alerts carry no temperature in the feed, so state the degree it
+        # will reach from the day's forecast high at the alert's centroid.
+        heat = ""
+        if _topic(event) == "heat" and centroid:
+            t = heat_high(centroid)
+            if t is not None:
+                heat = f" Highs near {t}°C."
+        text = f"{opener}{heat} {action}".strip()
 
         signals.append(
             Signal(

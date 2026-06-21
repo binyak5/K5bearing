@@ -13,7 +13,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick, gather, region_list
+from . import Signal, pick, gather, region_list, geocode, forecast_high_c
 from . import nws  # reuse the US action wording for Europe
 
 FEED_BASE = "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"
@@ -173,7 +173,18 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         opener = pick(OPENERS, key + ":o").format(
             article=article, color=color, hazard=hazard, where=where
         )
-        text = f"{opener} {pick(g['actions'], key + ':a')}"
+        # Heat warnings carry only a colour level (no temperature, no coords), so
+        # state an approximate degree: geocode the first named region and take the
+        # day's forecast high there. One figure for a multi-region warning, so it
+        # may understate the hottest spot; skipped silently if lookup fails.
+        heat = ""
+        if token in ("high-temp", "heat") and g["areas"]:
+            coords = geocode(sorted(g["areas"])[0])
+            if coords:
+                t = forecast_high_c(coords[0], coords[1])
+                if t is not None:
+                    heat = f" Highs near {t}°C."
+        text = f"{opener}{heat} {pick(g['actions'], key + ':a')}"
         tier = "critical" if severity == "Extreme" else ("advisory" if severity == "Moderate" else "serious")
         signals.append(
             Signal(
