@@ -93,7 +93,12 @@ def _titlecase(s: str) -> str:
 
 
 def _region(text: str, nav_area: str) -> str:
-    """Pull the leading geographic header lines into a tidy place name."""
+    """Pull the leading geographic header lines into a tidy place name.
+
+    The header usually leads with the body of water and then the bordering
+    country ('BLACK SEA' / 'ROMANIA'). A sea doesn't belong to the country next
+    to it, so we keep only the water line(s) and drop the land/country line —
+    falling back to the first header only when no water area is named."""
     geo: list[str] = []
     for line in text.splitlines():
         s = line.strip().rstrip(".")
@@ -101,20 +106,22 @@ def _region(text: str, nav_area: str) -> str:
             continue
         if s[0].isdigit() or s.startswith("DNC") or "CHART" in s.upper() or len(s) > 45:
             break
-        geo.append(_titlecase(s))
+        geo.append(s)
         if len(geo) >= 2:
             break
-    region = ", ".join(dict.fromkeys(geo))
-    if not region:
+    if not geo:
         return NAVAREA_NAME.get(nav_area, "international waters")
+    water = [g for g in geo if any(w in g.upper() for w in _WATER_WORDS)]
+    chosen = water or geo[:1]
+    names = list(dict.fromkeys(_titlecase(g) for g in chosen))
+    region = ", ".join(names)
     # Keep the region name from dominating the post; fall back to the first
     # part (or the nav-area name) if the joined header runs long.
     if len(region) > 50:
-        region = geo[0]
+        region = names[0]
         if len(region) > 50:
             return NAVAREA_NAME.get(nav_area, "international waters")
-    first = geo[0].upper()
-    if any(w in first for w in _WATER_WORDS) and not first.startswith("THE"):
+    if any(w in chosen[0].upper() for w in _WATER_WORDS) and not chosen[0].upper().startswith("THE"):
         region = "the " + region
     return region
 

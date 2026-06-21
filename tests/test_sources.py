@@ -111,6 +111,20 @@ def test_nga_titlecase_keeps_small_words_lower():
     assert nga._titlecase("GULF OF OMAN") == "Gulf of Oman"
 
 
+# --- nga._region: keep the water body, drop the bordering country --------
+def test_region_drops_bordering_country():
+    assert nga._region("BLACK SEA\nROMANIA\nMines reported.", "4") == "the Black Sea"
+    assert nga._region("NORTH PACIFIC\nHAWAII\nLaunch hazard.", "12") == "the North Pacific"
+
+
+def test_region_keeps_multiple_water_areas():
+    assert nga._region("BALTIC SEA\nGULF OF FINLAND\nFiring.", "A") == "the Baltic Sea, Gulf of Finland"
+
+
+def test_region_falls_back_to_navarea_when_no_header():
+    assert nga._region("123456Z JUN 26\nposition update", "4") == "the Western North Atlantic"
+
+
 # --- marine wave / wind categories + their weights -----------------------
 def test_marine_sea_categories_ordered():
     assert marine._category(5.0) == ("High", 74)
