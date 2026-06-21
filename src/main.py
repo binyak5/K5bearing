@@ -142,6 +142,7 @@ def collect(cfg: dict) -> list[Signal]:
                 gw.get("fog_visibility_m", 1000),
                 gw.get("rain_mm", 7),
                 gw.get("dust_threshold", 500),
+                gw.get("cold_c", 5),
             )
         )
 

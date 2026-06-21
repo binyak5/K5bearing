@@ -13,7 +13,8 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick, gather
+from . import Signal, pick, gather, forecast_temp
+from . import nws  # reuse the US/EU cold-alert advice wording
 
 FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 AIR_QUALITY_URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
@@ -24,6 +25,11 @@ THUNDER_CODES = {95, 96, 99}
 
 HEAT_VARIANTS = [
     "Severe heat is gripping {name}. Highs near {temp}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.",
+]
+
+# Lead only; the advice clause is shared with the US/EU cold alerts (below).
+COLD_VARIANTS = [
+    "A cold snap is gripping {name}. Lows near {low}°C.",
 ]
 
 # Winds out of the NW are the classic Gulf "shamal".
@@ -93,6 +99,7 @@ def gulf_signals(
     fog_visibility_m: float = 1000,
     rain_mm: float = 7,
     dust_threshold: float = 500,
+    cold_c: float = 5,
 ) -> list[Signal]:
     def _one(loc: dict) -> list[Signal]:
         signals: list[Signal] = []
@@ -134,6 +141,33 @@ def gulf_signals(
                     card={
                         "value": f"{round(ref)}°C",
                         "event": "Extreme heat",
+                        "detail": name,
+                        "lat": lat, "lon": lon,
+                    },
+                )
+            )
+
+        # Cold snap — rare but real in Gulf winters (desert nights, northern
+        # highlands). Uses the day's forecast low; fires when it drops to the
+        # threshold. Air temperature, in °C, like the heat line.
+        low = forecast_temp(lat, lon, which="min", unit="celsius")
+        if low is not None and low <= cold_c:
+            key = f"gulfcold:{name}:{today}"
+            signals.append(
+                Signal(
+                    category="gulf",
+                    severity=66,
+                    text=(pick(COLD_VARIANTS, key).format(name=name, low=low)
+                          + " " + pick(nws.ACTIONS["Extreme Cold Warning"], key)),
+                    dedup_key=key,
+                    hashtags=["#ColdWave", "#Gulf"],
+                    tz=zone,
+                    tier="advisory",
+                    topic="cold",
+                    country=geo,
+                    card={
+                        "value": f"{low}°C",
+                        "event": "Cold snap",
                         "detail": name,
                         "lat": lat, "lon": lon,
                     },
