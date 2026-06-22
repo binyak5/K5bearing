@@ -6,6 +6,7 @@ Severity is standardized: Moderate (yellow), Severe (orange), Extreme (red).
 """
 from __future__ import annotations
 
+import re
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
@@ -85,7 +86,7 @@ def _hazard(event: str) -> str:
     Handles both 'Heatwave warning' and Belgium-style 'warning for heatwave'.
     """
     words = event.split()
-    drop = {"yellow", "orange", "red", "moderate", "severe", "extreme"}
+    drop = {"yellow", "amber", "orange", "red", "moderate", "severe", "extreme"}
     words = [w for w in words if w.lower() not in drop]
     if words and words[-1].lower() == "warning":
         words = words[:-1]
@@ -151,10 +152,18 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
             continue
         if onset is not None and onset.date() > today:
             continue
-        event = _text(entry, "event") or "Weather warning"
+        # Awareness types arrive as codes like "extreme_heat"; spell them out so
+        # they read as words ("extreme heat") in both classification and display.
+        event = (_text(entry, "event") or "Weather warning").replace("_", " ")
         token, actions = _classify(event)
         g = groups.setdefault((token, severity), {"event": event, "actions": actions, "areas": set()})
-        g["areas"].add(_text(entry, "areaDesc"))
+        # Some feeds (e.g. the UK) pack every region into one areaDesc field joined
+        # by "|"; others send one entry per region. Split so the regions are always
+        # individual items and render with the same comma list everywhere.
+        for part in re.split(r"[|;]", _text(entry, "areaDesc")):
+            part = part.strip()
+            if part:
+                g["areas"].add(part)
 
     country_title = country.replace("-", " ").title()
     tag = "#" + country_title.replace(" ", "")
