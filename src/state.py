@@ -32,6 +32,7 @@ class State:
         self._data.setdefault("daily_cat", {})  # {date: {category: count}}
         self._data.setdefault("last_topic", "")  # topic of the most recent post
         self._data.setdefault("last_post_at", "")  # timestamp of the most recent post
+        self._data.setdefault("area_posts", {})  # {area: {"at": iso, "sev": int}}
 
     # --- dedup ---------------------------------------------------------
     def already_posted(self, key: str, ttl_hours: int) -> bool:
@@ -63,6 +64,26 @@ class State:
 
     def mark_post_time(self) -> None:
         self._data["last_post_at"] = _now().isoformat()
+
+    # --- per-area cooldown (avoid one region flooding the feed) ---------
+    def area_blocked(self, area: str, severity: int, hours: float) -> bool:
+        """True if this area posted within the cooldown window AND the new signal
+        isn't more severe. A strictly higher-severity (escalating) warning always
+        breaks through; otherwise the same state/country is held back so a single
+        outbreak can't dominate the feed."""
+        rec = self._data["area_posts"].get(area)
+        if not rec:
+            return False
+        try:
+            when = datetime.fromisoformat(rec["at"])
+        except (ValueError, KeyError, TypeError):
+            return False
+        if _now() - when >= timedelta(hours=hours):
+            return False
+        return severity <= rec.get("sev", 0)
+
+    def mark_area_post(self, area: str, severity: int) -> None:
+        self._data["area_posts"][area] = {"at": _now().isoformat(), "sev": int(severity)}
 
     # --- daily + monthly counters -------------------------------------
     def posts_today(self) -> int:
@@ -104,6 +125,16 @@ class State:
         self._data["monthly"] = {
             k: v for k, v in self._data["monthly"].items() if k in months
         }
+        # Area cooldowns are short-lived; drop anything older than a day.
+        area_cut = _now() - timedelta(hours=24)
+        kept = {}
+        for k, v in self._data["area_posts"].items():
+            try:
+                if datetime.fromisoformat(v["at"]) > area_cut:
+                    kept[k] = v
+            except (ValueError, KeyError, TypeError):
+                continue
+        self._data["area_posts"] = kept
 
     def save(self) -> None:
         self.path.write_text(json.dumps(self._data, indent=2, sort_keys=True))

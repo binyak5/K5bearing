@@ -19,6 +19,13 @@ limits:
   # acts as a backstop: if two runs ever land close together, the second is held,
   # so we never double-post. The Rotterdam update is exempt.
   min_minutes_between_posts: 25
+  # Per-area cooldown: after posting a warning for a state/country, hold further
+  # posts for that same area this many hours, so one severe-weather outbreak
+  # (e.g. an Illinois tornado + flash-flood pile-up) can't dominate the feed. A
+  # strictly more severe warning for the area still breaks through. Keyed on the
+  # geo tag ("USA, Illinois" / "EU, France" / "GCC, ..."); coordinate-less
+  # signals (space weather, marine, quakes) carry no area and are unaffected.
+  area_cooldown_hours: 2
   # Per-category daily caps so no single source dominates the whole feed. Tuned
   # to reserve ~25% of the day's 44 posts for each of the three regions (US,
   # Europe, Gulf = 33 slots) and keep the rest tight so they can't backfill into

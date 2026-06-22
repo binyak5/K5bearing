@@ -68,3 +68,25 @@ def test_save_and_reload(tmp_path):
     assert s2.already_posted("k", 48)
     assert s2.posts_today_in("weather") == 1
     assert s2.last_topic() == "heat"
+
+
+# --- per-area cooldown (outbreak clustering) ----------------------------
+def test_area_cooldown_blocks_same_or_lower_severity(tmp_path):
+    s = _state(tmp_path)
+    assert not s.area_blocked("USA, Illinois", 98, 2)   # nothing posted yet
+    s.mark_area_post("USA, Illinois", 98)               # tornado posted
+    assert s.area_blocked("USA, Illinois", 95, 2)        # weaker flash flood held
+    assert s.area_blocked("USA, Illinois", 98, 2)        # equal severity held
+
+
+def test_area_cooldown_lets_escalation_through(tmp_path):
+    s = _state(tmp_path)
+    s.mark_area_post("USA, Illinois", 95)
+    assert not s.area_blocked("USA, Illinois", 99, 2)    # more severe breaks through
+
+
+def test_area_cooldown_is_per_area(tmp_path):
+    s = _state(tmp_path)
+    s.mark_area_post("USA, Illinois", 98)
+    assert not s.area_blocked("USA, Texas", 80, 2)       # different area unaffected
+    assert not s.area_blocked("EU, France", 80, 2)

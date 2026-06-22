@@ -172,6 +172,7 @@ def main() -> None:
     max_month = cfg["limits"].get("max_posts_per_month", 500)
     cat_caps = cfg["limits"].get("category_daily_caps", {})  # {category: max/day}
     min_gap = cfg["limits"].get("min_minutes_between_posts", 0)
+    area_cooldown = cfg["limits"].get("area_cooldown_hours", 2)  # one region per N hours
     media_enabled = cfg.get("media", {}).get("enabled", False)
 
     candidates = collect(cfg)
@@ -195,6 +196,14 @@ def main() -> None:
         # Content backstop: suppress anything that renders to the same words as a
         # recent post even under a different dedup_key (cross-source dupes).
         if state.already_posted(fingerprint(sig), ttl):
+            return False
+        # Per-area cooldown: during an outbreak one state/country can issue many
+        # distinct warnings; hold the same area back for a few hours so it doesn't
+        # dominate the feed. A strictly more severe warning still breaks through.
+        # Keyed on the geo tag (e.g. "USA, Illinois"); signals without one (space
+        # weather, marine, quakes) carry no area and are unaffected.
+        area = getattr(sig, "country", "")
+        if area and state.area_blocked(area, sig.severity, area_cooldown):
             return False
         return True
 
@@ -258,6 +267,9 @@ def main() -> None:
             state.mark_posted(fingerprint(choice))
             state.increment_today(choice.category)
             state.mark_post_time()
+            area = getattr(choice, "country", "")
+            if area:
+                state.mark_area_post(area, choice.severity)
             last_topic = topic_of(choice)
             state.set_last_topic(last_topic)
             posted += 1
