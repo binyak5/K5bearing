@@ -72,10 +72,16 @@ DEFAULT_ACTIONS = [
 
 
 def _classify(event: str) -> tuple[str, list[str]]:
-    """Return (stable dedup token, action variants) for a MeteoAlarm event."""
-    low = event.lower()
+    """Return (stable dedup token, action variants) for a MeteoAlarm event.
+
+    Countries spell awareness types differently — 'high-temperature' (Spain),
+    'High Temperature' (Portugal), 'extreme_heat' (Germany/UK). Normalise hyphens
+    and underscores to spaces on both sides so the same hazard maps to the same
+    token everywhere, instead of some heat warnings falling through to the bland
+    generic 'temperature' bucket."""
+    low = event.lower().replace("_", " ").replace("-", " ")
     for kw, (kind, target) in HAZARD_MAP:
-        if kw in low:
+        if kw.replace("-", " ") in low:
             return kw, (nws.ACTIONS[target] if kind == "nws" else target)
     return "other", DEFAULT_ACTIONS
 
@@ -85,7 +91,9 @@ def _hazard(event: str) -> str:
     consistently as '{colour} {hazard} warning' (e.g. 'orange heatwave warning').
     Handles both 'Heatwave warning' and Belgium-style 'warning for heatwave'.
     """
-    words = event.split()
+    # Normalise code separators so 'high-temperature'/'extreme_heat' read as words
+    # and display the same regardless of which country's spelling they came in.
+    words = event.replace("_", " ").replace("-", " ").split()
     drop = {"yellow", "amber", "orange", "red", "moderate", "severe", "extreme"}
     words = [w for w in words if w.lower() not in drop]
     if words and words[-1].lower() == "warning":

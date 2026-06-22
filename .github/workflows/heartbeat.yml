@@ -65,3 +65,15 @@ jobs:
           else
             echo "outage issue already open; not duplicating"
           fi
+
+      - name: Resolve outage issue if posting again
+        if: steps.check.outputs.silent == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Posting is healthy, so auto-close any open outage issue from a past
+          # silence (e.g. while the bot was paused) instead of leaving it stale.
+          for n in $(gh issue list --state open --search "K5Bearing silent in:title" --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "Resolved automatically: posting resumed (last post ${{ steps.check.outputs.last }})."
+            echo "closed outage issue #$n"
+          done
