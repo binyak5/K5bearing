@@ -185,14 +185,18 @@ def main() -> None:
     def topic_of(sig) -> str:
         return sig.topic or sig.category
 
-    def eligible(sig) -> bool:
+    def eligible(sig, ignore_cap: bool = False) -> bool:
         if state.already_posted(sig.dedup_key, ttl):
             return False
         # Per-category daily cap: keep one noisy source (e.g. maritime on a busy
-        # day) from eating the whole budget.
-        cap = cat_caps.get(sig.category)
-        if cap is not None and state.posts_today_in(sig.category) >= cap:
-            return False
+        # day) from eating the whole budget. Soft: when `ignore_cap` is set (the
+        # overflow pass, used only if nothing else is eligible) it's relaxed, so
+        # the feed doesn't go silent under the daily budget just because the only
+        # active regions have hit their caps.
+        if not ignore_cap:
+            cap = cat_caps.get(sig.category)
+            if cap is not None and state.posts_today_in(sig.category) >= cap:
+                return False
         # Content backstop: suppress anything that renders to the same words as a
         # recent post even under a different dedup_key (cross-source dupes).
         if state.already_posted(fingerprint(sig), ttl):
@@ -231,19 +235,22 @@ def main() -> None:
         # when nothing else is available this run. Non-exempt posts must clear
         # the budget and the minimum spacing gap; the scheduled Rotterdam update
         # is exempt from both.
-        choice = None
-        fallback = None
-        for sig in remaining:
-            if not exempt(sig) and (day_full or month_full or not gap_ok):
-                continue
-            if not eligible(sig):
-                continue
-            if topic_of(sig) == last_topic:
-                fallback = fallback or sig
-                continue
-            choice = sig
-            break
-        choice = choice or fallback
+        def best(ignore_cap: bool):
+            choice = fallback = None
+            for sig in remaining:
+                if not exempt(sig) and (day_full or month_full or not gap_ok):
+                    continue
+                if not eligible(sig, ignore_cap):
+                    continue
+                if topic_of(sig) == last_topic:
+                    fallback = fallback or sig
+                    continue
+                return sig
+            return fallback
+
+        # Normal pass respects the per-category caps; only if that finds nothing
+        # do we allow a capped category to overflow (still within the daily budget).
+        choice = best(False) or best(True)
         if choice is None:
             if day_full:
                 print("daily post budget reached (only scheduled posts allowed).")
