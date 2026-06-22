@@ -101,6 +101,7 @@ def hab_signals(cell_threshold: float, da_threshold: float, lookback_days: int =
             dedup_key=key,
             hashtags=["#RedTide", "#Marine"],
             tz=TZ,
+            country="USA, California",  # the whole CalHABMAP network is in California
             card={
                 "value": "RED TIDE",
                 "event": "Algal bloom",

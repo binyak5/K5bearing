@@ -1,5 +1,5 @@
 """Pure (non-network) helpers in the source modules."""
-from src.sources import nws, meteoalarm, nga, marine, outdoor
+from src.sources import nws, meteoalarm, nga, marine, outdoor, usgs
 
 
 # --- outdoor._geo: "REGION, city" tag so it matches the weather sources ----
@@ -7,6 +7,20 @@ def test_outdoor_geo_tag_region_and_city():
     assert outdoor._geo("Miami", 25.76, -80.19) == "USA, Miami"
     assert outdoor._geo("Rome", 41.90, 12.50) == "EU, Rome"
     assert outdoor._geo("Riyadh", 24.71, 46.68) == "GCC, Riyadh"
+
+
+# --- usgs._geo_tag: lift the state/country out of the epicenter string -----
+def test_quake_geo_tag_lifts_us_state():
+    assert usgs._geo_tag("92 km SW of Eureka, CA", 40.8, -124.16) == ("USA, California", "92 km SW of Eureka")
+
+
+def test_quake_geo_tag_country_for_international():
+    assert usgs._geo_tag("15 km E of Heraklion, Greece", 35.3, 25.2) == ("EU, Greece", "15 km E of Heraklion")
+
+
+def test_quake_geo_tag_falls_back_to_region_only():
+    # No trailing state/country -> region-only tag, place kept whole.
+    assert usgs._geo_tag("Northern California", 39.5, -121.0) == ("USA", "Northern California")
 
 
 # --- nws._geo_tag: "USA, <state>" from areaDesc -------------------------

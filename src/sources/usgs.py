@@ -29,6 +29,23 @@ FEED_URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.ge
 TIMEOUT = 20
 
 
+def _geo_tag(place: str, lat: float, lon: float) -> tuple[str, str]:
+    """Split a USGS place ('92 km SW of Eureka, CA') into a 'REGION, <state or
+    country>' front tag and the remaining descriptor to keep in the sentence
+    ('92 km SW of Eureka'). Falls back to a region-only tag when there's no
+    trailing state/country to lift out."""
+    code = region.code_for(lat, lon)
+    head, _, tail = place.rpartition(",")
+    tail = tail.strip()
+    if head and tail:
+        state = tz.state_name(tail)
+        if state and code == "USA":
+            return f"USA, {state}", head.strip()
+        if code:
+            return f"{code}, {tail}", head.strip()
+    return (code or ""), place
+
+
 def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Signal]:
     try:
         resp = requests.get(FEED_URL, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT)
@@ -53,6 +70,9 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
             continue
 
         place = p.get("place") or "an offshore region"
+        # Pull the trailing state/country into the "REGION, place" front tag so it
+        # isn't repeated mid-sentence; keep the precise epicenter in the body.
+        geo, place = _geo_tag(place, coords[1], coords[0])
         key = f"quake:{feat.get('id')}"
         lead = pick(LEADS, key + ":l").format(mag=f"{mag:.1f}", place=place)
         notes = TSUNAMI_NOTES if p.get("tsunami") == 1 else AFTERSHOCK_NOTES
@@ -71,6 +91,7 @@ def quake_signals(min_magnitude: float = 6.0, max_age_hours: int = 6) -> list[Si
                 hashtags=["#Earthquake", "#Seismic"],
                 tz=zone,
                 tier="critical" if p.get("tsunami") == 1 or mag >= 7.0 else "serious",
+                country=geo,
                 card={
                     "value": f"M {mag:.1f}",
                     "event": "Earthquake",

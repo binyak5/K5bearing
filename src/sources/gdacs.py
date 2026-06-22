@@ -86,7 +86,10 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
         sev_txt = sev.get("severitytext") or ""
 
         article = "An" if alert[:1] in "aeiouAEIOU" else "A"
-        loc = f" near {country}" if country and country not in name else ""
+        # Country rides in the "REGION, country" front tag now, not mid-sentence.
+        code = region.code_for(centroid[1], centroid[0])
+        geo = f"{code}, {country}" if code and country else (code or "")
+        loc = ""
         detail = f", currently {sev_txt.lower()}" if sev_txt else ""
         eid = p.get("eventid") or name
         key = f"gdacs:{etype}:{eid}:{alert}"
@@ -105,6 +108,7 @@ def global_signals(event_types: list[str], min_alert: str = "Orange") -> list[Si
                 hashtags=["#" + label.replace(" ", ""), country_tag],
                 tz=zone,
                 tier="critical" if alert == "Red" else "serious",
+                country=geo,
                 card={
                     "value": f"{alert} ALERT",
                     "event": label,
