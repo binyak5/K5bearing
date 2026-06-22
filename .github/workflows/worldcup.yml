@@ -1,0 +1,95 @@
+name: K5Bearing World Cup scores
+
+# Fast, separate cadence so a knockout result lands within minutes of full time,
+# independent of the 30-min weather pipeline. Writes its own wc_state.json, so it
+# never races the main workflow on state.json. Only knockout rounds are posted
+# (Round of 32 onward) and nothing before world_cup.start — both enforced in the
+# entrypoint. GitHub's scheduled cron is best-effort (can run a few minutes late);
+# for tighter timing, point cron-job.org at this workflow_dispatch as well.
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run without posting"
+        type: boolean
+        default: false
+
+concurrency:
+  group: k5bearing-worldcup
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  scores:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+
+      # Cheap guard: skip the heavy steps on the 5-min runs before the tournament
+      # window. The authoritative gate is world_cup.start in the entrypoint; this
+      # date just mirrors it to avoid pointless pre-R32 installs. Manual dispatch
+      # always runs (for testing).
+      - name: In tournament window?
+        id: window
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || \
+             [ "$(date -u +%s)" -ge "$(date -u -d '2026-06-28 19:00:00 UTC' +%s)" ]; then
+            echo "active=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "active=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.window.outputs.active == 'true'
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - if: steps.window.outputs.active == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Refresh scores state
+        if: steps.window.outputs.active == 'true'
+        run: |
+          git config user.name "k5bearing-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+
+      - name: Post final scores
+        if: steps.window.outputs.active == 'true'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python -m src.worldcup
+
+      - name: Persist scores state
+        if: ${{ steps.window.outputs.active == 'true' && github.event.inputs.dry_run != 'true' }}
+        run: |
+          if git diff --quiet wc_state.json 2>/dev/null; then
+            echo "wc_state.json unchanged"
+            exit 0
+          fi
+          git config user.name "k5bearing-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add wc_state.json
+          git commit -m "chore: update world cup scores state [skip ci]"
+          # Retry against a moving remote (the main workflow pushes state.json too):
+          # rebase our scores-state commit on top and try again, like post.yml.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "scores state pushed (attempt $attempt)"
+              exit 0
+            fi
+            echo "push rejected, rebasing and retrying (attempt $attempt)"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          done
+          echo "ERROR: could not persist wc_state.json after 5 attempts" >&2
+          exit 1

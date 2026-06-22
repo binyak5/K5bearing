@@ -61,6 +61,15 @@ dedup_ttl_hours: 48
 # NWS is US-only and MeteoAlarm is Europe-only already.
 regions: ["usa", "europe", "gulf"]
 
+# World Cup final scores (FIFA World Cup, via ESPN's keyless scoreboard API).
+# Posted by a SEPARATE fast workflow (every ~5 min) so a result lands within
+# minutes of full time, independent of the 30-min weather pipeline. Only
+# knockout rounds are posted (Round of 32 onward); group-stage matches never
+# are. `start` is an extra safety floor — no scores before this instant (UTC).
+world_cup:
+  enabled: true
+  start: "2026-06-28T19:00:00Z"   # Round of 32 kickoff (21:00 CEST)
+
 # Media cards: attach a generated black/Eurostile card image (with the dotted
 # region map + orange location dot) to posts. Which event types get a card is
 # chosen per-event in the sources (only those set `card` data); this flag is the
