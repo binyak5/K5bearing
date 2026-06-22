@@ -41,20 +41,21 @@ def _parse_iso(s: str) -> datetime | None:
 
 
 def _score_text(home: dict, away: dict, round_name: str, detail: str) -> str:
-    """A terse result line: 'Full time. Netherlands 3-1 United States. Round of 16.'
-    Adds extra time / penalties when present."""
+    """A terse scoreboard line, e.g.:
+        'FT — Netherlands 3–1 United States · Round of 16'
+        'FT (AET) — Argentina 2–2 France · Argentina win 4–2 pens · Final'
+    """
     hn, an = home["name"], away["name"]
     hs, as_ = home["score"], away["score"]
     hp, ap = home.get("pens"), away.get("pens")
-    lead = "Full time"
-    tail = ""
-    if hp is not None and ap is not None:
-        lead = "Full time after extra time"
+    pens = hp is not None and ap is not None
+    aet = pens or "AET" in detail.upper() or detail.upper() == "ET"
+    parts = [f"{'FT (AET)' if aet else 'FT'} — {hn} {hs}–{as_} {an}"]
+    if pens:
         winner = hn if hp > ap else an
-        tail = f" {winner} win {max(hp, ap)}–{min(hp, ap)} on penalties."
-    elif "AET" in detail.upper() or detail.upper() == "ET":
-        lead = "Full time after extra time"
-    return f"{lead}. {hn} {hs}–{as_} {an}. {round_name}.{tail}".rstrip()
+        parts.append(f"{winner} win {max(hp, ap)}–{min(hp, ap)} pens")
+    parts.append(round_name)
+    return " · ".join(parts)
 
 
 def _int(v) -> int | None:
