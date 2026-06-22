@@ -11,25 +11,34 @@ from datetime import datetime, timezone
 import requests
 
 from ..config import USER_AGENT
-from .. import tz
+from .. import tz, region
 from . import Signal, pick, gather
 
+# The city now rides in the geo tag ("USA, Miami:"), like the other regional
+# sources, so it's no longer repeated in the body.
 UV_VARIANTS = [
-    "The UV index has reached {uv} in {name}, an extreme level. Cover up, wear "
+    "The UV index has reached {uv}, an extreme level. Cover up, wear "
     "sunglasses and sunscreen, and seek shade through the middle of the day.",
-    "UV has spiked to {uv} in {name}, in the extreme range. Wear sunscreen and "
+    "UV has spiked to {uv}, in the extreme range. Wear sunscreen and "
     "shades, cover exposed skin, and stay shaded around midday.",
 ]
 
 DUST_VARIANTS = [
-    "Thick dust has engulfed {name}, pushing levels to {dust} µg/m³. Limit time "
+    "Thick dust is filling the air, pushing levels to {dust} µg/m³. Limit time "
     "outside, close everything up, and protect your eyes and lungs.",
 ]
 
 LIGHTNING_VARIANTS = [
-    "Violent thunderstorms are hammering over {name}, packing severe lightning"
+    "Violent thunderstorms are rolling through, packing severe lightning"
     "{hail}. Seek solid shelter, stay off open ground and water, and wait it out.",
 ]
+
+
+def _geo(name: str, lat: float, lon: float) -> str:
+    """The "REGION, city" geo tag (e.g. 'USA, Miami'), or the bare city if the
+    location somehow falls outside the covered regions."""
+    code = region.code_for(lat, lon)
+    return f"{code}, {name}" if code else name
 
 # WMO weather codes for thunderstorms -> hail clause.
 THUNDER_CODES = {95: "", 96: " and hail", 99: " and large hail"}
@@ -83,10 +92,11 @@ def lightning_signals(locations: list[dict]) -> list[Signal]:
         return Signal(
             category="outdoor",
             severity=60,
-            text=pick(LIGHTNING_VARIANTS, key).format(name=name, hail=THUNDER_CODES[code]),
+            text=pick(LIGHTNING_VARIANTS, key).format(hail=THUNDER_CODES[code]),
             dedup_key=key,
             hashtags=["#Lightning", "#SevereWeather"],
             tz=tz.zone_for_coords(lon, lat),
+            country=_geo(name, lat, lon),
             card={
                 "value": "Lightning",
                 "event": "Thunderstorm",
@@ -123,11 +133,12 @@ def outdoor_signals(
                 Signal(
                     category="outdoor",
                     severity=50,
-                    text=pick(UV_VARIANTS, uv_key).format(uv=f"{uv:.0f}", name=name),
+                    text=pick(UV_VARIANTS, uv_key).format(uv=f"{uv:.0f}"),
                     dedup_key=uv_key,
                     hashtags=["#UVindex", "#OutdoorSafety"],
                     tz=zone,
                     tier="advisory",
+                    country=_geo(name, lat, lon),
                 )
             )
 
@@ -138,10 +149,11 @@ def outdoor_signals(
                 Signal(
                     category="outdoor",
                     severity=62,
-                    text=pick(DUST_VARIANTS, dust_key).format(name=name, dust=int(dust)),
+                    text=pick(DUST_VARIANTS, dust_key).format(dust=int(dust)),
                     dedup_key=dust_key,
                     hashtags=["#DustStorm", "#AirQuality"],
                     tz=zone,
+                    country=_geo(name, lat, lon),
                 )
             )
         return out

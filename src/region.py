@@ -32,6 +32,24 @@ NGA_KEYWORDS = {
 }
 
 
+_REGION_CODE = {"usa": "USA", "europe": "EU", "gulf": "GCC"}
+
+
+def code_for(lat: float | None, lon: float | None) -> str | None:
+    """Coverage-region code (USA/EU/GCC) for a coordinate, or None if out of
+    scope. Used to build the "REGION, place" geo tag on coordinate-based sources."""
+    if lat is None or lon is None:
+        return None
+    try:
+        lat, lon = float(lat), float(lon)
+    except (TypeError, ValueError):
+        return None
+    for name, (lo_lat, hi_lat, lo_lon, hi_lon) in BOXES.items():
+        if lo_lat <= lat <= hi_lat and lo_lon <= lon <= hi_lon:
+            return _REGION_CODE[name]
+    return None
+
+
 def in_scope(lat: float | None, lon: float | None) -> bool:
     """True if the coordinate falls in USA, Europe, or the Gulf."""
     if lat is None or lon is None:

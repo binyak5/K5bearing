@@ -1,5 +1,12 @@
 """Pure (non-network) helpers in the source modules."""
-from src.sources import nws, meteoalarm, nga, marine
+from src.sources import nws, meteoalarm, nga, marine, outdoor
+
+
+# --- outdoor._geo: "REGION, city" tag so it matches the weather sources ----
+def test_outdoor_geo_tag_region_and_city():
+    assert outdoor._geo("Miami", 25.76, -80.19) == "USA, Miami"
+    assert outdoor._geo("Rome", 41.90, 12.50) == "EU, Rome"
+    assert outdoor._geo("Riyadh", 24.71, 46.68) == "GCC, Riyadh"
 
 
 # --- nws._geo_tag: "USA, <state>" from areaDesc -------------------------
