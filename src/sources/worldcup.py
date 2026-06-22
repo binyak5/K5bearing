@@ -25,10 +25,10 @@ TIMEOUT = 20
 KNOCKOUT_ROUNDS = {
     "round-of-32": "Round of 32",
     "round-of-16": "Round of 16",
-    "quarterfinals": "Quarterfinal",
-    "semifinals": "Semifinal",
-    "3rd-place": "Third-place playoff",
-    "third-place": "Third-place playoff",
+    "quarterfinals": "Quarter final",
+    "semifinals": "Semi final",
+    "3rd-place": "Third place playoff",
+    "third-place": "Third place playoff",
     "final": "Final",
 }
 
@@ -41,21 +41,21 @@ def _parse_iso(s: str) -> datetime | None:
 
 
 def _score_text(home: dict, away: dict, round_name: str, detail: str) -> str:
-    """A terse scoreboard line, e.g.:
-        'FT — Netherlands 3–1 United States · Round of 16'
-        'FT (AET) — Argentina 2–2 France · Argentina win 4–2 pens · Final'
+    """A result line, e.g.:
+        'Full time - Netherlands 3–1 United States (Round of 16)'
+        'Full time (AET) - Argentina 2–2 France - 4–2 penalties (Final)'
+    Penalty score is in the same home–away order as the result line.
     """
     hn, an = home["name"], away["name"]
     hs, as_ = home["score"], away["score"]
     hp, ap = home.get("pens"), away.get("pens")
     pens = hp is not None and ap is not None
     aet = pens or "AET" in detail.upper() or detail.upper() == "ET"
-    parts = [f"{'FT (AET)' if aet else 'FT'} — {hn} {hs}–{as_} {an}"]
+    lead = "Full time (AET)" if aet else "Full time"
+    text = f"{lead} - {hn} {hs}–{as_} {an}"
     if pens:
-        winner = hn if hp > ap else an
-        parts.append(f"{winner} win {max(hp, ap)}–{min(hp, ap)} pens")
-    parts.append(round_name)
-    return " · ".join(parts)
+        text += f" - {hp}–{ap} penalties"
+    return f"{text} ({round_name})"
 
 
 def _int(v) -> int | None:

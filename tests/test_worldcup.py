@@ -9,12 +9,12 @@ def _side(name, score, pens=None):
 
 def test_score_text_regular():
     out = wc._score_text(_side("Netherlands", 3), _side("United States", 1), "Round of 16", "FT")
-    assert out == "FT — Netherlands 3–1 United States · Round of 16"
+    assert out == "Full time - Netherlands 3–1 United States (Round of 16)"
 
 
 def test_score_text_penalties():
     out = wc._score_text(_side("Argentina", 2, 4), _side("France", 2, 2), "Final", "FT")
-    assert out == "FT (AET) — Argentina 2–2 France · Argentina win 4–2 pens · Final"
+    assert out == "Full time (AET) - Argentina 2–2 France - 4–2 penalties (Final)"
 
 
 # --- final_signals: filtering -------------------------------------------
@@ -52,7 +52,7 @@ def test_final_signals_only_finished_knockouts(monkeypatch):
     sigs = wc.final_signals("2026-06-28T19:00:00Z")
     assert len(sigs) == 1
     assert sigs[0].dedup_key == "wc:1"
-    assert sigs[0].text == "FT — Brazil 2–0 Korea · Round of 32"
+    assert sigs[0].text == "Full time - Brazil 2–0 Korea (Round of 32)"
 
 
 def test_final_signals_respects_start_floor(monkeypatch):
