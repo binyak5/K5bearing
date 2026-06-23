@@ -69,8 +69,8 @@
       "sev": 84
     },
     "USA, Oklahoma": {
-      "at": "2026-06-23T12:34:37.889705+00:00",
-      "sev": 84
+      "at": "2026-06-23T15:34:11.096959+00:00",
+      "sev": 82
     },
     "USA, Pennsylvania": {
       "at": "2026-06-23T04:02:43.311058+00:00",
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 31
+    "2026-06-23": 32
   },
   "daily_cat": {
     "2026-06-21": {
@@ -115,14 +115,14 @@
       "gulf": 1,
       "maritime": 4,
       "outdoor": 1,
-      "weather": 19,
+      "weather": 20,
       "weather_eu": 5
     }
   },
-  "last_post_at": "2026-06-23T15:05:10.272079+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-23T15:34:11.096954+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 183
+    "2026-06": 184
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -217,6 +217,7 @@
     "fp:572590a93eb49a6b": "2026-06-19T07:42:00.465908+00:00",
     "fp:59d5850f1654f725": "2026-06-22T14:34:55.837447+00:00",
     "fp:5affda8509bb5564": "2026-06-22T13:04:34.788702+00:00",
+    "fp:5b694ad3b41a2954": "2026-06-23T15:34:11.096929+00:00",
     "fp:5cabae23d11a52b2": "2026-06-21T18:32:43.255098+00:00",
     "fp:5d815dacb450cd8b": "2026-06-22T02:32:41.396521+00:00",
     "fp:5e217c9de543e427": "2026-06-22T00:32:32.857225+00:00",
@@ -402,6 +403,7 @@
     "weather:Red Flag Warning:Colville Reservation": "2026-06-15T19:33:13.180002+00:00",
     "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
     "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
+    "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
