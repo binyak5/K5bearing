@@ -48,6 +48,10 @@
       "at": "2026-06-23T05:35:06.000669+00:00",
       "sev": 84
     },
+    "USA, Oklahoma": {
+      "at": "2026-06-23T06:04:31.339005+00:00",
+      "sev": 82
+    },
     "USA, Pennsylvania": {
       "at": "2026-06-23T04:02:43.311058+00:00",
       "sev": 84
@@ -64,7 +68,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 12
+    "2026-06-23": 13
   },
   "daily_cat": {
     "2026-06-21": {
@@ -84,14 +88,14 @@
     },
     "2026-06-23": {
       "cityweather": 1,
-      "weather": 10,
+      "weather": 11,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-06-23T05:35:06.000665+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-23T06:04:31.339000+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 164
+    "2026-06": 165
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -231,6 +235,7 @@
     "fp:b308f6933ff80793": "2026-06-18T04:22:01.472353+00:00",
     "fp:b6db08b35f8c834e": "2026-06-23T04:02:43.311024+00:00",
     "fp:b85b0030a4243fd5": "2026-06-18T05:43:20.609644+00:00",
+    "fp:b8e02ba36f6c9c0c": "2026-06-23T06:04:31.338970+00:00",
     "fp:bc7c76c821b28571": "2026-06-19T12:22:00.111892+00:00",
     "fp:be1838a03e89641b": "2026-06-21T20:33:19.805585+00:00",
     "fp:be53186f6ebf9488": "2026-06-22T05:04:59.085100+00:00",
@@ -341,6 +346,7 @@
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
+    "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
     "weather:Special Marine Warning:Coastal waters from Altamaha Sound to Fernandina Beach FL ou": "2026-06-15T21:02:29.616925+00:00",
     "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
