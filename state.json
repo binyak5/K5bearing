@@ -96,7 +96,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 40
+    "2026-06-23": 41
   },
   "daily_cat": {
     "2026-06-21": {
@@ -117,16 +117,16 @@
     "2026-06-23": {
       "cityweather": 2,
       "gulf": 1,
-      "maritime": 5,
+      "maritime": 6,
       "outdoor": 2,
       "weather": 23,
       "weather_eu": 7
     }
   },
-  "last_post_at": "2026-06-23T19:33:35.096401+00:00",
-  "last_topic": "tornado",
+  "last_post_at": "2026-06-23T20:03:01.075581+00:00",
+  "last_topic": "maritime",
   "monthly": {
-    "2026-06": 192
+    "2026-06": 193
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -189,6 +189,7 @@
     "fp:230760877acdfd77": "2026-06-18T06:22:05.147423+00:00",
     "fp:2347640b1eda864d": "2026-06-23T03:32:33.471944+00:00",
     "fp:25d4ca779270b528": "2026-06-17T14:22:36.940478+00:00",
+    "fp:25f98dcbcad28f99": "2026-06-23T20:03:01.075556+00:00",
     "fp:280e5876296b6661": "2026-06-23T09:35:01.397196+00:00",
     "fp:2b073251e9ce58b4": "2026-06-22T07:04:13.740524+00:00",
     "fp:2b303c3e28322d12": "2026-06-18T07:02:27.233622+00:00",
@@ -357,7 +358,7 @@
     "nga:cable:the western north atlantic": "2026-06-23T07:03:15.177350+00:00",
     "nga:launch:the north pacific": "2026-06-23T18:03:43.250784+00:00",
     "nga:mine:the bay of biscay": "2026-06-21T20:33:19.805538+00:00",
-    "nga:mine:the black sea": "2026-06-21T19:02:52.498564+00:00",
+    "nga:mine:the black sea": "2026-06-23T20:03:01.075511+00:00",
     "nga:mine:the black sea, romania": "2026-06-17T17:42:42.952819+00:00",
     "pm25:Doha:2026-06-18": "2026-06-18T05:43:20.609597+00:00",
     "pm25:Kuwait City:2026-06-18": "2026-06-18T06:42:37.789853+00:00",
@@ -412,7 +413,6 @@
     "weather:Hazardous Seas Warning:Coastal waters from Cape Blanco OR to Pt. St. George CA out ": "2026-06-23T02:34:36.707846+00:00",
     "weather:Red Flag Warning:Central and Southeast Park County": "2026-06-23T13:04:27.531536+00:00",
     "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
-    "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
