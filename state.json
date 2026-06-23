@@ -76,6 +76,10 @@
       "at": "2026-06-23T04:02:43.311058+00:00",
       "sev": 84
     },
+    "USA, Phoenix": {
+      "at": "2026-06-23T19:03:46.382322+00:00",
+      "sev": 50
+    },
     "USA, Texas": {
       "at": "2026-06-23T14:04:44.663346+00:00",
       "sev": 84
@@ -92,7 +96,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 38
+    "2026-06-23": 39
   },
   "daily_cat": {
     "2026-06-21": {
@@ -114,15 +118,15 @@
       "cityweather": 2,
       "gulf": 1,
       "maritime": 5,
-      "outdoor": 1,
+      "outdoor": 2,
       "weather": 22,
       "weather_eu": 7
     }
   },
-  "last_post_at": "2026-06-23T18:34:38.426603+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-23T19:03:46.382316+00:00",
+  "last_topic": "outdoor",
   "monthly": {
-    "2026-06": 190
+    "2026-06": 191
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -175,6 +179,7 @@
     "fp:07f3e150a1e4d3b7": "2026-06-19T11:02:37.017407+00:00",
     "fp:080d01c8b01b12ad": "2026-06-22T03:02:51.736136+00:00",
     "fp:09204959a2f8a110": "2026-06-17T08:40:34.983913+00:00",
+    "fp:0ea92ce256a46dd9": "2026-06-23T19:03:46.382287+00:00",
     "fp:119c390506996d05": "2026-06-17T15:22:13.522667+00:00",
     "fp:1d5e829ed1856ec4": "2026-06-23T07:33:21.113987+00:00",
     "fp:1dc7089d4ec1e7be": "2026-06-23T10:34:18.416929+00:00",
@@ -360,6 +365,7 @@
     "storm:Houston:2026-06-17": "2026-06-17T19:22:07.576123+00:00",
     "storm:Miami:2026-06-22": "2026-06-22T21:03:32.778284+00:00",
     "uv:Miami:2026-06-22": "2026-06-22T18:34:10.716830+00:00",
+    "uv:Phoenix:2026-06-23": "2026-06-23T19:03:46.382236+00:00",
     "weather:Air Quality Alert:Weld, CO; Douglas, CO; Boulder, CO; Arapahoe, CO; Larimer, C": "2026-06-23T14:32:50.006805+00:00",
     "weather:Flash Flood Warning:Aroostook, ME": "2026-06-21T18:32:43.255039+00:00",
     "weather:Flash Flood Warning:Atoka, OK": "2026-06-23T16:33:09.312377+00:00",
@@ -418,7 +424,6 @@
     "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
     "weather:Special Marine Warning:Coastal waters from Jupiter Inlet to Deerfield Beach FL out ": "2026-06-15T20:03:21.072413+00:00",
     "weather:Special Marine Warning:Coastal waters from St. Augustine to Flagler Beach FL out 20": "2026-06-15T19:17:46.506331+00:00",
-    "weather:Special Marine Warning:Flagler Beach to Volusia-Brevard County Line 0-20 nm": "2026-06-15T18:46:19.113742+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain": "2026-06-15T20:48:22.393677+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain; Mississippi Sound; Lake Borgne": "2026-06-15T19:07:38.560502+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
