@@ -81,8 +81,8 @@
       "sev": 50
     },
     "USA, Texas": {
-      "at": "2026-06-23T14:04:44.663346+00:00",
-      "sev": 84
+      "at": "2026-06-23T19:33:35.096406+00:00",
+      "sev": 96
     },
     "USA, Virginia": {
       "at": "2026-06-23T02:03:27.294690+00:00",
@@ -96,7 +96,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 39
+    "2026-06-23": 40
   },
   "daily_cat": {
     "2026-06-21": {
@@ -119,14 +119,14 @@
       "gulf": 1,
       "maritime": 5,
       "outdoor": 2,
-      "weather": 22,
+      "weather": 23,
       "weather_eu": 7
     }
   },
-  "last_post_at": "2026-06-23T19:03:46.382316+00:00",
-  "last_topic": "outdoor",
+  "last_post_at": "2026-06-23T19:33:35.096401+00:00",
+  "last_topic": "tornado",
   "monthly": {
-    "2026-06": 191
+    "2026-06": 192
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -199,6 +199,7 @@
     "fp:342b5d1e5bb74427": "2026-06-22T03:33:25.840631+00:00",
     "fp:34f11509a6de9950": "2026-06-19T04:02:21.777274+00:00",
     "fp:35386df463e4bcb4": "2026-06-21T17:03:50.977567+00:00",
+    "fp:37032e63e328fcdd": "2026-06-23T19:33:35.096376+00:00",
     "fp:38c0a1161cf75ea0": "2026-06-19T03:22:03.033988+00:00",
     "fp:3926aa3fcc68536f": "2026-06-22T15:34:48.518484+00:00",
     "fp:3cbcce8fd0faa65d": "2026-06-22T08:33:27.667364+00:00",
@@ -410,7 +411,6 @@
     "weather:Flood Warning:Vernon, LA": "2026-06-15T20:37:57.185886+00:00",
     "weather:Hazardous Seas Warning:Coastal waters from Cape Blanco OR to Pt. St. George CA out ": "2026-06-23T02:34:36.707846+00:00",
     "weather:Red Flag Warning:Central and Southeast Park County": "2026-06-23T13:04:27.531536+00:00",
-    "weather:Red Flag Warning:Colville Reservation": "2026-06-15T19:33:13.180002+00:00",
     "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
     "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
@@ -423,9 +423,7 @@
     "weather:Special Marine Warning:Coastal waters from Altamaha Sound to Fernandina Beach FL ou": "2026-06-15T21:02:29.616925+00:00",
     "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
     "weather:Special Marine Warning:Coastal waters from Jupiter Inlet to Deerfield Beach FL out ": "2026-06-15T20:03:21.072413+00:00",
-    "weather:Special Marine Warning:Coastal waters from St. Augustine to Flagler Beach FL out 20": "2026-06-15T19:17:46.506331+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain": "2026-06-15T20:48:22.393677+00:00",
-    "weather:Special Marine Warning:Lake Pontchartrain; Mississippi Sound; Lake Borgne": "2026-06-15T19:07:38.560502+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
     "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00",
     "weather:Tornado Warning:Bartholomew, IN; Brown, IN": "2026-06-22T00:03:41.592269+00:00",
@@ -442,6 +440,7 @@
     "weather:Tornado Warning:Cumberland, IL; Effingham, IL; Jasper, IL; Shelby, IL": "2026-06-18T01:02:26.932451+00:00",
     "weather:Tornado Warning:Dubois, IN": "2026-06-22T01:03:29.821232+00:00",
     "weather:Tornado Warning:Fayette, IL": "2026-06-18T01:42:02.831734+00:00",
+    "weather:Tornado Warning:Foard, TX; Wilbarger, TX": "2026-06-23T19:33:35.096330+00:00",
     "weather:Tornado Warning:Greene, MO": "2026-06-21T15:03:18.634777+00:00",
     "weather:Tornado Warning:Harris, GA; Meriwether, GA; Talbot, GA; Upson, GA": "2026-06-18T22:41:59.280563+00:00",
     "weather:Tornado Warning:Jackson, FL; Miller, GA; Seminole, GA": "2026-06-19T00:42:28.748368+00:00",
