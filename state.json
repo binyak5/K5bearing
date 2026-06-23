@@ -52,6 +52,10 @@
       "at": "2026-06-23T00:33:20.532415+00:00",
       "sev": 96
     },
+    "USA, Florida": {
+      "at": "2026-06-23T20:32:45.609192+00:00",
+      "sev": 82
+    },
     "USA, Kentucky": {
       "at": "2026-06-23T01:03:30.047227+00:00",
       "sev": 84
@@ -96,7 +100,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 41
+    "2026-06-23": 42
   },
   "daily_cat": {
     "2026-06-21": {
@@ -119,14 +123,14 @@
       "gulf": 1,
       "maritime": 6,
       "outdoor": 2,
-      "weather": 23,
+      "weather": 24,
       "weather_eu": 7
     }
   },
-  "last_post_at": "2026-06-23T20:03:01.075581+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-06-23T20:32:45.609186+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 193
+    "2026-06": 194
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -179,6 +183,7 @@
     "fp:07f3e150a1e4d3b7": "2026-06-19T11:02:37.017407+00:00",
     "fp:080d01c8b01b12ad": "2026-06-22T03:02:51.736136+00:00",
     "fp:09204959a2f8a110": "2026-06-17T08:40:34.983913+00:00",
+    "fp:0b2a7d590a769b30": "2026-06-23T20:32:45.609140+00:00",
     "fp:0ea92ce256a46dd9": "2026-06-23T19:03:46.382287+00:00",
     "fp:119c390506996d05": "2026-06-17T15:22:13.522667+00:00",
     "fp:1d5e829ed1856ec4": "2026-06-23T07:33:21.113987+00:00",
@@ -413,6 +418,7 @@
     "weather:Hazardous Seas Warning:Coastal waters from Cape Blanco OR to Pt. St. George CA out ": "2026-06-23T02:34:36.707846+00:00",
     "weather:Red Flag Warning:Central and Southeast Park County": "2026-06-23T13:04:27.531536+00:00",
     "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
+    "weather:Severe Thunderstorm Warning:Baker, FL; Duval, FL; Nassau, FL; Charlton, GA; Ware, GA": "2026-06-23T20:32:45.609087+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
@@ -421,8 +427,6 @@
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
     "weather:Special Marine Warning:Coastal waters from Altamaha Sound to Fernandina Beach FL ou": "2026-06-15T21:02:29.616925+00:00",
-    "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
-    "weather:Special Marine Warning:Coastal waters from Jupiter Inlet to Deerfield Beach FL out ": "2026-06-15T20:03:21.072413+00:00",
     "weather:Special Marine Warning:Lake Pontchartrain": "2026-06-15T20:48:22.393677+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
     "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00",
