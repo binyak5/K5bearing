@@ -64,10 +64,6 @@
       "at": "2026-06-23T11:03:34.717352+00:00",
       "sev": 84
     },
-    "USA, Miami": {
-      "at": "2026-06-22T21:03:32.778352+00:00",
-      "sev": 60
-    },
     "USA, New Jersey": {
       "at": "2026-06-23T05:35:06.000669+00:00",
       "sev": 84
@@ -100,7 +96,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 42
+    "2026-06-23": 43
   },
   "daily_cat": {
     "2026-06-21": {
@@ -121,16 +117,16 @@
     "2026-06-23": {
       "cityweather": 2,
       "gulf": 1,
-      "maritime": 6,
+      "maritime": 7,
       "outdoor": 2,
       "weather": 24,
       "weather_eu": 7
     }
   },
-  "last_post_at": "2026-06-23T20:32:45.609186+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-23T21:04:20.102352+00:00",
+  "last_topic": "maritime",
   "monthly": {
-    "2026-06": 194
+    "2026-06": 195
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -296,7 +292,7 @@
     "fp:b85b0030a4243fd5": "2026-06-18T05:43:20.609644+00:00",
     "fp:b8e02ba36f6c9c0c": "2026-06-23T06:04:31.338970+00:00",
     "fp:bc7c76c821b28571": "2026-06-19T12:22:00.111892+00:00",
-    "fp:be1838a03e89641b": "2026-06-21T20:33:19.805585+00:00",
+    "fp:be1838a03e89641b": "2026-06-23T21:04:20.102326+00:00",
     "fp:be53186f6ebf9488": "2026-06-22T05:04:59.085100+00:00",
     "fp:bf2faed5a79e5023": "2026-06-23T03:04:49.528213+00:00",
     "fp:c12b44bc10d59fa7": "2026-06-21T22:03:32.765407+00:00",
@@ -362,7 +358,7 @@
     "nga:cable:the persian gulf": "2026-06-23T09:03:35.659528+00:00",
     "nga:cable:the western north atlantic": "2026-06-23T07:03:15.177350+00:00",
     "nga:launch:the north pacific": "2026-06-23T18:03:43.250784+00:00",
-    "nga:mine:the bay of biscay": "2026-06-21T20:33:19.805538+00:00",
+    "nga:mine:the bay of biscay": "2026-06-23T21:04:20.102277+00:00",
     "nga:mine:the black sea": "2026-06-23T20:03:01.075511+00:00",
     "nga:mine:the black sea, romania": "2026-06-17T17:42:42.952819+00:00",
     "pm25:Doha:2026-06-18": "2026-06-18T05:43:20.609597+00:00",
@@ -414,7 +410,6 @@
     "weather:Flood Warning:Chambers, TX; Harris, TX; Liberty, TX": "2026-06-17T16:22:35.653226+00:00",
     "weather:Flood Warning:Livingston, LA": "2026-06-17T16:02:27.479835+00:00",
     "weather:Flood Warning:St. Tammany, LA": "2026-06-17T15:02:30.494946+00:00",
-    "weather:Flood Warning:Vernon, LA": "2026-06-15T20:37:57.185886+00:00",
     "weather:Hazardous Seas Warning:Coastal waters from Cape Blanco OR to Pt. St. George CA out ": "2026-06-23T02:34:36.707846+00:00",
     "weather:Red Flag Warning:Central and Southeast Park County": "2026-06-23T13:04:27.531536+00:00",
     "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
@@ -426,8 +421,6 @@
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
-    "weather:Special Marine Warning:Coastal waters from Altamaha Sound to Fernandina Beach FL ou": "2026-06-15T21:02:29.616925+00:00",
-    "weather:Special Marine Warning:Lake Pontchartrain": "2026-06-15T20:48:22.393677+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
     "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00",
     "weather:Tornado Warning:Bartholomew, IN; Brown, IN": "2026-06-22T00:03:41.592269+00:00",
