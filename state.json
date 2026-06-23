@@ -69,8 +69,8 @@
       "sev": 84
     },
     "USA, Oklahoma": {
-      "at": "2026-06-23T06:04:31.339005+00:00",
-      "sev": 82
+      "at": "2026-06-23T12:34:37.889705+00:00",
+      "sev": 84
     },
     "USA, Pennsylvania": {
       "at": "2026-06-23T04:02:43.311058+00:00",
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 25
+    "2026-06-23": 26
   },
   "daily_cat": {
     "2026-06-21": {
@@ -111,14 +111,14 @@
       "gulf": 1,
       "maritime": 4,
       "outdoor": 1,
-      "weather": 14,
+      "weather": 15,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-06-23T12:03:02.943834+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-23T12:34:37.889700+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 177
+    "2026-06": 178
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -245,6 +245,7 @@
     "fp:852dd4505473770d": "2026-06-21T16:02:47.876240+00:00",
     "fp:87a802ddc45a84ca": "2026-06-18T04:41:55.803685+00:00",
     "fp:87db75c87861fc83": "2026-06-18T04:02:22.895878+00:00",
+    "fp:8ad5ade76554201e": "2026-06-23T12:34:37.889672+00:00",
     "fp:8ca27dfe4ac5988c": "2026-06-21T19:32:40.487664+00:00",
     "fp:8cc33a6d58f19369": "2026-06-17T09:03:05.356735+00:00",
     "fp:8d71faab84546f67": "2026-06-19T01:21:58.459857+00:00",
@@ -366,6 +367,7 @@
     "weather:Flash Flood Warning:Daviess, IN; Knox, IN; Martin, IN": "2026-06-22T03:33:25.840583+00:00",
     "weather:Flash Flood Warning:Daviess, IN; Lawrence, IN; Martin, IN": "2026-06-22T01:33:23.241461+00:00",
     "weather:Flash Flood Warning:El Paso, TX": "2026-06-19T06:22:07.653794+00:00",
+    "weather:Flash Flood Warning:Ellis, OK": "2026-06-23T12:34:37.889618+00:00",
     "weather:Flash Flood Warning:Fayette, WV; Raleigh, WV": "2026-06-23T03:04:49.528172+00:00",
     "weather:Flash Flood Warning:George, MS; Stone, MS": "2026-06-19T00:02:19.411541+00:00",
     "weather:Flash Flood Warning:Miller, AR; Caddo, LA; Bowie, TX; Cass, TX; Marion, TX": "2026-06-23T10:05:01.001683+00:00",
