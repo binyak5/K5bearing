@@ -24,6 +24,10 @@
       "at": "2026-06-23T02:34:36.707947+00:00",
       "sev": 82
     },
+    "USA, Alabama": {
+      "at": "2026-06-23T04:33:15.862087+00:00",
+      "sev": 82
+    },
     "USA, Colorado": {
       "at": "2026-06-22T23:36:56.936051+00:00",
       "sev": 96
@@ -60,7 +64,7 @@
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 9
+    "2026-06-23": 10
   },
   "daily_cat": {
     "2026-06-21": {
@@ -79,14 +83,14 @@
       "weather_eu": 11
     },
     "2026-06-23": {
-      "weather": 8,
+      "weather": 9,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-06-23T04:02:43.311053+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-23T04:33:15.862081+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 161
+    "2026-06": 162
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -251,6 +255,7 @@
     "fp:e6fd36ad7ce4da4c": "2026-06-22T21:03:32.778323+00:00",
     "fp:e717d55ca13d5233": "2026-06-19T09:02:17.891693+00:00",
     "fp:e74ddc7d1d1e9052": "2026-06-21T23:32:35.837957+00:00",
+    "fp:e78278df7f7fccad": "2026-06-23T04:33:15.862054+00:00",
     "fp:ec1dc31f9e24c889": "2026-06-22T01:03:29.821294+00:00",
     "fp:ee5ea50ea0d5d6be": "2026-06-22T11:05:05.994190+00:00",
     "fp:ef24754cbdd1b322": "2026-06-22T23:36:56.936020+00:00",
@@ -329,6 +334,7 @@
     "weather:Red Flag Warning:Colville Reservation": "2026-06-15T19:33:13.180002+00:00",
     "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
+    "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
