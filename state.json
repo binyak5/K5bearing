@@ -35,12 +35,16 @@
     "USA, New Jersey": {
       "at": "2026-06-23T00:04:12.569555+00:00",
       "sev": 84
+    },
+    "USA, Virginia": {
+      "at": "2026-06-23T01:32:34.299931+00:00",
+      "sev": 82
     }
   },
   "daily": {
     "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 3
+    "2026-06-23": 4
   },
   "daily_cat": {
     "2026-06-21": {
@@ -59,13 +63,13 @@
       "weather_eu": 11
     },
     "2026-06-23": {
-      "weather": 3
+      "weather": 4
     }
   },
-  "last_post_at": "2026-06-23T01:03:30.047221+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-23T01:32:34.299927+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 155
+    "2026-06": 156
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -186,6 +190,7 @@
     "fp:96b3dcf482061941": "2026-06-18T06:02:23.168696+00:00",
     "fp:97d214fdf5ad71a2": "2026-06-19T00:02:19.411590+00:00",
     "fp:9801be3a6afa5a86": "2026-06-17T17:22:39.913724+00:00",
+    "fp:9d41a8c5c3252872": "2026-06-23T01:32:34.299903+00:00",
     "fp:a06231e77db5f4c8": "2026-06-18T02:41:56.383351+00:00",
     "fp:a1f60a462bdca047": "2026-06-18T05:22:52.866968+00:00",
     "fp:a838918f9fe5642e": "2026-06-18T20:42:25.211818+00:00",
@@ -298,6 +303,7 @@
     "weather:Red Flag Warning:Upper Snake River Valley/Idaho Falls BLM; Caribou Range/Cari": "2026-06-15T19:46:53.206994+00:00",
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
+    "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
     "weather:Special Marine Warning:Coastal waters from Altamaha Sound to Fernandina Beach FL ou": "2026-06-15T21:02:29.616925+00:00",
     "weather:Special Marine Warning:Coastal waters from Fernandina Beach to St. Augustine FL out": "2026-06-15T20:16:57.372663+00:00",
