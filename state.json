@@ -41,7 +41,7 @@
       "sev": 80
     },
     "USA, Arkansas": {
-      "at": "2026-06-24T10:32:46.518198+00:00",
+      "at": "2026-06-24T17:34:34.532315+00:00",
       "sev": 84
     },
     "USA, California": {
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 35
+    "2026-06-24": 36
   },
   "daily_cat": {
     "2026-06-22": {
@@ -114,14 +114,14 @@
       "gulf": 2,
       "marine": 1,
       "maritime": 4,
-      "weather": 14,
+      "weather": 15,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-24T17:04:32.587121+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-06-24T17:34:34.532310+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 231
+    "2026-06": 232
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -222,6 +222,7 @@
     "fp:4835fdffb2d4538f": "2026-06-18T06:42:37.789904+00:00",
     "fp:492f9c8cd26e2d1f": "2026-06-22T06:33:36.756116+00:00",
     "fp:497c49b8764eaaa2": "2026-06-23T01:03:30.047197+00:00",
+    "fp:4a642997ea0ed461": "2026-06-24T17:34:34.532285+00:00",
     "fp:4a73f5fc8e6f0c5e": "2026-06-18T16:41:41.054806+00:00",
     "fp:4b190e7177d929f0": "2026-06-22T09:32:37.726102+00:00",
     "fp:4c1312bfdc0d256d": "2026-06-17T13:42:08.302948+00:00",
@@ -431,6 +432,7 @@
     "weather:Flash Flood Warning:Ellis, OK": "2026-06-23T12:34:37.889618+00:00",
     "weather:Flash Flood Warning:Fayette, WV; Raleigh, WV": "2026-06-23T03:04:49.528172+00:00",
     "weather:Flash Flood Warning:George, MS; Stone, MS": "2026-06-19T00:02:19.411541+00:00",
+    "weather:Flash Flood Warning:Hempstead, AR; Howard, AR; Lafayette, AR; Little River, AR; ": "2026-06-24T17:34:34.532228+00:00",
     "weather:Flash Flood Warning:Hodgeman, KS": "2026-06-24T12:02:42.817157+00:00",
     "weather:Flash Flood Warning:Jasper, MO; Newton, MO": "2026-06-24T03:04:48.745560+00:00",
     "weather:Flash Flood Warning:Little River, AR; McCurtain, OK; Bowie, TX; Red River, TX": "2026-06-24T01:04:41.261800+00:00",
