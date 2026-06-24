@@ -73,7 +73,7 @@
       "sev": 84
     },
     "USA, Oklahoma": {
-      "at": "2026-06-24T16:32:50.125188+00:00",
+      "at": "2026-06-24T18:34:43.893910+00:00",
       "sev": 84
     },
     "USA, Phoenix": {
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 37
+    "2026-06-24": 38
   },
   "daily_cat": {
     "2026-06-22": {
@@ -114,14 +114,14 @@
       "gulf": 2,
       "marine": 1,
       "maritime": 4,
-      "weather": 16,
+      "weather": 17,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-24T18:04:52.422469+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-24T18:34:43.893905+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 233
+    "2026-06": 234
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -286,6 +286,7 @@
     "fp:8e4da271c5d5fc03": "2026-06-19T04:41:55.530601+00:00",
     "fp:911dbef61520f4dd": "2026-06-23T05:04:30.440671+00:00",
     "fp:91453cf543f03444": "2026-06-24T02:32:47.971449+00:00",
+    "fp:9195a6a16eeaaeb9": "2026-06-24T18:34:43.893881+00:00",
     "fp:92ff19dac506e540": "2026-06-19T06:22:07.653844+00:00",
     "fp:93e41c10b822cc66": "2026-06-22T05:33:56.258523+00:00",
     "fp:95c5e6a40edeb721": "2026-06-22T08:03:11.624649+00:00",
@@ -422,6 +423,7 @@
     "weather:Flash Flood Warning:Clay, IL; Lawrence, IL; Richland, IL": "2026-06-21T23:32:35.837903+00:00",
     "weather:Flash Flood Warning:Columbia, AR; Union, AR; Claiborne, LA; Lincoln, LA; Webster": "2026-06-24T10:32:46.518133+00:00",
     "weather:Flash Flood Warning:Comanche, OK": "2026-06-19T10:21:57.965840+00:00",
+    "weather:Flash Flood Warning:Craig, OK; Delaware, OK; Mayes, OK": "2026-06-24T18:34:43.893834+00:00",
     "weather:Flash Flood Warning:Craig, OK; Ottawa, OK": "2026-06-23T21:34:04.157576+00:00",
     "weather:Flash Flood Warning:Creek, OK; Tulsa, OK": "2026-06-24T16:32:50.125113+00:00",
     "weather:Flash Flood Warning:Crowley, CO; Pueblo, CO": "2026-06-24T05:04:24.653126+00:00",
