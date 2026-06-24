@@ -12,10 +12,6 @@
       "at": "2026-06-23T11:33:21.794461+00:00",
       "sev": 79
     },
-    "EU, Portugal": {
-      "at": "2026-06-23T03:32:33.471978+00:00",
-      "sev": 79
-    },
     "EU, Slovenia": {
       "at": "2026-06-23T06:34:53.233343+00:00",
       "sev": 79
@@ -53,8 +49,8 @@
       "sev": 84
     },
     "USA, Colorado": {
-      "at": "2026-06-23T14:32:50.006905+00:00",
-      "sev": 50
+      "at": "2026-06-24T03:32:34.705343+00:00",
+      "sev": 82
     },
     "USA, Florida": {
       "at": "2026-06-23T20:32:45.609192+00:00",
@@ -91,16 +87,12 @@
     "USA, Texas": {
       "at": "2026-06-23T19:33:35.096406+00:00",
       "sev": 96
-    },
-    "USA, West Virginia": {
-      "at": "2026-06-23T03:04:49.528241+00:00",
-      "sev": 84
     }
   },
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 7
+    "2026-06-24": 8
   },
   "daily_cat": {
     "2026-06-22": {
@@ -121,14 +113,14 @@
       "weather_eu": 7
     },
     "2026-06-24": {
-      "weather": 5,
+      "weather": 6,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-06-24T03:04:48.745633+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-24T03:32:34.705338+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 203
+    "2026-06": 204
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -214,6 +206,7 @@
     "fp:3ebd606f230aa4e2": "2026-06-22T01:33:23.241511+00:00",
     "fp:4302f8e4d3328fc8": "2026-06-18T00:21:56.760651+00:00",
     "fp:439d05510757d21a": "2026-06-17T14:42:12.282245+00:00",
+    "fp:43af9631e4e575b1": "2026-06-24T03:32:34.705309+00:00",
     "fp:4579cd2c512b1791": "2026-06-24T00:03:29.347072+00:00",
     "fp:460970b5360d8416": "2026-06-19T00:42:28.748403+00:00",
     "fp:46c0f6ab6f9e330a": "2026-06-21T23:02:45.026585+00:00",
@@ -433,6 +426,7 @@
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
+    "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
