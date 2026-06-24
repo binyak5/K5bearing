@@ -64,6 +64,10 @@
       "at": "2026-06-23T11:03:34.717352+00:00",
       "sev": 84
     },
+    "USA, Minnesota": {
+      "at": "2026-06-24T00:03:29.347104+00:00",
+      "sev": 96
+    },
     "USA, New Jersey": {
       "at": "2026-06-23T05:35:06.000669+00:00",
       "sev": 84
@@ -94,17 +98,11 @@
     }
   },
   "daily": {
-    "2026-06-21": 18,
     "2026-06-22": 37,
-    "2026-06-23": 44
+    "2026-06-23": 44,
+    "2026-06-24": 1
   },
   "daily_cat": {
-    "2026-06-21": {
-      "cityweather": 1,
-      "maritime": 3,
-      "weather": 9,
-      "weather_eu": 5
-    },
     "2026-06-22": {
       "cityweather": 2,
       "gulf": 3,
@@ -121,12 +119,15 @@
       "outdoor": 2,
       "weather": 25,
       "weather_eu": 7
+    },
+    "2026-06-24": {
+      "weather": 1
     }
   },
-  "last_post_at": "2026-06-23T21:34:04.157656+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-24T00:03:29.347099+00:00",
+  "last_topic": "tornado",
   "monthly": {
-    "2026-06": 196
+    "2026-06": 197
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -209,6 +210,7 @@
     "fp:3ebd606f230aa4e2": "2026-06-22T01:33:23.241511+00:00",
     "fp:4302f8e4d3328fc8": "2026-06-18T00:21:56.760651+00:00",
     "fp:439d05510757d21a": "2026-06-17T14:42:12.282245+00:00",
+    "fp:4579cd2c512b1791": "2026-06-24T00:03:29.347072+00:00",
     "fp:460970b5360d8416": "2026-06-19T00:42:28.748403+00:00",
     "fp:46c0f6ab6f9e330a": "2026-06-21T23:02:45.026585+00:00",
     "fp:4835fdffb2d4538f": "2026-06-18T06:42:37.789904+00:00",
@@ -434,6 +436,7 @@
     "weather:Tornado Warning:Clay, IN; Greene, IN; Sullivan, IN; Vigo, IN": "2026-06-18T01:21:54.653461+00:00",
     "weather:Tornado Warning:Clay, IN; Parke, IN; Putnam, IN; Vigo, IN": "2026-06-18T00:21:56.760600+00:00",
     "weather:Tornado Warning:Clay, IN; Vigo, IN": "2026-06-18T00:41:56.190607+00:00",
+    "weather:Tornado Warning:Clearwater, MN; Hubbard, MN": "2026-06-24T00:03:29.347021+00:00",
     "weather:Tornado Warning:Crawford, GA; Talbot, GA; Taylor, GA; Upson, GA": "2026-06-18T23:21:58.934188+00:00",
     "weather:Tornado Warning:Crawford, IL; Jasper, IL": "2026-06-21T22:03:32.765361+00:00",
     "weather:Tornado Warning:Cumberland, IL; Effingham, IL; Jasper, IL; Shelby, IL": "2026-06-18T01:02:26.932451+00:00",
