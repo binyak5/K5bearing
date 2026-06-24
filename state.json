@@ -68,6 +68,10 @@
       "at": "2026-06-24T00:03:29.347104+00:00",
       "sev": 96
     },
+    "USA, Missouri": {
+      "at": "2026-06-24T03:04:48.745638+00:00",
+      "sev": 84
+    },
     "USA, New Jersey": {
       "at": "2026-06-23T05:35:06.000669+00:00",
       "sev": 84
@@ -96,7 +100,7 @@
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 6
+    "2026-06-24": 7
   },
   "daily_cat": {
     "2026-06-22": {
@@ -117,14 +121,14 @@
       "weather_eu": 7
     },
     "2026-06-24": {
-      "weather": 4,
+      "weather": 5,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-06-24T02:32:47.971468+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-06-24T03:04:48.745633+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 202
+    "2026-06": 203
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -307,6 +311,7 @@
     "fp:c43e1efe87498b8e": "2026-06-23T06:34:53.233312+00:00",
     "fp:c48d48e4ab4a355c": "2026-06-17T19:02:20.864553+00:00",
     "fp:c5cf9b81dc00d861": "2026-06-17T15:02:30.494962+00:00",
+    "fp:c7984fa26af6b0fc": "2026-06-24T03:04:48.745609+00:00",
     "fp:c81816e4b8f4b40f": "2026-06-22T00:03:41.592313+00:00",
     "fp:c9686558a87b21f3": "2026-06-18T01:42:02.831778+00:00",
     "fp:cb2b2c7814b6322a": "2026-06-18T21:22:22.014100+00:00",
@@ -401,6 +406,7 @@
     "weather:Flash Flood Warning:Ellis, OK": "2026-06-23T12:34:37.889618+00:00",
     "weather:Flash Flood Warning:Fayette, WV; Raleigh, WV": "2026-06-23T03:04:49.528172+00:00",
     "weather:Flash Flood Warning:George, MS; Stone, MS": "2026-06-19T00:02:19.411541+00:00",
+    "weather:Flash Flood Warning:Jasper, MO; Newton, MO": "2026-06-24T03:04:48.745560+00:00",
     "weather:Flash Flood Warning:Little River, AR; McCurtain, OK; Bowie, TX; Red River, TX": "2026-06-24T01:04:41.261800+00:00",
     "weather:Flash Flood Warning:Little River, AR; Miller, AR; Sevier, AR; McCurtain, OK; Bow": "2026-06-23T15:05:10.272001+00:00",
     "weather:Flash Flood Warning:Miller, AR; Caddo, LA; Bowie, TX; Cass, TX; Marion, TX": "2026-06-23T10:05:01.001683+00:00",
