@@ -76,19 +76,19 @@
       "at": "2026-06-24T18:34:43.893910+00:00",
       "sev": 84
     },
-    "USA, Phoenix": {
-      "at": "2026-06-23T19:03:46.382322+00:00",
-      "sev": 50
-    },
     "USA, Texas": {
       "at": "2026-06-24T07:03:10.942550+00:00",
       "sev": 75
+    },
+    "USA, Wisconsin": {
+      "at": "2026-06-24T19:04:41.736599+00:00",
+      "sev": 82
     }
   },
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 38
+    "2026-06-24": 39
   },
   "daily_cat": {
     "2026-06-22": {
@@ -114,14 +114,14 @@
       "gulf": 2,
       "marine": 1,
       "maritime": 4,
-      "weather": 17,
+      "weather": 18,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-24T18:34:43.893905+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-24T19:04:41.736595+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 234
+    "2026-06": 235
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -243,6 +243,7 @@
     "fp:5cabae23d11a52b2": "2026-06-21T18:32:43.255098+00:00",
     "fp:5d815dacb450cd8b": "2026-06-22T02:32:41.396521+00:00",
     "fp:5e217c9de543e427": "2026-06-22T00:32:32.857225+00:00",
+    "fp:5f89749f2ddef34b": "2026-06-24T19:04:41.736576+00:00",
     "fp:602aa43ce34bcceb": "2026-06-21T22:32:36.062701+00:00",
     "fp:60d531019b77e90c": "2026-06-18T03:02:16.175661+00:00",
     "fp:6166d2e2aedbb809": "2026-06-24T14:05:20.189201+00:00",
@@ -470,6 +471,7 @@
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
+    "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
