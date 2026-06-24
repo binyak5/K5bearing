@@ -53,7 +53,7 @@
       "sev": 84
     },
     "USA, Florida": {
-      "at": "2026-06-23T20:32:45.609192+00:00",
+      "at": "2026-06-24T18:04:52.422473+00:00",
       "sev": 82
     },
     "USA, Kansas": {
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 36
+    "2026-06-24": 37
   },
   "daily_cat": {
     "2026-06-22": {
@@ -114,14 +114,14 @@
       "gulf": 2,
       "marine": 1,
       "maritime": 4,
-      "weather": 15,
+      "weather": 16,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-24T17:34:34.532310+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-24T18:04:52.422469+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 232
+    "2026-06": 233
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -202,6 +202,7 @@
     "fp:2d995efe65af1ef4": "2026-06-23T14:04:44.663320+00:00",
     "fp:2ebac143f3e141cc": "2026-06-18T02:21:54.486160+00:00",
     "fp:316fd42686b49160": "2026-06-24T13:32:45.374370+00:00",
+    "fp:31a847d70fcf6103": "2026-06-24T18:04:52.422438+00:00",
     "fp:33e428d0d120cd0b": "2026-06-23T05:35:06.000648+00:00",
     "fp:342b5d1e5bb74427": "2026-06-22T03:33:25.840631+00:00",
     "fp:34f11509a6de9950": "2026-06-19T04:02:21.777274+00:00",
@@ -466,6 +467,7 @@
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
+    "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
