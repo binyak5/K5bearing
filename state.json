@@ -40,10 +40,6 @@
       "at": "2026-06-24T02:32:47.971472+00:00",
       "sev": 80
     },
-    "USA, Alabama": {
-      "at": "2026-06-23T04:33:15.862087+00:00",
-      "sev": 82
-    },
     "USA, Arkansas": {
       "at": "2026-06-24T01:04:41.261880+00:00",
       "sev": 84
@@ -57,8 +53,8 @@
       "sev": 82
     },
     "USA, Louisiana": {
-      "at": "2026-06-23T11:03:34.717352+00:00",
-      "sev": 84
+      "at": "2026-06-24T04:34:18.204191+00:00",
+      "sev": 82
     },
     "USA, Minnesota": {
       "at": "2026-06-24T00:03:29.347104+00:00",
@@ -88,7 +84,7 @@
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 9
+    "2026-06-24": 10
   },
   "daily_cat": {
     "2026-06-22": {
@@ -109,14 +105,14 @@
       "weather_eu": 7
     },
     "2026-06-24": {
-      "weather": 6,
+      "weather": 7,
       "weather_eu": 3
     }
   },
-  "last_post_at": "2026-06-24T04:04:27.124361+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-24T04:34:18.204187+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 205
+    "2026-06": 206
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -215,6 +211,7 @@
     "fp:4d4127bcbf8f1a8a": "2026-06-18T01:21:54.653519+00:00",
     "fp:508a01bd9909e871": "2026-06-18T03:41:40.236013+00:00",
     "fp:50ef4cf50f18c3f4": "2026-06-21T15:03:18.634815+00:00",
+    "fp:51f1c780b6c4cd64": "2026-06-24T04:34:18.204170+00:00",
     "fp:52751bbbf297595b": "2026-06-19T05:43:02.583613+00:00",
     "fp:53d8422ae8913a88": "2026-06-18T00:41:56.190655+00:00",
     "fp:56c4b46a97fd3410": "2026-06-22T04:32:36.956038+00:00",
@@ -421,6 +418,7 @@
     "weather:Severe Thunderstorm Warning:Baker, FL; Duval, FL; Nassau, FL; Charlton, GA; Ware, GA": "2026-06-23T20:32:45.609087+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
+    "weather:Severe Thunderstorm Warning:Caldwell, LA; Jackson, LA; Lincoln, LA; Ouachita, LA; Union,": "2026-06-24T04:34:18.204138+00:00",
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
