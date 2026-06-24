@@ -41,8 +41,8 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-06-23T13:04:27.531614+00:00",
-      "sev": 75
+      "at": "2026-06-24T02:32:47.971472+00:00",
+      "sev": 80
     },
     "USA, Alabama": {
       "at": "2026-06-23T04:33:15.862087+00:00",
@@ -88,10 +88,6 @@
       "at": "2026-06-23T19:33:35.096406+00:00",
       "sev": 96
     },
-    "USA, Virginia": {
-      "at": "2026-06-23T02:03:27.294690+00:00",
-      "sev": 84
-    },
     "USA, West Virginia": {
       "at": "2026-06-23T03:04:49.528241+00:00",
       "sev": 84
@@ -100,7 +96,7 @@
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 5
+    "2026-06-24": 6
   },
   "daily_cat": {
     "2026-06-22": {
@@ -121,14 +117,14 @@
       "weather_eu": 7
     },
     "2026-06-24": {
-      "weather": 3,
+      "weather": 4,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-06-24T02:03:25.507611+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-24T02:32:47.971468+00:00",
+  "last_topic": "marine",
   "monthly": {
-    "2026-06": 201
+    "2026-06": 202
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -276,6 +272,7 @@
     "fp:8d71faab84546f67": "2026-06-19T01:21:58.459857+00:00",
     "fp:8e4da271c5d5fc03": "2026-06-19T04:41:55.530601+00:00",
     "fp:911dbef61520f4dd": "2026-06-23T05:04:30.440671+00:00",
+    "fp:91453cf543f03444": "2026-06-24T02:32:47.971449+00:00",
     "fp:92ff19dac506e540": "2026-06-19T06:22:07.653844+00:00",
     "fp:93e41c10b822cc66": "2026-06-22T05:33:56.258523+00:00",
     "fp:95c5e6a40edeb721": "2026-06-22T08:03:11.624649+00:00",
@@ -432,6 +429,7 @@
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
+    "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
     "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00",
