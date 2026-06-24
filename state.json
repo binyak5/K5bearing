@@ -45,8 +45,8 @@
       "sev": 84
     },
     "USA, Colorado": {
-      "at": "2026-06-24T05:04:24.653186+00:00",
-      "sev": 84
+      "at": "2026-06-24T06:02:25.474239+00:00",
+      "sev": 96
     },
     "USA, Florida": {
       "at": "2026-06-23T20:32:45.609192+00:00",
@@ -62,10 +62,6 @@
     },
     "USA, Missouri": {
       "at": "2026-06-24T03:04:48.745638+00:00",
-      "sev": 84
-    },
-    "USA, New Jersey": {
-      "at": "2026-06-23T05:35:06.000669+00:00",
       "sev": 84
     },
     "USA, Oklahoma": {
@@ -84,7 +80,7 @@
   "daily": {
     "2026-06-22": 37,
     "2026-06-23": 44,
-    "2026-06-24": 12
+    "2026-06-24": 13
   },
   "daily_cat": {
     "2026-06-22": {
@@ -106,14 +102,14 @@
     },
     "2026-06-24": {
       "cityweather": 1,
-      "weather": 8,
+      "weather": 9,
       "weather_eu": 3
     }
   },
-  "last_post_at": "2026-06-24T05:34:07.445558+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-06-24T06:02:25.474234+00:00",
+  "last_topic": "tornado",
   "monthly": {
-    "2026-06": 208
+    "2026-06": 209
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -325,6 +321,7 @@
     "fp:e74ddc7d1d1e9052": "2026-06-21T23:32:35.837957+00:00",
     "fp:e78278df7f7fccad": "2026-06-23T04:33:15.862054+00:00",
     "fp:e78b80f5f0205ffa": "2026-06-23T13:34:28.624170+00:00",
+    "fp:eac0847d119a37d1": "2026-06-24T06:02:25.474206+00:00",
     "fp:eb9c27c74f6aca79": "2026-06-23T16:05:02.433119+00:00",
     "fp:ec1dc31f9e24c889": "2026-06-22T01:03:29.821294+00:00",
     "fp:ec38960c635266f0": "2026-06-23T13:04:27.531583+00:00",
@@ -450,6 +447,7 @@
     "weather:Tornado Warning:Foard, TX; Wilbarger, TX": "2026-06-23T19:33:35.096330+00:00",
     "weather:Tornado Warning:Greene, MO": "2026-06-21T15:03:18.634777+00:00",
     "weather:Tornado Warning:Harris, GA; Meriwether, GA; Talbot, GA; Upson, GA": "2026-06-18T22:41:59.280563+00:00",
+    "weather:Tornado Warning:Huerfano, CO; Las Animas, CO": "2026-06-24T06:02:25.474155+00:00",
     "weather:Tornado Warning:Jackson, FL; Miller, GA; Seminole, GA": "2026-06-19T00:42:28.748368+00:00",
     "weather:Tornado Warning:Kay, OK": "2026-06-22T05:33:56.258474+00:00",
     "weather:Tornado Warning:Logan, CO; Washington, CO": "2026-06-22T23:36:56.935975+00:00",
