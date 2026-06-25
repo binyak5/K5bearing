@@ -81,7 +81,7 @@
       "sev": 75
     },
     "USA, Wisconsin": {
-      "at": "2026-06-24T19:04:41.736599+00:00",
+      "at": "2026-06-25T01:33:18.379609+00:00",
       "sev": 82
     },
     "USA, Wyoming": {
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-23": 44,
     "2026-06-24": 44,
-    "2026-06-25": 3
+    "2026-06-25": 4
   },
   "daily_cat": {
     "2026-06-23": {
@@ -114,13 +114,13 @@
       "weather_eu": 11
     },
     "2026-06-25": {
-      "weather": 3
+      "weather": 4
     }
   },
-  "last_post_at": "2026-06-25T01:04:23.631922+00:00",
-  "last_topic": "tornado",
+  "last_post_at": "2026-06-25T01:33:18.379604+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 243
+    "2026-06": 244
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -177,6 +177,7 @@
     "fp:0699a2b168934235": "2026-06-23T16:33:09.312425+00:00",
     "fp:07f3e150a1e4d3b7": "2026-06-19T11:02:37.017407+00:00",
     "fp:080d01c8b01b12ad": "2026-06-22T03:02:51.736136+00:00",
+    "fp:084945730bfac4d2": "2026-06-25T01:33:18.379579+00:00",
     "fp:09204959a2f8a110": "2026-06-17T08:40:34.983913+00:00",
     "fp:0b2a7d590a769b30": "2026-06-23T20:32:45.609140+00:00",
     "fp:0c76a55fa75d567a": "2026-06-24T02:03:25.507590+00:00",
@@ -483,6 +484,7 @@
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
+    "weather:Severe Thunderstorm Warning:Ozaukee, WI; Washington, WI": "2026-06-25T01:33:18.379535+00:00",
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
