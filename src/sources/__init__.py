@@ -39,6 +39,29 @@ def forecast_temp(lat: float, lon: float, which: str = "max",
         return None
 
 
+def forecast_peak(lat: float, lon: float, which: str = "max",
+                  unit: str = "celsius", days: int = 5, timeout: int = 15) -> int | None:
+    """The most extreme daily temperature over the next `days` (rounded), from
+    Open-Meteo. `which`="max" returns the highest daily high (heat), "min" the
+    lowest daily low (cold). Used for European warnings, which are often issued
+    days ahead of the peak, so today's value alone would understate them."""
+    var = "temperature_2m_max" if which == "max" else "temperature_2m_min"
+    params = {"latitude": lat, "longitude": lon, "daily": var,
+              "timezone": "auto", "forecast_days": days}
+    if unit == "fahrenheit":
+        params["temperature_unit"] = "fahrenheit"
+    try:
+        resp = requests.get(_FORECAST_URL, headers={"User-Agent": USER_AGENT},
+                            params=params, timeout=timeout)
+        resp.raise_for_status()
+        vals = [v for v in ((resp.json().get("daily") or {}).get(var) or []) if v is not None]
+        if not vals:
+            return None
+        return round(max(vals) if which == "max" else min(vals))
+    except (requests.RequestException, ValueError):
+        return None
+
+
 def geocode(name: str, timeout: int = 15) -> tuple[float, float] | None:
     """First (lat, lon) match for a place name via Open-Meteo geocoding, or None.
     Used where an alert names a region but gives no coordinates (MeteoAlarm)."""

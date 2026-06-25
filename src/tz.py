@@ -73,6 +73,33 @@ ZONE_CODES = {
     "Europe/Amsterdam": "NL",
 }
 
+# MeteoAlarm country slug -> (lat, lon) of the capital. A fixed, reliable anchor
+# for the European temperature approximation: the feed gives no coordinates, and
+# geocoding region names is hopeless (it resolves Dutch provinces to US towns),
+# so we forecast the heat/cold at the capital — a sound proxy for a country-wide
+# warning. (Hard-coded, not geocoded, so it can never resolve to the wrong place.)
+COUNTRY_COORDS = {
+    "andorra": (42.51, 1.52), "austria": (48.21, 16.37), "belgium": (50.85, 4.35),
+    "bosnia-herzegovina": (43.86, 18.41), "bulgaria": (42.70, 23.32),
+    "croatia": (45.81, 15.98), "cyprus": (35.17, 33.36), "czechia": (50.08, 14.44),
+    "denmark": (55.68, 12.57), "estonia": (59.44, 24.75), "finland": (60.17, 24.94),
+    "france": (48.85, 2.35), "germany": (52.52, 13.40), "greece": (37.98, 23.73),
+    "hungary": (47.50, 19.04), "iceland": (64.15, -21.94), "ireland": (53.35, -6.26),
+    "israel": (31.77, 35.21), "italy": (41.90, 12.50), "latvia": (56.95, 24.11),
+    "lithuania": (54.69, 25.28), "luxembourg": (49.61, 6.13), "malta": (35.90, 14.51),
+    "moldova": (47.01, 28.86), "montenegro": (42.44, 19.26), "netherlands": (52.37, 4.90),
+    "north-macedonia": (41.99, 21.43), "norway": (59.91, 10.75), "poland": (52.23, 21.01),
+    "portugal": (38.72, -9.14), "romania": (44.43, 26.10), "serbia": (44.79, 20.45),
+    "slovakia": (48.15, 17.11), "slovenia": (46.06, 14.51), "spain": (40.42, -3.70),
+    "sweden": (59.33, 18.07), "switzerland": (46.95, 7.45), "ukraine": (50.45, 30.52),
+    "united-kingdom": (51.51, -0.13),
+}
+
+
+def country_coords(slug: str) -> tuple[float, float] | None:
+    """Capital (lat, lon) for a MeteoAlarm country slug, or None if unknown."""
+    return COUNTRY_COORDS.get((slug or "").lower())
+
 # ISO alpha-2 -> (continent, full country name), for the geographic tag printed
 # after the timezone in each post, e.g. 'CEST Europe, France:'. Covers every
 # country the sources can stamp: the US (NWS), the MeteoAlarm European network,
