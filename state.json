@@ -56,13 +56,13 @@
       "at": "2026-06-25T07:34:15.054151+00:00",
       "sev": 76
     },
+    "USA": {
+      "at": "2026-06-25T16:04:24.319584+00:00",
+      "sev": 75
+    },
     "USA, Arkansas": {
       "at": "2026-06-24T19:34:43.309094+00:00",
       "sev": 84
-    },
-    "USA, California": {
-      "at": "2026-06-24T15:34:19.415247+00:00",
-      "sev": 81
     },
     "USA, Colorado": {
       "at": "2026-06-25T03:33:17.875695+00:00",
@@ -120,7 +120,7 @@
   "daily": {
     "2026-06-23": 44,
     "2026-06-24": 44,
-    "2026-06-25": 32
+    "2026-06-25": 33
   },
   "daily_cat": {
     "2026-06-23": {
@@ -146,14 +146,14 @@
       "gulf": 2,
       "maritime": 4,
       "outdoor": 2,
-      "weather": 12,
+      "weather": 13,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-25T15:34:14.279951+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-25T16:04:24.319578+00:00",
+  "last_topic": "heat",
   "monthly": {
-    "2026-06": 272
+    "2026-06": 273
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -230,7 +230,6 @@
     "fp:19484e92ebfcbba0": "2026-06-24T17:04:32.587100+00:00",
     "fp:1d5e829ed1856ec4": "2026-06-25T13:03:57.965001+00:00",
     "fp:1dc7089d4ec1e7be": "2026-06-23T10:34:18.416929+00:00",
-    "fp:1e71ad722dc3d6d5": "2026-06-17T16:02:27.479853+00:00",
     "fp:21865fcbd88e13dc": "2026-06-22T09:02:51.163276+00:00",
     "fp:22d115d99a00f404": "2026-06-25T04:32:29.701954+00:00",
     "fp:22d5a1d6f5cdb2db": "2026-06-23T00:04:12.569522+00:00",
@@ -265,6 +264,7 @@
     "fp:425e62ca9e6b88e8": "2026-06-24T19:34:43.309064+00:00",
     "fp:4302f8e4d3328fc8": "2026-06-18T00:21:56.760651+00:00",
     "fp:43af9631e4e575b1": "2026-06-24T03:32:34.705309+00:00",
+    "fp:448fbee55e8f668a": "2026-06-25T16:04:24.319549+00:00",
     "fp:4579cd2c512b1791": "2026-06-24T00:03:29.347072+00:00",
     "fp:460970b5360d8416": "2026-06-19T00:42:28.748403+00:00",
     "fp:46c0f6ab6f9e330a": "2026-06-21T23:02:45.026585+00:00",
@@ -313,7 +313,6 @@
     "fp:6b989784d3adab80": "2026-06-23T12:03:02.943809+00:00",
     "fp:6c9418a96ec6b5ab": "2026-06-25T09:32:33.728107+00:00",
     "fp:6cc4cf938062891a": "2026-06-25T04:02:53.587914+00:00",
-    "fp:6d398340d31f8ff1": "2026-06-17T15:42:07.320777+00:00",
     "fp:6e322ebdcc56e681": "2026-06-25T09:04:42.269066+00:00",
     "fp:6e3d233a40756bc1": "2026-06-21T18:02:48.092836+00:00",
     "fp:6f516646b059bc2b": "2026-06-25T08:33:21.437675+00:00",
@@ -469,6 +468,7 @@
     "uv:Miami:2026-06-22": "2026-06-22T18:34:10.716830+00:00",
     "uv:Phoenix:2026-06-23": "2026-06-23T19:03:46.382236+00:00",
     "weather:Air Quality Alert:Weld, CO; Douglas, CO; Boulder, CO; Arapahoe, CO; Larimer, C": "2026-06-23T14:32:50.006805+00:00",
+    "weather:Extreme Heat Warning:San Diego County Deserts": "2026-06-25T16:04:24.319506+00:00",
     "weather:Flash Flood Warning:Aroostook, ME": "2026-06-21T18:32:43.255039+00:00",
     "weather:Flash Flood Warning:Atoka, OK": "2026-06-23T16:33:09.312377+00:00",
     "weather:Flash Flood Warning:Atoka, OK; Bryan, OK": "2026-06-23T18:34:38.426531+00:00",
@@ -525,7 +525,6 @@
     "weather:Flash Flood Warning:Washington, AL": "2026-06-19T05:43:02.583563+00:00",
     "weather:Flash Flood Warning:Young, TX": "2026-06-19T08:22:08.459527+00:00",
     "weather:Flood Warning:Chambers, TX; Harris, TX; Liberty, TX": "2026-06-17T16:22:35.653226+00:00",
-    "weather:Flood Warning:Livingston, LA": "2026-06-17T16:02:27.479835+00:00",
     "weather:Flood Warning:McMullen, TX": "2026-06-24T07:03:10.942451+00:00",
     "weather:Hazardous Seas Warning:Coastal waters from Cape Blanco OR to Pt. St. George CA out ": "2026-06-23T02:34:36.707846+00:00",
     "weather:Red Flag Warning:Central and Southeast Park County": "2026-06-23T13:04:27.531536+00:00",
@@ -548,7 +547,6 @@
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Breton Sound; Barataria Bay; Coastal waters from the Southwe": "2026-06-17T18:02:35.321636+00:00",
     "weather:Special Marine Warning:New Buffalo MI to St Joseph MI; Michigan City IN to New Buff": "2026-06-17T17:22:39.913674+00:00",
-    "weather:Special Marine Warning:Winthrop Harbor to Wilmette Harbor IL; Wilmette Harbor to No": "2026-06-17T15:42:07.320760+00:00",
     "weather:Tornado Warning:Bartholomew, IN; Brown, IN": "2026-06-22T00:03:41.592269+00:00",
     "weather:Tornado Warning:Bartholomew, IN; Brown, IN; Jackson, IN; Monroe, IN": "2026-06-18T02:21:54.486099+00:00",
     "weather:Tornado Warning:Bartholomew, IN; Brown, IN; Johnson, IN; Monroe, IN; Morgan,": "2026-06-18T02:02:18.365009+00:00",
