@@ -76,6 +76,10 @@
       "at": "2026-06-24T03:04:48.745638+00:00",
       "sev": 84
     },
+    "USA, New Mexico": {
+      "at": "2026-06-25T02:32:28.595679+00:00",
+      "sev": 82
+    },
     "USA, Oklahoma": {
       "at": "2026-06-24T18:34:43.893910+00:00",
       "sev": 84
@@ -96,7 +100,7 @@
   "daily": {
     "2026-06-23": 44,
     "2026-06-24": 44,
-    "2026-06-25": 5
+    "2026-06-25": 6
   },
   "daily_cat": {
     "2026-06-23": {
@@ -118,13 +122,13 @@
       "weather_eu": 11
     },
     "2026-06-25": {
-      "weather": 5
+      "weather": 6
     }
   },
-  "last_post_at": "2026-06-25T02:02:41.054268+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-25T02:32:28.595674+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 245
+    "2026-06": 246
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -319,6 +323,7 @@
     "fp:ad5d61247b71b69c": "2026-06-24T08:04:58.534073+00:00",
     "fp:adb1781330707318": "2026-06-24T11:35:12.141270+00:00",
     "fp:af4957d52f2675f2": "2026-06-19T07:02:49.065156+00:00",
+    "fp:b2349a2078a2661c": "2026-06-25T02:32:28.595646+00:00",
     "fp:b308f6933ff80793": "2026-06-18T04:22:01.472353+00:00",
     "fp:b6db08b35f8c834e": "2026-06-23T04:02:43.311024+00:00",
     "fp:b85b0030a4243fd5": "2026-06-18T05:43:20.609644+00:00",
@@ -486,6 +491,7 @@
     "weather:Severe Thunderstorm Warning:Caldwell, LA; Jackson, LA; Lincoln, LA; Ouachita, LA; Union,": "2026-06-24T04:34:18.204138+00:00",
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
+    "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
