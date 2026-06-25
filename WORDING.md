@@ -2,13 +2,19 @@
 
 Every phrasing the bot can post. {curly braces} are filled in at post time. One variant is chosen per alert.
 
-**Regions:** USA, Europe, Gulf states. **Prefix:** 24-hour local time followed by the ISO country code, e.g. `16:33 CEST CH:`. Country-less signals (space weather, open-sea marine areas, multi-country navigation warnings) keep the plain `16:33 CEST:` form, as does the scheduled Rotterdam update (deliberately, so it stands out). **No hashtags.**
+**Regions:** USA, Europe, Gulf states.
 
-**Voice** — most alerts post exactly as written below. Low-stakes ones are softened with a **"Heads up,"** lead: anything ending in "Advisory", the small-craft roundup, extreme-UV, wildfire-smoke air quality, and the Gulf dense-fog alert. We inform; we don't issue commands.
+**Prefix:** 24-hour local time, the timezone, then a `REGION, place` geo tag — e.g. `11:20 CDT USA, Texas:`, `16:33 CEST EU, France:`, `20:14 GST GCC, United Arab Emirates:`. The place is the US **state** (NWS), the **country** (Europe / Gulf), the **city** (outdoor UV/dust/lightning), or `USA, California` (red tide). Coordinate-less signals — space weather, open-sea marine, NGA navigation warnings — keep the plain `16:33 UTC:` form, as does the scheduled Rotterdam update (deliberately, so it stands out). **No hashtags.**
 
-**Ranking** — purely by severity, highest first. No topic, source, or tier gets a boost. (The scheduled Rotterdam update sorts to the top only because its severity is hard-set to 1000.)
+**Timezones** print their official abbreviation: US/EU native codes (EDT, CEST…), plus GST (UAE/Oman), AST (Saudi/Qatar/Bahrain/Kuwait/Iraq/Yemen), IRST (Iran), AFT (Afghanistan), TRT (Türkiye), GET/AMT/AZT (Caucasus). Open ocean and unmapped zones fall back to `UTC±N`.
 
-**Freshness** — only alerts current *today* are posted (expired or future-day European warnings, stale red-tide readings, and old space-weather alerts are dropped). **No repeats** — the feed won't post the same topic (flood, wind, heat…) twice in a row, even for different places, unless nothing else is available. This applies uniformly to every topic; nothing is exempt.
+**Units:** US temperatures in **°F**; Europe and the Gulf in **°C**.
+
+**Voice** — most alerts post exactly as written below. Low-stakes ones are softened with a **"Heads up,"** lead: anything ending in "Advisory", the small-craft roundup, extreme-UV, the Gulf dense-fog alert, and the Gulf cold-snap alert. We inform; we don't issue commands.
+
+**Ranking** — purely by severity, highest first. No topic or source gets a boost. (The scheduled Rotterdam update sorts to the top only because its severity is hard-set to 1000.) Per-category **daily caps** keep one region from flooding the feed, but they're **soft**: if nothing else is eligible, a capped category may overflow (still within the daily budget) so the feed never goes silent under-budget. A per-area **cooldown** holds further posts for the same state/country for ~2 h during an outbreak, unless a strictly more severe warning breaks through.
+
+**Freshness** — only alerts current *today* are posted. **No repeats** — the feed won't post the same topic (flood, wind, heat…) twice in a row, even for different places, unless nothing else is available.
 
 ---
 
@@ -45,9 +51,11 @@ _Impact:_
 ---
 
 ## US weather (NWS) — openers
-`{where}` is " for {named areas}" (areas are named like the European warnings). The country (always US) rides in the timestamp prefix as its ISO code, so it is no longer repeated in the body.
+`{where}` is " for {named areas}". When every area is in one state, that state is in the `USA, <state>` prefix and dropped from the list ("Travis and Williamson"); multi-state alerts keep ", ST".
 1. {article} {event} is active{where}.
 2. {article} {event} has been issued{where}.
+
+**Heat / cold degree** (US, °F): heat alerts append ` Highs near {N}°F.` and cold/freeze/frost alerts append ` Lows near {N}°F.`, fetched from the forecast at the alert's location.
 
 ## US weather (NWS) — per-hazard action lines
 **Tornado Warning**
@@ -127,7 +135,7 @@ _Impact:_
 1. Hazardous conditions such as rip currents or sneaker waves are expected at the beach. Stay alert and heed lifeguard guidance.
 
 **Coastal Flood Warning**
-1. Tidal flooding is likely along the coast. 
+1. Tidal flooding is likely along the coast.
 
 **Lakeshore Flood Warning**
 1. Lakeshore flooding is underway. Monitor alerts and be ready to move vehicles to higher ground.
@@ -154,7 +162,7 @@ _Impact:_
 1. Severe avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.
 
 **Freeze Warning**
-1. A hard sub-freeze is on the way. Cover sensitive plants, bring pets inside, and guard against burst pipes.
+1. A hard sub-freeze is on the way. Cover anything frost-sensitive and guard against burst pipes.
 
 **Air Quality Alert**
 1. Air pollution is reaching unhealthy levels. Limit time outdoors, keep windows closed, and take it easy if you have breathing trouble.
@@ -165,9 +173,11 @@ _Impact:_
 ---
 
 ## Europe (MeteoAlarm)
-Openers (colour + named region(s)). `{label}` names the affected regions (as many as fit, then "and N other areas" for the rest). If the feed gives no region name, `{label}` falls back to the country name. The country rides in the timestamp prefix as its ISO code, so it is no longer repeated in the body.
+Prefix carries `EU, <country>`. Openers name the affected sub-regions (`{label}` = as many as fit, then "and N other areas"); with no named sub-region, the "for {label}" is dropped (the country is already in the prefix). Awareness codes are normalised, so `extreme_heat`, `High Temperature`, and `high-temperature` all classify the same.
 1. {article} {color} {hazard} warning is active for {label}.
 2. {article} {color} {hazard} warning has been issued for {label}.
+
+**Heat / cold degree** (°C): heat warnings append ` Highs near {N}°C.` and cold warnings ` Lows near {N}°C.` — the forecast peak over the next 5 days at the country's capital (the feed gives no coordinates, so it's a national proxy).
 
 **Action wording reused from the US lists** — each European hazard maps to a US event:
 - thunder → **Severe Thunderstorm Warning**
@@ -176,13 +186,10 @@ Openers (colour + named region(s)). `{label}` names the affected regions (as man
 - snow → **Winter Storm Warning**
 - ice → **Ice Storm Warning**
 - flood → **Flood Warning**
-- forest → **Red Flag Warning**
-- fire → **Red Flag Warning**
+- forest / fire → **Red Flag Warning**
 - coast → **Coastal Flood Warning**
-- high-temp → **Extreme Heat Warning**
-- heat → **Extreme Heat Warning**
-- low-temp → **Extreme Cold Warning**
-- cold → **Extreme Cold Warning**
+- high-temp / heat → **Extreme Heat Warning**
+- low-temp / cold → **Extreme Cold Warning**
 
 European-only hazards keep their own lines:
 **rain**
@@ -191,7 +198,7 @@ European-only hazards keep their own lines:
 **fog**
 1. Dense fog is expected. Visibility will be poor. Reduce speed and use headlights on the road.
 
-**temperature**
+**temperature** (generic, when not clearly hot/cold)
 1. Temperatures will reach an extreme. Take it easy and look in on the vulnerable.
 
 **(default)**
@@ -200,8 +207,9 @@ European-only hazards keep their own lines:
 ---
 
 ## GDACS — volcanoes & wildfires (region-filtered)
-1. {article} {alert} alert is active for {name}{loc}{detail}.
-2. {article} {alert} alert has been issued for {name}{loc}{detail}.
+Prefix carries `REGION, country`; the country is no longer named in the body.
+1. {article} {alert} alert is active for {name}{detail}.
+2. {article} {alert} alert has been issued for {name}{detail}.
 
 **Volcano**
 1. Respect the exclusion zones and heed evacuation guidance from local authorities.
@@ -211,7 +219,8 @@ European-only hazards keep their own lines:
 
 ---
 
-## Earthquakes (USGS) — lead
+## Earthquakes (USGS)
+Prefix carries `REGION, <state/country>` lifted off the place; the body keeps the precise epicenter.
 1. A magnitude {mag} earthquake has hit {place}.
 
 _Tsunami note:_
@@ -237,6 +246,7 @@ _{cat} is Gale-force, Storm-force, or Hurricane-force depending on speed._
 1. Powerful long-period groundswell is pushing into {area}, {h} m and spaced {p} seconds apart. That energy stacks up fast in the shallows. Expect sneaker sets and treacherous surf around inlets and bars.
 
 ## Marine — harmful algal bloom / red tide (CalHABMAP, US Pacific coast)
+Prefix carries `USA, California`.
 _Cell-count bloom:_
 1. A harmful bloom is taking hold off {name}, Pseudo-nitzschia running to {cells} cells per litre. The water can turn toxic with domoic acid. Avoid discolored patches and do not harvest shellfish until it clears.
 
@@ -246,6 +256,8 @@ _Domoic-acid spike:_
 ---
 
 ## Maritime security / military (NGA)
+`{region}` names only the body of water (the bordering country is dropped). No geo-tag prefix.
+
 **Launch hazard**
 1. A missile or rocket launch hazard area is active in {region}. Vessels should keep well clear until the operation is complete.
 
@@ -270,20 +282,25 @@ _Domoic-acid spike:_
 ---
 
 ## Outdoor — extreme UV
-1. The UV index has reached {uv} in {name}, an extreme level. Cover up, wear sunglasses and sunscreen, and seek shade through the middle of the day.
-2. UV has spiked to {uv} in {name}, in the extreme range. Wear sunscreen and shades, cover exposed skin, and stay shaded around midday.
+Prefix carries `REGION, city`; the city is no longer named in the body. Advisory tier ("Heads up,").
+1. The UV index has reached {uv}, an extreme level. Cover up, wear sunglasses and sunscreen, and seek shade through the middle of the day.
+2. UV has spiked to {uv}, in the extreme range. Wear sunscreen and shades, cover exposed skin, and stay shaded around midday.
 
 ## Outdoor — dust storm
-1. Thick dust has engulfed {name}, pushing levels to {dust} µg/m³. Limit time outside, close everything up, and protect your eyes and lungs.
+1. Thick dust is filling the air, pushing levels to {dust} µg/m³. Limit time outside, close everything up, and protect your eyes and lungs.
 
 ## Outdoor — violent thunderstorm / lightning
 _"{hail}" becomes " and hail" or " and large hail" when hail is detected._
-1. Violent thunderstorms are hammering over {name}, packing severe lightning{hail}. Seek solid shelter, stay off open ground and water, and wait it out.
+1. Violent thunderstorms are rolling through, packing severe lightning{hail}. Seek solid shelter, stay off open ground and water, and wait it out.
 
 ---
 
 ## Gulf states — extreme heat (Open-Meteo)
-1. Severe heat is gripping {name}, the temperature at {temp}°C and feeling like {feels}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.
+1. Severe heat is gripping {name}. Highs near {temp}°C. Stay out of the midday sun, keep drinking water, and watch closely for heat stress.
+
+## Gulf states — cold snap (Open-Meteo)
+_Near-freezing tier, advisory ("Heads up,"). Fires when the forecast low is at/below the threshold._
+1. A cold snap is gripping {name}. Lows near {low}°C. A hard sub-freeze is on the way. Cover anything frost-sensitive and guard against burst pipes.
 
 ## Gulf states — shamal / high winds (Open-Meteo)
 _NW winds use the shamal lines; winds from other directions use the generic ones._
@@ -308,6 +325,16 @@ _Softened with a "Heads up," lead (advisory tier)._
 
 ---
 
+## World Cup — knockout final scores (ESPN)
+_Only knockout rounds (Round of 32 onward); group-stage matches are never posted. Score in home–away order; penalty score in the same order. No geo-tag prefix and no timestamp prefix._
+1. Full time - {home} {hs}–{as} {away} ({round})
+1. _(extra time)_ Full time (AET) - {home} {hs}–{as} {away} ({round})
+1. _(penalties)_ Full time (AET) - {home} {hs}–{as} {away} - {hp}–{ap} penalties ({round})
+
+_Rounds:_ Round of 32, Round of 16, Quarter final, Semi final, Third place playoff, Final.
+
+---
+
 ## City weather update — Rotterdam (scheduled, not an alert)
 _Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
 
@@ -316,4 +343,3 @@ _Morning:_
 
 _Evening:_
 1. Rotterdam this evening, {temp}°C with {cond}. Overnight settles to {low}°C, and tomorrow climbs to {high}°C with {cond_tmr}.
-
