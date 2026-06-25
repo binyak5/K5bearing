@@ -12,6 +12,10 @@
       "at": "2026-06-25T05:33:49.107901+00:00",
       "sev": 79
     },
+    "EU, Ireland": {
+      "at": "2026-06-25T14:34:32.367385+00:00",
+      "sev": 79
+    },
     "EU, Netherlands": {
       "at": "2026-06-25T14:04:55.050014+00:00",
       "sev": 96
@@ -108,7 +112,7 @@
   "daily": {
     "2026-06-23": 44,
     "2026-06-24": 44,
-    "2026-06-25": 29
+    "2026-06-25": 30
   },
   "daily_cat": {
     "2026-06-23": {
@@ -135,13 +139,13 @@
       "maritime": 4,
       "outdoor": 1,
       "weather": 11,
-      "weather_eu": 10
+      "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-25T14:04:55.050009+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-06-25T14:34:32.367381+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 269
+    "2026-06": 270
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -173,6 +177,7 @@
     "eu:germany:heat:Severe": "2026-06-24T08:34:47.111505+00:00",
     "eu:germany:thunder:Severe": "2026-06-23T13:34:28.624111+00:00",
     "eu:hungary:high-temp:Severe": "2026-06-24T09:32:42.917398+00:00",
+    "eu:ireland:thunder:Severe": "2026-06-25T14:34:32.367317+00:00",
     "eu:italy:thunder:Severe": "2026-06-23T11:33:21.794382+00:00",
     "eu:netherlands:high-temp:Extreme": "2026-06-25T14:04:55.049902+00:00",
     "eu:netherlands:high-temp:Severe": "2026-06-25T08:04:36.713760+00:00",
@@ -212,6 +217,7 @@
     "fp:0cdb5adb3b6a0777": "2026-06-24T07:03:10.942493+00:00",
     "fp:0ea92ce256a46dd9": "2026-06-23T19:03:46.382287+00:00",
     "fp:119c390506996d05": "2026-06-17T15:22:13.522667+00:00",
+    "fp:11ef7716ffdf640b": "2026-06-25T14:34:32.367357+00:00",
     "fp:14ba93381f5c0d14": "2026-06-24T01:32:36.349979+00:00",
     "fp:16f139751ec6120a": "2026-06-25T03:33:17.875667+00:00",
     "fp:19484e92ebfcbba0": "2026-06-24T17:04:32.587100+00:00",
@@ -223,7 +229,6 @@
     "fp:22d5a1d6f5cdb2db": "2026-06-23T00:04:12.569522+00:00",
     "fp:230760877acdfd77": "2026-06-18T06:22:05.147423+00:00",
     "fp:2347640b1eda864d": "2026-06-23T03:32:33.471944+00:00",
-    "fp:25d4ca779270b528": "2026-06-17T14:22:36.940478+00:00",
     "fp:25f98dcbcad28f99": "2026-06-23T20:03:01.075556+00:00",
     "fp:280e5876296b6661": "2026-06-25T11:34:28.750530+00:00",
     "fp:2b073251e9ce58b4": "2026-06-22T07:04:13.740524+00:00",
@@ -523,7 +528,6 @@
     "weather:Severe Thunderstorm Warning:Albany, WY; Platte, WY": "2026-06-25T00:33:12.852299+00:00",
     "weather:Severe Thunderstorm Warning:Baker, FL; Duval, FL; Nassau, FL; Charlton, GA; Ware, GA": "2026-06-23T20:32:45.609087+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
-    "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
     "weather:Severe Thunderstorm Warning:Caldwell, LA; Jackson, LA; Lincoln, LA; Ouachita, LA; Union,": "2026-06-24T04:34:18.204138+00:00",
     "weather:Severe Thunderstorm Warning:Castro, TX; Parmer, TX": "2026-06-25T04:32:29.701907+00:00",
     "weather:Severe Thunderstorm Warning:Central Arapahoe, CO; Eastern Arapahoe, CO": "2026-06-25T03:33:17.875622+00:00",
