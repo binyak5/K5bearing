@@ -36,7 +36,7 @@ COLD_VARIANTS = [
 
 # Winds out of the NW are the classic Gulf "shamal".
 SHAMAL_VARIANTS = [
-    "Strong shamal winds are raking {name} at {wind} km/h, gusting to {gust}. Dust will cut visibility and rattle anything loose. Tie things down and drive with care.",
+    "Strong shamal winds are raking {name} at {wind} km/h, gusting to {gust}. Dust will cut visibility and rattle anything loose.",
 ]
 
 WIND_VARIANTS = [

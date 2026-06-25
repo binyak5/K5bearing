@@ -59,53 +59,52 @@ _Impact:_
 
 ## US weather (NWS) — per-hazard action lines
 **Tornado Warning**
-1. Move to the lowest floor and an interior room away from windows. Stay there until the warning is lifted.
-2. Get to a basement or an interior room on the lowest floor and stay clear of windows, as a tornado can drop fast from the wall cloud.
+1. Get to a basement or an interior room on the lowest floor and keep clear of windows. Stay there until the warning is lifted.
 
 **Hurricane Warning**
-1. Destructive winds and storm surge are expected. Finish your safety plans now and follow any evacuation orders without delay.
-2. Life-threatening winds and surge are on the way. Complete your storm prep and leave now if you are told to evacuate.
+1. Destructive winds and storm surge are expected. Follow any evacuation orders.
+2. Life-threatening winds and surge are on the way. Follow any evacuation orders.
 
 **Hurricane Watch**
-1. Hurricane conditions are possible within about two days. Get your preparations in order and monitor official updates closely.
-2. A hurricane may strike within roughly 48 hours. Ready your supplies and keep watch on the latest forecasts.
+1. Hurricane conditions are possible within about two days. Keep a close watch on the latest alerts.
+2. A hurricane may strike within roughly 48 hours. Keep a close watch on the latest alerts.
 
 **Tropical Storm Warning**
-1. Tropical storm-force winds are expected. Secure anything loose outside and stay indoors as conditions worsen.
-2. Tropical storm-force winds are on the way. Tie down loose items and head inside before the weather turns rough.
+1. Tropical storm-force winds are expected. Head inside before the weather turns rough.
+2. Tropical storm-force winds are on the way. Head inside before the weather turns rough.
 
 **Blizzard Warning**
-1. Blowing snow will bring ground blizzard whiteouts. Conditions will turn severe in near zero visibility. Stay off the roads and keep supplies within reach.
+1. Blowing snow will bring ground blizzard whiteouts. Conditions will turn severe in near zero visibility.
 
 **Extreme Wind Warning**
-1. Violent winds are imminent. Move to the lowest floor and stay clear of windows until they pass.
+1. Violent winds are imminent. Stay clear of windows until they pass.
 
 **Severe Thunderstorm Warning**
 1. A supercell can bring damaging winds and large hail. Head indoors and keep away from windows until the storm moves through.
 
 **Flash Flood Warning**
-1. The flash-flood crest can arrive within minutes. Climb to higher ground now and don't try to drive or walk through floodwater.
+1. The flash-flood crest can arrive within minutes. Climb to higher ground.
 
 **Flood Warning**
-1. Waters are rising. Steer clear of low lying areas and turn around instead of crossing a flooded road.
+1. Waters are rising. Steer clear of low lying areas.
 
 **Red Flag Warning**
-1. Conditions are set for fire to spread fast. Avoid anything that could kick off a blaze and be ready to leave at short notice.
+1. Conditions are set for fire to spread fast. Avoid anything that could kick off a blaze.
 
 **Fire Warning**
-1. An active fire is threatening the area. Be ready to evacuate immediately and follow the instructions of local officials.
+1. An active fire is threatening the area. Be ready to evacuate immediately.
 
 **Storm Surge Warning**
-1. A severe surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground inland.
+1. A severe surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground.
 
 **Storm Surge Watch**
-1. Severe surge flooding may develop along the coast. Ready your evacuation plan and track the latest alerts.
+1. Severe surge flooding may develop along the coast. Keep a close watch on the latest alerts.
 
 **Hurricane Force Wind Warning**
 1. Hurricane force winds above 64 knots are expected at sea. Remain in port and keep all vessels well clear of open water.
 
 **Hurricane Force Wind Watch**
-1. Hurricane force winds are possible at sea. Monitor advisories closely and prepare to keep vessels in port.
+1. Hurricane force winds are possible at sea. Monitor alerts closely and prepare to keep vessels in port.
 
 **Gale Warning**
 1. Gale force winds and rough seas are expected. Small craft should stay in port and rig larger vessels for heavy weather.
@@ -138,7 +137,7 @@ _Impact:_
 1. Tidal flooding is likely along the coast.
 
 **Lakeshore Flood Warning**
-1. Lakeshore flooding is underway. Monitor alerts and be ready to move vehicles to higher ground.
+1. Lakeshore flooding is underway. Keep a close watch on the latest alerts.
 
 **Winter Storm Warning**
 1. A heavy-hitting winter storm is moving in. Postpone travel and keep supplies within reach.
@@ -156,7 +155,7 @@ _Impact:_
 1. Violent winds are expected. Secure loose objects and watch for downed limbs and power lines.
 
 **Dust Storm Warning**
-1. Blinding dust is cutting visibility to nothing. Pull off the road, switch off your lights, and wait it out.
+1. Blinding dust is cutting visibility to nothing. Pull off the road and wait it out.
 
 **Avalanche Warning**
 1. Severe avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.
@@ -193,10 +192,10 @@ Prefix carries `EU, <country>`. Openers name the affected sub-regions (`{label}`
 
 European-only hazards keep their own lines:
 **rain**
-1. Persistent heavy rain could cause flooding. Steer clear of low ground and plan for delays.
+1. Persistent heavy rain could cause flooding. Steer clear of low ground.
 
 **fog**
-1. Dense fog is expected. Visibility will be poor. Reduce speed and use headlights on the road.
+1. Dense fog is expected. Visibility will be poor.
 
 **temperature** (generic, when not clearly hot/cold)
 1. Temperatures will reach an extreme. Take it easy and look in on the vulnerable.
@@ -262,7 +261,7 @@ _Domoic-acid spike:_
 1. A missile or rocket launch hazard area is active in {region}. Vessels should keep well clear until the operation is complete.
 
 **Mine danger**
-1. Drifting mines or unexploded ordnance have been reported in {region}. Vessels should avoid the area and report any sighting to the authorities. Keep a safe distance from the area.
+1. Drifting mines or unexploded ordnance have been reported in {region}. Vessels should avoid the area and report any sighting. Keep a safe distance.
 
 **Gunfire / live-fire**
 1. Naval gunnery or live-fire operations are underway in {region}. Keep well clear of the affected area until it's lifted.
@@ -283,8 +282,8 @@ _Domoic-acid spike:_
 
 ## Outdoor — extreme UV
 Prefix carries `REGION, city`; the city is no longer named in the body. Advisory tier ("Heads up,").
-1. The UV index has reached {uv}, an extreme level. Cover up, wear sunglasses and sunscreen, and seek shade through the middle of the day.
-2. UV has spiked to {uv}, in the extreme range. Wear sunscreen and shades, cover exposed skin, and stay shaded around midday.
+1. The UV index has reached {uv}, an extreme level. Cover up and seek shade through the middle of the day.
+2. UV has spiked to {uv}, in the extreme range. Cover exposed skin and stay shaded around midday.
 
 ## Outdoor — dust storm
 1. Thick dust is filling the air, pushing levels to {dust} µg/m³. Limit time outside, close everything up, and protect your eyes and lungs.
@@ -305,7 +304,7 @@ _Near-freezing tier, advisory ("Heads up,"). Fires when the forecast low is at/b
 ## Gulf states — shamal / high winds (Open-Meteo)
 _NW winds use the shamal lines; winds from other directions use the generic ones._
 _Shamal:_
-1. Strong shamal winds are raking {name} at {wind} km/h, gusting to {gust}. Dust will cut visibility and rattle anything loose. Tie things down and drive with care.
+1. Strong shamal winds are raking {name} at {wind} km/h, gusting to {gust}. Dust will cut visibility and rattle anything loose.
 
 _Other strong winds:_
 1. A strong blow has set in over {name}, winds at {wind} km/h and gusts to {gust}. Expect blowing dust and reduced visibility. Secure loose objects and take care outdoors.

@@ -57,53 +57,52 @@ OPENERS = [
 # deterministically per alert when more than one is listed).
 ACTIONS = {
     "Tornado Warning": [
-        "Move to the lowest floor and an interior room away from windows. Stay there until the warning is lifted.",
-        "Get to a basement or an interior room on the lowest floor and stay clear of windows, as a tornado can drop fast from the wall cloud.",
+        "Get to a basement or an interior room on the lowest floor and keep clear of windows. Stay there until the warning is lifted.",
     ],
     "Hurricane Warning": [
-        "Destructive winds and storm surge are expected. Finish your safety plans now and follow any evacuation orders without delay.",
-        "Life-threatening winds and surge are on the way. Complete your storm prep and leave now if you are told to evacuate.",
+        "Destructive winds and storm surge are expected. Follow any evacuation orders.",
+        "Life-threatening winds and surge are on the way. Follow any evacuation orders.",
     ],
     "Hurricane Watch": [
-        "Hurricane conditions are possible within about two days. Get your preparations in order and monitor official updates closely.",
-        "A hurricane may strike within roughly 48 hours. Ready your supplies and keep watch on the latest forecasts.",
+        "Hurricane conditions are possible within about two days. Keep a close watch on the latest alerts.",
+        "A hurricane may strike within roughly 48 hours. Keep a close watch on the latest alerts.",
     ],
     "Tropical Storm Warning": [
-        "Tropical storm-force winds are expected. Secure anything loose outside and stay indoors as conditions worsen.",
-        "Tropical storm-force winds are on the way. Tie down loose items and head inside before the weather turns rough.",
+        "Tropical storm-force winds are expected. Head inside before the weather turns rough.",
+        "Tropical storm-force winds are on the way. Head inside before the weather turns rough.",
     ],
     "Blizzard Warning": [
-        "Blowing snow will bring ground blizzard whiteouts. Conditions will turn severe in near zero visibility. Stay off the roads and keep supplies within reach.",
+        "Blowing snow will bring ground blizzard whiteouts. Conditions will turn severe in near zero visibility.",
     ],
     "Extreme Wind Warning": [
-        "Violent winds are imminent. Move to the lowest floor and stay clear of windows until they pass.",
+        "Violent winds are imminent. Stay clear of windows until they pass.",
     ],
     "Severe Thunderstorm Warning": [
         "A supercell can bring damaging winds and large hail. Head indoors and keep away from windows until the storm moves through.",
     ],
     "Flash Flood Warning": [
-        "The flash-flood crest can arrive within minutes. Climb to higher ground now and don't try to drive or walk through floodwater.",
+        "The flash-flood crest can arrive within minutes. Climb to higher ground.",
     ],
     "Flood Warning": [
-        "Waters are rising. Steer clear of low lying areas and turn around instead of crossing a flooded road.",
+        "Waters are rising. Steer clear of low lying areas.",
     ],
     "Red Flag Warning": [
-        "Conditions are set for fire to spread fast. Avoid anything that could kick off a blaze and be ready to leave at short notice.",
+        "Conditions are set for fire to spread fast. Avoid anything that could kick off a blaze.",
     ],
     "Fire Warning": [
-        "An active fire is threatening the area. Be ready to evacuate immediately and follow the instructions of local officials.",
+        "An active fire is threatening the area. Be ready to evacuate immediately.",
     ],
     "Storm Surge Warning": [
-        "A severe surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground inland.",
+        "A severe surge of seawater is set to overrun the coast. Heed evacuation orders and get to higher ground.",
     ],
     "Storm Surge Watch": [
-        "Severe surge flooding may develop along the coast. Ready your evacuation plan and track the latest alerts.",
+        "Severe surge flooding may develop along the coast. Keep a close watch on the latest alerts.",
     ],
     "Hurricane Force Wind Warning": [
         "Hurricane force winds above 64 knots are expected at sea. Remain in port and keep all vessels well clear of open water.",
     ],
     "Hurricane Force Wind Watch": [
-        "Hurricane force winds are possible at sea. Monitor advisories closely and prepare to keep vessels in port.",
+        "Hurricane force winds are possible at sea. Monitor alerts closely and prepare to keep vessels in port.",
     ],
     "Gale Warning": [
         "Gale force winds and rough seas are expected. Small craft should stay in port and rig larger vessels for heavy weather.",
@@ -133,7 +132,7 @@ ACTIONS = {
         "Tidal flooding is likely along the coast.",
     ],
     "Lakeshore Flood Warning": [
-        "Lakeshore flooding is underway. Monitor alerts and be ready to move vehicles to higher ground.",
+        "Lakeshore flooding is underway. Keep a close watch on the latest alerts.",
     ],
     "Winter Storm Warning": [
         "A heavy-hitting winter storm is moving in. Postpone travel and keep supplies within reach.",
@@ -151,7 +150,7 @@ ACTIONS = {
         "Violent winds are expected. Secure loose objects and watch for downed limbs and power lines.",
     ],
     "Dust Storm Warning": [
-        "Blinding dust is cutting visibility to nothing. Pull off the road, switch off your lights, and wait it out.",
+        "Blinding dust is cutting visibility to nothing. Pull off the road and wait it out.",
     ],
     "Avalanche Warning": [
         "Severe avalanche conditions exist in the backcountry. Stay well clear of avalanche terrain and check the local forecast.",

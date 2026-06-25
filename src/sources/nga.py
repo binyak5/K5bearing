@@ -52,7 +52,7 @@ META = {
         "A missile or rocket launch hazard area is active in {region}, so vessels should keep well clear until the operation is complete.",
     ]),
     "mine": (88, ["#MineDanger", "#Marine"], [
-        "Drifting mines or unexploded ordnance have been reported in {region}. Vessels should avoid the area and report any sighting to the authorities. Keep a safe distance from the area.",
+        "Drifting mines or unexploded ordnance have been reported in {region}. Vessels should avoid the area and report any sighting. Keep a safe distance.",
     ]),
     "gunfire": (84, ["#LiveFire", "#Marine"], [
         "Naval gunnery or live-fire operations are underway in {region}. Keep well clear of the affected area until it's lifted.",

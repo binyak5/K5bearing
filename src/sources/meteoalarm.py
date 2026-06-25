@@ -56,10 +56,10 @@ HAZARD_MAP = [
     ("low-temp", ("nws", "Extreme Cold Warning")),
     ("cold", ("nws", "Extreme Cold Warning")),
     ("rain", ("eu", [
-        "Persistent heavy rain could cause flooding. Steer clear of low ground and plan for delays.",
+        "Persistent heavy rain could cause flooding. Steer clear of low ground.",
     ])),
     ("fog", ("eu", [
-        "Dense fog is expected. Visibility will be poor. Reduce speed and use headlights on the road.",
+        "Dense fog is expected. Visibility will be poor.",
     ])),
     ("temperature", ("eu", [
         "Temperatures will reach an extreme. Take it easy and look in on the vulnerable.",

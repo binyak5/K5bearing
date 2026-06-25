@@ -17,10 +17,10 @@ from . import Signal, pick, gather
 # The city now rides in the geo tag ("USA, Miami:"), like the other regional
 # sources, so it's no longer repeated in the body.
 UV_VARIANTS = [
-    "The UV index has reached {uv}, an extreme level. Cover up, wear "
-    "sunglasses and sunscreen, and seek shade through the middle of the day.",
-    "UV has spiked to {uv}, in the extreme range. Wear sunscreen and "
-    "shades, cover exposed skin, and stay shaded around midday.",
+    "The UV index has reached {uv}, an extreme level. Cover up and seek "
+    "shade through the middle of the day.",
+    "UV has spiked to {uv}, in the extreme range. Cover exposed skin and "
+    "stay shaded around midday.",
 ]
 
 DUST_VARIANTS = [
