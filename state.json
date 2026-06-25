@@ -56,6 +56,10 @@
       "at": "2026-06-24T18:04:52.422473+00:00",
       "sev": 82
     },
+    "USA, Illinois": {
+      "at": "2026-06-25T02:02:41.054272+00:00",
+      "sev": 84
+    },
     "USA, Kansas": {
       "at": "2026-06-24T12:02:42.817231+00:00",
       "sev": 84
@@ -92,7 +96,7 @@
   "daily": {
     "2026-06-23": 44,
     "2026-06-24": 44,
-    "2026-06-25": 4
+    "2026-06-25": 5
   },
   "daily_cat": {
     "2026-06-23": {
@@ -114,13 +118,13 @@
       "weather_eu": 11
     },
     "2026-06-25": {
-      "weather": 4
+      "weather": 5
     }
   },
-  "last_post_at": "2026-06-25T01:33:18.379604+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-25T02:02:41.054268+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 244
+    "2026-06": 245
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -173,6 +177,7 @@
     "fp:01370bc3e111e613": "2026-06-17T13:26:54.339292+00:00",
     "fp:03ff43be4b48cfef": "2026-06-19T08:22:08.459573+00:00",
     "fp:04408f3ce4530953": "2026-06-23T17:34:57.882815+00:00",
+    "fp:04b3e4a9e9174318": "2026-06-25T02:02:41.054240+00:00",
     "fp:0654b7cac8fb77bf": "2026-06-22T06:03:05.229702+00:00",
     "fp:0699a2b168934235": "2026-06-23T16:33:09.312425+00:00",
     "fp:07f3e150a1e4d3b7": "2026-06-19T11:02:37.017407+00:00",
@@ -433,6 +438,7 @@
     "weather:Flash Flood Warning:Clay, IL; Lawrence, IL; Richland, IL": "2026-06-21T23:32:35.837903+00:00",
     "weather:Flash Flood Warning:Columbia, AR; Union, AR; Claiborne, LA; Lincoln, LA; Webster": "2026-06-24T10:32:46.518133+00:00",
     "weather:Flash Flood Warning:Comanche, OK": "2026-06-19T10:21:57.965840+00:00",
+    "weather:Flash Flood Warning:Cook, IL; Lake, IN": "2026-06-25T02:02:41.054172+00:00",
     "weather:Flash Flood Warning:Craig, OK; Delaware, OK; Mayes, OK": "2026-06-24T18:34:43.893834+00:00",
     "weather:Flash Flood Warning:Craig, OK; Ottawa, OK": "2026-06-23T21:34:04.157576+00:00",
     "weather:Flash Flood Warning:Creek, OK; Tulsa, OK": "2026-06-24T16:32:50.125113+00:00",
