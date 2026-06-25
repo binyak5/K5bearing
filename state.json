@@ -64,10 +64,6 @@
       "at": "2026-06-24T04:34:18.204191+00:00",
       "sev": 82
     },
-    "USA, Minnesota": {
-      "at": "2026-06-24T00:03:29.347104+00:00",
-      "sev": 96
-    },
     "USA, Mississippi": {
       "at": "2026-06-24T21:02:45.061553+00:00",
       "sev": 84
@@ -87,12 +83,16 @@
     "USA, Wisconsin": {
       "at": "2026-06-24T19:04:41.736599+00:00",
       "sev": 82
+    },
+    "USA, Wyoming": {
+      "at": "2026-06-25T00:33:12.852369+00:00",
+      "sev": 82
     }
   },
   "daily": {
     "2026-06-23": 44,
     "2026-06-24": 44,
-    "2026-06-25": 1
+    "2026-06-25": 2
   },
   "daily_cat": {
     "2026-06-23": {
@@ -114,13 +114,13 @@
       "weather_eu": 11
     },
     "2026-06-25": {
-      "weather": 1
+      "weather": 2
     }
   },
-  "last_post_at": "2026-06-25T00:02:51.372083+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-25T00:33:12.852365+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 241
+    "2026-06": 242
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -204,6 +204,7 @@
     "fp:31a847d70fcf6103": "2026-06-24T18:04:52.422438+00:00",
     "fp:3397af9fdc500d07": "2026-06-24T21:34:40.645323+00:00",
     "fp:33e428d0d120cd0b": "2026-06-23T05:35:06.000648+00:00",
+    "fp:340c59d52f372e1c": "2026-06-25T00:33:12.852340+00:00",
     "fp:342b5d1e5bb74427": "2026-06-22T03:33:25.840631+00:00",
     "fp:34f11509a6de9950": "2026-06-19T04:02:21.777274+00:00",
     "fp:35386df463e4bcb4": "2026-06-21T17:03:50.977567+00:00",
@@ -470,6 +471,7 @@
     "weather:Hazardous Seas Warning:Coastal waters from Cape Blanco OR to Pt. St. George CA out ": "2026-06-23T02:34:36.707846+00:00",
     "weather:Red Flag Warning:Central and Southeast Park County": "2026-06-23T13:04:27.531536+00:00",
     "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
+    "weather:Severe Thunderstorm Warning:Albany, WY; Platte, WY": "2026-06-25T00:33:12.852299+00:00",
     "weather:Severe Thunderstorm Warning:Baker, FL; Duval, FL; Nassau, FL; Charlton, GA; Ware, GA": "2026-06-23T20:32:45.609087+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
     "weather:Severe Thunderstorm Warning:Bureau, IL; Putnam, IL": "2026-06-17T14:22:36.940461+00:00",
