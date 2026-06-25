@@ -14,7 +14,7 @@ import requests
 
 from ..config import USER_AGENT
 from .. import tz
-from . import Signal, pick, gather, region_list, geocode, forecast_temp
+from . import Signal, pick, gather, region_list
 from . import nws  # reuse the US action wording for Europe
 
 FEED_BASE = "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-"
@@ -190,20 +190,13 @@ def _country_signals(country: str, min_rank: int) -> list[Signal]:
         opener = pick(OPENERS, key + ":o").format(
             article=article, color=color, hazard=hazard, where=where
         )
-        # Heat/cold warnings carry only a colour level (no temperature, no coords),
-        # so state an approximate degree: geocode the first named region and take
-        # the day's forecast extreme there. One figure for a multi-region warning,
-        # so it may under/overstate the worst spot; skipped silently on failure.
-        # Europe reads in Celsius.
-        clause = ""
-        which = "max" if token in ("high-temp", "heat") else ("min" if token in ("low-temp", "cold") else None)
-        if which and g["areas"]:
-            coords = geocode(sorted(g["areas"])[0])
-            if coords:
-                t = forecast_temp(coords[0], coords[1], which=which, unit="celsius")
-                if t is not None:
-                    clause = f" {'Highs' if which == 'max' else 'Lows'} near {t}°C."
-        text = f"{opener}{clause} {pick(g['actions'], key + ':a')}"
+        # No temperature for EU temperature warnings: the MeteoAlarm feed carries
+        # no coordinates, and geocoding the region/country name is unreliable (it
+        # resolves Dutch provinces to US towns, and is often wrong about the day a
+        # forecast-issued warning is really about). Better no number than a wrong
+        # one; the colour level + wording convey the severity. NWS and Gulf keep
+        # their degree because those alerts have exact coordinates.
+        text = f"{opener} {pick(g['actions'], key + ':a')}"
         tier = "critical" if severity == "Extreme" else ("advisory" if severity == "Moderate" else "serious")
         signals.append(
             Signal(
