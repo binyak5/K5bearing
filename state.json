@@ -56,10 +56,6 @@
       "at": "2026-06-25T13:34:12.262031+00:00",
       "sev": 70
     },
-    "GCC, Somalia": {
-      "at": "2026-06-25T07:34:15.054151+00:00",
-      "sev": 76
-    },
     "USA": {
       "at": "2026-06-26T06:04:59.851784+00:00",
       "sev": 75
@@ -73,8 +69,8 @@
       "sev": 84
     },
     "USA, Kansas": {
-      "at": "2026-06-26T04:03:21.127674+00:00",
-      "sev": 84
+      "at": "2026-06-26T08:03:31.275354+00:00",
+      "sev": 82
     },
     "USA, Miami": {
       "at": "2026-06-25T15:04:19.368853+00:00",
@@ -112,7 +108,7 @@
   "daily": {
     "2026-06-24": 44,
     "2026-06-25": 44,
-    "2026-06-26": 16
+    "2026-06-26": 17
   },
   "daily_cat": {
     "2026-06-24": {
@@ -136,14 +132,14 @@
     "2026-06-26": {
       "cityweather": 1,
       "maritime": 1,
-      "weather": 8,
+      "weather": 9,
       "weather_eu": 6
     }
   },
-  "last_post_at": "2026-06-26T07:33:16.533022+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-26T08:03:31.275349+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 300
+    "2026-06": 301
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -362,6 +358,7 @@
     "fp:be53186f6ebf9488": "2026-06-24T05:34:07.445529+00:00",
     "fp:be8ea45e80392069": "2026-06-25T13:34:12.261998+00:00",
     "fp:bf2faed5a79e5023": "2026-06-23T03:04:49.528213+00:00",
+    "fp:c09093a86f93e151": "2026-06-26T08:03:31.275322+00:00",
     "fp:c12b44bc10d59fa7": "2026-06-21T22:03:32.765407+00:00",
     "fp:c1f55fec2555705a": "2026-06-23T17:04:58.876204+00:00",
     "fp:c3eee9a3994df739": "2026-06-22T17:04:48.002635+00:00",
@@ -523,6 +520,7 @@
     "weather:Severe Thunderstorm Warning:Castro, TX; Parmer, TX": "2026-06-25T04:32:29.701907+00:00",
     "weather:Severe Thunderstorm Warning:Central Arapahoe, CO; Eastern Arapahoe, CO": "2026-06-25T03:33:17.875622+00:00",
     "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
+    "weather:Severe Thunderstorm Warning:Cherokee, KS; Crawford, KS; Barton, MO; Jasper, MO": "2026-06-26T08:03:31.275273+00:00",
     "weather:Severe Thunderstorm Warning:Clark, KS; Comanche, KS": "2026-06-22T04:02:23.385679+00:00",
     "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
