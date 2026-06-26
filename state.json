@@ -57,8 +57,8 @@
       "sev": 70
     },
     "USA": {
-      "at": "2026-06-26T06:04:59.851784+00:00",
-      "sev": 75
+      "at": "2026-06-26T09:03:32.364195+00:00",
+      "sev": 80
     },
     "USA, Colorado": {
       "at": "2026-06-25T17:04:54.387342+00:00",
@@ -108,7 +108,7 @@
   "daily": {
     "2026-06-24": 44,
     "2026-06-25": 44,
-    "2026-06-26": 18
+    "2026-06-26": 19
   },
   "daily_cat": {
     "2026-06-24": {
@@ -132,14 +132,14 @@
     "2026-06-26": {
       "cityweather": 1,
       "maritime": 1,
-      "weather": 10,
+      "weather": 11,
       "weather_eu": 6
     }
   },
-  "last_post_at": "2026-06-26T08:33:31.327199+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-26T09:03:32.364191+00:00",
+  "last_topic": "marine",
   "monthly": {
-    "2026-06": 302
+    "2026-06": 303
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -285,6 +285,7 @@
     "fp:62dafd34d56e1faa": "2026-06-26T07:33:16.532997+00:00",
     "fp:6319b2a8605a07c1": "2026-06-21T19:02:52.498610+00:00",
     "fp:64331f9cb09aaf06": "2026-06-23T00:33:20.532384+00:00",
+    "fp:6450dcaa38ff5c4f": "2026-06-26T09:03:32.364169+00:00",
     "fp:64b2701d619a4293": "2026-06-24T01:04:41.261850+00:00",
     "fp:64be0ceba772ffcf": "2026-06-23T02:03:27.294663+00:00",
     "fp:65618527f96fbf86": "2026-06-26T00:04:48.758338+00:00",
@@ -532,6 +533,7 @@
     "weather:Severe Thunderstorm Warning:Ozaukee, WI; Washington, WI": "2026-06-25T01:33:18.379535+00:00",
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
+    "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
     "weather:Tornado Warning:Bartholomew, IN; Brown, IN": "2026-06-22T00:03:41.592269+00:00",
     "weather:Tornado Warning:Bond, IL; Madison, IL": "2026-06-21T20:04:46.495081+00:00",
     "weather:Tornado Warning:Clark, IL; Coles, IL; Cumberland, IL": "2026-06-21T21:04:20.076967+00:00",
