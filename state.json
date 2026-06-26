@@ -65,7 +65,7 @@
       "sev": 50
     },
     "USA, Illinois": {
-      "at": "2026-06-26T03:03:33.797304+00:00",
+      "at": "2026-06-26T12:32:33.087985+00:00",
       "sev": 84
     },
     "USA, Kansas": {
@@ -108,7 +108,7 @@
   "daily": {
     "2026-06-24": 44,
     "2026-06-25": 44,
-    "2026-06-26": 25
+    "2026-06-26": 26
   },
   "daily_cat": {
     "2026-06-24": {
@@ -133,14 +133,14 @@
       "cityweather": 1,
       "marine": 1,
       "maritime": 1,
-      "weather": 11,
+      "weather": 12,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-26T12:04:46.574512+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-06-26T12:32:33.087980+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 309
+    "2026-06": 310
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -304,6 +304,7 @@
     "fp:6c9418a96ec6b5ab": "2026-06-25T09:32:33.728107+00:00",
     "fp:6c952cbf69f6dae4": "2026-06-26T03:32:35.835255+00:00",
     "fp:6cc4cf938062891a": "2026-06-25T04:02:53.587914+00:00",
+    "fp:6e1ff79c2a4d763c": "2026-06-26T12:32:33.087952+00:00",
     "fp:6e322ebdcc56e681": "2026-06-25T09:04:42.269066+00:00",
     "fp:6e3d233a40756bc1": "2026-06-21T18:02:48.092836+00:00",
     "fp:6f516646b059bc2b": "2026-06-25T08:33:21.437675+00:00",
@@ -499,6 +500,7 @@
     "weather:Flash Flood Warning:Hodgeman, KS": "2026-06-24T12:02:42.817157+00:00",
     "weather:Flash Flood Warning:Jackson, IL; Perry, IL": "2026-06-26T03:03:33.797171+00:00",
     "weather:Flash Flood Warning:Jasper, MO; Newton, MO": "2026-06-24T03:04:48.745560+00:00",
+    "weather:Flash Flood Warning:Johnson, IL; Union, IL": "2026-06-26T12:32:33.087903+00:00",
     "weather:Flash Flood Warning:Lake, IN; Porter, IN": "2026-06-25T03:03:38.394101+00:00",
     "weather:Flash Flood Warning:Las Animas, CO": "2026-06-25T00:02:51.372032+00:00",
     "weather:Flash Flood Warning:Little River, AR; McCurtain, OK; Bowie, TX; Red River, TX": "2026-06-24T01:04:41.261800+00:00",
