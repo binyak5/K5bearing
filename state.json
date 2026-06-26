@@ -68,6 +68,10 @@
       "at": "2026-06-26T13:32:36.408948+00:00",
       "sev": 84
     },
+    "USA, Kentucky": {
+      "at": "2026-06-26T19:34:43.993275+00:00",
+      "sev": 82
+    },
     "USA, Missouri": {
       "at": "2026-06-26T18:03:28.518907+00:00",
       "sev": 84
@@ -87,16 +91,12 @@
     "USA, Vermont": {
       "at": "2026-06-26T18:34:22.312021+00:00",
       "sev": 82
-    },
-    "USA, Wyoming": {
-      "at": "2026-06-25T19:33:14.887209+00:00",
-      "sev": 82
     }
   },
   "daily": {
     "2026-06-24": 44,
     "2026-06-25": 44,
-    "2026-06-26": 39
+    "2026-06-26": 40
   },
   "daily_cat": {
     "2026-06-24": {
@@ -123,14 +123,14 @@
       "gulf": 3,
       "marine": 1,
       "maritime": 4,
-      "weather": 16,
+      "weather": 17,
       "weather_eu": 12
     }
   },
-  "last_post_at": "2026-06-26T19:04:13.777340+00:00",
-  "last_topic": "dust",
+  "last_post_at": "2026-06-26T19:34:43.993270+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 323
+    "2026-06": 324
   },
   "posted": {
     "citywx:rotterdam:2026-06-19:morning": "2026-06-19T05:03:40.826997+00:00",
@@ -346,6 +346,7 @@
     "fp:ad5d61247b71b69c": "2026-06-24T08:04:58.534073+00:00",
     "fp:adb1781330707318": "2026-06-24T11:35:12.141270+00:00",
     "fp:af4957d52f2675f2": "2026-06-19T07:02:49.065156+00:00",
+    "fp:b0c095323f3295f9": "2026-06-26T19:34:43.993244+00:00",
     "fp:b2349a2078a2661c": "2026-06-25T02:32:28.595646+00:00",
     "fp:b5c398635e27d43f": "2026-06-25T05:33:49.107857+00:00",
     "fp:b6db08b35f8c834e": "2026-06-23T04:02:43.311024+00:00",
@@ -541,6 +542,7 @@
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
+    "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
     "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
     "weather:Severe Thunderstorm Warning:Ozaukee, WI; Washington, WI": "2026-06-25T01:33:18.379535+00:00",
