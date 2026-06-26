@@ -72,6 +72,10 @@
       "at": "2026-06-26T18:03:28.518907+00:00",
       "sev": 84
     },
+    "USA, New Hampshire": {
+      "at": "2026-06-26T21:33:27.264731+00:00",
+      "sev": 82
+    },
     "USA, New Jersey": {
       "at": "2026-06-26T06:34:21.350313+00:00",
       "sev": 84
@@ -96,7 +100,7 @@
   "daily": {
     "2026-06-24": 44,
     "2026-06-25": 44,
-    "2026-06-26": 43
+    "2026-06-26": 44
   },
   "daily_cat": {
     "2026-06-24": {
@@ -124,14 +128,14 @@
       "marine": 2,
       "maritime": 4,
       "outdoor": 1,
-      "weather": 18,
+      "weather": 19,
       "weather_eu": 12
     }
   },
-  "last_post_at": "2026-06-26T21:03:32.947458+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-26T21:33:27.264727+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 327
+    "2026-06": 328
   },
   "posted": {
     "citywx:rotterdam:2026-06-19:morning": "2026-06-19T05:03:40.826997+00:00",
@@ -216,6 +220,7 @@
     "fp:22d115d99a00f404": "2026-06-25T04:32:29.701954+00:00",
     "fp:22d5a1d6f5cdb2db": "2026-06-23T00:04:12.569522+00:00",
     "fp:2347640b1eda864d": "2026-06-23T03:32:33.471944+00:00",
+    "fp:248c97b3b2697731": "2026-06-26T21:33:27.264702+00:00",
     "fp:25f98dcbcad28f99": "2026-06-25T21:04:39.173534+00:00",
     "fp:280e5876296b6661": "2026-06-25T11:34:28.750530+00:00",
     "fp:2b073251e9ce58b4": "2026-06-22T07:04:13.740524+00:00",
@@ -371,7 +376,6 @@
     "fp:c81816e4b8f4b40f": "2026-06-22T00:03:41.592313+00:00",
     "fp:c8428c2356339623": "2026-06-25T17:34:24.626654+00:00",
     "fp:cb129a7250035fa5": "2026-06-26T08:33:31.327174+00:00",
-    "fp:cb2b2c7814b6322a": "2026-06-18T21:22:22.014100+00:00",
     "fp:cb30b4059f3b10cc": "2026-06-24T08:34:47.111564+00:00",
     "fp:cd760a49192dd382": "2026-06-22T18:34:10.716871+00:00",
     "fp:cd8a7b44451136b5": "2026-06-26T05:34:36.545989+00:00",
@@ -513,7 +517,6 @@
     "weather:Flash Flood Warning:Morris, NJ; Sussex, NJ": "2026-06-23T05:35:06.000620+00:00",
     "weather:Flash Flood Warning:Northampton, PA": "2026-06-23T04:02:43.310975+00:00",
     "weather:Flash Flood Warning:Pawnee, KS; Stafford, KS": "2026-06-26T04:03:21.127582+00:00",
-    "weather:Flash Flood Warning:Pike, AL": "2026-06-18T21:22:22.014057+00:00",
     "weather:Flash Flood Warning:Pike, AR": "2026-06-24T19:34:43.309023+00:00",
     "weather:Flash Flood Warning:Piscataquis, ME": "2026-06-21T19:32:40.487619+00:00",
     "weather:Flash Flood Warning:Potter, TX; Randall, TX": "2026-06-25T06:32:11.287661+00:00",
@@ -548,6 +551,7 @@
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
     "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
     "weather:Severe Thunderstorm Warning:Ozaukee, WI; Washington, WI": "2026-06-25T01:33:18.379535+00:00",
+    "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
