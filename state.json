@@ -97,8 +97,8 @@
       "sev": 84
     },
     "USA, Oklahoma": {
-      "at": "2026-06-26T00:04:48.758368+00:00",
-      "sev": 96
+      "at": "2026-06-26T05:34:36.546018+00:00",
+      "sev": 84
     },
     "USA, Phoenix": {
       "at": "2026-06-25T19:02:53.055158+00:00",
@@ -116,7 +116,7 @@
   "daily": {
     "2026-06-24": 44,
     "2026-06-25": 44,
-    "2026-06-26": 11
+    "2026-06-26": 12
   },
   "daily_cat": {
     "2026-06-24": {
@@ -140,14 +140,14 @@
     "2026-06-26": {
       "cityweather": 1,
       "maritime": 1,
-      "weather": 4,
+      "weather": 5,
       "weather_eu": 5
     }
   },
-  "last_post_at": "2026-06-26T05:05:14.642940+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-06-26T05:34:36.546014+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 295
+    "2026-06": 296
   },
   "posted": {
     "citywx:rotterdam:2026-06-18:evening": "2026-06-18T17:03:59.730241+00:00",
@@ -344,7 +344,6 @@
     "fp:a086d589fd510e91": "2026-06-23T15:05:10.272052+00:00",
     "fp:a10df225f2884614": "2026-06-23T10:05:01.001740+00:00",
     "fp:a16f681570a1219f": "2026-06-26T04:32:33.464026+00:00",
-    "fp:a1f60a462bdca047": "2026-06-18T05:22:52.866968+00:00",
     "fp:a2a8233df0b5f562": "2026-06-25T20:04:31.153874+00:00",
     "fp:a82ce52279a0aebd": "2026-06-24T00:34:54.396217+00:00",
     "fp:a838918f9fe5642e": "2026-06-18T20:42:25.211818+00:00",
@@ -379,6 +378,7 @@
     "fp:cb2b2c7814b6322a": "2026-06-18T21:22:22.014100+00:00",
     "fp:cb30b4059f3b10cc": "2026-06-24T08:34:47.111564+00:00",
     "fp:cd760a49192dd382": "2026-06-22T18:34:10.716871+00:00",
+    "fp:cd8a7b44451136b5": "2026-06-26T05:34:36.545989+00:00",
     "fp:cde54a5e4915a84c": "2026-06-23T11:03:34.717319+00:00",
     "fp:d4c27a0c3fc5ef35": "2026-06-24T12:34:09.566731+00:00",
     "fp:d5a0458fa33c371f": "2026-06-23T11:33:21.794432+00:00",
@@ -462,6 +462,7 @@
     "weather:Flash Flood Warning:Atoka, OK; Bryan, OK": "2026-06-23T18:34:38.426531+00:00",
     "weather:Flash Flood Warning:Baldwin, AL; Escambia, AL; Escambia, FL; Santa Rosa, FL": "2026-06-18T20:42:25.211769+00:00",
     "weather:Flash Flood Warning:Baldwin, AL; Escambia, AL; Mobile, AL; Escambia, FL": "2026-06-19T01:21:58.459805+00:00",
+    "weather:Flash Flood Warning:Beckham, OK; Greer, OK": "2026-06-26T05:34:36.545948+00:00",
     "weather:Flash Flood Warning:Ben Hill, GA; Irwin, GA; Turner, GA": "2026-06-19T11:42:10.062395+00:00",
     "weather:Flash Flood Warning:Bienville, LA; Bossier, LA; Natchitoches, LA; Red River, LA": "2026-06-23T11:03:34.717268+00:00",
     "weather:Flash Flood Warning:Breathitt, KY; Estill, KY; Lee, KY": "2026-06-23T01:03:30.047153+00:00",
