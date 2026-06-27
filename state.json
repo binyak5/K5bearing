@@ -57,8 +57,8 @@
       "sev": 75
     },
     "USA, Colorado": {
-      "at": "2026-06-27T01:33:25.314491+00:00",
-      "sev": 96
+      "at": "2026-06-27T04:03:26.145011+00:00",
+      "sev": 82
     },
     "USA, Dominican Republic": {
       "at": "2026-06-26T17:32:31.521456+00:00",
@@ -116,7 +116,7 @@
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 8
+    "2026-06-27": 9
   },
   "daily_cat": {
     "2026-06-25": {
@@ -138,14 +138,14 @@
       "weather_eu": 12
     },
     "2026-06-27": {
-      "weather": 6,
+      "weather": 7,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-06-27T03:35:05.334060+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-27T04:03:26.145007+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 336
+    "2026-06": 337
   },
   "posted": {
     "citywx:rotterdam:2026-06-19:morning": "2026-06-19T05:03:40.826997+00:00",
@@ -248,8 +248,8 @@
     "fp:3397af9fdc500d07": "2026-06-24T21:34:40.645323+00:00",
     "fp:33e428d0d120cd0b": "2026-06-23T05:35:06.000648+00:00",
     "fp:340c59d52f372e1c": "2026-06-25T00:33:12.852340+00:00",
+    "fp:341214589db567df": "2026-06-27T04:03:26.144985+00:00",
     "fp:342b5d1e5bb74427": "2026-06-22T03:33:25.840631+00:00",
-    "fp:34f11509a6de9950": "2026-06-19T04:02:21.777274+00:00",
     "fp:35026c0d702adf90": "2026-06-27T02:33:17.788318+00:00",
     "fp:35386df463e4bcb4": "2026-06-21T17:03:50.977567+00:00",
     "fp:37032e63e328fcdd": "2026-06-23T19:33:35.096376+00:00",
@@ -486,7 +486,6 @@
     "weather:Flash Flood Warning:Butler, MO": "2026-06-26T07:33:16.532958+00:00",
     "weather:Flash Flood Warning:Butler, MO; Carter, MO; Ripley, MO": "2026-06-26T18:03:28.518859+00:00",
     "weather:Flash Flood Warning:Camden, NJ; Gloucester, NJ": "2026-06-23T00:04:12.569473+00:00",
-    "weather:Flash Flood Warning:Chattahoochee, GA; Harris, GA; Muscogee, GA": "2026-06-19T04:02:21.777228+00:00",
     "weather:Flash Flood Warning:Cherokee, KS; Crawford, KS; Barton, MO; Jasper, MO; Newton, ": "2026-06-26T13:32:36.408855+00:00",
     "weather:Flash Flood Warning:Chesterfield, VA; Prince George, VA; City of Colonial Height": "2026-06-23T02:03:27.294602+00:00",
     "weather:Flash Flood Warning:Choctaw, OK; Pushmataha, OK": "2026-06-24T02:03:25.507552+00:00",
@@ -560,6 +559,7 @@
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
+    "weather:Severe Thunderstorm Warning:Northwest Boulder, CO; Grand, CO": "2026-06-27T04:03:26.144948+00:00",
     "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
     "weather:Severe Thunderstorm Warning:Ozaukee, WI; Washington, WI": "2026-06-25T01:33:18.379535+00:00",
     "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
