@@ -107,12 +107,16 @@
     "USA, Vermont": {
       "at": "2026-06-26T18:34:22.312021+00:00",
       "sev": 82
+    },
+    "USA, Virginia": {
+      "at": "2026-06-27T03:35:05.334065+00:00",
+      "sev": 84
     }
   },
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 7
+    "2026-06-27": 8
   },
   "daily_cat": {
     "2026-06-25": {
@@ -134,14 +138,14 @@
       "weather_eu": 12
     },
     "2026-06-27": {
-      "weather": 5,
+      "weather": 6,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-06-27T03:04:43.689669+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-27T03:35:05.334060+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 335
+    "2026-06": 336
   },
   "posted": {
     "citywx:rotterdam:2026-06-19:morning": "2026-06-19T05:03:40.826997+00:00",
@@ -231,6 +235,7 @@
     "fp:248c97b3b2697731": "2026-06-26T21:33:27.264702+00:00",
     "fp:25f98dcbcad28f99": "2026-06-25T21:04:39.173534+00:00",
     "fp:280e5876296b6661": "2026-06-25T11:34:28.750530+00:00",
+    "fp:28a5148e7f4d0e92": "2026-06-27T03:35:05.334030+00:00",
     "fp:2b073251e9ce58b4": "2026-06-22T07:04:13.740524+00:00",
     "fp:2b586511d7b4189e": "2026-06-25T15:34:14.279924+00:00",
     "fp:2c6b31e960401163": "2026-06-24T11:03:34.678593+00:00",
@@ -250,7 +255,6 @@
     "fp:37032e63e328fcdd": "2026-06-23T19:33:35.096376+00:00",
     "fp:3799645c504d22f4": "2026-06-26T01:03:32.255451+00:00",
     "fp:38a706da11c8386d": "2026-06-24T16:32:50.125159+00:00",
-    "fp:38c0a1161cf75ea0": "2026-06-19T03:22:03.033988+00:00",
     "fp:3926aa3fcc68536f": "2026-06-24T16:04:50.445829+00:00",
     "fp:39a94867ac07ba62": "2026-06-25T08:04:36.713825+00:00",
     "fp:3c8567953f2067a6": "2026-06-27T00:03:38.427567+00:00",
@@ -527,6 +531,7 @@
     "weather:Flash Flood Warning:Potter, TX; Randall, TX": "2026-06-25T06:32:11.287661+00:00",
     "weather:Flash Flood Warning:Red River, TX": "2026-06-23T14:04:44.663283+00:00",
     "weather:Flash Flood Warning:Reeves, TX": "2026-06-19T11:02:37.017335+00:00",
+    "weather:Flash Flood Warning:Spotsylvania, VA; Stafford, VA; City of Fredericksburg, VA": "2026-06-27T03:35:05.333961+00:00",
     "weather:Flash Flood Warning:St. Charles, MO": "2026-06-25T21:34:31.608863+00:00",
     "weather:Flash Flood Warning:Sumner, KS": "2026-06-26T08:33:31.327133+00:00",
     "weather:Flash Flood Warning:Washington, AL": "2026-06-19T05:43:02.583563+00:00",
@@ -579,7 +584,6 @@
     "weather:Tornado Warning:Perry, IN; Hancock, KY": "2026-06-22T03:02:51.736087+00:00",
     "weather:Tornado Warning:Sussex, DE": "2026-06-23T00:33:20.532341+00:00",
     "weather:Tornado Warning:Wabash, IL; Gibson, IN; Posey, IN; Vanderburgh, IN": "2026-06-22T02:03:45.624353+00:00",
-    "weather:Tornado Warning:Walton, FL; Washington, FL": "2026-06-19T03:22:03.033954+00:00",
     "weather:Tornado Warning:Washington, CO": "2026-06-25T01:04:23.631853+00:00",
     "weather:Tornado Warning:Woods, OK": "2026-06-22T04:32:36.955992+00:00"
   }
