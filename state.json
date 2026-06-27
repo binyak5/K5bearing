@@ -101,8 +101,8 @@
       "sev": 50
     },
     "USA, Texas": {
-      "at": "2026-06-26T21:03:32.947463+00:00",
-      "sev": 84
+      "at": "2026-06-27T03:04:43.689675+00:00",
+      "sev": 82
     },
     "USA, Vermont": {
       "at": "2026-06-26T18:34:22.312021+00:00",
@@ -112,7 +112,7 @@
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 6
+    "2026-06-27": 7
   },
   "daily_cat": {
     "2026-06-25": {
@@ -134,14 +134,14 @@
       "weather_eu": 12
     },
     "2026-06-27": {
-      "weather": 4,
+      "weather": 5,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-06-27T02:33:17.788339+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-27T03:04:43.689669+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 334
+    "2026-06": 335
   },
   "posted": {
     "citywx:rotterdam:2026-06-19:morning": "2026-06-19T05:03:40.826997+00:00",
@@ -258,6 +258,7 @@
     "fp:3d77737ff9bfa72b": "2026-06-25T03:03:38.394168+00:00",
     "fp:3d8b768356720786": "2026-06-26T16:04:36.862535+00:00",
     "fp:3ebd606f230aa4e2": "2026-06-22T01:33:23.241511+00:00",
+    "fp:3f2d8adc594be8cc": "2026-06-27T03:04:43.689639+00:00",
     "fp:425e62ca9e6b88e8": "2026-06-24T19:34:43.309064+00:00",
     "fp:43af9631e4e575b1": "2026-06-24T03:32:34.705309+00:00",
     "fp:448fbee55e8f668a": "2026-06-25T16:04:24.319549+00:00",
@@ -416,7 +417,6 @@
     "fp:ee5ea50ea0d5d6be": "2026-06-22T11:05:05.994190+00:00",
     "fp:ef24754cbdd1b322": "2026-06-22T23:36:56.936020+00:00",
     "fp:ef2881c9c2e054a9": "2026-06-22T02:03:45.624409+00:00",
-    "fp:ef7ae0af6bd4dc42": "2026-06-19T02:42:20.095365+00:00",
     "fp:f229a534d6d642bd": "2026-06-21T21:04:20.077014+00:00",
     "fp:f25f9cf5d53b5479": "2026-06-26T12:04:46.574487+00:00",
     "fp:f431e1cacbea85cf": "2026-06-25T10:32:32.349264+00:00",
@@ -496,7 +496,6 @@
     "weather:Flash Flood Warning:Craig, OK; Ottawa, OK": "2026-06-23T21:34:04.157576+00:00",
     "weather:Flash Flood Warning:Creek, OK; Tulsa, OK": "2026-06-24T16:32:50.125113+00:00",
     "weather:Flash Flood Warning:Crowley, CO; Pueblo, CO": "2026-06-24T05:04:24.653126+00:00",
-    "weather:Flash Flood Warning:Dale, AL; Geneva, AL; Henry, AL; Houston, AL; Early, GA": "2026-06-19T02:42:20.095314+00:00",
     "weather:Flash Flood Warning:Daviess, IN; Knox, IN; Martin, IN": "2026-06-22T03:33:25.840583+00:00",
     "weather:Flash Flood Warning:Daviess, IN; Lawrence, IN; Martin, IN": "2026-06-22T01:33:23.241461+00:00",
     "weather:Flash Flood Warning:Dundy, NE; Hitchcock, NE": "2026-06-25T05:04:52.916955+00:00",
@@ -541,6 +540,7 @@
     "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
     "weather:Severe Thunderstorm Warning:Addison, VT; Rutland, VT": "2026-06-26T18:34:22.311955+00:00",
     "weather:Severe Thunderstorm Warning:Albany, WY; Platte, WY": "2026-06-25T00:33:12.852299+00:00",
+    "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
     "weather:Severe Thunderstorm Warning:Baker, FL; Duval, FL; Nassau, FL; Charlton, GA; Ware, GA": "2026-06-23T20:32:45.609087+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
     "weather:Severe Thunderstorm Warning:Caldwell, LA; Jackson, LA; Lincoln, LA; Ouachita, LA; Union,": "2026-06-24T04:34:18.204138+00:00",
