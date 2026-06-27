@@ -69,8 +69,8 @@
       "sev": 82
     },
     "USA, Missouri": {
-      "at": "2026-06-26T18:03:28.518907+00:00",
-      "sev": 84
+      "at": "2026-06-27T00:03:38.427598+00:00",
+      "sev": 96
     },
     "USA, New Hampshire": {
       "at": "2026-06-26T21:33:27.264731+00:00",
@@ -98,21 +98,11 @@
     }
   },
   "daily": {
-    "2026-06-24": 44,
     "2026-06-25": 44,
-    "2026-06-26": 44
+    "2026-06-26": 44,
+    "2026-06-27": 1
   },
   "daily_cat": {
-    "2026-06-24": {
-      "cityweather": 2,
-      "earthquake": 1,
-      "gulf": 3,
-      "marine": 2,
-      "maritime": 4,
-      "solarwind": 1,
-      "weather": 20,
-      "weather_eu": 11
-    },
     "2026-06-25": {
       "earthquake": 1,
       "gulf": 4,
@@ -130,12 +120,15 @@
       "outdoor": 1,
       "weather": 19,
       "weather_eu": 12
+    },
+    "2026-06-27": {
+      "weather": 1
     }
   },
-  "last_post_at": "2026-06-26T21:33:27.264727+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-27T00:03:38.427593+00:00",
+  "last_topic": "tornado",
   "monthly": {
-    "2026-06": 328
+    "2026-06": 329
   },
   "posted": {
     "citywx:rotterdam:2026-06-19:morning": "2026-06-19T05:03:40.826997+00:00",
@@ -243,6 +236,7 @@
     "fp:38c0a1161cf75ea0": "2026-06-19T03:22:03.033988+00:00",
     "fp:3926aa3fcc68536f": "2026-06-24T16:04:50.445829+00:00",
     "fp:39a94867ac07ba62": "2026-06-25T08:04:36.713825+00:00",
+    "fp:3c8567953f2067a6": "2026-06-27T00:03:38.427567+00:00",
     "fp:3cbcce8fd0faa65d": "2026-06-22T08:33:27.667364+00:00",
     "fp:3d77737ff9bfa72b": "2026-06-25T03:03:38.394168+00:00",
     "fp:3d8b768356720786": "2026-06-26T16:04:36.862535+00:00",
@@ -330,7 +324,6 @@
     "fp:92ff19dac506e540": "2026-06-19T06:22:07.653844+00:00",
     "fp:93e41c10b822cc66": "2026-06-22T05:33:56.258523+00:00",
     "fp:95c5e6a40edeb721": "2026-06-22T08:03:11.624649+00:00",
-    "fp:97d214fdf5ad71a2": "2026-06-19T00:02:19.411590+00:00",
     "fp:998ebd8ce90a2c30": "2026-06-25T21:34:31.608897+00:00",
     "fp:9a9d4073e0a5553e": "2026-06-25T18:04:07.770280+00:00",
     "fp:9d41a8c5c3252872": "2026-06-23T01:32:34.299903+00:00",
@@ -496,7 +489,6 @@
     "weather:Flash Flood Warning:El Paso, TX": "2026-06-19T06:22:07.653794+00:00",
     "weather:Flash Flood Warning:Ellis, OK": "2026-06-23T12:34:37.889618+00:00",
     "weather:Flash Flood Warning:Fayette, WV; Raleigh, WV": "2026-06-23T03:04:49.528172+00:00",
-    "weather:Flash Flood Warning:George, MS; Stone, MS": "2026-06-19T00:02:19.411541+00:00",
     "weather:Flash Flood Warning:Hemphill, TX; Wheeler, TX": "2026-06-26T02:03:22.421852+00:00",
     "weather:Flash Flood Warning:Hempstead, AR; Howard, AR; Lafayette, AR; Little River, AR; ": "2026-06-24T17:34:34.532228+00:00",
     "weather:Flash Flood Warning:Hinds, MS": "2026-06-24T21:02:45.061500+00:00",
@@ -557,6 +549,7 @@
     "weather:Tornado Warning:Clay, IL; Jasper, IL; Richland, IL": "2026-06-21T23:02:45.026539+00:00",
     "weather:Tornado Warning:Clearwater, MN; Hubbard, MN": "2026-06-24T00:03:29.347021+00:00",
     "weather:Tornado Warning:Crawford, IL; Jasper, IL": "2026-06-21T22:03:32.765361+00:00",
+    "weather:Tornado Warning:Douglas, MO": "2026-06-27T00:03:38.427523+00:00",
     "weather:Tornado Warning:Dubois, IN": "2026-06-22T01:03:29.821232+00:00",
     "weather:Tornado Warning:Ellis, OK": "2026-06-26T00:04:48.758296+00:00",
     "weather:Tornado Warning:Foard, TX; Wilbarger, TX": "2026-06-23T19:33:35.096330+00:00",
