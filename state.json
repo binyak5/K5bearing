@@ -1,7 +1,7 @@
 {
   "area_posts": {
     "EU, France": {
-      "at": "2026-06-26T10:03:35.725929+00:00",
+      "at": "2026-06-27T06:03:24.516557+00:00",
       "sev": 79
     },
     "EU, Germany": {
@@ -116,7 +116,7 @@
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 12
+    "2026-06-27": 13
   },
   "daily_cat": {
     "2026-06-25": {
@@ -140,13 +140,13 @@
     "2026-06-27": {
       "cityweather": 1,
       "weather": 9,
-      "weather_eu": 2
+      "weather_eu": 3
     }
   },
-  "last_post_at": "2026-06-27T05:34:36.183448+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-27T06:03:24.516553+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 340
+    "2026-06": 341
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -170,7 +170,7 @@
     "eu:czechia:temperature:Severe": "2026-06-19T13:02:21.189289+00:00",
     "eu:france:high-temp:Extreme": "2026-06-26T02:33:18.504930+00:00",
     "eu:france:high-temp:Severe": "2026-06-26T10:03:35.725840+00:00",
-    "eu:france:thunder:Severe": "2026-06-25T05:33:49.107803+00:00",
+    "eu:france:thunder:Severe": "2026-06-27T06:03:24.516480+00:00",
     "eu:germany:heat:Severe": "2026-06-26T10:33:19.752131+00:00",
     "eu:germany:thunder:Severe": "2026-06-23T13:34:28.624111+00:00",
     "eu:hungary:high-temp:Extreme": "2026-06-26T03:32:35.835199+00:00",
@@ -279,7 +279,6 @@
     "fp:4d6e3337c70c44cd": "2026-06-26T09:32:35.623994+00:00",
     "fp:50ef4cf50f18c3f4": "2026-06-21T15:03:18.634815+00:00",
     "fp:51f1c780b6c4cd64": "2026-06-24T04:34:18.204170+00:00",
-    "fp:52751bbbf297595b": "2026-06-19T05:43:02.583613+00:00",
     "fp:543db3de4733bfc6": "2026-06-24T12:02:42.817203+00:00",
     "fp:54943b207f52f4cf": "2026-06-26T00:33:18.868378+00:00",
     "fp:56c4b46a97fd3410": "2026-06-22T04:32:36.956038+00:00",
@@ -299,6 +298,7 @@
     "fp:5f89749f2ddef34b": "2026-06-24T19:04:41.736576+00:00",
     "fp:602aa43ce34bcceb": "2026-06-21T22:32:36.062701+00:00",
     "fp:6166d2e2aedbb809": "2026-06-26T19:04:13.777313+00:00",
+    "fp:6230704720f80f35": "2026-06-27T06:03:24.516528+00:00",
     "fp:62dafd34d56e1faa": "2026-06-26T07:33:16.532997+00:00",
     "fp:6319b2a8605a07c1": "2026-06-21T19:02:52.498610+00:00",
     "fp:64331f9cb09aaf06": "2026-06-23T00:33:20.532384+00:00",
@@ -537,7 +537,6 @@
     "weather:Flash Flood Warning:Spotsylvania, VA; Stafford, VA; City of Fredericksburg, VA": "2026-06-27T03:35:05.333961+00:00",
     "weather:Flash Flood Warning:St. Charles, MO": "2026-06-25T21:34:31.608863+00:00",
     "weather:Flash Flood Warning:Sumner, KS": "2026-06-26T08:33:31.327133+00:00",
-    "weather:Flash Flood Warning:Washington, AL": "2026-06-19T05:43:02.583563+00:00",
     "weather:Flash Flood Warning:Young, TX": "2026-06-19T08:22:08.459527+00:00",
     "weather:Flood Warning:Escambia, AL; Escambia, FL; Santa Rosa, FL": "2026-06-26T14:32:36.677569+00:00",
     "weather:Flood Warning:Lawrence, MS": "2026-06-25T16:33:23.068632+00:00",
