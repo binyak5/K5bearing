@@ -116,7 +116,7 @@
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 21
+    "2026-06-27": 22
   },
   "daily_cat": {
     "2026-06-25": {
@@ -139,15 +139,15 @@
     },
     "2026-06-27": {
       "cityweather": 1,
-      "maritime": 1,
+      "maritime": 2,
       "weather": 11,
       "weather_eu": 8
     }
   },
-  "last_post_at": "2026-06-27T10:03:20.665057+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-06-27T10:32:30.905201+00:00",
+  "last_topic": "maritime",
   "monthly": {
-    "2026-06": 349
+    "2026-06": 350
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -309,7 +309,6 @@
     "fp:65790dadcf3a4672": "2026-06-24T15:34:19.415218+00:00",
     "fp:66e010127e3c226e": "2026-06-23T02:34:36.707890+00:00",
     "fp:677c173990ec7a86": "2026-06-27T02:03:19.491955+00:00",
-    "fp:67e7e8dca4197eff": "2026-06-19T10:21:57.965889+00:00",
     "fp:682143291a306a48": "2026-06-23T18:34:38.426577+00:00",
     "fp:68e876b8d7d698ff": "2026-06-24T21:02:45.061532+00:00",
     "fp:6aaac59b198738c0": "2026-06-25T16:33:23.068685+00:00",
@@ -321,7 +320,7 @@
     "fp:6e1ff79c2a4d763c": "2026-06-26T12:32:33.087952+00:00",
     "fp:6e322ebdcc56e681": "2026-06-25T09:04:42.269066+00:00",
     "fp:6e3d233a40756bc1": "2026-06-21T18:02:48.092836+00:00",
-    "fp:6f516646b059bc2b": "2026-06-25T08:33:21.437675+00:00",
+    "fp:6f516646b059bc2b": "2026-06-27T10:32:30.905176+00:00",
     "fp:70a45b34b59bac8e": "2026-06-26T21:03:32.947431+00:00",
     "fp:740c7b1d653bcba7": "2026-06-22T10:04:52.369888+00:00",
     "fp:77abc8c142c2da2c": "2026-06-25T12:34:13.138562+00:00",
@@ -459,7 +458,7 @@
     "nga:cable:the gulf of mexico": "2026-06-26T15:03:12.650372+00:00",
     "nga:cable:the ligurian sea": "2026-06-25T09:32:33.728060+00:00",
     "nga:cable:the persian gulf": "2026-06-25T12:34:13.138518+00:00",
-    "nga:cable:the western north atlantic": "2026-06-25T08:33:21.437629+00:00",
+    "nga:cable:the western north atlantic": "2026-06-27T10:32:30.905131+00:00",
     "nga:launch:the north pacific": "2026-06-25T18:32:34.974478+00:00",
     "nga:mine:the bay of biscay": "2026-06-26T01:03:32.255404+00:00",
     "nga:mine:the black sea": "2026-06-25T21:04:39.173494+00:00",
@@ -496,7 +495,6 @@
     "weather:Flash Flood Warning:Clark, IN; Crawford, IN; Floyd, IN; Harrison, IN; Jefferson,": "2026-06-22T02:32:41.396474+00:00",
     "weather:Flash Flood Warning:Clay, IL; Lawrence, IL; Richland, IL": "2026-06-21T23:32:35.837903+00:00",
     "weather:Flash Flood Warning:Columbia, AR; Union, AR; Claiborne, LA; Lincoln, LA; Webster": "2026-06-24T10:32:46.518133+00:00",
-    "weather:Flash Flood Warning:Comanche, OK": "2026-06-19T10:21:57.965840+00:00",
     "weather:Flash Flood Warning:Cook, IL; Lake, IN": "2026-06-25T02:02:41.054172+00:00",
     "weather:Flash Flood Warning:Craig, OK; Delaware, OK; Mayes, OK": "2026-06-24T18:34:43.893834+00:00",
     "weather:Flash Flood Warning:Craig, OK; Delaware, OK; Ottawa, OK": "2026-06-27T05:34:36.183353+00:00",
