@@ -13,7 +13,7 @@
       "sev": 79
     },
     "EU, Netherlands": {
-      "at": "2026-06-27T09:03:25.170251+00:00",
+      "at": "2026-06-27T11:04:27.399117+00:00",
       "sev": 79
     },
     "EU, Poland": {
@@ -34,10 +34,6 @@
     },
     "EU, Sweden": {
       "at": "2026-06-27T10:03:20.665060+00:00",
-      "sev": 79
-    },
-    "EU, Switzerland": {
-      "at": "2026-06-26T11:02:48.075072+00:00",
       "sev": 79
     },
     "GCC, Kuwait": {
@@ -116,7 +112,7 @@
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 22
+    "2026-06-27": 23
   },
   "daily_cat": {
     "2026-06-25": {
@@ -141,13 +137,13 @@
       "cityweather": 1,
       "maritime": 2,
       "weather": 11,
-      "weather_eu": 8
+      "weather_eu": 9
     }
   },
-  "last_post_at": "2026-06-27T10:32:30.905201+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-06-27T11:04:27.399113+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 350
+    "2026-06": 351
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -179,6 +175,7 @@
     "eu:italy:thunder:Severe": "2026-06-23T11:33:21.794382+00:00",
     "eu:netherlands:high-temp:Extreme": "2026-06-25T14:04:55.049902+00:00",
     "eu:netherlands:high-temp:Severe": "2026-06-27T09:03:25.170142+00:00",
+    "eu:netherlands:thunder:Severe": "2026-06-27T11:04:27.399044+00:00",
     "eu:poland:high-temp:Extreme": "2026-06-27T00:33:18.960086+00:00",
     "eu:poland:high-temp:Severe": "2026-06-27T07:02:42.258744+00:00",
     "eu:poland:thunder:Severe": "2026-06-22T07:32:34.894690+00:00",
@@ -208,7 +205,6 @@
     "fp:04b3e4a9e9174318": "2026-06-25T02:02:41.054240+00:00",
     "fp:0654b7cac8fb77bf": "2026-06-22T06:03:05.229702+00:00",
     "fp:0699a2b168934235": "2026-06-23T16:33:09.312425+00:00",
-    "fp:07f3e150a1e4d3b7": "2026-06-19T11:02:37.017407+00:00",
     "fp:080d01c8b01b12ad": "2026-06-22T03:02:51.736136+00:00",
     "fp:084945730bfac4d2": "2026-06-25T01:33:18.379579+00:00",
     "fp:0878cbbc56389aa9": "2026-06-25T14:04:55.049982+00:00",
@@ -415,6 +411,7 @@
     "fp:e78278df7f7fccad": "2026-06-23T04:33:15.862054+00:00",
     "fp:e78b80f5f0205ffa": "2026-06-23T13:34:28.624170+00:00",
     "fp:eac0847d119a37d1": "2026-06-24T06:02:25.474206+00:00",
+    "fp:eb1cfb729f6c7c0f": "2026-06-27T11:04:27.399088+00:00",
     "fp:eb9c27c74f6aca79": "2026-06-23T16:05:02.433119+00:00",
     "fp:ec1dc31f9e24c889": "2026-06-22T01:03:29.821294+00:00",
     "fp:ec38960c635266f0": "2026-06-23T13:04:27.531583+00:00",
@@ -531,7 +528,6 @@
     "weather:Flash Flood Warning:Piscataquis, ME": "2026-06-21T19:32:40.487619+00:00",
     "weather:Flash Flood Warning:Potter, TX; Randall, TX": "2026-06-25T06:32:11.287661+00:00",
     "weather:Flash Flood Warning:Red River, TX": "2026-06-23T14:04:44.663283+00:00",
-    "weather:Flash Flood Warning:Reeves, TX": "2026-06-19T11:02:37.017335+00:00",
     "weather:Flash Flood Warning:Spotsylvania, VA; Stafford, VA; City of Fredericksburg, VA": "2026-06-27T03:35:05.333961+00:00",
     "weather:Flash Flood Warning:St. Charles, MO": "2026-06-25T21:34:31.608863+00:00",
     "weather:Flash Flood Warning:Sumner, KS": "2026-06-26T08:33:31.327133+00:00",
