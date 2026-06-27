@@ -72,6 +72,10 @@
       "at": "2026-06-27T00:03:38.427598+00:00",
       "sev": 96
     },
+    "USA, Nebraska": {
+      "at": "2026-06-27T01:03:29.612500+00:00",
+      "sev": 84
+    },
     "USA, New Hampshire": {
       "at": "2026-06-26T21:33:27.264731+00:00",
       "sev": 82
@@ -100,7 +104,7 @@
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 2
+    "2026-06-27": 3
   },
   "daily_cat": {
     "2026-06-25": {
@@ -122,14 +126,14 @@
       "weather_eu": 12
     },
     "2026-06-27": {
-      "weather": 1,
+      "weather": 2,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-06-27T00:33:18.960173+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-06-27T01:03:29.612495+00:00",
+  "last_topic": "flood",
   "monthly": {
-    "2026-06": 330
+    "2026-06": 331
   },
   "posted": {
     "citywx:rotterdam:2026-06-19:morning": "2026-06-19T05:03:40.826997+00:00",
@@ -248,7 +252,6 @@
     "fp:43af9631e4e575b1": "2026-06-24T03:32:34.705309+00:00",
     "fp:448fbee55e8f668a": "2026-06-25T16:04:24.319549+00:00",
     "fp:4579cd2c512b1791": "2026-06-24T00:03:29.347072+00:00",
-    "fp:460970b5360d8416": "2026-06-19T00:42:28.748403+00:00",
     "fp:46c0f6ab6f9e330a": "2026-06-21T23:02:45.026585+00:00",
     "fp:492f9c8cd26e2d1f": "2026-06-22T06:33:36.756116+00:00",
     "fp:497c49b8764eaaa2": "2026-06-23T01:03:30.047197+00:00",
@@ -274,6 +277,7 @@
     "fp:5b694ad3b41a2954": "2026-06-23T15:34:11.096929+00:00",
     "fp:5cabae23d11a52b2": "2026-06-21T18:32:43.255098+00:00",
     "fp:5d815dacb450cd8b": "2026-06-22T02:32:41.396521+00:00",
+    "fp:5d85e4ea182e1f1e": "2026-06-27T01:03:29.612469+00:00",
     "fp:5ddbbab7f11307c5": "2026-06-26T10:33:19.752197+00:00",
     "fp:5e217c9de543e427": "2026-06-22T00:32:32.857225+00:00",
     "fp:5f89749f2ddef34b": "2026-06-24T19:04:41.736576+00:00",
@@ -505,6 +509,7 @@
     "weather:Flash Flood Warning:Little River, AR; McCurtain, OK; Bowie, TX; Red River, TX": "2026-06-24T01:04:41.261800+00:00",
     "weather:Flash Flood Warning:Little River, AR; Miller, AR; Sevier, AR; McCurtain, OK; Bow": "2026-06-23T15:05:10.272001+00:00",
     "weather:Flash Flood Warning:Miller, AR; Caddo, LA; Bowie, TX; Cass, TX; Marion, TX": "2026-06-23T10:05:01.001683+00:00",
+    "weather:Flash Flood Warning:Morrill, NE": "2026-06-27T01:03:29.612428+00:00",
     "weather:Flash Flood Warning:Morris, NJ; Sussex, NJ": "2026-06-23T05:35:06.000620+00:00",
     "weather:Flash Flood Warning:Northampton, PA": "2026-06-23T04:02:43.310975+00:00",
     "weather:Flash Flood Warning:Pawnee, KS; Stafford, KS": "2026-06-26T04:03:21.127582+00:00",
@@ -558,7 +563,6 @@
     "weather:Tornado Warning:Foard, TX; Wilbarger, TX": "2026-06-23T19:33:35.096330+00:00",
     "weather:Tornado Warning:Greene, MO": "2026-06-21T15:03:18.634777+00:00",
     "weather:Tornado Warning:Huerfano, CO; Las Animas, CO": "2026-06-24T06:02:25.474155+00:00",
-    "weather:Tornado Warning:Jackson, FL; Miller, GA; Seminole, GA": "2026-06-19T00:42:28.748368+00:00",
     "weather:Tornado Warning:Kay, OK": "2026-06-22T05:33:56.258474+00:00",
     "weather:Tornado Warning:Logan, CO; Washington, CO": "2026-06-22T23:36:56.935975+00:00",
     "weather:Tornado Warning:Perry, IN; Hancock, KY": "2026-06-22T03:02:51.736087+00:00",
