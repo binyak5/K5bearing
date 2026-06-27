@@ -8,10 +8,6 @@
       "at": "2026-06-27T08:33:18.602690+00:00",
       "sev": 79
     },
-    "EU, Hungary": {
-      "at": "2026-06-26T11:34:22.349355+00:00",
-      "sev": 79
-    },
     "EU, Italy": {
       "at": "2026-06-27T11:33:18.118192+00:00",
       "sev": 79
@@ -116,7 +112,7 @@
   "daily": {
     "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 24
+    "2026-06-27": 25
   },
   "daily_cat": {
     "2026-06-25": {
@@ -139,15 +135,15 @@
     },
     "2026-06-27": {
       "cityweather": 1,
-      "maritime": 2,
+      "maritime": 3,
       "weather": 11,
       "weather_eu": 10
     }
   },
-  "last_post_at": "2026-06-27T11:33:18.118187+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-06-27T12:03:18.513351+00:00",
+  "last_topic": "maritime",
   "monthly": {
-    "2026-06": 352
+    "2026-06": 353
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -315,7 +311,7 @@
     "fp:6aaac59b198738c0": "2026-06-25T16:33:23.068685+00:00",
     "fp:6b82073d2b5bef0f": "2026-06-19T14:22:02.622500+00:00",
     "fp:6b989784d3adab80": "2026-06-23T12:03:02.943809+00:00",
-    "fp:6c9418a96ec6b5ab": "2026-06-25T09:32:33.728107+00:00",
+    "fp:6c9418a96ec6b5ab": "2026-06-27T12:03:18.513326+00:00",
     "fp:6c952cbf69f6dae4": "2026-06-26T03:32:35.835255+00:00",
     "fp:6cc4cf938062891a": "2026-06-25T04:02:53.587914+00:00",
     "fp:6e1ff79c2a4d763c": "2026-06-26T12:32:33.087952+00:00",
@@ -429,7 +425,6 @@
     "fp:f25f9cf5d53b5479": "2026-06-26T12:04:46.574487+00:00",
     "fp:f431e1cacbea85cf": "2026-06-25T10:32:32.349264+00:00",
     "fp:f4d80d07123d8e9b": "2026-06-24T10:05:30.308446+00:00",
-    "fp:f5cd23ce093c6809": "2026-06-19T11:42:10.062452+00:00",
     "fp:f66f4a05c70ac881": "2026-06-26T13:32:36.408912+00:00",
     "fp:f7b249fb42731eb4": "2026-06-21T17:33:29.300785+00:00",
     "fp:f9b82e79f3640074": "2026-06-24T06:34:46.577876+00:00",
@@ -459,7 +454,7 @@
     "nga:cable:the celtic sea": "2026-06-27T09:32:31.274122+00:00",
     "nga:cable:the eastern mediterranean sea": "2026-06-26T15:34:20.570733+00:00",
     "nga:cable:the gulf of mexico": "2026-06-26T15:03:12.650372+00:00",
-    "nga:cable:the ligurian sea": "2026-06-25T09:32:33.728060+00:00",
+    "nga:cable:the ligurian sea": "2026-06-27T12:03:18.513280+00:00",
     "nga:cable:the persian gulf": "2026-06-25T12:34:13.138518+00:00",
     "nga:cable:the western north atlantic": "2026-06-27T10:32:30.905131+00:00",
     "nga:launch:the north pacific": "2026-06-25T18:32:34.974478+00:00",
@@ -482,7 +477,6 @@
     "weather:Flash Flood Warning:Atoka, OK": "2026-06-23T16:33:09.312377+00:00",
     "weather:Flash Flood Warning:Atoka, OK; Bryan, OK": "2026-06-23T18:34:38.426531+00:00",
     "weather:Flash Flood Warning:Beckham, OK; Greer, OK": "2026-06-26T05:34:36.545948+00:00",
-    "weather:Flash Flood Warning:Ben Hill, GA; Irwin, GA; Turner, GA": "2026-06-19T11:42:10.062395+00:00",
     "weather:Flash Flood Warning:Bergen, NJ; Passaic, NJ; Orange, NY; Rockland, NY": "2026-06-26T06:34:21.350242+00:00",
     "weather:Flash Flood Warning:Bienville, LA; Bossier, LA; Natchitoches, LA; Red River, LA": "2026-06-23T11:03:34.717268+00:00",
     "weather:Flash Flood Warning:Breathitt, KY; Estill, KY; Lee, KY": "2026-06-23T01:03:30.047153+00:00",
