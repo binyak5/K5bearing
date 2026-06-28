@@ -73,8 +73,8 @@
       "sev": 75
     },
     "USA, Kentucky": {
-      "at": "2026-06-27T16:02:38.169657+00:00",
-      "sev": 84
+      "at": "2026-06-28T00:04:30.298170+00:00",
+      "sev": 96
     },
     "USA, Miami": {
       "at": "2026-06-27T15:33:20.001759+00:00",
@@ -106,19 +106,11 @@
     }
   },
   "daily": {
-    "2026-06-25": 44,
     "2026-06-26": 44,
-    "2026-06-27": 44
+    "2026-06-27": 44,
+    "2026-06-28": 1
   },
   "daily_cat": {
-    "2026-06-25": {
-      "earthquake": 1,
-      "gulf": 4,
-      "maritime": 6,
-      "outdoor": 3,
-      "weather": 17,
-      "weather_eu": 13
-    },
     "2026-06-26": {
       "cityweather": 2,
       "earthquake": 1,
@@ -136,12 +128,15 @@
       "outdoor": 2,
       "weather": 18,
       "weather_eu": 14
+    },
+    "2026-06-28": {
+      "weather": 1
     }
   },
-  "last_post_at": "2026-06-27T21:34:32.352204+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-06-28T00:04:30.298165+00:00",
+  "last_topic": "tornado",
   "monthly": {
-    "2026-06": 372
+    "2026-06": 373
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -410,6 +405,7 @@
     "fp:db1287403c6909dc": "2026-06-22T04:02:23.385747+00:00",
     "fp:db9daf27f483956f": "2026-06-21T21:34:51.504205+00:00",
     "fp:dccd5f95216cd123": "2026-06-21T15:32:22.350634+00:00",
+    "fp:def1a5641cf8f6ef": "2026-06-28T00:04:30.298139+00:00",
     "fp:e1bff178529a5ac6": "2026-06-26T13:03:36.867769+00:00",
     "fp:e4669f81fa67309f": "2026-06-25T19:33:14.887185+00:00",
     "fp:e4e8e230a2ffde78": "2026-06-27T11:33:18.118163+00:00",
@@ -585,6 +581,7 @@
     "weather:Tornado Warning:Bartholomew, IN; Brown, IN": "2026-06-22T00:03:41.592269+00:00",
     "weather:Tornado Warning:Bent, CO; Kiowa, CO; Prowers, CO": "2026-06-27T01:33:25.314411+00:00",
     "weather:Tornado Warning:Bond, IL; Madison, IL": "2026-06-21T20:04:46.495081+00:00",
+    "weather:Tornado Warning:Caldwell, KY; Trigg, KY": "2026-06-28T00:04:30.298093+00:00",
     "weather:Tornado Warning:Clark, IL; Coles, IL; Cumberland, IL": "2026-06-21T21:04:20.076967+00:00",
     "weather:Tornado Warning:Clay, IL; Jasper, IL; Richland, IL": "2026-06-21T23:02:45.026539+00:00",
     "weather:Tornado Warning:Clearwater, MN; Hubbard, MN": "2026-06-24T00:03:29.347021+00:00",
