@@ -16,10 +16,6 @@
       "at": "2026-06-28T04:03:18.382672+00:00",
       "sev": 96
     },
-    "EU, Ireland": {
-      "at": "2026-06-27T20:34:21.166072+00:00",
-      "sev": 79
-    },
     "EU, Poland": {
       "at": "2026-06-28T08:03:32.725788+00:00",
       "sev": 79
@@ -68,6 +64,10 @@
       "at": "2026-06-28T02:33:11.049227+00:00",
       "sev": 84
     },
+    "USA, North Carolina": {
+      "at": "2026-06-28T20:34:40.096494+00:00",
+      "sev": 82
+    },
     "USA, North Dakota": {
       "at": "2026-06-28T04:34:14.743663+00:00",
       "sev": 96
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-26": 44,
     "2026-06-27": 44,
-    "2026-06-28": 41
+    "2026-06-28": 42
   },
   "daily_cat": {
     "2026-06-26": {
@@ -119,14 +119,14 @@
       "marine": 1,
       "maritime": 4,
       "outdoor": 1,
-      "weather": 16,
+      "weather": 17,
       "weather_eu": 15
     }
   },
-  "last_post_at": "2026-06-28T20:04:35.022413+00:00",
-  "last_topic": "dust",
+  "last_post_at": "2026-06-28T20:34:40.096489+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 413
+    "2026-06": 414
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -349,6 +349,7 @@
     "fp:9195a6a16eeaaeb9": "2026-06-24T18:34:43.893881+00:00",
     "fp:93e41c10b822cc66": "2026-06-22T05:33:56.258523+00:00",
     "fp:95c5e6a40edeb721": "2026-06-22T08:03:11.624649+00:00",
+    "fp:964bebd70a4d4162": "2026-06-28T20:34:40.096459+00:00",
     "fp:964fc435c08d60c2": "2026-06-28T03:04:25.975890+00:00",
     "fp:998ebd8ce90a2c30": "2026-06-25T21:34:31.608897+00:00",
     "fp:99b6c0fdf817e1fc": "2026-06-27T15:03:24.066482+00:00",
@@ -604,6 +605,7 @@
     "weather:Severe Thunderstorm Warning:Clinton, IA; Jackson, IA": "2026-06-28T18:33:51.191876+00:00",
     "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
+    "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
