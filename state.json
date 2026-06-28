@@ -96,9 +96,9 @@
       "at": "2026-06-28T04:34:14.743663+00:00",
       "sev": 96
     },
-    "USA, Oklahoma": {
-      "at": "2026-06-27T05:34:36.183453+00:00",
-      "sev": 84
+    "USA, South Dakota": {
+      "at": "2026-06-28T06:03:19.806432+00:00",
+      "sev": 82
     },
     "USA, Tennessee": {
       "at": "2026-06-28T05:34:26.032733+00:00",
@@ -112,7 +112,7 @@
   "daily": {
     "2026-06-26": 44,
     "2026-06-27": 44,
-    "2026-06-28": 12
+    "2026-06-28": 13
   },
   "daily_cat": {
     "2026-06-26": {
@@ -135,14 +135,14 @@
     },
     "2026-06-28": {
       "maritime": 1,
-      "weather": 6,
+      "weather": 7,
       "weather_eu": 5
     }
   },
-  "last_post_at": "2026-06-28T05:34:26.032729+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-06-28T06:03:19.806428+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 384
+    "2026-06": 385
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -401,6 +401,7 @@
     "fp:c8428c2356339623": "2026-06-25T17:34:24.626654+00:00",
     "fp:cb129a7250035fa5": "2026-06-26T08:33:31.327174+00:00",
     "fp:cb30b4059f3b10cc": "2026-06-24T08:34:47.111564+00:00",
+    "fp:cba5becfa9b5612f": "2026-06-28T06:03:19.806398+00:00",
     "fp:cd760a49192dd382": "2026-06-22T18:34:10.716871+00:00",
     "fp:cd8a7b44451136b5": "2026-06-26T05:34:36.545989+00:00",
     "fp:cde54a5e4915a84c": "2026-06-23T11:03:34.717319+00:00",
@@ -575,6 +576,7 @@
     "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
     "weather:Severe Thunderstorm Warning:Baker, FL; Duval, FL; Nassau, FL; Charlton, GA; Ware, GA": "2026-06-23T20:32:45.609087+00:00",
     "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
+    "weather:Severe Thunderstorm Warning:Brown, SD; Clark, SD; Day, SD; Spink, SD": "2026-06-28T06:03:19.806348+00:00",
     "weather:Severe Thunderstorm Warning:Caldwell, LA; Jackson, LA; Lincoln, LA; Ouachita, LA; Union,": "2026-06-24T04:34:18.204138+00:00",
     "weather:Severe Thunderstorm Warning:Castro, TX; Parmer, TX": "2026-06-25T04:32:29.701907+00:00",
     "weather:Severe Thunderstorm Warning:Central Arapahoe, CO; Eastern Arapahoe, CO": "2026-06-25T03:33:17.875622+00:00",
