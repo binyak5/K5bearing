@@ -89,7 +89,7 @@
       "sev": 50
     },
     "USA, South Dakota": {
-      "at": "2026-06-29T04:34:18.604475+00:00",
+      "at": "2026-06-29T09:04:38.537699+00:00",
       "sev": 82
     },
     "USA, Tennessee": {
@@ -104,7 +104,7 @@
   "daily": {
     "2026-06-27": 44,
     "2026-06-28": 44,
-    "2026-06-29": 18
+    "2026-06-29": 19
   },
   "daily_cat": {
     "2026-06-27": {
@@ -127,14 +127,14 @@
     "2026-06-29": {
       "cityweather": 1,
       "earthquake": 1,
-      "weather": 9,
+      "weather": 10,
       "weather_eu": 7
     }
   },
-  "last_post_at": "2026-06-29T08:33:18.833041+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-06-29T09:04:38.537695+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 434
+    "2026-06": 435
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -397,6 +397,7 @@
     "fp:ad4fc97f7f5661af": "2026-06-22T07:32:34.894754+00:00",
     "fp:ad5d61247b71b69c": "2026-06-24T08:04:58.534073+00:00",
     "fp:adb1781330707318": "2026-06-26T20:33:19.234766+00:00",
+    "fp:ae69eb6cce26874a": "2026-06-29T09:04:38.537669+00:00",
     "fp:b0c095323f3295f9": "2026-06-26T19:34:43.993244+00:00",
     "fp:b2349a2078a2661c": "2026-06-25T02:32:28.595646+00:00",
     "fp:b5c398635e27d43f": "2026-06-25T05:33:49.107857+00:00",
@@ -644,6 +645,7 @@
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
+    "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
     "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
     "weather:Severe Thunderstorm Warning:Northwest Boulder, CO; Grand, CO": "2026-06-27T04:03:26.144948+00:00",
