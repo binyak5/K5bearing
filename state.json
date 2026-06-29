@@ -80,6 +80,10 @@
       "at": "2026-06-28T21:33:12.950977+00:00",
       "sev": 84
     },
+    "USA, South Carolina": {
+      "at": "2026-06-29T21:32:47.414593+00:00",
+      "sev": 82
+    },
     "USA, South Dakota": {
       "at": "2026-06-29T09:33:55.773594+00:00",
       "sev": 96
@@ -96,7 +100,7 @@
   "daily": {
     "2026-06-27": 44,
     "2026-06-28": 44,
-    "2026-06-29": 43
+    "2026-06-29": 44
   },
   "daily_cat": {
     "2026-06-27": {
@@ -122,14 +126,14 @@
       "gulf": 2,
       "maritime": 5,
       "outdoor": 3,
-      "weather": 18,
+      "weather": 19,
       "weather_eu": 12
     }
   },
-  "last_post_at": "2026-06-29T21:05:18.602029+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-06-29T21:32:47.414588+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 459
+    "2026-06": 460
   },
   "posted": {
     "citywx:rotterdam:2026-06-22:evening": "2026-06-22T17:04:48.002586+00:00",
@@ -278,6 +282,7 @@
     "fp:47071988b19b645a": "2026-06-28T13:04:44.049992+00:00",
     "fp:4754bd9f269171b5": "2026-06-27T17:33:32.548835+00:00",
     "fp:4811e21cede08511": "2026-06-29T16:34:24.726561+00:00",
+    "fp:488eb53545f6a3ff": "2026-06-29T21:32:47.414562+00:00",
     "fp:492f9c8cd26e2d1f": "2026-06-22T06:33:36.756116+00:00",
     "fp:4974b6142c31af71": "2026-06-29T13:04:07.214335+00:00",
     "fp:497c49b8764eaaa2": "2026-06-23T01:03:30.047197+00:00",
@@ -648,6 +653,7 @@
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
+    "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
