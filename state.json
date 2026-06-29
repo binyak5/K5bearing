@@ -76,6 +76,10 @@
       "at": "2026-06-28T20:34:40.096494+00:00",
       "sev": 82
     },
+    "USA, North Dakota": {
+      "at": "2026-06-29T05:33:20.814172+00:00",
+      "sev": 82
+    },
     "USA, Pennsylvania": {
       "at": "2026-06-28T21:33:12.950977+00:00",
       "sev": 84
@@ -100,7 +104,7 @@
   "daily": {
     "2026-06-27": 44,
     "2026-06-28": 44,
-    "2026-06-29": 11
+    "2026-06-29": 12
   },
   "daily_cat": {
     "2026-06-27": {
@@ -122,14 +126,14 @@
     },
     "2026-06-29": {
       "cityweather": 1,
-      "weather": 6,
+      "weather": 7,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-06-29T05:04:16.690600+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-06-29T05:33:20.814167+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 427
+    "2026-06": 428
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -348,6 +352,7 @@
     "fp:84277c3cc966c39c": "2026-06-26T18:03:28.518887+00:00",
     "fp:846614bf31befb07": "2026-06-27T04:33:10.702902+00:00",
     "fp:852dd4505473770d": "2026-06-21T16:02:47.876240+00:00",
+    "fp:85b33b1a45493259": "2026-06-29T05:33:20.814140+00:00",
     "fp:8870c98af6bbcb68": "2026-06-26T04:03:21.127645+00:00",
     "fp:8902691441bff7a3": "2026-06-28T00:33:18.453811+00:00",
     "fp:8ac5c77012530d1b": "2026-06-26T10:03:35.725899+00:00",
@@ -636,6 +641,7 @@
     "weather:Severe Thunderstorm Warning:Northwest Boulder, CO; Grand, CO": "2026-06-27T04:03:26.144948+00:00",
     "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
     "weather:Severe Thunderstorm Warning:Ozaukee, WI; Washington, WI": "2026-06-25T01:33:18.379535+00:00",
+    "weather:Severe Thunderstorm Warning:Pierce, ND": "2026-06-29T05:33:20.814096+00:00",
     "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
