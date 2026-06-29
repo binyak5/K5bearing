@@ -32,10 +32,6 @@
       "at": "2026-06-29T10:04:00.051835+00:00",
       "sev": 79
     },
-    "EU, Switzerland": {
-      "at": "2026-06-28T19:33:56.141283+00:00",
-      "sev": 79
-    },
     "GCC, Oman": {
       "at": "2026-06-29T14:04:34.514712+00:00",
       "sev": 72
@@ -81,8 +77,8 @@
       "sev": 82
     },
     "USA, North Dakota": {
-      "at": "2026-06-29T07:34:12.059244+00:00",
-      "sev": 96
+      "at": "2026-06-29T19:34:01.613478+00:00",
+      "sev": 82
     },
     "USA, Oregon": {
       "at": "2026-06-29T12:04:24.344008+00:00",
@@ -104,7 +100,7 @@
   "daily": {
     "2026-06-27": 44,
     "2026-06-28": 44,
-    "2026-06-29": 39
+    "2026-06-29": 40
   },
   "daily_cat": {
     "2026-06-27": {
@@ -130,14 +126,14 @@
       "gulf": 2,
       "maritime": 5,
       "outdoor": 3,
-      "weather": 14,
+      "weather": 15,
       "weather_eu": 12
     }
   },
-  "last_post_at": "2026-06-29T19:04:34.084583+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-06-29T19:34:01.613472+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 455
+    "2026-06": 456
   },
   "posted": {
     "citywx:rotterdam:2026-06-22:evening": "2026-06-22T17:04:48.002586+00:00",
@@ -367,7 +363,6 @@
     "fp:89f5777801a8f35a": "2026-06-29T12:04:24.343979+00:00",
     "fp:8ac5c77012530d1b": "2026-06-26T10:03:35.725899+00:00",
     "fp:8ad5ade76554201e": "2026-06-23T12:34:37.889672+00:00",
-    "fp:8ca27dfe4ac5988c": "2026-06-21T19:32:40.487664+00:00",
     "fp:8cb777da0a4896c5": "2026-06-24T09:32:42.917441+00:00",
     "fp:8e12e70ef4dedece": "2026-06-29T06:03:09.253254+00:00",
     "fp:911dbef61520f4dd": "2026-06-26T05:05:14.642907+00:00",
@@ -449,6 +444,7 @@
     "fp:d7968f0430dd1240": "2026-06-28T07:33:24.842728+00:00",
     "fp:d7e2bf663fe692e6": "2026-06-27T10:03:20.665041+00:00",
     "fp:d81c3c7ee99bd9d2": "2026-06-26T17:32:31.521426+00:00",
+    "fp:d856f22a9aa61eac": "2026-06-29T19:34:01.613440+00:00",
     "fp:d93796f81492e5a1": "2026-06-29T11:34:36.942512+00:00",
     "fp:da06ac69c717e9cf": "2026-06-24T10:32:46.518173+00:00",
     "fp:da3e1ae9c7f75b3a": "2026-06-27T01:33:25.314460+00:00",
@@ -616,7 +612,6 @@
     "weather:Flash Flood Warning:Northampton, PA": "2026-06-23T04:02:43.310975+00:00",
     "weather:Flash Flood Warning:Pawnee, KS; Stafford, KS": "2026-06-26T04:03:21.127582+00:00",
     "weather:Flash Flood Warning:Pike, AR": "2026-06-24T19:34:43.309023+00:00",
-    "weather:Flash Flood Warning:Piscataquis, ME": "2026-06-21T19:32:40.487619+00:00",
     "weather:Flash Flood Warning:Potter, TX; Randall, TX": "2026-06-25T06:32:11.287661+00:00",
     "weather:Flash Flood Warning:Red River, TX": "2026-06-23T14:04:44.663283+00:00",
     "weather:Flash Flood Warning:Roosevelt, MT; Sheridan, MT": "2026-06-28T02:33:11.049154+00:00",
@@ -659,6 +654,7 @@
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
     "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
+    "weather:Severe Thunderstorm Warning:McHenry, ND; McLean, ND; Ward, ND": "2026-06-29T19:34:01.613391+00:00",
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
     "weather:Severe Thunderstorm Warning:Northwest Boulder, CO; Grand, CO": "2026-06-27T04:03:26.144948+00:00",
     "weather:Severe Thunderstorm Warning:Orange, FL; Osceola, FL": "2026-06-24T18:04:52.422390+00:00",
