@@ -89,8 +89,8 @@
       "sev": 50
     },
     "USA, South Dakota": {
-      "at": "2026-06-29T09:04:38.537699+00:00",
-      "sev": 82
+      "at": "2026-06-29T09:33:55.773594+00:00",
+      "sev": 96
     },
     "USA, Tennessee": {
       "at": "2026-06-28T14:34:18.910511+00:00",
@@ -104,7 +104,7 @@
   "daily": {
     "2026-06-27": 44,
     "2026-06-28": 44,
-    "2026-06-29": 19
+    "2026-06-29": 20
   },
   "daily_cat": {
     "2026-06-27": {
@@ -127,14 +127,14 @@
     "2026-06-29": {
       "cityweather": 1,
       "earthquake": 1,
-      "weather": 10,
+      "weather": 11,
       "weather_eu": 7
     }
   },
-  "last_post_at": "2026-06-29T09:04:38.537695+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-29T09:33:55.773589+00:00",
+  "last_topic": "tornado",
   "monthly": {
-    "2026-06": 435
+    "2026-06": 436
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -342,6 +342,7 @@
     "fp:77abc8c142c2da2c": "2026-06-28T12:03:23.923007+00:00",
     "fp:79cf8446c4fbd139": "2026-06-27T05:34:36.183403+00:00",
     "fp:7b10210137d6774a": "2026-06-29T05:04:16.690575+00:00",
+    "fp:7c18ffa9a688073c": "2026-06-29T09:33:55.773560+00:00",
     "fp:7ca5015809a23c38": "2026-06-27T17:04:13.854826+00:00",
     "fp:7d40478c730344e0": "2026-06-27T19:35:37.120412+00:00",
     "fp:7de469c1fd0ceeca": "2026-06-21T16:37:39.738002+00:00",
@@ -679,6 +680,7 @@
     "weather:Tornado Warning:Huerfano, CO; Las Animas, CO": "2026-06-24T06:02:25.474155+00:00",
     "weather:Tornado Warning:Kay, OK": "2026-06-22T05:33:56.258474+00:00",
     "weather:Tornado Warning:Logan, CO; Washington, CO": "2026-06-22T23:36:56.935975+00:00",
+    "weather:Tornado Warning:Mellette, SD; Todd, SD": "2026-06-29T09:33:55.773509+00:00",
     "weather:Tornado Warning:Perry, IN; Hancock, KY": "2026-06-22T03:02:51.736087+00:00",
     "weather:Tornado Warning:Ramsey, ND": "2026-06-29T07:34:12.059159+00:00",
     "weather:Tornado Warning:Sussex, DE": "2026-06-23T00:33:20.532341+00:00",
