@@ -69,7 +69,7 @@
       "sev": 84
     },
     "USA, Nebraska": {
-      "at": "2026-06-29T03:03:24.925400+00:00",
+      "at": "2026-06-29T06:33:18.517338+00:00",
       "sev": 82
     },
     "USA, New Jersey": {
@@ -108,7 +108,7 @@
   "daily": {
     "2026-06-27": 44,
     "2026-06-28": 44,
-    "2026-06-29": 13
+    "2026-06-29": 14
   },
   "daily_cat": {
     "2026-06-27": {
@@ -131,14 +131,14 @@
     "2026-06-29": {
       "cityweather": 1,
       "earthquake": 1,
-      "weather": 7,
+      "weather": 8,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-06-29T06:03:09.253283+00:00",
-  "last_topic": "earthquake",
+  "last_post_at": "2026-06-29T06:33:18.517333+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 429
+    "2026-06": 430
   },
   "posted": {
     "citywx:rotterdam:2026-06-21:evening": "2026-06-21T17:03:50.977537+00:00",
@@ -215,6 +215,7 @@
     "fp:0b6ac001489a30f5": "2026-06-27T00:33:18.960148+00:00",
     "fp:0bd2c5e5e73b0fe2": "2026-06-25T06:32:11.287710+00:00",
     "fp:0c76a55fa75d567a": "2026-06-24T02:03:25.507590+00:00",
+    "fp:0c9f9920b7aa40c3": "2026-06-29T06:33:18.517304+00:00",
     "fp:0cdb5adb3b6a0777": "2026-06-24T07:03:10.942493+00:00",
     "fp:0ea92ce256a46dd9": "2026-06-23T19:03:46.382287+00:00",
     "fp:0fcb0440fe4f64a9": "2026-06-28T01:03:22.405870+00:00",
@@ -650,6 +651,7 @@
     "weather:Severe Thunderstorm Warning:Ozaukee, WI; Washington, WI": "2026-06-25T01:33:18.379535+00:00",
     "weather:Severe Thunderstorm Warning:Pierce, ND": "2026-06-29T05:33:20.814096+00:00",
     "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
+    "weather:Severe Thunderstorm Warning:Sheridan, NE": "2026-06-29T06:33:18.517255+00:00",
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
