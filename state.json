@@ -60,6 +60,10 @@
       "at": "2026-06-30T06:04:09.548234+00:00",
       "sev": 84
     },
+    "USA, New Mexico": {
+      "at": "2026-06-30T20:03:03.769564+00:00",
+      "sev": 82
+    },
     "USA, New York": {
       "at": "2026-06-30T18:33:08.386081+00:00",
       "sev": 82
@@ -88,7 +92,7 @@
   "daily": {
     "2026-06-28": 44,
     "2026-06-29": 44,
-    "2026-06-30": 40
+    "2026-06-30": 41
   },
   "daily_cat": {
     "2026-06-28": {
@@ -116,14 +120,14 @@
       "gulf": 4,
       "marine": 1,
       "maritime": 4,
-      "weather": 14,
+      "weather": 15,
       "weather_eu": 14
     }
   },
-  "last_post_at": "2026-06-30T19:34:33.043102+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-06-30T20:03:03.769559+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 500
+    "2026-06": 501
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -432,6 +436,7 @@
     "fp:d29d30f78275339b": "2026-06-30T11:04:40.637044+00:00",
     "fp:d3211086c0b82738": "2026-06-29T01:34:14.172971+00:00",
     "fp:d3693f42e3882963": "2026-06-29T04:04:26.541490+00:00",
+    "fp:d4bcdda8b0676080": "2026-06-30T20:03:03.769533+00:00",
     "fp:d4c27a0c3fc5ef35": "2026-06-24T12:34:09.566731+00:00",
     "fp:d551aa4d71e3a8b8": "2026-06-30T13:33:41.770341+00:00",
     "fp:d5a0458fa33c371f": "2026-06-23T11:33:21.794432+00:00",
@@ -657,6 +662,7 @@
     "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
     "weather:Severe Thunderstorm Warning:Sheridan, NE": "2026-06-29T06:33:18.517255+00:00",
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
+    "weather:Severe Thunderstorm Warning:Union, NM": "2026-06-30T20:03:03.769488+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
