@@ -45,7 +45,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-06-30T15:34:55.214296+00:00",
+      "at": "2026-06-30T19:04:17.150449+00:00",
       "sev": 80
     },
     "USA, Iowa": {
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-28": 44,
     "2026-06-29": 44,
-    "2026-06-30": 38
+    "2026-06-30": 39
   },
   "daily_cat": {
     "2026-06-28": {
@@ -116,14 +116,14 @@
       "gulf": 4,
       "marine": 1,
       "maritime": 4,
-      "weather": 13,
+      "weather": 14,
       "weather_eu": 13
     }
   },
-  "last_post_at": "2026-06-30T18:33:08.386076+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-06-30T19:04:17.150445+00:00",
+  "last_topic": "marine",
   "monthly": {
-    "2026-06": 498
+    "2026-06": 499
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -374,6 +374,7 @@
     "fp:a20011ec7f1e61d1": "2026-06-28T08:33:12.111104+00:00",
     "fp:a2a8233df0b5f562": "2026-06-25T20:04:31.153874+00:00",
     "fp:a31ec280dfce1653": "2026-06-29T07:04:14.621207+00:00",
+    "fp:a3442c9f6bb91473": "2026-06-30T19:04:17.150423+00:00",
     "fp:a360605cba966ab1": "2026-06-28T14:34:18.910479+00:00",
     "fp:a4e34da46481eac8": "2026-06-28T19:03:25.522850+00:00",
     "fp:a77cedb0fbbad01e": "2026-06-26T06:34:21.350285+00:00",
@@ -421,7 +422,6 @@
     "fp:cb129a7250035fa5": "2026-06-26T08:33:31.327174+00:00",
     "fp:cb30b4059f3b10cc": "2026-06-24T08:34:47.111564+00:00",
     "fp:cba5becfa9b5612f": "2026-06-28T06:03:19.806398+00:00",
-    "fp:cd760a49192dd382": "2026-06-22T18:34:10.716871+00:00",
     "fp:cd8a7b44451136b5": "2026-06-26T05:34:36.545989+00:00",
     "fp:cde54a5e4915a84c": "2026-06-23T11:03:34.717319+00:00",
     "fp:cf56c0ecfc4ff964": "2026-06-29T17:34:22.734741+00:00",
@@ -528,7 +528,6 @@
     "storm:Miami:2026-06-25": "2026-06-25T15:04:19.368783+00:00",
     "storm:Miami:2026-06-27": "2026-06-27T15:33:20.001686+00:00",
     "storm:Miami:2026-06-29": "2026-06-29T18:32:51.734377+00:00",
-    "uv:Miami:2026-06-22": "2026-06-22T18:34:10.716830+00:00",
     "uv:Miami:2026-06-29": "2026-06-29T17:34:22.734699+00:00",
     "uv:Phoenix:2026-06-23": "2026-06-23T19:03:46.382236+00:00",
     "uv:Phoenix:2026-06-25": "2026-06-25T19:02:53.055084+00:00",
@@ -663,6 +662,7 @@
     "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Ocracoke Inlet NC ": "2026-06-27T16:33:19.972106+00:00",
+    "weather:Special Marine Warning:Pensacola Bay Area including Santa Rosa Sound; Western Choct": "2026-06-30T19:04:17.150382+00:00",
     "weather:Special Marine Warning:S of Cape Lookout NC to Surf City NC out to 20 NM; Waters fr": "2026-06-29T02:02:38.692388+00:00",
     "weather:Special Marine Warning:Seul Choix Point to 5NM West of Mackinac Bridge; Norwood MI ": "2026-06-29T17:04:10.354789+00:00",
     "weather:Special Marine Warning:Taconite Harbor to Silver Bay Harbor MN; Silver Bay Harbor t": "2026-06-30T03:33:56.803551+00:00",
