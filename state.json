@@ -41,7 +41,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-06-30T03:33:56.803630+00:00",
+      "at": "2026-06-30T15:34:55.214296+00:00",
       "sev": 80
     },
     "USA, Iowa": {
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-28": 44,
     "2026-06-29": 44,
-    "2026-06-30": 31
+    "2026-06-30": 32
   },
   "daily_cat": {
     "2026-06-28": {
@@ -119,14 +119,14 @@
       "gulf": 2,
       "marine": 1,
       "maritime": 4,
-      "weather": 11,
+      "weather": 12,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-06-30T15:04:45.944673+00:00",
-  "last_topic": "flare",
+  "last_post_at": "2026-06-30T15:34:55.214290+00:00",
+  "last_topic": "marine",
   "monthly": {
-    "2026-06": 491
+    "2026-06": 492
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -399,6 +399,7 @@
     "fp:b8e02ba36f6c9c0c": "2026-06-23T06:04:31.338970+00:00",
     "fp:b9e437c70f142604": "2026-06-24T04:04:27.124337+00:00",
     "fp:ba3b0d099b98a215": "2026-06-24T07:34:06.853030+00:00",
+    "fp:baa7c6977090cf73": "2026-06-30T15:34:55.214257+00:00",
     "fp:be1838a03e89641b": "2026-06-23T21:04:20.102326+00:00",
     "fp:be53186f6ebf9488": "2026-06-27T05:04:07.785774+00:00",
     "fp:be8ea45e80392069": "2026-06-25T13:34:12.261998+00:00",
@@ -656,6 +657,7 @@
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
+    "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
     "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Ocracoke Inlet NC ": "2026-06-27T16:33:19.972106+00:00",
