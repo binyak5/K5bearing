@@ -36,6 +36,10 @@
       "at": "2026-06-30T18:04:42.488519+00:00",
       "sev": 72
     },
+    "GCC, Kuwait City": {
+      "at": "2026-07-01T15:34:26.603461+00:00",
+      "sev": 62
+    },
     "GCC, Saudi Arabia": {
       "at": "2026-06-30T17:35:22.575018+00:00",
       "sev": 72
@@ -84,7 +88,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 31
+    "2026-07-01": 32
   },
   "daily_cat": {
     "2026-06-29": {
@@ -113,15 +117,16 @@
       "gulf": 2,
       "marine": 1,
       "maritime": 4,
+      "outdoor": 1,
       "weather": 11,
       "weather_eu": 11
     }
   },
-  "last_post_at": "2026-07-01T15:03:03.436997+00:00",
-  "last_topic": "blackout",
+  "last_post_at": "2026-07-01T15:34:26.603457+00:00",
+  "last_topic": "outdoor",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 31
+    "2026-07": 32
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -137,6 +142,7 @@
     "citywx:rotterdam:2026-06-29:morning": "2026-06-29T05:04:16.690533+00:00",
     "citywx:rotterdam:2026-06-30:evening": "2026-06-30T17:04:18.141290+00:00",
     "citywx:rotterdam:2026-07-01:morning": "2026-07-01T05:03:05.256367+00:00",
+    "dust:Kuwait City:2026-07-01": "2026-07-01T15:34:26.603400+00:00",
     "dust:Riyadh:2026-06-25": "2026-06-25T13:03:57.964950+00:00",
     "dust:Riyadh:2026-06-27": "2026-06-27T13:33:16.437977+00:00",
     "dust:Riyadh:2026-06-29": "2026-06-29T15:04:05.536392+00:00",
@@ -224,7 +230,7 @@
     "fp:1b3f29c9a0798f3d": "2026-06-27T08:33:18.602664+00:00",
     "fp:1c26ecbc8e9e1d8a": "2026-07-01T09:03:13.323534+00:00",
     "fp:1d59b91a02d51aab": "2026-06-27T16:33:19.972157+00:00",
-    "fp:1d5e829ed1856ec4": "2026-06-29T15:04:05.536437+00:00",
+    "fp:1d5e829ed1856ec4": "2026-07-01T15:34:26.603437+00:00",
     "fp:1da93097ff71cfa6": "2026-06-29T10:33:57.323005+00:00",
     "fp:1e72941dd0da6c4e": "2026-06-30T20:32:48.597521+00:00",
     "fp:1edd3b1b52f1767a": "2026-07-01T04:34:10.283784+00:00",
@@ -302,7 +308,6 @@
     "fp:591d26f890b0cd95": "2026-06-25T06:04:49.518817+00:00",
     "fp:59d5850f1654f725": "2026-07-01T13:34:25.908158+00:00",
     "fp:5affda8509bb5564": "2026-06-30T18:04:42.488489+00:00",
-    "fp:5b694ad3b41a2954": "2026-06-23T15:34:11.096929+00:00",
     "fp:5d85e4ea182e1f1e": "2026-06-27T01:03:29.612469+00:00",
     "fp:5ddbbab7f11307c5": "2026-06-26T10:33:19.752197+00:00",
     "fp:5f89749f2ddef34b": "2026-06-24T19:04:41.736576+00:00",
@@ -378,7 +383,6 @@
     "fp:9f401d776dd97199": "2026-06-29T19:04:34.084566+00:00",
     "fp:9f9bb633b3760526": "2026-07-01T01:04:41.064758+00:00",
     "fp:9fea4e7e77bb915b": "2026-06-30T07:02:40.486339+00:00",
-    "fp:a086d589fd510e91": "2026-06-23T15:05:10.272052+00:00",
     "fp:a16f681570a1219f": "2026-06-26T04:32:33.464026+00:00",
     "fp:a20011ec7f1e61d1": "2026-06-28T08:33:12.111104+00:00",
     "fp:a2a8233df0b5f562": "2026-06-25T20:04:31.153874+00:00",
@@ -593,7 +597,6 @@
     "weather:Flash Flood Warning:Las Animas, CO": "2026-06-25T00:02:51.372032+00:00",
     "weather:Flash Flood Warning:Leelanau, MI": "2026-06-29T16:34:24.726515+00:00",
     "weather:Flash Flood Warning:Little River, AR; McCurtain, OK; Bowie, TX; Red River, TX": "2026-06-24T01:04:41.261800+00:00",
-    "weather:Flash Flood Warning:Little River, AR; Miller, AR; Sevier, AR; McCurtain, OK; Bow": "2026-06-23T15:05:10.272001+00:00",
     "weather:Flash Flood Warning:Lubbock, TX": "2026-07-01T03:04:18.438784+00:00",
     "weather:Flash Flood Warning:Lynn, TX": "2026-07-01T07:05:05.822023+00:00",
     "weather:Flash Flood Warning:McCreary, KY; Wayne, KY": "2026-06-28T12:34:13.271971+00:00",
@@ -622,7 +625,6 @@
     "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
     "weather:Severe Thunderstorm Warning:Baker, FL; Duval, FL; Nassau, FL; Charlton, GA; Ware, GA": "2026-06-23T20:32:45.609087+00:00",
     "weather:Severe Thunderstorm Warning:Bayfield, WI; Douglas, WI": "2026-06-29T20:34:28.549923+00:00",
-    "weather:Severe Thunderstorm Warning:Beckham, OK; Custer, OK; Dewey, OK; Ellis, OK; Roger Mills, ": "2026-06-23T15:34:11.096882+00:00",
     "weather:Severe Thunderstorm Warning:Boone, NE": "2026-06-30T03:03:20.448955+00:00",
     "weather:Severe Thunderstorm Warning:Brown, SD; Clark, SD; Day, SD; Spink, SD": "2026-06-28T06:03:19.806348+00:00",
     "weather:Severe Thunderstorm Warning:Caldwell, LA; Jackson, LA; Lincoln, LA; Ouachita, LA; Union,": "2026-06-24T04:34:18.204138+00:00",
