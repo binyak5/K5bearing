@@ -81,7 +81,7 @@
       "sev": 82
     },
     "USA, New York": {
-      "at": "2026-06-30T18:33:08.386081+00:00",
+      "at": "2026-07-01T03:34:20.323164+00:00",
       "sev": 82
     },
     "USA, Texas": {
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 7
+    "2026-07-01": 8
   },
   "daily_cat": {
     "2026-06-29": {
@@ -116,15 +116,15 @@
       "weather_eu": 14
     },
     "2026-07-01": {
-      "weather": 5,
+      "weather": 6,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-07-01T03:04:18.438861+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-01T03:34:20.323159+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 7
+    "2026-07": 8
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -166,7 +166,6 @@
     "eu:poland:high-temp:Severe": "2026-06-29T07:04:14.621150+00:00",
     "eu:poland:thunder:Extreme": "2026-06-29T10:33:57.322946+00:00",
     "eu:poland:thunder:Severe": "2026-06-30T08:34:38.410814+00:00",
-    "eu:portugal:high-temp:Severe": "2026-06-23T03:32:33.471887+00:00",
     "eu:serbia:high-temp:Extreme": "2026-06-30T05:33:36.319466+00:00",
     "eu:serbia:high-temp:Severe": "2026-06-28T21:03:19.675305+00:00",
     "eu:serbia:rain:Severe": "2026-06-30T09:33:14.965546+00:00",
@@ -227,7 +226,6 @@
     "fp:1dc7089d4ec1e7be": "2026-06-23T10:34:18.416929+00:00",
     "fp:1e72941dd0da6c4e": "2026-06-30T20:32:48.597521+00:00",
     "fp:22d115d99a00f404": "2026-06-25T04:32:29.701954+00:00",
-    "fp:2347640b1eda864d": "2026-06-23T03:32:33.471944+00:00",
     "fp:248c97b3b2697731": "2026-06-26T21:33:27.264702+00:00",
     "fp:25f98dcbcad28f99": "2026-06-25T21:04:39.173534+00:00",
     "fp:275bc5bb6719aba6": "2026-06-29T03:34:16.942811+00:00",
@@ -358,6 +356,7 @@
     "fp:8ad5ade76554201e": "2026-06-23T12:34:37.889672+00:00",
     "fp:8cb777da0a4896c5": "2026-06-24T09:32:42.917441+00:00",
     "fp:8ccad75c267506a9": "2026-06-30T14:04:29.923223+00:00",
+    "fp:8d904a208cbc321e": "2026-07-01T03:34:20.323131+00:00",
     "fp:8e12e70ef4dedece": "2026-06-29T06:03:09.253254+00:00",
     "fp:911dbef61520f4dd": "2026-06-26T05:05:14.642907+00:00",
     "fp:91453cf543f03444": "2026-06-24T02:32:47.971449+00:00",
@@ -411,7 +410,6 @@
     "fp:be53186f6ebf9488": "2026-06-27T05:04:07.785774+00:00",
     "fp:be8ea45e80392069": "2026-06-25T13:34:12.261998+00:00",
     "fp:bf10ac300bfec920": "2026-06-29T20:34:28.549966+00:00",
-    "fp:bf2faed5a79e5023": "2026-06-23T03:04:49.528213+00:00",
     "fp:c09093a86f93e151": "2026-06-26T08:03:31.275322+00:00",
     "fp:c186c1b956475e81": "2026-06-26T17:04:35.214020+00:00",
     "fp:c1f55fec2555705a": "2026-06-23T17:04:58.876204+00:00",
@@ -575,7 +573,6 @@
     "weather:Flash Flood Warning:Edwards, IL; Wabash, IL; Gibson, IN": "2026-06-27T20:03:16.739183+00:00",
     "weather:Flash Flood Warning:Edwards, KS; Hodgeman, KS; Pawnee, KS": "2026-06-25T15:34:14.279875+00:00",
     "weather:Flash Flood Warning:Ellis, OK": "2026-06-23T12:34:37.889618+00:00",
-    "weather:Flash Flood Warning:Fayette, WV; Raleigh, WV": "2026-06-23T03:04:49.528172+00:00",
     "weather:Flash Flood Warning:Fentress, TN; Pickett, TN": "2026-06-28T14:34:18.910439+00:00",
     "weather:Flash Flood Warning:Greene, IN; Sullivan, IN": "2026-06-27T19:04:48.812515+00:00",
     "weather:Flash Flood Warning:Greene, TN; Hancock, TN; Hawkins, TN; Sullivan, TN; Washingt": "2026-06-28T05:34:26.032674+00:00",
@@ -648,6 +645,7 @@
     "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
+    "weather:Severe Thunderstorm Warning:Jefferson, NY; Lewis, NY": "2026-07-01T03:34:20.323081+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
     "weather:Severe Thunderstorm Warning:Lea, NM; Andrews, TX; Gaines, TX": "2026-07-01T01:33:07.941928+00:00",
     "weather:Severe Thunderstorm Warning:Logan, KS; Wallace, KS": "2026-07-01T00:02:52.523055+00:00",
