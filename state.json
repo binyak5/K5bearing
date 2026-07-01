@@ -44,6 +44,10 @@
       "at": "2026-06-30T17:35:22.575018+00:00",
       "sev": 72
     },
+    "GCC, United Arab Emirates": {
+      "at": "2026-07-01T10:34:22.535012+00:00",
+      "sev": 72
+    },
     "USA": {
       "at": "2026-07-01T05:33:58.430521+00:00",
       "sev": 80
@@ -84,7 +88,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 21
+    "2026-07-01": 22
   },
   "daily_cat": {
     "2026-06-29": {
@@ -109,16 +113,17 @@
     },
     "2026-07-01": {
       "cityweather": 1,
+      "gulf": 1,
       "maritime": 1,
       "weather": 11,
       "weather_eu": 8
     }
   },
-  "last_post_at": "2026-07-01T10:04:27.967344+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-01T10:34:22.535008+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 21
+    "2026-07": 22
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -222,7 +227,6 @@
     "fp:1d59b91a02d51aab": "2026-06-27T16:33:19.972157+00:00",
     "fp:1d5e829ed1856ec4": "2026-06-29T15:04:05.536437+00:00",
     "fp:1da93097ff71cfa6": "2026-06-29T10:33:57.323005+00:00",
-    "fp:1dc7089d4ec1e7be": "2026-06-23T10:34:18.416929+00:00",
     "fp:1e72941dd0da6c4e": "2026-06-30T20:32:48.597521+00:00",
     "fp:1edd3b1b52f1767a": "2026-07-01T04:34:10.283784+00:00",
     "fp:22d115d99a00f404": "2026-06-25T04:32:29.701954+00:00",
@@ -376,7 +380,6 @@
     "fp:9f9bb633b3760526": "2026-07-01T01:04:41.064758+00:00",
     "fp:9fea4e7e77bb915b": "2026-06-30T07:02:40.486339+00:00",
     "fp:a086d589fd510e91": "2026-06-23T15:05:10.272052+00:00",
-    "fp:a10df225f2884614": "2026-06-23T10:05:01.001740+00:00",
     "fp:a16f681570a1219f": "2026-06-26T04:32:33.464026+00:00",
     "fp:a20011ec7f1e61d1": "2026-06-28T08:33:12.111104+00:00",
     "fp:a2a8233df0b5f562": "2026-06-25T20:04:31.153874+00:00",
@@ -474,6 +477,7 @@
     "fp:eecbf7284884dec2": "2026-06-30T04:03:22.190223+00:00",
     "fp:f087124af26cae91": "2026-06-28T15:34:42.403205+00:00",
     "fp:f25f9cf5d53b5479": "2026-06-26T12:04:46.574487+00:00",
+    "fp:f346b56489012bdc": "2026-07-01T10:34:22.534978+00:00",
     "fp:f3e3902898ca5290": "2026-07-01T02:33:56.473752+00:00",
     "fp:f431e1cacbea85cf": "2026-06-30T10:34:48.984002+00:00",
     "fp:f4d80d07123d8e9b": "2026-06-24T10:05:30.308446+00:00",
@@ -502,6 +506,7 @@
     "gulfdust:Salalah:2026-06-29": "2026-06-29T14:04:34.514656+00:00",
     "gulffog:Salalah:2026-06-25": "2026-06-25T18:04:07.770237+00:00",
     "gulffog:Salalah:2026-06-27": "2026-06-27T18:04:22.406060+00:00",
+    "gulfheat:Fujairah:2026-07-01": "2026-07-01T10:34:22.534926+00:00",
     "gulfstorm:Fujairah:2026-06-26": "2026-06-26T16:04:36.862490+00:00",
     "gulfwind:Jeddah:2026-06-29": "2026-06-29T13:04:07.214290+00:00",
     "gulfwind:Mecca:2026-06-25": "2026-06-25T13:34:12.261953+00:00",
@@ -596,7 +601,6 @@
     "weather:Flash Flood Warning:Lubbock, TX": "2026-07-01T03:04:18.438784+00:00",
     "weather:Flash Flood Warning:Lynn, TX": "2026-07-01T07:05:05.822023+00:00",
     "weather:Flash Flood Warning:McCreary, KY; Wayne, KY": "2026-06-28T12:34:13.271971+00:00",
-    "weather:Flash Flood Warning:Miller, AR; Caddo, LA; Bowie, TX; Cass, TX; Marion, TX": "2026-06-23T10:05:01.001683+00:00",
     "weather:Flash Flood Warning:Morrill, NE": "2026-06-27T01:03:29.612428+00:00",
     "weather:Flash Flood Warning:Noble, OK; Payne, OK": "2026-06-27T02:33:17.788285+00:00",
     "weather:Flash Flood Warning:Pawnee, KS; Stafford, KS": "2026-06-26T04:03:21.127582+00:00",
@@ -617,7 +621,6 @@
     "weather:Hazardous Seas Warning:Waters from Cape Blanco OR to Pt. St. George CA from 10 to 6": "2026-06-28T06:33:15.414260+00:00",
     "weather:Red Flag Warning:Central and Southeast Park County": "2026-06-23T13:04:27.531536+00:00",
     "weather:Red Flag Warning:Indian Wells Valley; Kern County Desert; Lake Isabella": "2026-06-26T06:04:59.851699+00:00",
-    "weather:Red Flag Warning:South and Southeast Grand/West Central and Southwest Boulder": "2026-06-23T10:34:18.416880+00:00",
     "weather:Severe Thunderstorm Warning:Addison, VT; Rutland, VT": "2026-06-26T18:34:22.311955+00:00",
     "weather:Severe Thunderstorm Warning:Aitkin, MN; Carlton, MN; Lake, MN; St. Louis, MN; Douglas, W": "2026-06-30T06:32:39.203278+00:00",
     "weather:Severe Thunderstorm Warning:Albany, WY; Platte, WY": "2026-06-25T00:33:12.852299+00:00",
