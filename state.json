@@ -73,8 +73,8 @@
       "sev": 82
     },
     "USA, Nebraska": {
-      "at": "2026-06-30T06:04:09.548234+00:00",
-      "sev": 84
+      "at": "2026-07-01T04:34:10.283814+00:00",
+      "sev": 96
     },
     "USA, New Mexico": {
       "at": "2026-07-01T01:33:07.942002+00:00",
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 9
+    "2026-07-01": 10
   },
   "daily_cat": {
     "2026-06-29": {
@@ -116,15 +116,15 @@
       "weather_eu": 14
     },
     "2026-07-01": {
-      "weather": 7,
+      "weather": 8,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-07-01T04:04:23.917399+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-07-01T04:34:10.283809+00:00",
+  "last_topic": "tornado",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 9
+    "2026-07": 10
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -225,6 +225,7 @@
     "fp:1da93097ff71cfa6": "2026-06-29T10:33:57.323005+00:00",
     "fp:1dc7089d4ec1e7be": "2026-06-23T10:34:18.416929+00:00",
     "fp:1e72941dd0da6c4e": "2026-06-30T20:32:48.597521+00:00",
+    "fp:1edd3b1b52f1767a": "2026-07-01T04:34:10.283784+00:00",
     "fp:22d115d99a00f404": "2026-06-25T04:32:29.701954+00:00",
     "fp:248c97b3b2697731": "2026-06-26T21:33:27.264702+00:00",
     "fp:25f98dcbcad28f99": "2026-06-25T21:04:39.173534+00:00",
@@ -460,7 +461,6 @@
     "fp:e5eb9adc39cd86d7": "2026-06-25T00:02:51.372061+00:00",
     "fp:e663f1da31397b54": "2026-06-29T01:04:24.664534+00:00",
     "fp:e6fd36ad7ce4da4c": "2026-06-29T18:32:51.734423+00:00",
-    "fp:e78278df7f7fccad": "2026-06-23T04:33:15.862054+00:00",
     "fp:e78b80f5f0205ffa": "2026-06-23T13:34:28.624170+00:00",
     "fp:ea54058f1652282d": "2026-06-30T00:32:27.070678+00:00",
     "fp:eac0847d119a37d1": "2026-06-24T06:02:25.474206+00:00",
@@ -631,7 +631,6 @@
     "weather:Severe Thunderstorm Warning:Castro, TX; Parmer, TX": "2026-06-25T04:32:29.701907+00:00",
     "weather:Severe Thunderstorm Warning:Central Arapahoe, CO; Eastern Arapahoe, CO": "2026-06-25T03:33:17.875622+00:00",
     "weather:Severe Thunderstorm Warning:Cerro Gordo, IA; Hancock, IA; Humboldt, IA; Kossuth, IA; Win": "2026-06-28T13:04:44.049903+00:00",
-    "weather:Severe Thunderstorm Warning:Chambers, AL; Tallapoosa, AL": "2026-06-23T04:33:15.862003+00:00",
     "weather:Severe Thunderstorm Warning:Cherokee, KS; Crawford, KS; Barton, MO; Jasper, MO": "2026-06-26T08:03:31.275273+00:00",
     "weather:Severe Thunderstorm Warning:Cherry, NE": "2026-06-29T03:03:24.925298+00:00",
     "weather:Severe Thunderstorm Warning:Clay, IA; Dickinson, IA; O'Brien, IA; Osceola, IA; Jackson, ": "2026-06-30T07:33:12.249548+00:00",
@@ -682,6 +681,7 @@
     "weather:Tornado Warning:Douglas, MO": "2026-06-27T00:03:38.427523+00:00",
     "weather:Tornado Warning:Ellis, OK": "2026-06-26T00:04:48.758296+00:00",
     "weather:Tornado Warning:Foard, TX; Wilbarger, TX": "2026-06-23T19:33:35.096330+00:00",
+    "weather:Tornado Warning:Hooker, NE; McPherson, NE": "2026-07-01T04:34:10.283742+00:00",
     "weather:Tornado Warning:Huerfano, CO; Las Animas, CO": "2026-06-24T06:02:25.474155+00:00",
     "weather:Tornado Warning:Logan, CO; Sedgwick, CO": "2026-07-01T02:04:56.845125+00:00",
     "weather:Tornado Warning:Mellette, SD; Todd, SD": "2026-06-29T09:33:55.773509+00:00",
