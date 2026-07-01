@@ -48,6 +48,10 @@
       "at": "2026-06-30T19:04:17.150449+00:00",
       "sev": 80
     },
+    "USA, Colorado": {
+      "at": "2026-07-01T02:04:56.845178+00:00",
+      "sev": 96
+    },
     "USA, Iowa": {
       "at": "2026-06-30T07:33:12.249620+00:00",
       "sev": 82
@@ -79,16 +83,12 @@
     "USA, Texas": {
       "at": "2026-07-01T00:32:42.013106+00:00",
       "sev": 84
-    },
-    "USA, Washington": {
-      "at": "2026-06-30T02:03:14.041774+00:00",
-      "sev": 84
     }
   },
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 4
+    "2026-07-01": 5
   },
   "daily_cat": {
     "2026-06-29": {
@@ -112,15 +112,15 @@
       "weather_eu": 14
     },
     "2026-07-01": {
-      "weather": 3,
+      "weather": 4,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-01T01:33:07.941997+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-01T02:04:56.845174+00:00",
+  "last_topic": "tornado",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 4
+    "2026-07": 5
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -305,7 +305,6 @@
     "fp:62dafd34d56e1faa": "2026-06-26T07:33:16.532997+00:00",
     "fp:6450dcaa38ff5c4f": "2026-06-26T09:03:32.364169+00:00",
     "fp:64b2701d619a4293": "2026-06-24T01:04:41.261850+00:00",
-    "fp:64be0ceba772ffcf": "2026-06-23T02:03:27.294663+00:00",
     "fp:65618527f96fbf86": "2026-06-26T00:04:48.758338+00:00",
     "fp:65790dadcf3a4672": "2026-06-24T15:34:19.415218+00:00",
     "fp:66e010127e3c226e": "2026-06-23T02:34:36.707890+00:00",
@@ -435,6 +434,7 @@
     "fp:d3693f42e3882963": "2026-06-29T04:04:26.541490+00:00",
     "fp:d4bcdda8b0676080": "2026-06-30T20:03:03.769533+00:00",
     "fp:d4c27a0c3fc5ef35": "2026-06-24T12:34:09.566731+00:00",
+    "fp:d52c7099ab6e9c89": "2026-07-01T02:04:56.845156+00:00",
     "fp:d551aa4d71e3a8b8": "2026-06-30T13:33:41.770341+00:00",
     "fp:d5a0458fa33c371f": "2026-06-23T11:33:21.794432+00:00",
     "fp:d67a148b2837a0b5": "2026-06-30T09:33:14.965580+00:00",
@@ -553,7 +553,6 @@
     "weather:Flash Flood Warning:Campbell, TN; Claiborne, TN; Scott, TN": "2026-06-28T10:03:27.674924+00:00",
     "weather:Flash Flood Warning:Cherokee, KS": "2026-06-27T04:33:10.702860+00:00",
     "weather:Flash Flood Warning:Cherokee, KS; Crawford, KS; Barton, MO; Jasper, MO; Newton, ": "2026-06-26T13:32:36.408855+00:00",
-    "weather:Flash Flood Warning:Chesterfield, VA; Prince George, VA; City of Colonial Height": "2026-06-23T02:03:27.294602+00:00",
     "weather:Flash Flood Warning:Choctaw, OK; Pushmataha, OK": "2026-06-24T02:03:25.507552+00:00",
     "weather:Flash Flood Warning:Clay, KY; Estill, KY; Lee, KY; Owsley, KY": "2026-06-27T16:02:38.169586+00:00",
     "weather:Flash Flood Warning:Clinton, KY; Cumberland, KY; Metcalfe, KY": "2026-06-28T08:33:12.111024+00:00",
@@ -682,6 +681,7 @@
     "weather:Tornado Warning:Ellis, OK": "2026-06-26T00:04:48.758296+00:00",
     "weather:Tornado Warning:Foard, TX; Wilbarger, TX": "2026-06-23T19:33:35.096330+00:00",
     "weather:Tornado Warning:Huerfano, CO; Las Animas, CO": "2026-06-24T06:02:25.474155+00:00",
+    "weather:Tornado Warning:Logan, CO; Sedgwick, CO": "2026-07-01T02:04:56.845125+00:00",
     "weather:Tornado Warning:Mellette, SD; Todd, SD": "2026-06-29T09:33:55.773509+00:00",
     "weather:Tornado Warning:Morton, ND": "2026-06-29T20:04:03.313586+00:00",
     "weather:Tornado Warning:Ramsey, ND": "2026-06-29T07:34:12.059159+00:00",
