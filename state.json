@@ -21,7 +21,7 @@
       "sev": 96
     },
     "EU, Serbia": {
-      "at": "2026-06-30T12:04:27.585103+00:00",
+      "at": "2026-07-01T06:04:49.282484+00:00",
       "sev": 79
     },
     "EU, Slovakia": {
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 12
+    "2026-07-01": 13
   },
   "daily_cat": {
     "2026-06-29": {
@@ -118,14 +118,14 @@
     "2026-07-01": {
       "cityweather": 1,
       "weather": 9,
-      "weather_eu": 2
+      "weather_eu": 3
     }
   },
-  "last_post_at": "2026-07-01T05:33:58.430516+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-07-01T06:04:49.282479+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 12
+    "2026-07": 13
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -168,7 +168,7 @@
     "eu:poland:thunder:Extreme": "2026-06-29T10:33:57.322946+00:00",
     "eu:poland:thunder:Severe": "2026-06-30T08:34:38.410814+00:00",
     "eu:serbia:high-temp:Extreme": "2026-06-30T05:33:36.319466+00:00",
-    "eu:serbia:high-temp:Severe": "2026-06-28T21:03:19.675305+00:00",
+    "eu:serbia:high-temp:Severe": "2026-07-01T06:04:49.282396+00:00",
     "eu:serbia:rain:Severe": "2026-06-30T09:33:14.965546+00:00",
     "eu:serbia:thunder:Severe": "2026-06-30T12:04:27.585020+00:00",
     "eu:slovakia:high-temp:Extreme": "2026-06-30T10:03:45.422556+00:00",
@@ -220,6 +220,7 @@
     "fp:1833f4b8f0c577b2": "2026-06-28T02:33:11.049196+00:00",
     "fp:18b2a516e39aa724": "2026-06-29T10:04:00.051804+00:00",
     "fp:19484e92ebfcbba0": "2026-06-28T17:04:05.744106+00:00",
+    "fp:1a46453da99bc825": "2026-07-01T06:04:49.282451+00:00",
     "fp:1b3f29c9a0798f3d": "2026-06-27T08:33:18.602664+00:00",
     "fp:1d59b91a02d51aab": "2026-06-27T16:33:19.972157+00:00",
     "fp:1d5e829ed1856ec4": "2026-06-29T15:04:05.536437+00:00",
@@ -249,7 +250,6 @@
     "fp:32e5a1f43dccf850": "2026-06-26T02:33:18.504976+00:00",
     "fp:3397af9fdc500d07": "2026-06-24T21:34:40.645323+00:00",
     "fp:33c808ebdaa4afa0": "2026-06-30T03:03:20.448999+00:00",
-    "fp:33e428d0d120cd0b": "2026-06-23T05:35:06.000648+00:00",
     "fp:340c59d52f372e1c": "2026-06-25T00:33:12.852340+00:00",
     "fp:341214589db567df": "2026-06-27T04:03:26.144985+00:00",
     "fp:35026c0d702adf90": "2026-06-27T02:33:17.788318+00:00",
@@ -405,7 +405,6 @@
     "fp:b5c398635e27d43f": "2026-06-25T05:33:49.107857+00:00",
     "fp:b701b386cf39a900": "2026-06-28T19:33:56.141250+00:00",
     "fp:b7c91ca50dcf258d": "2026-06-29T21:05:18.602000+00:00",
-    "fp:b8e02ba36f6c9c0c": "2026-06-23T06:04:31.338970+00:00",
     "fp:b9e437c70f142604": "2026-06-24T04:04:27.124337+00:00",
     "fp:ba3b0d099b98a215": "2026-06-24T07:34:06.853030+00:00",
     "fp:baa7c6977090cf73": "2026-06-30T15:34:55.214257+00:00",
@@ -598,7 +597,6 @@
     "weather:Flash Flood Warning:McCreary, KY; Wayne, KY": "2026-06-28T12:34:13.271971+00:00",
     "weather:Flash Flood Warning:Miller, AR; Caddo, LA; Bowie, TX; Cass, TX; Marion, TX": "2026-06-23T10:05:01.001683+00:00",
     "weather:Flash Flood Warning:Morrill, NE": "2026-06-27T01:03:29.612428+00:00",
-    "weather:Flash Flood Warning:Morris, NJ; Sussex, NJ": "2026-06-23T05:35:06.000620+00:00",
     "weather:Flash Flood Warning:Noble, OK; Payne, OK": "2026-06-27T02:33:17.788285+00:00",
     "weather:Flash Flood Warning:Pawnee, KS; Stafford, KS": "2026-06-26T04:03:21.127582+00:00",
     "weather:Flash Flood Warning:Pend Oreille, WA; Stevens, WA": "2026-06-30T02:03:14.041692+00:00",
@@ -645,7 +643,6 @@
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
-    "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Jefferson, NY; Lewis, NY": "2026-07-01T03:34:20.323081+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
     "weather:Severe Thunderstorm Warning:Lea, NM; Andrews, TX; Gaines, TX": "2026-07-01T01:33:07.941928+00:00",
