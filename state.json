@@ -52,6 +52,10 @@
       "at": "2026-07-01T05:33:58.430521+00:00",
       "sev": 80
     },
+    "USA, Alabama": {
+      "at": "2026-07-01T18:02:43.975175+00:00",
+      "sev": 82
+    },
     "USA, Colorado": {
       "at": "2026-07-01T02:04:56.845178+00:00",
       "sev": 96
@@ -92,7 +96,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 36
+    "2026-07-01": 37
   },
   "daily_cat": {
     "2026-06-29": {
@@ -122,15 +126,15 @@
       "marine": 1,
       "maritime": 4,
       "outdoor": 1,
-      "weather": 12,
+      "weather": 13,
       "weather_eu": 12
     }
   },
-  "last_post_at": "2026-07-01T17:35:12.793413+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-01T18:02:43.975170+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 36
+    "2026-07": 37
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -380,6 +384,7 @@
     "fp:963a39e325b8cb9a": "2026-07-01T11:34:41.592884+00:00",
     "fp:964bebd70a4d4162": "2026-06-28T20:34:40.096459+00:00",
     "fp:964fc435c08d60c2": "2026-06-28T03:04:25.975890+00:00",
+    "fp:965e7d7dfc539c2d": "2026-07-01T18:02:43.975143+00:00",
     "fp:98175fee88d32407": "2026-07-01T05:33:58.430488+00:00",
     "fp:998ebd8ce90a2c30": "2026-06-25T21:34:31.608897+00:00",
     "fp:99b6c0fdf817e1fc": "2026-06-27T15:03:24.066482+00:00",
@@ -643,6 +648,7 @@
     "weather:Severe Thunderstorm Warning:Clinton, IA; Jackson, IA": "2026-06-28T18:33:51.191876+00:00",
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
     "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
+    "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
