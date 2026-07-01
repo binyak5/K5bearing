@@ -69,7 +69,7 @@
       "sev": 84
     },
     "USA, New Mexico": {
-      "at": "2026-06-30T20:03:03.769564+00:00",
+      "at": "2026-07-01T01:33:07.942002+00:00",
       "sev": 82
     },
     "USA, New York": {
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 3
+    "2026-07-01": 4
   },
   "daily_cat": {
     "2026-06-29": {
@@ -112,15 +112,15 @@
       "weather_eu": 14
     },
     "2026-07-01": {
-      "weather": 2,
+      "weather": 3,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-01T01:04:41.064807+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-07-01T01:33:07.941997+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 3
+    "2026-07": 4
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -313,6 +313,7 @@
     "fp:677c173990ec7a86": "2026-06-27T02:03:19.491955+00:00",
     "fp:682143291a306a48": "2026-06-23T18:34:38.426577+00:00",
     "fp:68e876b8d7d698ff": "2026-06-24T21:02:45.061532+00:00",
+    "fp:6906b52f611fd5a9": "2026-07-01T01:33:07.941973+00:00",
     "fp:6aaac59b198738c0": "2026-06-25T16:33:23.068685+00:00",
     "fp:6b989784d3adab80": "2026-06-23T12:03:02.943809+00:00",
     "fp:6c9418a96ec6b5ab": "2026-06-29T15:33:53.750442+00:00",
@@ -366,7 +367,6 @@
     "fp:998ebd8ce90a2c30": "2026-06-25T21:34:31.608897+00:00",
     "fp:99b6c0fdf817e1fc": "2026-06-27T15:03:24.066482+00:00",
     "fp:9a9d4073e0a5553e": "2026-06-27T18:04:22.406103+00:00",
-    "fp:9d41a8c5c3252872": "2026-06-23T01:32:34.299903+00:00",
     "fp:9f401d776dd97199": "2026-06-29T19:04:34.084566+00:00",
     "fp:9f9bb633b3760526": "2026-07-01T01:04:41.064758+00:00",
     "fp:9fea4e7e77bb915b": "2026-06-30T07:02:40.486339+00:00",
@@ -642,11 +642,11 @@
     "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
-    "weather:Severe Thunderstorm Warning:Gloucester, VA; James City, VA; Mathews, VA; York, VA; City ": "2026-06-23T01:32:34.299852+00:00",
     "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
+    "weather:Severe Thunderstorm Warning:Lea, NM; Andrews, TX; Gaines, TX": "2026-07-01T01:33:07.941928+00:00",
     "weather:Severe Thunderstorm Warning:Logan, KS; Wallace, KS": "2026-07-01T00:02:52.523055+00:00",
     "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
     "weather:Severe Thunderstorm Warning:McHenry, ND; McLean, ND; Ward, ND": "2026-06-29T19:34:01.613391+00:00",
