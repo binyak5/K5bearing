@@ -17,8 +17,8 @@
       "sev": 79
     },
     "EU, Poland": {
-      "at": "2026-06-30T08:34:38.410903+00:00",
-      "sev": 79
+      "at": "2026-07-01T01:04:41.064816+00:00",
+      "sev": 96
     },
     "EU, Serbia": {
       "at": "2026-06-30T12:04:27.585103+00:00",
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 2
+    "2026-07-01": 3
   },
   "daily_cat": {
     "2026-06-29": {
@@ -112,14 +112,15 @@
       "weather_eu": 14
     },
     "2026-07-01": {
-      "weather": 2
+      "weather": 2,
+      "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-01T00:32:42.013101+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-01T01:04:41.064807+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 2
+    "2026-07": 3
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -157,7 +158,7 @@
     "eu:netherlands:high-temp:Extreme": "2026-06-27T15:03:24.066431+00:00",
     "eu:netherlands:high-temp:Severe": "2026-06-27T09:03:25.170142+00:00",
     "eu:netherlands:thunder:Severe": "2026-06-27T11:04:27.399044+00:00",
-    "eu:poland:high-temp:Extreme": "2026-06-29T01:04:24.664456+00:00",
+    "eu:poland:high-temp:Extreme": "2026-07-01T01:04:41.064695+00:00",
     "eu:poland:high-temp:Severe": "2026-06-29T07:04:14.621150+00:00",
     "eu:poland:thunder:Extreme": "2026-06-29T10:33:57.322946+00:00",
     "eu:poland:thunder:Severe": "2026-06-30T08:34:38.410814+00:00",
@@ -273,7 +274,6 @@
     "fp:4811e21cede08511": "2026-06-29T16:34:24.726561+00:00",
     "fp:488eb53545f6a3ff": "2026-06-29T21:32:47.414562+00:00",
     "fp:4974b6142c31af71": "2026-06-29T13:04:07.214335+00:00",
-    "fp:497c49b8764eaaa2": "2026-06-23T01:03:30.047197+00:00",
     "fp:4a642997ea0ed461": "2026-06-24T17:34:34.532285+00:00",
     "fp:4a709c0019768013": "2026-06-29T18:04:43.988175+00:00",
     "fp:4a73f5fc8e6f0c5e": "2026-06-24T20:34:16.199097+00:00",
@@ -303,7 +303,6 @@
     "fp:6178d5a89cba7719": "2026-06-28T18:33:51.191926+00:00",
     "fp:6230704720f80f35": "2026-06-27T06:03:24.516528+00:00",
     "fp:62dafd34d56e1faa": "2026-06-26T07:33:16.532997+00:00",
-    "fp:64331f9cb09aaf06": "2026-06-23T00:33:20.532384+00:00",
     "fp:6450dcaa38ff5c4f": "2026-06-26T09:03:32.364169+00:00",
     "fp:64b2701d619a4293": "2026-06-24T01:04:41.261850+00:00",
     "fp:64be0ceba772ffcf": "2026-06-23T02:03:27.294663+00:00",
@@ -369,6 +368,7 @@
     "fp:9a9d4073e0a5553e": "2026-06-27T18:04:22.406103+00:00",
     "fp:9d41a8c5c3252872": "2026-06-23T01:32:34.299903+00:00",
     "fp:9f401d776dd97199": "2026-06-29T19:04:34.084566+00:00",
+    "fp:9f9bb633b3760526": "2026-07-01T01:04:41.064758+00:00",
     "fp:9fea4e7e77bb915b": "2026-06-30T07:02:40.486339+00:00",
     "fp:a086d589fd510e91": "2026-06-23T15:05:10.272052+00:00",
     "fp:a10df225f2884614": "2026-06-23T10:05:01.001740+00:00",
@@ -546,7 +546,6 @@
     "weather:Flash Flood Warning:Beckham, OK; Greer, OK": "2026-06-26T05:34:36.545948+00:00",
     "weather:Flash Flood Warning:Bergen, NJ; Passaic, NJ; Orange, NY; Rockland, NY": "2026-06-26T06:34:21.350242+00:00",
     "weather:Flash Flood Warning:Bienville, LA; Bossier, LA; Natchitoches, LA; Red River, LA": "2026-06-23T11:03:34.717268+00:00",
-    "weather:Flash Flood Warning:Breathitt, KY; Estill, KY; Lee, KY": "2026-06-23T01:03:30.047153+00:00",
     "weather:Flash Flood Warning:Burlington, NJ; Camden, NJ; Gloucester, NJ; Delaware, PA; Mo": "2026-06-29T00:34:15.925077+00:00",
     "weather:Flash Flood Warning:Butler, MO": "2026-06-26T07:33:16.532958+00:00",
     "weather:Flash Flood Warning:Butler, MO; Carter, MO; Ripley, MO": "2026-06-26T18:03:28.518859+00:00",
@@ -686,7 +685,6 @@
     "weather:Tornado Warning:Mellette, SD; Todd, SD": "2026-06-29T09:33:55.773509+00:00",
     "weather:Tornado Warning:Morton, ND": "2026-06-29T20:04:03.313586+00:00",
     "weather:Tornado Warning:Ramsey, ND": "2026-06-29T07:34:12.059159+00:00",
-    "weather:Tornado Warning:Sussex, DE": "2026-06-23T00:33:20.532341+00:00",
     "weather:Tornado Warning:Washington, CO": "2026-06-25T01:04:23.631853+00:00"
   }
 }
