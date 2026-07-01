@@ -85,14 +85,14 @@
       "sev": 82
     },
     "USA, Texas": {
-      "at": "2026-07-01T07:05:05.822093+00:00",
-      "sev": 84
+      "at": "2026-07-01T21:04:52.752966+00:00",
+      "sev": 82
     }
   },
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 42
+    "2026-07-01": 43
   },
   "daily_cat": {
     "2026-06-29": {
@@ -122,15 +122,15 @@
       "marine": 2,
       "maritime": 5,
       "outdoor": 1,
-      "weather": 16,
+      "weather": 17,
       "weather_eu": 12
     }
   },
-  "last_post_at": "2026-07-01T20:34:16.521171+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-01T21:04:52.752962+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 42
+    "2026-07": 43
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -218,6 +218,7 @@
     "fp:11d43b8913f3f844": "2026-06-26T03:03:33.797250+00:00",
     "fp:11ef7716ffdf640b": "2026-06-25T14:34:32.367357+00:00",
     "fp:13de493d75e42fdc": "2026-06-26T14:32:36.677615+00:00",
+    "fp:14b5a7a8fd6fa8c1": "2026-07-01T21:04:52.752938+00:00",
     "fp:14ba93381f5c0d14": "2026-06-24T01:32:36.349979+00:00",
     "fp:153e6e6d25b82170": "2026-06-30T03:33:56.803601+00:00",
     "fp:163c935787b5c6f8": "2026-07-01T03:04:18.438830+00:00",
@@ -419,7 +420,6 @@
     "fp:b9e437c70f142604": "2026-06-24T04:04:27.124337+00:00",
     "fp:ba3b0d099b98a215": "2026-06-24T07:34:06.853030+00:00",
     "fp:baa7c6977090cf73": "2026-06-30T15:34:55.214257+00:00",
-    "fp:be1838a03e89641b": "2026-06-23T21:04:20.102326+00:00",
     "fp:be53186f6ebf9488": "2026-07-01T05:03:05.256403+00:00",
     "fp:be8ea45e80392069": "2026-06-25T13:34:12.261998+00:00",
     "fp:bf10ac300bfec920": "2026-06-29T20:34:28.549966+00:00",
@@ -644,6 +644,7 @@
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
     "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
     "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
+    "weather:Severe Thunderstorm Warning:Deaf Smith, TX": "2026-07-01T21:04:52.752897+00:00",
     "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
