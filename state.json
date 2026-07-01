@@ -49,8 +49,8 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-06-30T19:04:17.150449+00:00",
-      "sev": 80
+      "at": "2026-07-01T04:04:23.917404+00:00",
+      "sev": 75
     },
     "USA, Colorado": {
       "at": "2026-07-01T02:04:56.845178+00:00",
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 8
+    "2026-07-01": 9
   },
   "daily_cat": {
     "2026-06-29": {
@@ -116,15 +116,15 @@
       "weather_eu": 14
     },
     "2026-07-01": {
-      "weather": 6,
+      "weather": 7,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-07-01T03:34:20.323159+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-01T04:04:23.917399+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 8
+    "2026-07": 9
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -397,9 +397,9 @@
     "fp:ae69eb6cce26874a": "2026-06-29T09:04:38.537669+00:00",
     "fp:b0c095323f3295f9": "2026-06-26T19:34:43.993244+00:00",
     "fp:b2349a2078a2661c": "2026-06-25T02:32:28.595646+00:00",
+    "fp:b473e2a76dd6e4b7": "2026-07-01T04:04:23.917376+00:00",
     "fp:b4a0e7ef97c004d8": "2026-06-30T08:34:38.410874+00:00",
     "fp:b5c398635e27d43f": "2026-06-25T05:33:49.107857+00:00",
-    "fp:b6db08b35f8c834e": "2026-06-23T04:02:43.311024+00:00",
     "fp:b701b386cf39a900": "2026-06-28T19:33:56.141250+00:00",
     "fp:b7c91ca50dcf258d": "2026-06-29T21:05:18.602000+00:00",
     "fp:b8e02ba36f6c9c0c": "2026-06-23T06:04:31.338970+00:00",
@@ -539,6 +539,7 @@
     "uv:Phoenix:2026-06-28": "2026-06-28T19:03:25.522805+00:00",
     "weather:Air Quality Alert:Grand, CO; Jackson, CO; Summit, CO; Park, CO": "2026-06-25T17:04:54.387289+00:00",
     "weather:Air Quality Alert:Weld, CO; Douglas, CO; Boulder, CO; Arapahoe, CO; Larimer, C": "2026-06-23T14:32:50.006805+00:00",
+    "weather:Extreme Heat Warning:Greenup; Carter; Boyd; Lawrence; Perry; Morgan; Athens; Wash": "2026-07-01T04:04:23.917325+00:00",
     "weather:Extreme Heat Warning:San Diego County Deserts": "2026-06-25T16:04:24.319506+00:00",
     "weather:Flash Flood Warning:Alexander, IL; Union, IL; Cape Girardeau, MO; Scott, MO; Sto": "2026-06-27T17:33:32.548804+00:00",
     "weather:Flash Flood Warning:Allegheny, PA; Westmoreland, PA": "2026-06-28T21:33:12.950931+00:00",
@@ -597,7 +598,6 @@
     "weather:Flash Flood Warning:Morrill, NE": "2026-06-27T01:03:29.612428+00:00",
     "weather:Flash Flood Warning:Morris, NJ; Sussex, NJ": "2026-06-23T05:35:06.000620+00:00",
     "weather:Flash Flood Warning:Noble, OK; Payne, OK": "2026-06-27T02:33:17.788285+00:00",
-    "weather:Flash Flood Warning:Northampton, PA": "2026-06-23T04:02:43.310975+00:00",
     "weather:Flash Flood Warning:Pawnee, KS; Stafford, KS": "2026-06-26T04:03:21.127582+00:00",
     "weather:Flash Flood Warning:Pend Oreille, WA; Stevens, WA": "2026-06-30T02:03:14.041692+00:00",
     "weather:Flash Flood Warning:Pike, AR": "2026-06-24T19:34:43.309023+00:00",
