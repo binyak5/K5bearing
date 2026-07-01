@@ -52,6 +52,10 @@
       "at": "2026-06-30T07:33:12.249620+00:00",
       "sev": 82
     },
+    "USA, Kansas": {
+      "at": "2026-07-01T00:02:52.523124+00:00",
+      "sev": 82
+    },
     "USA, Mexico": {
       "at": "2026-06-30T20:32:48.597550+00:00",
       "sev": 86
@@ -86,20 +90,11 @@
     }
   },
   "daily": {
-    "2026-06-28": 44,
     "2026-06-29": 44,
-    "2026-06-30": 44
+    "2026-06-30": 44,
+    "2026-07-01": 1
   },
   "daily_cat": {
-    "2026-06-28": {
-      "cityweather": 1,
-      "gulf": 3,
-      "marine": 1,
-      "maritime": 4,
-      "outdoor": 1,
-      "weather": 18,
-      "weather_eu": 16
-    },
     "2026-06-29": {
       "cityweather": 1,
       "earthquake": 2,
@@ -119,12 +114,16 @@
       "maritime": 4,
       "weather": 16,
       "weather_eu": 14
+    },
+    "2026-07-01": {
+      "weather": 1
     }
   },
-  "last_post_at": "2026-06-30T21:33:56.475767+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-01T00:02:52.523119+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
-    "2026-06": 504
+    "2026-06": 504,
+    "2026-07": 1
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -270,6 +269,7 @@
     "fp:4036f6f183c1ce31": "2026-06-30T05:05:53.305530+00:00",
     "fp:409ed9de4e430d87": "2026-06-30T12:04:27.585072+00:00",
     "fp:425e62ca9e6b88e8": "2026-06-24T19:34:43.309064+00:00",
+    "fp:437a6c7ca2ab3da7": "2026-07-01T00:02:52.523096+00:00",
     "fp:43af9631e4e575b1": "2026-06-24T03:32:34.705309+00:00",
     "fp:448fbee55e8f668a": "2026-06-25T16:04:24.319549+00:00",
     "fp:4579cd2c512b1791": "2026-06-24T00:03:29.347072+00:00",
@@ -472,7 +472,6 @@
     "fp:ec94a49b2eba8843": "2026-06-29T00:04:33.442797+00:00",
     "fp:ed8a7a50bffa4878": "2026-06-25T10:04:53.972362+00:00",
     "fp:eecbf7284884dec2": "2026-06-30T04:03:22.190223+00:00",
-    "fp:ef24754cbdd1b322": "2026-06-22T23:36:56.936020+00:00",
     "fp:f087124af26cae91": "2026-06-28T15:34:42.403205+00:00",
     "fp:f25f9cf5d53b5479": "2026-06-26T12:04:46.574487+00:00",
     "fp:f3e3902898ca5290": "2026-06-29T02:33:21.361136+00:00",
@@ -653,6 +652,7 @@
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
     "weather:Severe Thunderstorm Warning:Harmon, OK; Jackson, OK": "2026-06-23T06:04:31.338920+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
+    "weather:Severe Thunderstorm Warning:Logan, KS; Wallace, KS": "2026-07-01T00:02:52.523055+00:00",
     "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
     "weather:Severe Thunderstorm Warning:McHenry, ND; McLean, ND; Ward, ND": "2026-06-29T19:34:01.613391+00:00",
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
@@ -687,7 +687,6 @@
     "weather:Tornado Warning:Ellis, OK": "2026-06-26T00:04:48.758296+00:00",
     "weather:Tornado Warning:Foard, TX; Wilbarger, TX": "2026-06-23T19:33:35.096330+00:00",
     "weather:Tornado Warning:Huerfano, CO; Las Animas, CO": "2026-06-24T06:02:25.474155+00:00",
-    "weather:Tornado Warning:Logan, CO; Washington, CO": "2026-06-22T23:36:56.935975+00:00",
     "weather:Tornado Warning:Mellette, SD; Todd, SD": "2026-06-29T09:33:55.773509+00:00",
     "weather:Tornado Warning:Morton, ND": "2026-06-29T20:04:03.313586+00:00",
     "weather:Tornado Warning:Ramsey, ND": "2026-06-29T07:34:12.059159+00:00",
