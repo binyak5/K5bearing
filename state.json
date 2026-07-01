@@ -68,10 +68,6 @@
       "at": "2026-06-30T20:32:48.597550+00:00",
       "sev": 86
     },
-    "USA, Minnesota": {
-      "at": "2026-06-30T06:32:39.203354+00:00",
-      "sev": 82
-    },
     "USA, Nebraska": {
       "at": "2026-07-01T04:34:10.283814+00:00",
       "sev": 96
@@ -84,6 +80,10 @@
       "at": "2026-07-01T03:34:20.323164+00:00",
       "sev": 82
     },
+    "USA, South Dakota": {
+      "at": "2026-07-01T06:34:41.701406+00:00",
+      "sev": 82
+    },
     "USA, Texas": {
       "at": "2026-07-01T03:04:18.438866+00:00",
       "sev": 84
@@ -92,7 +92,7 @@
   "daily": {
     "2026-06-29": 44,
     "2026-06-30": 44,
-    "2026-07-01": 13
+    "2026-07-01": 14
   },
   "daily_cat": {
     "2026-06-29": {
@@ -117,15 +117,15 @@
     },
     "2026-07-01": {
       "cityweather": 1,
-      "weather": 9,
+      "weather": 10,
       "weather_eu": 3
     }
   },
-  "last_post_at": "2026-07-01T06:04:49.282479+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-07-01T06:34:41.701402+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 13
+    "2026-07": 14
   },
   "posted": {
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
@@ -270,6 +270,7 @@
     "fp:4036f6f183c1ce31": "2026-06-30T05:05:53.305530+00:00",
     "fp:409ed9de4e430d87": "2026-06-30T12:04:27.585072+00:00",
     "fp:425e62ca9e6b88e8": "2026-06-24T19:34:43.309064+00:00",
+    "fp:4328e6cb4efc1805": "2026-07-01T06:34:41.701372+00:00",
     "fp:437a6c7ca2ab3da7": "2026-07-01T00:02:52.523096+00:00",
     "fp:43af9631e4e575b1": "2026-06-24T03:32:34.705309+00:00",
     "fp:448fbee55e8f668a": "2026-06-25T16:04:24.319549+00:00",
@@ -658,6 +659,7 @@
     "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
     "weather:Severe Thunderstorm Warning:Sheridan, NE": "2026-06-29T06:33:18.517255+00:00",
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
+    "weather:Severe Thunderstorm Warning:Tripp, SD": "2026-07-01T06:34:41.701323+00:00",
     "weather:Severe Thunderstorm Warning:Union, NM": "2026-06-30T20:03:03.769488+00:00",
     "weather:Special Marine Warning:Apalachee Bay or Coastal Waters From Keaton Beach to Ochlock": "2026-06-24T02:32:47.971399+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
