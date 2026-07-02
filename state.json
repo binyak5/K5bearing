@@ -20,6 +20,10 @@
       "at": "2026-07-02T16:04:32.875299+00:00",
       "sev": 72
     },
+    "GCC, Kuwait": {
+      "at": "2026-07-02T19:04:48.516290+00:00",
+      "sev": 72
+    },
     "GCC, Oman": {
       "at": "2026-07-02T10:04:17.615124+00:00",
       "sev": 72
@@ -56,10 +60,6 @@
       "at": "2026-07-02T07:04:38.595760+00:00",
       "sev": 84
     },
-    "USA, Louisiana": {
-      "at": "2026-07-01T19:03:40.876103+00:00",
-      "sev": 82
-    },
     "USA, Miami": {
       "at": "2026-07-02T18:33:17.335292+00:00",
       "sev": 60
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 38
+    "2026-07-02": 39
   },
   "daily_cat": {
     "2026-06-30": {
@@ -116,7 +116,7 @@
       "cityweather": 2,
       "earthquake": 1,
       "flare": 1,
-      "gulf": 3,
+      "gulf": 4,
       "marine": 3,
       "maritime": 5,
       "outdoor": 1,
@@ -124,11 +124,11 @@
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-02T18:33:17.335288+00:00",
-  "last_topic": "outdoor",
+  "last_post_at": "2026-07-02T19:04:48.516285+00:00",
+  "last_topic": "dust",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 82
+    "2026-07": 83
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -307,10 +307,9 @@
     "fp:591d26f890b0cd95": "2026-06-25T06:04:49.518817+00:00",
     "fp:59d5850f1654f725": "2026-07-01T13:34:25.908158+00:00",
     "fp:5a52952bd5fa8a45": "2026-07-02T08:03:16.809858+00:00",
-    "fp:5affda8509bb5564": "2026-06-30T18:04:42.488489+00:00",
+    "fp:5affda8509bb5564": "2026-07-02T19:04:48.516260+00:00",
     "fp:5d85e4ea182e1f1e": "2026-06-27T01:03:29.612469+00:00",
     "fp:5ddbbab7f11307c5": "2026-06-26T10:33:19.752197+00:00",
-    "fp:5f89749f2ddef34b": "2026-06-24T19:04:41.736576+00:00",
     "fp:5fb36fd1ef0a35a6": "2026-07-01T12:04:28.551649+00:00",
     "fp:6166d2e2aedbb809": "2026-07-01T16:03:21.248416+00:00",
     "fp:6178d5a89cba7719": "2026-06-28T18:33:51.191926+00:00",
@@ -369,7 +368,6 @@
     "fp:911dbef61520f4dd": "2026-06-26T05:05:14.642907+00:00",
     "fp:914f3c2a99d98ac2": "2026-07-01T19:03:40.876080+00:00",
     "fp:916c624b1471d4ec": "2026-06-30T16:04:55.251269+00:00",
-    "fp:9195a6a16eeaaeb9": "2026-06-24T18:34:43.893881+00:00",
     "fp:925ef530c2b1ea21": "2026-06-29T03:03:24.925348+00:00",
     "fp:928bcf371f7829b7": "2026-07-02T13:33:58.982991+00:00",
     "fp:94067df78f288f59": "2026-07-02T09:33:40.844871+00:00",
@@ -496,6 +494,7 @@
     "gulfdust:Kuwait City:2026-06-26": "2026-06-26T16:34:17.341189+00:00",
     "gulfdust:Kuwait City:2026-06-28": "2026-06-28T17:34:05.829921+00:00",
     "gulfdust:Kuwait City:2026-06-30": "2026-06-30T18:04:42.488443+00:00",
+    "gulfdust:Kuwait City:2026-07-02": "2026-07-02T19:04:48.516213+00:00",
     "gulfdust:Manama:2026-06-25": "2026-06-25T20:04:31.153844+00:00",
     "gulfdust:Manama:2026-07-02": "2026-07-02T16:04:32.875227+00:00",
     "gulfdust:Mecca:2026-06-28": "2026-06-28T13:34:38.682659+00:00",
@@ -577,7 +576,6 @@
     "weather:Flash Flood Warning:Clay, KY; Estill, KY; Lee, KY; Owsley, KY": "2026-06-27T16:02:38.169586+00:00",
     "weather:Flash Flood Warning:Clinton, KY; Cumberland, KY; Metcalfe, KY": "2026-06-28T08:33:12.111024+00:00",
     "weather:Flash Flood Warning:Cook, IL; Lake, IN": "2026-06-25T02:02:41.054172+00:00",
-    "weather:Flash Flood Warning:Craig, OK; Delaware, OK; Mayes, OK": "2026-06-24T18:34:43.893834+00:00",
     "weather:Flash Flood Warning:Craig, OK; Delaware, OK; Ottawa, OK": "2026-06-27T05:34:36.183353+00:00",
     "weather:Flash Flood Warning:Crawford, IN; Perry, IN": "2026-06-27T06:33:17.834423+00:00",
     "weather:Flash Flood Warning:Donley, TX": "2026-06-30T21:33:56.475700+00:00",
@@ -668,7 +666,6 @@
     "weather:Severe Thunderstorm Warning:Pierce, ND": "2026-06-29T05:33:20.814096+00:00",
     "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
     "weather:Severe Thunderstorm Warning:Sheridan, NE": "2026-06-29T06:33:18.517255+00:00",
-    "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Severe Thunderstorm Warning:Tripp, SD": "2026-07-01T06:34:41.701323+00:00",
     "weather:Severe Thunderstorm Warning:Union, NM": "2026-06-30T20:03:03.769488+00:00",
     "weather:Severe Thunderstorm Warning:Weld, CO": "2026-07-02T06:32:35.232748+00:00",
