@@ -41,8 +41,8 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-01T18:34:31.891729+00:00",
-      "sev": 80
+      "at": "2026-07-02T03:33:17.248260+00:00",
+      "sev": 75
     },
     "USA, Alabama": {
       "at": "2026-07-01T18:02:43.975175+00:00",
@@ -96,7 +96,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 7
+    "2026-07-02": 8
   },
   "daily_cat": {
     "2026-06-30": {
@@ -122,15 +122,15 @@
     },
     "2026-07-02": {
       "maritime": 2,
-      "weather": 4,
+      "weather": 5,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-02T03:02:56.766920+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-02T03:33:17.248255+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 51
+    "2026-07": 52
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -278,7 +278,6 @@
     "fp:4328e6cb4efc1805": "2026-07-01T06:34:41.701372+00:00",
     "fp:43351674b4eb371e": "2026-07-01T17:35:12.793389+00:00",
     "fp:437a6c7ca2ab3da7": "2026-07-01T00:02:52.523096+00:00",
-    "fp:43af9631e4e575b1": "2026-06-24T03:32:34.705309+00:00",
     "fp:448fbee55e8f668a": "2026-06-25T16:04:24.319549+00:00",
     "fp:47071988b19b645a": "2026-06-28T13:04:44.049992+00:00",
     "fp:4754bd9f269171b5": "2026-06-27T17:33:32.548835+00:00",
@@ -396,6 +395,7 @@
     "fp:a944906c409d43ee": "2026-06-28T07:03:25.379216+00:00",
     "fp:a979880a26b4d41a": "2026-06-24T05:04:24.653162+00:00",
     "fp:a9c153105ee43339": "2026-07-01T11:02:34.783851+00:00",
+    "fp:aa1ec2c608181818": "2026-07-02T03:33:17.248225+00:00",
     "fp:aafa6449bd01e310": "2026-06-26T02:03:22.421892+00:00",
     "fp:ab5f7ef42c07bac0": "2026-06-28T10:33:11.542162+00:00",
     "fp:abf036808a261481": "2026-06-27T07:32:35.255676+00:00",
@@ -427,7 +427,6 @@
     "fp:c652944ed90af77e": "2026-06-25T01:04:23.631895+00:00",
     "fp:c6729091565bb68a": "2026-06-28T11:32:30.320582+00:00",
     "fp:c78381a9ad013a1f": "2026-06-27T06:33:17.834464+00:00",
-    "fp:c7984fa26af6b0fc": "2026-06-24T03:04:48.745609+00:00",
     "fp:c822cdfdb9482227": "2026-06-29T08:04:07.598361+00:00",
     "fp:c8428c2356339623": "2026-06-25T17:34:24.626654+00:00",
     "fp:cb129a7250035fa5": "2026-06-26T08:33:31.327174+00:00",
@@ -552,6 +551,7 @@
     "uv:Phoenix:2026-06-26": "2026-06-26T20:03:25.779008+00:00",
     "uv:Phoenix:2026-06-28": "2026-06-28T19:03:25.522805+00:00",
     "weather:Air Quality Alert:Grand, CO; Jackson, CO; Summit, CO; Park, CO": "2026-06-25T17:04:54.387289+00:00",
+    "weather:Extreme Heat Warning:Dade; Walker; Catoosa": "2026-07-02T03:33:17.248154+00:00",
     "weather:Extreme Heat Warning:Greenup; Carter; Boyd; Lawrence; Perry; Morgan; Athens; Wash": "2026-07-01T04:04:23.917325+00:00",
     "weather:Extreme Heat Warning:San Diego County Deserts": "2026-06-25T16:04:24.319506+00:00",
     "weather:Flash Flood Warning:Alexander, IL; Union, IL; Cape Girardeau, MO; Scott, MO; Sto": "2026-06-27T17:33:32.548804+00:00",
@@ -593,7 +593,6 @@
     "weather:Flash Flood Warning:Hinds, MS": "2026-06-24T21:02:45.061500+00:00",
     "weather:Flash Flood Warning:Hodgeman, KS": "2026-06-24T12:02:42.817157+00:00",
     "weather:Flash Flood Warning:Jackson, IL; Perry, IL": "2026-06-26T03:03:33.797171+00:00",
-    "weather:Flash Flood Warning:Jasper, MO; Newton, MO": "2026-06-24T03:04:48.745560+00:00",
     "weather:Flash Flood Warning:Jeff Davis, TX": "2026-06-26T21:03:32.947385+00:00",
     "weather:Flash Flood Warning:Johnson, IL; Union, IL": "2026-06-26T12:32:33.087903+00:00",
     "weather:Flash Flood Warning:Lake, IN; Porter, IN": "2026-06-25T03:03:38.394101+00:00",
@@ -645,7 +644,6 @@
     "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
     "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
     "weather:Severe Thunderstorm Warning:Deaf Smith, TX": "2026-07-01T21:04:52.752897+00:00",
-    "weather:Severe Thunderstorm Warning:El Paso, CO; Pueblo, CO": "2026-06-24T03:32:34.705250+00:00",
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
