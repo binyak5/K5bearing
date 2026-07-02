@@ -16,10 +16,6 @@
       "at": "2026-07-02T00:34:58.739689+00:00",
       "sev": 96
     },
-    "EU, Serbia": {
-      "at": "2026-07-01T06:04:49.282484+00:00",
-      "sev": 79
-    },
     "EU, Slovakia": {
       "at": "2026-07-01T09:34:16.615642+00:00",
       "sev": 79
@@ -51,6 +47,10 @@
     "USA, Arkansas": {
       "at": "2026-07-02T05:04:08.749259+00:00",
       "sev": 84
+    },
+    "USA, Colorado": {
+      "at": "2026-07-02T06:32:35.232821+00:00",
+      "sev": 82
     },
     "USA, Connecticut": {
       "at": "2026-07-02T03:02:56.766926+00:00",
@@ -96,7 +96,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 13
+    "2026-07-02": 14
   },
   "daily_cat": {
     "2026-06-30": {
@@ -123,15 +123,15 @@
     "2026-07-02": {
       "cityweather": 1,
       "maritime": 2,
-      "weather": 9,
+      "weather": 10,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-02T06:04:44.746926+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-02T06:32:35.232817+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 57
+    "2026-07": 58
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -296,6 +296,7 @@
     "fp:4f2bb8af9c740012": "2026-07-01T17:04:58.785028+00:00",
     "fp:51b3a208f117925a": "2026-06-28T10:03:27.674967+00:00",
     "fp:51e48f1e33635acc": "2026-06-27T08:03:20.965919+00:00",
+    "fp:52018fd024567afd": "2026-07-02T06:32:35.232792+00:00",
     "fp:5424fc22eebe1a18": "2026-06-28T12:34:13.272011+00:00",
     "fp:543db3de4733bfc6": "2026-06-24T12:02:42.817203+00:00",
     "fp:54943b207f52f4cf": "2026-06-26T00:33:18.868378+00:00",
@@ -669,6 +670,7 @@
     "weather:Severe Thunderstorm Warning:Taylor, WI": "2026-06-24T19:04:41.736544+00:00",
     "weather:Severe Thunderstorm Warning:Tripp, SD": "2026-07-01T06:34:41.701323+00:00",
     "weather:Severe Thunderstorm Warning:Union, NM": "2026-06-30T20:03:03.769488+00:00",
+    "weather:Severe Thunderstorm Warning:Weld, CO": "2026-07-02T06:32:35.232748+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
     "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
