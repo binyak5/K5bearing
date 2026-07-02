@@ -37,8 +37,8 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-02T17:32:20.578366+00:00",
-      "sev": 75
+      "at": "2026-07-02T21:34:38.006567+00:00",
+      "sev": 80
     },
     "USA, Arkansas": {
       "at": "2026-07-02T05:04:08.749259+00:00",
@@ -96,7 +96,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 43
+    "2026-07-02": 44
   },
   "daily_cat": {
     "2026-06-30": {
@@ -128,15 +128,15 @@
       "marine": 3,
       "maritime": 5,
       "outdoor": 1,
-      "weather": 21,
+      "weather": 22,
       "weather_eu": 5
     }
   },
-  "last_post_at": "2026-07-02T21:02:28.663779+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-02T21:34:38.006563+00:00",
+  "last_topic": "marine",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 87
+    "2026-07": 88
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -330,7 +330,6 @@
     "fp:6618cb97da8d078a": "2026-07-01T09:34:16.615613+00:00",
     "fp:67374c8b2419f3ab": "2026-06-28T21:03:19.675361+00:00",
     "fp:677c173990ec7a86": "2026-06-27T02:03:19.491955+00:00",
-    "fp:68e876b8d7d698ff": "2026-06-24T21:02:45.061532+00:00",
     "fp:6906b52f611fd5a9": "2026-07-01T01:33:07.941973+00:00",
     "fp:6aaac59b198738c0": "2026-06-25T16:33:23.068685+00:00",
     "fp:6c9418a96ec6b5ab": "2026-07-02T10:33:58.100121+00:00",
@@ -449,6 +448,7 @@
     "fp:d2604fcabd48bf8f": "2026-06-28T18:03:58.329103+00:00",
     "fp:d29d30f78275339b": "2026-06-30T11:04:40.637044+00:00",
     "fp:d3211086c0b82738": "2026-06-29T01:34:14.172971+00:00",
+    "fp:d368187bd5d09a8b": "2026-07-02T21:34:38.006547+00:00",
     "fp:d3693f42e3882963": "2026-06-29T04:04:26.541490+00:00",
     "fp:d4bcdda8b0676080": "2026-06-30T20:03:03.769533+00:00",
     "fp:d52c7099ab6e9c89": "2026-07-01T02:04:56.845156+00:00",
@@ -600,7 +600,6 @@
     "weather:Flash Flood Warning:Hall, TX": "2026-07-01T00:32:42.013058+00:00",
     "weather:Flash Flood Warning:Hemphill, TX; Wheeler, TX": "2026-06-26T02:03:22.421852+00:00",
     "weather:Flash Flood Warning:Henderson, NC": "2026-06-30T00:32:27.070634+00:00",
-    "weather:Flash Flood Warning:Hinds, MS": "2026-06-24T21:02:45.061500+00:00",
     "weather:Flash Flood Warning:Houston, MN": "2026-07-02T11:04:06.638173+00:00",
     "weather:Flash Flood Warning:Jackson, IL; Perry, IL": "2026-06-26T03:03:33.797171+00:00",
     "weather:Flash Flood Warning:Jeff Davis, TX": "2026-06-26T21:03:32.947385+00:00",
@@ -679,6 +678,7 @@
     "weather:Severe Thunderstorm Warning:Union, NM": "2026-06-30T20:03:03.769488+00:00",
     "weather:Severe Thunderstorm Warning:Weld, CO": "2026-07-02T06:32:35.232748+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
+    "weather:Special Marine Warning:Coastal waters from Chokoloskee to Bonita Beach FL out 20 NM": "2026-07-02T21:34:38.006510+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
     "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
