@@ -29,7 +29,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-02T14:04:27.596556+00:00",
+      "at": "2026-07-02T17:32:20.578366+00:00",
       "sev": 75
     },
     "USA, Alabama": {
@@ -88,7 +88,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 35
+    "2026-07-02": 36
   },
   "daily_cat": {
     "2026-06-30": {
@@ -119,20 +119,19 @@
       "gulf": 2,
       "marine": 3,
       "maritime": 5,
-      "weather": 17,
+      "weather": 18,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-02T17:03:43.772146+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-07-02T17:32:20.578362+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 79
+    "2026-07": 80
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
     "blackout:R2": "2026-06-30T13:04:40.933283+00:00",
-    "citywx:rotterdam:2026-06-24:evening": "2026-06-24T17:04:32.587058+00:00",
     "citywx:rotterdam:2026-06-26:evening": "2026-06-26T17:04:35.213973+00:00",
     "citywx:rotterdam:2026-06-26:morning": "2026-06-26T05:05:14.642858+00:00",
     "citywx:rotterdam:2026-06-27:evening": "2026-06-27T17:04:13.854778+00:00",
@@ -234,6 +233,7 @@
     "fp:1da93097ff71cfa6": "2026-06-29T10:33:57.323005+00:00",
     "fp:1e72941dd0da6c4e": "2026-06-30T20:32:48.597521+00:00",
     "fp:1edd3b1b52f1767a": "2026-07-01T04:34:10.283784+00:00",
+    "fp:20f1d5a1ac43c87f": "2026-07-02T17:32:20.578333+00:00",
     "fp:22d115d99a00f404": "2026-06-25T04:32:29.701954+00:00",
     "fp:248c97b3b2697731": "2026-06-26T21:33:27.264702+00:00",
     "fp:255c8f82d9440dde": "2026-07-02T07:04:38.595730+00:00",
@@ -556,6 +556,7 @@
     "weather:Extreme Heat Warning:Dade; Walker; Catoosa": "2026-07-02T03:33:17.248154+00:00",
     "weather:Extreme Heat Warning:Dallas; Polk; Jasper; Poweshiek; Madison; Warren; Marion; Ma": "2026-07-02T14:04:27.596474+00:00",
     "weather:Extreme Heat Warning:Greenup; Carter; Boyd; Lawrence; Perry; Morgan; Athens; Wash": "2026-07-01T04:04:23.917325+00:00",
+    "weather:Extreme Heat Warning:Northern Oneida; Yates; Seneca; Southern Cayuga; Onondaga; S": "2026-07-02T17:32:20.578277+00:00",
     "weather:Extreme Heat Warning:San Diego County Deserts": "2026-06-25T16:04:24.319506+00:00",
     "weather:Flash Flood Warning:Adams, WI": "2026-07-02T06:04:44.746851+00:00",
     "weather:Flash Flood Warning:Alexander, IL; Union, IL; Cape Girardeau, MO; Scott, MO; Sto": "2026-06-27T17:33:32.548804+00:00",
