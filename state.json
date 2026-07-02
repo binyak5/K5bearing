@@ -80,10 +80,6 @@
       "at": "2026-07-02T01:33:04.889646+00:00",
       "sev": 82
     },
-    "USA, New York": {
-      "at": "2026-07-01T03:34:20.323164+00:00",
-      "sev": 82
-    },
     "USA, South Dakota": {
       "at": "2026-07-01T06:34:41.701406+00:00",
       "sev": 82
@@ -91,12 +87,16 @@
     "USA, Texas": {
       "at": "2026-07-02T01:04:28.305383+00:00",
       "sev": 84
+    },
+    "USA, Wisconsin": {
+      "at": "2026-07-02T04:03:27.745435+00:00",
+      "sev": 96
     }
   },
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 8
+    "2026-07-02": 9
   },
   "daily_cat": {
     "2026-06-30": {
@@ -122,15 +122,15 @@
     },
     "2026-07-02": {
       "maritime": 2,
-      "weather": 5,
+      "weather": 6,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-02T03:33:17.248255+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-07-02T04:03:27.745431+00:00",
+  "last_topic": "tornado",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 52
+    "2026-07": 53
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -331,6 +331,7 @@
     "fp:6e1ff79c2a4d763c": "2026-06-26T12:32:33.087952+00:00",
     "fp:6e322ebdcc56e681": "2026-06-25T09:04:42.269066+00:00",
     "fp:6f516646b059bc2b": "2026-06-29T14:33:37.572081+00:00",
+    "fp:6fae3371c9429de4": "2026-07-02T04:03:27.745415+00:00",
     "fp:70a45b34b59bac8e": "2026-06-26T21:03:32.947431+00:00",
     "fp:74303eefe59c1388": "2026-06-30T18:33:08.386050+00:00",
     "fp:779bb7c2e6103342": "2026-06-28T04:34:14.743632+00:00",
@@ -678,6 +679,7 @@
     "weather:Special Marine Warning:Terrebonne Bay; Barataria Bay; Coastal Waters from Port Four": "2026-07-01T05:33:58.430432+00:00",
     "weather:Special Marine Warning:Terrebonne Bay; Coastal Waters from Port Fourchon LA to Lowe": "2026-07-01T18:34:31.891651+00:00",
     "weather:Special Marine Warning:Waters from Ocracoke Inlet to Cape Lookout NC from 20 to 60 ": "2026-06-29T04:04:26.541435+00:00",
+    "weather:Tornado Warning:Adams, WI; Juneau, WI": "2026-07-02T04:03:27.745384+00:00",
     "weather:Tornado Warning:Bent, CO; Kiowa, CO; Prowers, CO": "2026-06-27T01:33:25.314411+00:00",
     "weather:Tornado Warning:Burleigh, ND; Emmons, ND; Kidder, ND": "2026-06-28T04:34:14.743586+00:00",
     "weather:Tornado Warning:Caldwell, KY; Trigg, KY": "2026-06-28T00:04:30.298093+00:00",
