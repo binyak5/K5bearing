@@ -37,7 +37,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-02T03:33:17.248260+00:00",
+      "at": "2026-07-02T14:04:27.596556+00:00",
       "sev": 75
     },
     "USA, Alabama": {
@@ -96,7 +96,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 28
+    "2026-07-02": 29
   },
   "daily_cat": {
     "2026-06-30": {
@@ -126,15 +126,15 @@
       "gulf": 1,
       "marine": 3,
       "maritime": 4,
-      "weather": 14,
+      "weather": 15,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-02T13:33:58.983018+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-02T14:04:27.596551+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 72
+    "2026-07": 73
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -341,6 +341,7 @@
     "fp:6fae3371c9429de4": "2026-07-02T04:03:27.745415+00:00",
     "fp:70a45b34b59bac8e": "2026-06-26T21:03:32.947431+00:00",
     "fp:74303eefe59c1388": "2026-06-30T18:33:08.386050+00:00",
+    "fp:778386388d4de384": "2026-07-02T14:04:27.596526+00:00",
     "fp:779bb7c2e6103342": "2026-06-28T04:34:14.743632+00:00",
     "fp:77abc8c142c2da2c": "2026-06-30T12:34:19.768264+00:00",
     "fp:798cf2e7548d9cc7": "2026-06-30T13:04:40.933330+00:00",
@@ -559,6 +560,7 @@
     "uv:Phoenix:2026-06-28": "2026-06-28T19:03:25.522805+00:00",
     "weather:Air Quality Alert:Grand, CO; Jackson, CO; Summit, CO; Park, CO": "2026-06-25T17:04:54.387289+00:00",
     "weather:Extreme Heat Warning:Dade; Walker; Catoosa": "2026-07-02T03:33:17.248154+00:00",
+    "weather:Extreme Heat Warning:Dallas; Polk; Jasper; Poweshiek; Madison; Warren; Marion; Ma": "2026-07-02T14:04:27.596474+00:00",
     "weather:Extreme Heat Warning:Greenup; Carter; Boyd; Lawrence; Perry; Morgan; Athens; Wash": "2026-07-01T04:04:23.917325+00:00",
     "weather:Extreme Heat Warning:San Diego County Deserts": "2026-06-25T16:04:24.319506+00:00",
     "weather:Flash Flood Warning:Adams, WI": "2026-07-02T06:04:44.746851+00:00",
