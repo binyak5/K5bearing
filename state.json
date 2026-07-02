@@ -48,6 +48,10 @@
       "at": "2026-07-01T18:02:43.975175+00:00",
       "sev": 82
     },
+    "USA, Connecticut": {
+      "at": "2026-07-02T03:02:56.766926+00:00",
+      "sev": 82
+    },
     "USA, Georgia": {
       "at": "2026-07-01T20:34:16.521176+00:00",
       "sev": 84
@@ -92,7 +96,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 6
+    "2026-07-02": 7
   },
   "daily_cat": {
     "2026-06-30": {
@@ -118,15 +122,15 @@
     },
     "2026-07-02": {
       "maritime": 2,
-      "weather": 3,
+      "weather": 4,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-02T02:34:12.812645+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-07-02T03:02:56.766920+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 50
+    "2026-07": 51
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -347,6 +351,7 @@
     "fp:81fae42362852e68": "2026-06-24T09:05:17.998146+00:00",
     "fp:82613bb73301cdd2": "2026-06-30T17:35:22.574993+00:00",
     "fp:82cf1960629bf270": "2026-06-30T01:04:13.750375+00:00",
+    "fp:8376170415fa43c0": "2026-07-02T03:02:56.766892+00:00",
     "fp:83a9479105148ff5": "2026-06-29T17:04:10.354853+00:00",
     "fp:84277c3cc966c39c": "2026-06-26T18:03:28.518887+00:00",
     "fp:846614bf31befb07": "2026-06-27T04:33:10.702902+00:00",
@@ -644,6 +649,7 @@
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Greenville, SC; Laurens, SC; Spartanburg, SC": "2026-06-29T21:32:47.414511+00:00",
     "weather:Severe Thunderstorm Warning:Haakon, SD; Jackson, SD; Pennington, SD": "2026-06-29T04:34:18.604361+00:00",
+    "weather:Severe Thunderstorm Warning:Hartford, CT; Tolland, CT; Franklin, MA; Hampden, MA; Hampsh": "2026-07-02T03:02:56.766836+00:00",
     "weather:Severe Thunderstorm Warning:Iberia, LA; St. Martin, LA": "2026-07-01T19:03:40.876045+00:00",
     "weather:Severe Thunderstorm Warning:Jefferson, NY; Lewis, NY": "2026-07-01T03:34:20.323081+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
