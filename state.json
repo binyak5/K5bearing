@@ -48,6 +48,10 @@
       "at": "2026-07-01T18:02:43.975175+00:00",
       "sev": 82
     },
+    "USA, Arkansas": {
+      "at": "2026-07-02T05:04:08.749259+00:00",
+      "sev": 84
+    },
     "USA, Connecticut": {
       "at": "2026-07-02T03:02:56.766926+00:00",
       "sev": 82
@@ -92,7 +96,7 @@
   "daily": {
     "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 10
+    "2026-07-02": 11
   },
   "daily_cat": {
     "2026-06-30": {
@@ -118,15 +122,15 @@
     },
     "2026-07-02": {
       "maritime": 2,
-      "weather": 7,
+      "weather": 8,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-02T04:34:18.931236+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-02T05:04:08.749254+00:00",
+  "last_topic": "flood",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 54
+    "2026-07": 55
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -270,6 +274,7 @@
     "fp:3f86080a70cac280": "2026-06-30T04:32:27.853836+00:00",
     "fp:4036f6f183c1ce31": "2026-06-30T05:05:53.305530+00:00",
     "fp:409ed9de4e430d87": "2026-06-30T12:04:27.585072+00:00",
+    "fp:413067f74df046a2": "2026-07-02T05:04:08.749227+00:00",
     "fp:425e62ca9e6b88e8": "2026-06-24T19:34:43.309064+00:00",
     "fp:4328e6cb4efc1805": "2026-07-01T06:34:41.701372+00:00",
     "fp:43351674b4eb371e": "2026-07-01T17:35:12.793389+00:00",
@@ -580,6 +585,7 @@
     "weather:Flash Flood Warning:Edwards, IL; Wabash, IL; Gibson, IN": "2026-06-27T20:03:16.739183+00:00",
     "weather:Flash Flood Warning:Edwards, KS; Hodgeman, KS; Pawnee, KS": "2026-06-25T15:34:14.279875+00:00",
     "weather:Flash Flood Warning:Fentress, TN; Pickett, TN": "2026-06-28T14:34:18.910439+00:00",
+    "weather:Flash Flood Warning:Garland, AR; Saline, AR": "2026-07-02T05:04:08.749182+00:00",
     "weather:Flash Flood Warning:Greene, IN; Sullivan, IN": "2026-06-27T19:04:48.812515+00:00",
     "weather:Flash Flood Warning:Greene, TN; Hancock, TN; Hawkins, TN; Sullivan, TN; Washingt": "2026-06-28T05:34:26.032674+00:00",
     "weather:Flash Flood Warning:Hall, TX": "2026-07-01T00:32:42.013058+00:00",
