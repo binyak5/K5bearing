@@ -8,10 +8,6 @@
       "at": "2026-07-02T20:02:43.517431+00:00",
       "sev": 79
     },
-    "EU, Portugal": {
-      "at": "2026-07-02T00:34:58.739689+00:00",
-      "sev": 96
-    },
     "EU, Serbia": {
       "at": "2026-07-02T13:03:29.716469+00:00",
       "sev": 79
@@ -57,7 +53,7 @@
       "sev": 84
     },
     "USA, Kansas": {
-      "at": "2026-07-02T07:04:38.595760+00:00",
+      "at": "2026-07-03T01:04:49.294627+00:00",
       "sev": 84
     },
     "USA, Miami": {
@@ -88,10 +84,6 @@
       "at": "2026-07-02T21:02:28.663784+00:00",
       "sev": 82
     },
-    "USA, Texas": {
-      "at": "2026-07-02T01:04:28.305383+00:00",
-      "sev": 84
-    },
     "USA, Wisconsin": {
       "at": "2026-07-02T13:33:58.983023+00:00",
       "sev": 75
@@ -100,7 +92,7 @@
   "daily": {
     "2026-07-01": 44,
     "2026-07-02": 44,
-    "2026-07-03": 2
+    "2026-07-03": 3
   },
   "daily_cat": {
     "2026-07-01": {
@@ -125,14 +117,14 @@
       "weather_eu": 5
     },
     "2026-07-03": {
-      "weather": 2
+      "weather": 3
     }
   },
-  "last_post_at": "2026-07-03T00:32:31.201656+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-03T01:04:49.294620+00:00",
+  "last_topic": "flood",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 90
+    "2026-07": 91
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -261,7 +253,6 @@
     "fp:328767e5073c7464": "2026-06-30T06:04:09.548199+00:00",
     "fp:32e5a1f43dccf850": "2026-06-26T02:33:18.504976+00:00",
     "fp:33c808ebdaa4afa0": "2026-06-30T03:03:20.448999+00:00",
-    "fp:340c59d52f372e1c": "2026-06-25T00:33:12.852340+00:00",
     "fp:341214589db567df": "2026-06-27T04:03:26.144985+00:00",
     "fp:34935b21e9a7355c": "2026-07-03T00:02:52.822184+00:00",
     "fp:35026c0d702adf90": "2026-06-27T02:33:17.788318+00:00",
@@ -316,6 +307,7 @@
     "fp:5affda8509bb5564": "2026-07-02T19:04:48.516260+00:00",
     "fp:5d85e4ea182e1f1e": "2026-06-27T01:03:29.612469+00:00",
     "fp:5ddbbab7f11307c5": "2026-06-26T10:33:19.752197+00:00",
+    "fp:5e158cf1b36908f2": "2026-07-03T01:04:49.294573+00:00",
     "fp:5fb36fd1ef0a35a6": "2026-07-01T12:04:28.551649+00:00",
     "fp:6166d2e2aedbb809": "2026-07-01T16:03:21.248416+00:00",
     "fp:6178d5a89cba7719": "2026-06-28T18:33:51.191926+00:00",
@@ -431,7 +423,6 @@
     "fp:c3cb8aa4e3430337": "2026-06-30T05:33:36.319524+00:00",
     "fp:c43e1efe87498b8e": "2026-06-25T07:04:20.144806+00:00",
     "fp:c5ec1b247dafd0cb": "2026-06-29T08:33:18.833015+00:00",
-    "fp:c652944ed90af77e": "2026-06-25T01:04:23.631895+00:00",
     "fp:c6729091565bb68a": "2026-06-28T11:32:30.320582+00:00",
     "fp:c78381a9ad013a1f": "2026-06-27T06:33:17.834464+00:00",
     "fp:c822cdfdb9482227": "2026-06-29T08:04:07.598361+00:00",
@@ -591,6 +582,7 @@
     "weather:Flash Flood Warning:Fentress, TN; Pickett, TN": "2026-06-28T14:34:18.910439+00:00",
     "weather:Flash Flood Warning:Fillmore, MN; Houston, MN": "2026-07-02T14:34:07.648809+00:00",
     "weather:Flash Flood Warning:Garland, AR; Saline, AR": "2026-07-02T05:04:08.749182+00:00",
+    "weather:Flash Flood Warning:Grant, KS; Stanton, KS": "2026-07-03T01:04:49.294531+00:00",
     "weather:Flash Flood Warning:Greene, IN; Sullivan, IN": "2026-06-27T19:04:48.812515+00:00",
     "weather:Flash Flood Warning:Greene, TN; Hancock, TN; Hawkins, TN; Sullivan, TN; Washingt": "2026-06-28T05:34:26.032674+00:00",
     "weather:Flash Flood Warning:Hall, TX": "2026-07-01T00:32:42.013058+00:00",
@@ -627,7 +619,6 @@
     "weather:Red Flag Warning:Indian Wells Valley; Kern County Desert; Lake Isabella": "2026-06-26T06:04:59.851699+00:00",
     "weather:Severe Thunderstorm Warning:Addison, VT; Rutland, VT": "2026-06-26T18:34:22.311955+00:00",
     "weather:Severe Thunderstorm Warning:Aitkin, MN; Carlton, MN; Lake, MN; St. Louis, MN; Douglas, W": "2026-06-30T06:32:39.203278+00:00",
-    "weather:Severe Thunderstorm Warning:Albany, WY; Platte, WY": "2026-06-25T00:33:12.852299+00:00",
     "weather:Severe Thunderstorm Warning:Andrews, TX; Dawson, TX; Gaines, TX; Martin, TX": "2026-06-29T01:34:14.172919+00:00",
     "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
     "weather:Severe Thunderstorm Warning:Bayfield, WI; Douglas, WI": "2026-06-29T20:34:28.549923+00:00",
@@ -702,7 +693,6 @@
     "weather:Tornado Warning:Logan, CO; Sedgwick, CO": "2026-07-01T02:04:56.845125+00:00",
     "weather:Tornado Warning:Mellette, SD; Todd, SD": "2026-06-29T09:33:55.773509+00:00",
     "weather:Tornado Warning:Morton, ND": "2026-06-29T20:04:03.313586+00:00",
-    "weather:Tornado Warning:Ramsey, ND": "2026-06-29T07:34:12.059159+00:00",
-    "weather:Tornado Warning:Washington, CO": "2026-06-25T01:04:23.631853+00:00"
+    "weather:Tornado Warning:Ramsey, ND": "2026-06-29T07:34:12.059159+00:00"
   }
 }
