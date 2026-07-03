@@ -77,8 +77,8 @@
       "sev": 84
     },
     "USA, South Dakota": {
-      "at": "2026-07-02T20:33:34.041361+00:00",
-      "sev": 96
+      "at": "2026-07-03T02:34:19.107638+00:00",
+      "sev": 82
     },
     "USA, Tennessee": {
       "at": "2026-07-02T21:02:28.663784+00:00",
@@ -92,7 +92,7 @@
   "daily": {
     "2026-07-01": 44,
     "2026-07-02": 44,
-    "2026-07-03": 5
+    "2026-07-03": 6
   },
   "daily_cat": {
     "2026-07-01": {
@@ -117,14 +117,14 @@
       "weather_eu": 5
     },
     "2026-07-03": {
-      "weather": 5
+      "weather": 6
     }
   },
-  "last_post_at": "2026-07-03T02:02:40.961446+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-03T02:34:19.107633+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 93
+    "2026-07": 94
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -195,7 +195,6 @@
     "flare:2026-07-02T10:26:00Z": "2026-07-02T15:34:27.706406+00:00",
     "fp:00a155ce29ed65a9": "2026-06-28T05:34:26.032710+00:00",
     "fp:03a1923a6da1751c": "2026-06-30T19:34:33.043069+00:00",
-    "fp:04b3e4a9e9174318": "2026-06-25T02:02:41.054240+00:00",
     "fp:0829bacc075b510b": "2026-07-01T07:34:06.562343+00:00",
     "fp:08387cc120280733": "2026-06-30T02:03:14.041739+00:00",
     "fp:0878cbbc56389aa9": "2026-06-25T14:04:55.049982+00:00",
@@ -392,6 +391,7 @@
     "fp:a360605cba966ab1": "2026-06-28T14:34:18.910479+00:00",
     "fp:a413eef3f54912e5": "2026-07-03T01:33:22.438965+00:00",
     "fp:a4e34da46481eac8": "2026-06-28T19:03:25.522850+00:00",
+    "fp:a69814c8ff6f41af": "2026-07-03T02:34:19.107614+00:00",
     "fp:a77cedb0fbbad01e": "2026-06-26T06:34:21.350285+00:00",
     "fp:a801149934478877": "2026-07-02T11:04:06.638213+00:00",
     "fp:a944906c409d43ee": "2026-06-28T07:03:25.379216+00:00",
@@ -407,7 +407,6 @@
     "fp:ae69eb6cce26874a": "2026-06-29T09:04:38.537669+00:00",
     "fp:b0c095323f3295f9": "2026-06-26T19:34:43.993244+00:00",
     "fp:b0fb1eebca6fded8": "2026-07-02T16:35:02.701185+00:00",
-    "fp:b2349a2078a2661c": "2026-06-25T02:32:28.595646+00:00",
     "fp:b473e2a76dd6e4b7": "2026-07-01T04:04:23.917376+00:00",
     "fp:b4a0e7ef97c004d8": "2026-06-30T08:34:38.410874+00:00",
     "fp:b5c398635e27d43f": "2026-06-25T05:33:49.107857+00:00",
@@ -572,7 +571,6 @@
     "weather:Flash Flood Warning:Cherokee, KS; Crawford, KS; Barton, MO; Jasper, MO; Newton, ": "2026-06-26T13:32:36.408855+00:00",
     "weather:Flash Flood Warning:Clay, KY; Estill, KY; Lee, KY; Owsley, KY": "2026-06-27T16:02:38.169586+00:00",
     "weather:Flash Flood Warning:Clinton, KY; Cumberland, KY; Metcalfe, KY": "2026-06-28T08:33:12.111024+00:00",
-    "weather:Flash Flood Warning:Cook, IL; Lake, IN": "2026-06-25T02:02:41.054172+00:00",
     "weather:Flash Flood Warning:Craig, OK; Delaware, OK; Ottawa, OK": "2026-06-27T05:34:36.183353+00:00",
     "weather:Flash Flood Warning:Crawford, IN; Perry, IN": "2026-06-27T06:33:17.834423+00:00",
     "weather:Flash Flood Warning:Donley, TX": "2026-06-30T21:33:56.475700+00:00",
@@ -638,7 +636,6 @@
     "weather:Severe Thunderstorm Warning:Clinton, IA; Jackson, IA": "2026-06-28T18:33:51.191876+00:00",
     "weather:Severe Thunderstorm Warning:Cottonwood, MN": "2026-07-02T16:35:02.701156+00:00",
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
-    "weather:Severe Thunderstorm Warning:Curry, NM; Quay, NM; Roosevelt, NM": "2026-06-25T02:32:28.595598+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; Garfield, MT; McCone, MT; Prairie, MT": "2026-07-02T04:34:18.931137+00:00",
     "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
     "weather:Severe Thunderstorm Warning:Deaf Smith, TX": "2026-07-01T21:04:52.752897+00:00",
@@ -655,6 +652,7 @@
     "weather:Severe Thunderstorm Warning:Logan, KS; Wallace, KS": "2026-07-01T00:02:52.523055+00:00",
     "weather:Severe Thunderstorm Warning:Magoffin, KY; Menifee, KY; Morgan, KY; Wolfe, KY": "2026-06-26T19:34:43.993198+00:00",
     "weather:Severe Thunderstorm Warning:McHenry, ND; McLean, ND; Ward, ND": "2026-06-29T19:34:01.613391+00:00",
+    "weather:Severe Thunderstorm Warning:Meade, SD": "2026-07-03T02:34:19.107579+00:00",
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
     "weather:Severe Thunderstorm Warning:Northwest Boulder, CO; Grand, CO": "2026-06-27T04:03:26.144948+00:00",
     "weather:Severe Thunderstorm Warning:Oneida, NY": "2026-06-30T18:33:08.386004+00:00",
