@@ -45,8 +45,8 @@
       "sev": 82
     },
     "USA, Colorado": {
-      "at": "2026-07-03T07:02:43.853115+00:00",
-      "sev": 82
+      "at": "2026-07-03T09:34:34.798687+00:00",
+      "sev": 84
     },
     "USA, Illinois": {
       "at": "2026-07-03T05:06:11.312976+00:00",
@@ -92,7 +92,7 @@
   "daily": {
     "2026-07-01": 44,
     "2026-07-02": 44,
-    "2026-07-03": 19
+    "2026-07-03": 20
   },
   "daily_cat": {
     "2026-07-01": {
@@ -119,15 +119,15 @@
     "2026-07-03": {
       "gulf": 1,
       "maritime": 2,
-      "weather": 15,
+      "weather": 16,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-03T09:05:07.177520+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-07-03T09:34:34.798683+00:00",
+  "last_topic": "flood",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 107
+    "2026-07": 108
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -490,6 +490,7 @@
     "fp:fc3747d4c9e90655": "2026-06-27T21:03:28.227467+00:00",
     "fp:fd74d24c0eb0d9c5": "2026-06-25T19:02:53.055128+00:00",
     "fp:fe5f95fe44350551": "2026-06-27T20:34:21.166040+00:00",
+    "fp:ff1adbeba6710b4f": "2026-07-03T09:34:34.798657+00:00",
     "fp:fffe46d5d525afd2": "2026-06-29T02:02:38.692438+00:00",
     "gulfdust:Al Ain:2026-07-01": "2026-07-01T14:34:13.595135+00:00",
     "gulfdust:Kuwait City:2026-06-26": "2026-06-26T16:34:17.341189+00:00",
@@ -598,6 +599,7 @@
     "weather:Flash Flood Warning:Jeff Davis, TX": "2026-06-26T21:03:32.947385+00:00",
     "weather:Flash Flood Warning:Johnson, IL; Union, IL": "2026-06-26T12:32:33.087903+00:00",
     "weather:Flash Flood Warning:Leelanau, MI": "2026-06-29T16:34:24.726515+00:00",
+    "weather:Flash Flood Warning:Logan, CO; Phillips, CO; Sedgwick, CO": "2026-07-03T09:34:34.798610+00:00",
     "weather:Flash Flood Warning:Lubbock, TX": "2026-07-01T03:04:18.438784+00:00",
     "weather:Flash Flood Warning:Lynn, TX": "2026-07-01T07:05:05.822023+00:00",
     "weather:Flash Flood Warning:McCreary, KY; Wayne, KY": "2026-06-28T12:34:13.271971+00:00",
