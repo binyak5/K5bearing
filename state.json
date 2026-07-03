@@ -48,6 +48,10 @@
       "at": "2026-07-02T06:32:35.232821+00:00",
       "sev": 82
     },
+    "USA, Illinois": {
+      "at": "2026-07-03T03:35:25.165525+00:00",
+      "sev": 82
+    },
     "USA, Iowa": {
       "at": "2026-07-03T03:04:16.154606+00:00",
       "sev": 84
@@ -88,7 +92,7 @@
   "daily": {
     "2026-07-01": 44,
     "2026-07-02": 44,
-    "2026-07-03": 7
+    "2026-07-03": 8
   },
   "daily_cat": {
     "2026-07-01": {
@@ -113,14 +117,14 @@
       "weather_eu": 5
     },
     "2026-07-03": {
-      "weather": 7
+      "weather": 8
     }
   },
-  "last_post_at": "2026-07-03T03:04:16.154600+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-03T03:35:25.165520+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 95
+    "2026-07": 96
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -214,7 +218,6 @@
     "fp:153e6e6d25b82170": "2026-06-30T03:33:56.803601+00:00",
     "fp:163c935787b5c6f8": "2026-07-01T03:04:18.438830+00:00",
     "fp:16a616cd29413d3e": "2026-07-01T07:05:05.822064+00:00",
-    "fp:16f139751ec6120a": "2026-06-25T03:33:17.875667+00:00",
     "fp:1833f4b8f0c577b2": "2026-06-28T02:33:11.049196+00:00",
     "fp:18b2a516e39aa724": "2026-06-29T10:04:00.051804+00:00",
     "fp:19484e92ebfcbba0": "2026-07-02T17:03:43.772121+00:00",
@@ -303,6 +306,7 @@
     "fp:5ddbbab7f11307c5": "2026-06-26T10:33:19.752197+00:00",
     "fp:5e158cf1b36908f2": "2026-07-03T01:04:49.294573+00:00",
     "fp:5fb36fd1ef0a35a6": "2026-07-01T12:04:28.551649+00:00",
+    "fp:60077ad5a1b5fae3": "2026-07-03T03:35:25.165492+00:00",
     "fp:6166d2e2aedbb809": "2026-07-01T16:03:21.248416+00:00",
     "fp:6178d5a89cba7719": "2026-06-28T18:33:51.191926+00:00",
     "fp:6230704720f80f35": "2026-06-27T06:03:24.516528+00:00",
@@ -621,7 +625,6 @@
     "weather:Severe Thunderstorm Warning:Brown, SD; Clark, SD; Day, SD; Spink, SD": "2026-06-28T06:03:19.806348+00:00",
     "weather:Severe Thunderstorm Warning:Carroll, NH; Coos, NH; Grafton, NH": "2026-07-02T01:33:04.889597+00:00",
     "weather:Severe Thunderstorm Warning:Castro, TX; Parmer, TX": "2026-06-25T04:32:29.701907+00:00",
-    "weather:Severe Thunderstorm Warning:Central Arapahoe, CO; Eastern Arapahoe, CO": "2026-06-25T03:33:17.875622+00:00",
     "weather:Severe Thunderstorm Warning:Cerro Gordo, IA; Hancock, IA; Humboldt, IA; Kossuth, IA; Win": "2026-06-28T13:04:44.049903+00:00",
     "weather:Severe Thunderstorm Warning:Cherokee, IA; Plymouth, IA": "2026-07-02T12:32:31.536838+00:00",
     "weather:Severe Thunderstorm Warning:Cherokee, KS; Crawford, KS; Barton, MO; Jasper, MO": "2026-06-26T08:03:31.275273+00:00",
@@ -630,6 +633,7 @@
     "weather:Severe Thunderstorm Warning:Clay, MN; Cass, ND; Richland, ND": "2026-06-30T01:04:13.750323+00:00",
     "weather:Severe Thunderstorm Warning:Clay, SD; Turner, SD; Yankton, SD": "2026-06-28T09:04:27.356528+00:00",
     "weather:Severe Thunderstorm Warning:Clinton, IA; Jackson, IA": "2026-06-28T18:33:51.191876+00:00",
+    "weather:Severe Thunderstorm Warning:Cook, IL; DuPage, IL": "2026-07-03T03:35:25.165438+00:00",
     "weather:Severe Thunderstorm Warning:Cottonwood, MN": "2026-07-02T16:35:02.701156+00:00",
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; Garfield, MT; McCone, MT; Prairie, MT": "2026-07-02T04:34:18.931137+00:00",
