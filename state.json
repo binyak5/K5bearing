@@ -16,13 +16,13 @@
       "at": "2026-07-03T08:03:08.747463+00:00",
       "sev": 79
     },
-    "GCC, Bahrain": {
-      "at": "2026-07-02T16:04:32.875299+00:00",
-      "sev": 72
-    },
     "GCC, Kuwait": {
       "at": "2026-07-02T19:04:48.516290+00:00",
       "sev": 72
+    },
+    "GCC, Kuwait City": {
+      "at": "2026-07-03T16:05:05.865141+00:00",
+      "sev": 62
     },
     "GCC, Saudi Arabia": {
       "at": "2026-07-02T18:03:30.711584+00:00",
@@ -84,7 +84,7 @@
   "daily": {
     "2026-07-01": 44,
     "2026-07-02": 44,
-    "2026-07-03": 31
+    "2026-07-03": 32
   },
   "daily_cat": {
     "2026-07-01": {
@@ -112,15 +112,16 @@
       "gulf": 1,
       "marine": 1,
       "maritime": 4,
+      "outdoor": 1,
       "weather": 21,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-03T15:32:41.905472+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-03T16:05:05.865136+00:00",
+  "last_topic": "outdoor",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 119
+    "2026-07": 120
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -137,6 +138,7 @@
     "citywx:rotterdam:2026-07-02:evening": "2026-07-02T17:03:43.772076+00:00",
     "citywx:rotterdam:2026-07-02:morning": "2026-07-02T05:34:15.251047+00:00",
     "dust:Kuwait City:2026-07-01": "2026-07-01T15:34:26.603400+00:00",
+    "dust:Kuwait City:2026-07-03": "2026-07-03T16:05:05.865060+00:00",
     "dust:Riyadh:2026-06-27": "2026-06-27T13:33:16.437977+00:00",
     "dust:Riyadh:2026-06-29": "2026-06-29T15:04:05.536392+00:00",
     "eu:bosnia-herzegovina:high-temp:Extreme": "2026-06-29T00:04:33.442739+00:00",
@@ -219,7 +221,7 @@
     "fp:1b3f29c9a0798f3d": "2026-06-27T08:33:18.602664+00:00",
     "fp:1c26ecbc8e9e1d8a": "2026-07-01T09:03:13.323534+00:00",
     "fp:1d59b91a02d51aab": "2026-06-27T16:33:19.972157+00:00",
-    "fp:1d5e829ed1856ec4": "2026-07-01T15:34:26.603437+00:00",
+    "fp:1d5e829ed1856ec4": "2026-07-03T16:05:05.865109+00:00",
     "fp:1da93097ff71cfa6": "2026-06-29T10:33:57.323005+00:00",
     "fp:1e72941dd0da6c4e": "2026-06-30T20:32:48.597521+00:00",
     "fp:1edd3b1b52f1767a": "2026-07-01T04:34:10.283784+00:00",
@@ -234,7 +236,6 @@
     "fp:28a5148e7f4d0e92": "2026-06-27T03:35:05.334030+00:00",
     "fp:28d63165f1301b88": "2026-06-28T11:04:17.395787+00:00",
     "fp:2a29493e90bb2327": "2026-06-28T16:33:15.617188+00:00",
-    "fp:2b586511d7b4189e": "2026-06-25T15:34:14.279924+00:00",
     "fp:2be7307e855ef95e": "2026-07-02T20:33:34.041326+00:00",
     "fp:2d7c4097a9626fcc": "2026-06-26T06:04:59.851753+00:00",
     "fp:2d83dc6b0f25360c": "2026-06-29T16:04:42.257848+00:00",
@@ -270,7 +271,6 @@
     "fp:4328e6cb4efc1805": "2026-07-01T06:34:41.701372+00:00",
     "fp:43351674b4eb371e": "2026-07-01T17:35:12.793389+00:00",
     "fp:437a6c7ca2ab3da7": "2026-07-01T00:02:52.523096+00:00",
-    "fp:448fbee55e8f668a": "2026-06-25T16:04:24.319549+00:00",
     "fp:44c83b5e775ab040": "2026-07-03T14:33:21.037509+00:00",
     "fp:47071988b19b645a": "2026-06-28T13:04:44.049992+00:00",
     "fp:4754bd9f269171b5": "2026-06-27T17:33:32.548835+00:00",
@@ -551,7 +551,6 @@
     "weather:Extreme Heat Warning:Dallas; Polk; Jasper; Poweshiek; Madison; Warren; Marion; Ma": "2026-07-02T14:04:27.596474+00:00",
     "weather:Extreme Heat Warning:Greenup; Carter; Boyd; Lawrence; Perry; Morgan; Athens; Wash": "2026-07-01T04:04:23.917325+00:00",
     "weather:Extreme Heat Warning:Northern Oneida; Yates; Seneca; Southern Cayuga; Onondaga; S": "2026-07-02T17:32:20.578277+00:00",
-    "weather:Extreme Heat Warning:San Diego County Deserts": "2026-06-25T16:04:24.319506+00:00",
     "weather:Flash Flood Warning:Adams, WI": "2026-07-02T06:04:44.746851+00:00",
     "weather:Flash Flood Warning:Alexander, IL; Union, IL; Cape Girardeau, MO; Scott, MO; Sto": "2026-06-27T17:33:32.548804+00:00",
     "weather:Flash Flood Warning:Allegheny, PA; Westmoreland, PA": "2026-06-28T21:33:12.950931+00:00",
@@ -579,7 +578,6 @@
     "weather:Flash Flood Warning:DuPage, IL; Kane, IL; Kendall, IL": "2026-07-03T05:06:11.312915+00:00",
     "weather:Flash Flood Warning:Dundy, NE; Hitchcock, NE": "2026-07-03T02:02:40.961366+00:00",
     "weather:Flash Flood Warning:Edwards, IL; Wabash, IL; Gibson, IN": "2026-06-27T20:03:16.739183+00:00",
-    "weather:Flash Flood Warning:Edwards, KS; Hodgeman, KS; Pawnee, KS": "2026-06-25T15:34:14.279875+00:00",
     "weather:Flash Flood Warning:Fentress, TN; Pickett, TN": "2026-06-28T14:34:18.910439+00:00",
     "weather:Flash Flood Warning:Fillmore, MN; Houston, MN": "2026-07-02T14:34:07.648809+00:00",
     "weather:Flash Flood Warning:Garland, AR; Saline, AR": "2026-07-02T05:04:08.749182+00:00",
