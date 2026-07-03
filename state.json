@@ -53,8 +53,8 @@
       "sev": 82
     },
     "USA, Iowa": {
-      "at": "2026-07-02T19:33:29.547704+00:00",
-      "sev": 96
+      "at": "2026-07-03T00:02:52.822214+00:00",
+      "sev": 84
     },
     "USA, Kansas": {
       "at": "2026-07-02T07:04:38.595760+00:00",
@@ -94,22 +94,11 @@
     }
   },
   "daily": {
-    "2026-06-30": 44,
     "2026-07-01": 44,
-    "2026-07-02": 44
+    "2026-07-02": 44,
+    "2026-07-03": 1
   },
   "daily_cat": {
-    "2026-06-30": {
-      "blackout": 1,
-      "cityweather": 1,
-      "earthquake": 1,
-      "flare": 2,
-      "gulf": 4,
-      "marine": 1,
-      "maritime": 4,
-      "weather": 16,
-      "weather_eu": 14
-    },
     "2026-07-01": {
       "blackout": 1,
       "cityweather": 2,
@@ -130,13 +119,16 @@
       "outdoor": 1,
       "weather": 22,
       "weather_eu": 5
+    },
+    "2026-07-03": {
+      "weather": 1
     }
   },
-  "last_post_at": "2026-07-02T21:34:38.006563+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-07-03T00:02:52.822210+00:00",
+  "last_topic": "flood",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 88
+    "2026-07": 89
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -267,6 +259,7 @@
     "fp:33c808ebdaa4afa0": "2026-06-30T03:03:20.448999+00:00",
     "fp:340c59d52f372e1c": "2026-06-25T00:33:12.852340+00:00",
     "fp:341214589db567df": "2026-06-27T04:03:26.144985+00:00",
+    "fp:34935b21e9a7355c": "2026-07-03T00:02:52.822184+00:00",
     "fp:35026c0d702adf90": "2026-06-27T02:33:17.788318+00:00",
     "fp:35386df463e4bcb4": "2026-06-30T17:04:18.141333+00:00",
     "fp:3791200e42d70f59": "2026-06-28T21:33:12.950957+00:00",
@@ -474,7 +467,6 @@
     "fp:e49bca63caddca12": "2026-07-02T04:34:18.931205+00:00",
     "fp:e4e8e230a2ffde78": "2026-06-27T11:33:18.118163+00:00",
     "fp:e57b36e19f6516c2": "2026-06-30T06:32:39.203324+00:00",
-    "fp:e5eb9adc39cd86d7": "2026-06-25T00:02:51.372061+00:00",
     "fp:e663f1da31397b54": "2026-06-29T01:04:24.664534+00:00",
     "fp:e6dba58e1579eb09": "2026-07-01T10:04:27.967319+00:00",
     "fp:e6fd36ad7ce4da4c": "2026-07-02T18:33:17.335263+00:00",
@@ -571,6 +563,7 @@
     "weather:Flash Flood Warning:Antelope, NE; Boone, NE": "2026-06-30T06:04:09.548140+00:00",
     "weather:Flash Flood Warning:Beckham, OK; Greer, OK": "2026-06-26T05:34:36.545948+00:00",
     "weather:Flash Flood Warning:Bergen, NJ; Passaic, NJ; Orange, NY; Rockland, NY": "2026-06-26T06:34:21.350242+00:00",
+    "weather:Flash Flood Warning:Black Hawk, IA; Grundy, IA; Marshall, IA; Tama, IA": "2026-07-03T00:02:52.822140+00:00",
     "weather:Flash Flood Warning:Brewster, TX; Pecos, TX": "2026-07-02T01:04:28.305315+00:00",
     "weather:Flash Flood Warning:Broadwater, MT; Jefferson, MT; Lewis and Clark, MT": "2026-07-01T21:34:34.195797+00:00",
     "weather:Flash Flood Warning:Burlington, NJ; Camden, NJ; Gloucester, NJ; Delaware, PA; Mo": "2026-06-29T00:34:15.925077+00:00",
@@ -603,7 +596,6 @@
     "weather:Flash Flood Warning:Jeff Davis, TX": "2026-06-26T21:03:32.947385+00:00",
     "weather:Flash Flood Warning:Johnson, IL; Union, IL": "2026-06-26T12:32:33.087903+00:00",
     "weather:Flash Flood Warning:Lake, IN; Porter, IN": "2026-06-25T03:03:38.394101+00:00",
-    "weather:Flash Flood Warning:Las Animas, CO": "2026-06-25T00:02:51.372032+00:00",
     "weather:Flash Flood Warning:Leelanau, MI": "2026-06-29T16:34:24.726515+00:00",
     "weather:Flash Flood Warning:Lubbock, TX": "2026-07-01T03:04:18.438784+00:00",
     "weather:Flash Flood Warning:Lynn, TX": "2026-07-01T07:05:05.822023+00:00",
