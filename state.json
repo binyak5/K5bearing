@@ -64,6 +64,10 @@
       "at": "2026-07-02T16:35:02.701205+00:00",
       "sev": 82
     },
+    "USA, Montana": {
+      "at": "2026-07-03T06:04:30.519320+00:00",
+      "sev": 82
+    },
     "USA, Nebraska": {
       "at": "2026-07-03T04:04:58.778332+00:00",
       "sev": 84
@@ -84,7 +88,7 @@
   "daily": {
     "2026-07-01": 44,
     "2026-07-02": 44,
-    "2026-07-03": 12
+    "2026-07-03": 13
   },
   "daily_cat": {
     "2026-07-01": {
@@ -110,14 +114,14 @@
     },
     "2026-07-03": {
       "maritime": 1,
-      "weather": 11
+      "weather": 12
     }
   },
-  "last_post_at": "2026-07-03T05:36:07.997732+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-07-03T06:04:30.519315+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 100
+    "2026-07": 101
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -211,6 +215,7 @@
     "fp:153e6e6d25b82170": "2026-06-30T03:33:56.803601+00:00",
     "fp:163c935787b5c6f8": "2026-07-01T03:04:18.438830+00:00",
     "fp:16a616cd29413d3e": "2026-07-01T07:05:05.822064+00:00",
+    "fp:1731f30afa5af9ae": "2026-07-03T06:04:30.519291+00:00",
     "fp:1833f4b8f0c577b2": "2026-06-28T02:33:11.049196+00:00",
     "fp:18b2a516e39aa724": "2026-06-29T10:04:00.051804+00:00",
     "fp:19484e92ebfcbba0": "2026-07-02T17:03:43.772121+00:00",
@@ -630,6 +635,7 @@
     "weather:Severe Thunderstorm Warning:Cottonwood, MN": "2026-07-02T16:35:02.701156+00:00",
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; Garfield, MT; McCone, MT; Prairie, MT": "2026-07-02T04:34:18.931137+00:00",
+    "weather:Severe Thunderstorm Warning:Dawson, MT; McCone, MT; Richland, MT; Roosevelt, MT; Wibaux,": "2026-07-03T06:04:30.519246+00:00",
     "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
     "weather:Severe Thunderstorm Warning:Deaf Smith, TX": "2026-07-01T21:04:52.752897+00:00",
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
