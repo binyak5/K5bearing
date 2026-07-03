@@ -40,6 +40,10 @@
       "at": "2026-07-03T01:33:22.438996+00:00",
       "sev": 82
     },
+    "USA, Colorado": {
+      "at": "2026-07-03T07:02:43.853115+00:00",
+      "sev": 82
+    },
     "USA, Illinois": {
       "at": "2026-07-03T05:06:11.312976+00:00",
       "sev": 84
@@ -84,7 +88,7 @@
   "daily": {
     "2026-07-01": 44,
     "2026-07-02": 44,
-    "2026-07-03": 14
+    "2026-07-03": 15
   },
   "daily_cat": {
     "2026-07-01": {
@@ -110,14 +114,14 @@
     },
     "2026-07-03": {
       "maritime": 1,
-      "weather": 13
+      "weather": 14
     }
   },
-  "last_post_at": "2026-07-03T06:32:55.080365+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-03T07:02:43.853111+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 102
+    "2026-07": 103
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -476,6 +480,7 @@
     "fp:f7152583d9ed2a10": "2026-07-02T14:34:07.648852+00:00",
     "fp:f97cfa5fff57bde4": "2026-06-28T08:03:32.725756+00:00",
     "fp:f9c2de4fa8c790e4": "2026-07-02T00:34:58.739659+00:00",
+    "fp:fa2ec252ac0e9838": "2026-07-03T07:02:43.853093+00:00",
     "fp:fc3747d4c9e90655": "2026-06-27T21:03:28.227467+00:00",
     "fp:fd74d24c0eb0d9c5": "2026-06-25T19:02:53.055128+00:00",
     "fp:fe5f95fe44350551": "2026-06-27T20:34:21.166040+00:00",
@@ -651,6 +656,7 @@
     "weather:Severe Thunderstorm Warning:Natrona, WY": "2026-06-25T19:33:14.887127+00:00",
     "weather:Severe Thunderstorm Warning:Northwest Boulder, CO; Grand, CO": "2026-06-27T04:03:26.144948+00:00",
     "weather:Severe Thunderstorm Warning:Oneida, NY": "2026-06-30T18:33:08.386004+00:00",
+    "weather:Severe Thunderstorm Warning:Phillips, CO; Sedgwick, CO": "2026-07-03T07:02:43.853060+00:00",
     "weather:Severe Thunderstorm Warning:Pierce, ND": "2026-06-29T05:33:20.814096+00:00",
     "weather:Severe Thunderstorm Warning:Rockingham, NH": "2026-06-26T21:33:27.264660+00:00",
     "weather:Severe Thunderstorm Warning:Rutherford, TN; Williamson, TN": "2026-07-02T21:02:28.663701+00:00",
