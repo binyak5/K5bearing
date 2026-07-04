@@ -1,9 +1,5 @@
 {
   "area_posts": {
-    "EU, France": {
-      "at": "2026-07-03T14:33:21.037541+00:00",
-      "sev": 79
-    },
     "EU, Greece": {
       "at": "2026-07-04T09:32:57.923604+00:00",
       "sev": 79
@@ -29,7 +25,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-04T13:02:21.434727+00:00",
+      "at": "2026-07-04T15:04:36.832129+00:00",
       "sev": 75
     },
     "USA, Colorado": {
@@ -92,7 +88,7 @@
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 30
+    "2026-07-04": 31
   },
   "daily_cat": {
     "2026-07-02": {
@@ -123,15 +119,15 @@
       "gulf": 1,
       "marine": 1,
       "maritime": 5,
-      "weather": 15,
+      "weather": 16,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-04T14:32:36.280214+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-07-04T15:04:36.832125+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 162
+    "2026-07": 163
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -220,7 +216,6 @@
     "fp:11abf722fcec44ff": "2026-07-04T07:02:52.613305+00:00",
     "fp:127f79c9bf39d296": "2026-07-03T02:02:40.961417+00:00",
     "fp:1284bd6bdcb57b8d": "2026-07-04T05:33:15.109722+00:00",
-    "fp:13de493d75e42fdc": "2026-06-26T14:32:36.677615+00:00",
     "fp:14b5a7a8fd6fa8c1": "2026-07-01T21:04:52.752938+00:00",
     "fp:153e6e6d25b82170": "2026-06-30T03:33:56.803601+00:00",
     "fp:1551d49309d6017d": "2026-07-04T13:02:21.434699+00:00",
@@ -422,6 +417,7 @@
     "fp:b81a4c6dd339a6e5": "2026-07-01T16:34:37.920266+00:00",
     "fp:b82a3576388f3f88": "2026-07-02T06:04:44.746896+00:00",
     "fp:baa7c6977090cf73": "2026-06-30T15:34:55.214257+00:00",
+    "fp:bd1e5ee0be34332d": "2026-07-04T15:04:36.832099+00:00",
     "fp:be53186f6ebf9488": "2026-07-04T05:04:40.929585+00:00",
     "fp:be5e2489aff0d901": "2026-07-04T06:33:52.299294+00:00",
     "fp:bf10ac300bfec920": "2026-06-29T20:34:28.549966+00:00",
@@ -558,6 +554,7 @@
     "weather:Extreme Heat Warning:Clinton; Washington; Randolph; Madison; St. Clair; Monroe; B": "2026-07-03T12:02:33.012455+00:00",
     "weather:Extreme Heat Warning:Dade; Walker; Catoosa": "2026-07-02T03:33:17.248154+00:00",
     "weather:Extreme Heat Warning:Dallas; Polk; Jasper; Poweshiek; Madison; Warren; Marion; Ma": "2026-07-02T14:04:27.596474+00:00",
+    "weather:Extreme Heat Warning:District of Columbia; Frederick; Carroll; Northern Baltimore": "2026-07-04T15:04:36.832047+00:00",
     "weather:Extreme Heat Warning:Fulton; Franklin; Perry; Cumberland": "2026-07-04T13:02:21.434650+00:00",
     "weather:Extreme Heat Warning:Greenup; Carter; Boyd; Lawrence; Perry; Morgan; Athens; Wash": "2026-07-01T04:04:23.917325+00:00",
     "weather:Extreme Heat Warning:Northern Oneida; Yates; Seneca; Southern Cayuga; Onondaga; S": "2026-07-02T17:32:20.578277+00:00",
@@ -620,7 +617,6 @@
     "weather:Flash Flood Warning:Union, GA": "2026-07-01T20:34:16.521110+00:00",
     "weather:Flash Flood Warning:Winona, MN": "2026-07-01T16:34:37.920221+00:00",
     "weather:Flood Warning:Elkhart, IN; Kosciusko, IN; Marshall, IN; St. Joseph, IN": "2026-07-04T14:02:45.415037+00:00",
-    "weather:Flood Warning:Escambia, AL; Escambia, FL; Santa Rosa, FL": "2026-06-26T14:32:36.677569+00:00",
     "weather:Flood Warning:Greenwood, KS": "2026-06-27T07:32:35.255639+00:00",
     "weather:Flood Warning:Houston, MN": "2026-07-03T15:32:41.905409+00:00",
     "weather:Flood Warning:Lake, MT": "2026-06-29T18:04:43.988110+00:00",
