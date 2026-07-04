@@ -33,8 +33,8 @@
       "sev": 75
     },
     "USA, Colorado": {
-      "at": "2026-07-03T13:04:29.343186+00:00",
-      "sev": 50
+      "at": "2026-07-04T02:05:05.612695+00:00",
+      "sev": 96
     },
     "USA, Georgia": {
       "at": "2026-07-03T18:04:36.164784+00:00",
@@ -100,7 +100,7 @@
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 4
+    "2026-07-04": 5
   },
   "daily_cat": {
     "2026-07-02": {
@@ -126,15 +126,15 @@
     },
     "2026-07-04": {
       "maritime": 1,
-      "weather": 2,
+      "weather": 3,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-04T01:35:20.230497+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-04T02:05:05.612691+00:00",
+  "last_topic": "tornado",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 136
+    "2026-07": 137
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -239,6 +239,7 @@
     "fp:1edd3b1b52f1767a": "2026-07-01T04:34:10.283784+00:00",
     "fp:1f05ba3e8166c76d": "2026-07-03T19:34:25.394649+00:00",
     "fp:20f1d5a1ac43c87f": "2026-07-02T17:32:20.578333+00:00",
+    "fp:232c2c777fa53eb9": "2026-07-04T02:05:05.612668+00:00",
     "fp:248c97b3b2697731": "2026-06-26T21:33:27.264702+00:00",
     "fp:2499fb3246ad6151": "2026-07-02T20:02:43.517400+00:00",
     "fp:255c8f82d9440dde": "2026-07-02T07:04:38.595730+00:00",
@@ -408,7 +409,6 @@
     "fp:a944906c409d43ee": "2026-06-28T07:03:25.379216+00:00",
     "fp:a9c153105ee43339": "2026-07-03T11:04:41.991182+00:00",
     "fp:aa1ec2c608181818": "2026-07-02T03:33:17.248225+00:00",
-    "fp:aafa6449bd01e310": "2026-06-26T02:03:22.421892+00:00",
     "fp:ab5f7ef42c07bac0": "2026-06-28T10:33:11.542162+00:00",
     "fp:abf036808a261481": "2026-06-27T07:32:35.255676+00:00",
     "fp:abf801756fa21242": "2026-06-27T14:03:18.275306+00:00",
@@ -597,7 +597,6 @@
     "weather:Flash Flood Warning:Greene, TN; Hancock, TN; Hawkins, TN; Sullivan, TN; Washingt": "2026-06-28T05:34:26.032674+00:00",
     "weather:Flash Flood Warning:Hall, TX": "2026-07-01T00:32:42.013058+00:00",
     "weather:Flash Flood Warning:Hamilton, TN": "2026-07-03T21:04:46.117639+00:00",
-    "weather:Flash Flood Warning:Hemphill, TX; Wheeler, TX": "2026-06-26T02:03:22.421852+00:00",
     "weather:Flash Flood Warning:Henderson, NC": "2026-06-30T00:32:27.070634+00:00",
     "weather:Flash Flood Warning:Hitchcock, NE; Red Willow, NE": "2026-07-03T11:32:30.040574+00:00",
     "weather:Flash Flood Warning:Houston, MN": "2026-07-02T11:04:06.638173+00:00",
@@ -714,6 +713,7 @@
     "weather:Tornado Warning:Morton, ND": "2026-06-29T20:04:03.313586+00:00",
     "weather:Tornado Warning:Ramsey, ND": "2026-06-29T07:34:12.059159+00:00",
     "weather:Tornado Warning:Republic, KS; Washington, KS": "2026-07-04T00:35:06.714728+00:00",
-    "weather:Tornado Warning:Texas, OK": "2026-07-03T22:02:51.442168+00:00"
+    "weather:Tornado Warning:Texas, OK": "2026-07-03T22:02:51.442168+00:00",
+    "weather:Tornado Warning:Washington, CO": "2026-07-04T02:05:05.612628+00:00"
   }
 }
