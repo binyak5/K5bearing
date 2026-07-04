@@ -28,6 +28,10 @@
       "at": "2026-07-03T20:34:55.062426+00:00",
       "sev": 72
     },
+    "USA": {
+      "at": "2026-07-04T13:02:21.434727+00:00",
+      "sev": 75
+    },
     "USA, Colorado": {
       "at": "2026-07-04T06:33:52.299329+00:00",
       "sev": 84
@@ -88,7 +92,7 @@
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 26
+    "2026-07-04": 27
   },
   "daily_cat": {
     "2026-07-02": {
@@ -119,15 +123,15 @@
       "gulf": 1,
       "marine": 1,
       "maritime": 4,
-      "weather": 12,
+      "weather": 13,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-04T12:33:00.734978+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-04T13:02:21.434723+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 158
+    "2026-07": 159
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -219,6 +223,7 @@
     "fp:13de493d75e42fdc": "2026-06-26T14:32:36.677615+00:00",
     "fp:14b5a7a8fd6fa8c1": "2026-07-01T21:04:52.752938+00:00",
     "fp:153e6e6d25b82170": "2026-06-30T03:33:56.803601+00:00",
+    "fp:1551d49309d6017d": "2026-07-04T13:02:21.434699+00:00",
     "fp:163c935787b5c6f8": "2026-07-01T03:04:18.438830+00:00",
     "fp:16a616cd29413d3e": "2026-07-01T07:05:05.822064+00:00",
     "fp:1731f30afa5af9ae": "2026-07-03T06:04:30.519291+00:00",
@@ -553,6 +558,7 @@
     "weather:Extreme Heat Warning:Clinton; Washington; Randolph; Madison; St. Clair; Monroe; B": "2026-07-03T12:02:33.012455+00:00",
     "weather:Extreme Heat Warning:Dade; Walker; Catoosa": "2026-07-02T03:33:17.248154+00:00",
     "weather:Extreme Heat Warning:Dallas; Polk; Jasper; Poweshiek; Madison; Warren; Marion; Ma": "2026-07-02T14:04:27.596474+00:00",
+    "weather:Extreme Heat Warning:Fulton; Franklin; Perry; Cumberland": "2026-07-04T13:02:21.434650+00:00",
     "weather:Extreme Heat Warning:Greenup; Carter; Boyd; Lawrence; Perry; Morgan; Athens; Wash": "2026-07-01T04:04:23.917325+00:00",
     "weather:Extreme Heat Warning:Northern Oneida; Yates; Seneca; Southern Cayuga; Onondaga; S": "2026-07-02T17:32:20.578277+00:00",
     "weather:Flash Flood Warning:Adams, WI": "2026-07-02T06:04:44.746851+00:00",
