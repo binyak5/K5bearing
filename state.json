@@ -5,7 +5,7 @@
       "sev": 79
     },
     "EU, Greece": {
-      "at": "2026-07-04T07:32:57.675001+00:00",
+      "at": "2026-07-04T09:32:57.923604+00:00",
       "sev": 79
     },
     "EU, Italy": {
@@ -30,10 +30,6 @@
     },
     "GCC, Saudi Arabia": {
       "at": "2026-07-03T20:34:55.062426+00:00",
-      "sev": 72
-    },
-    "GCC, United Arab Emirates": {
-      "at": "2026-07-03T09:05:07.177525+00:00",
       "sev": 72
     },
     "USA": {
@@ -100,7 +96,7 @@
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 19
+    "2026-07-04": 20
   },
   "daily_cat": {
     "2026-07-02": {
@@ -129,14 +125,14 @@
       "geomagnetic": 1,
       "maritime": 3,
       "weather": 11,
-      "weather_eu": 3
+      "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-04T09:02:41.876513+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-07-04T09:32:57.923599+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 151
+    "2026-07": 152
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -170,6 +166,7 @@
     "eu:germany:thunder:Extreme": "2026-06-29T16:04:42.257795+00:00",
     "eu:germany:thunder:Severe": "2026-06-29T11:34:36.942460+00:00",
     "eu:greece:rain:Severe": "2026-07-04T07:32:57.674903+00:00",
+    "eu:greece:thunder:Severe": "2026-07-04T09:32:57.923505+00:00",
     "eu:hungary:high-temp:Extreme": "2026-06-30T04:32:27.853774+00:00",
     "eu:hungary:high-temp:Severe": "2026-06-30T09:03:39.653901+00:00",
     "eu:ireland:thunder:Severe": "2026-06-27T20:34:21.166000+00:00",
@@ -297,7 +294,6 @@
     "fp:4974b6142c31af71": "2026-06-29T13:04:07.214335+00:00",
     "fp:4a709c0019768013": "2026-06-29T18:04:43.988175+00:00",
     "fp:4af6f560351f5a40": "2026-07-01T20:34:16.521148+00:00",
-    "fp:4d6e3337c70c44cd": "2026-06-26T09:32:35.623994+00:00",
     "fp:4f2bb8af9c740012": "2026-07-01T17:04:58.785028+00:00",
     "fp:51b3a208f117925a": "2026-06-28T10:03:27.674967+00:00",
     "fp:51dd02455717274f": "2026-07-03T08:03:08.747436+00:00",
@@ -323,7 +319,6 @@
     "fp:6166d2e2aedbb809": "2026-07-03T20:34:55.062401+00:00",
     "fp:6178d5a89cba7719": "2026-06-28T18:33:51.191926+00:00",
     "fp:6230704720f80f35": "2026-06-27T06:03:24.516528+00:00",
-    "fp:6450dcaa38ff5c4f": "2026-06-26T09:03:32.364169+00:00",
     "fp:6618cb97da8d078a": "2026-07-01T09:34:16.615613+00:00",
     "fp:67374c8b2419f3ab": "2026-06-28T21:03:19.675361+00:00",
     "fp:677c173990ec7a86": "2026-06-27T02:03:19.491955+00:00",
@@ -353,6 +348,7 @@
     "fp:7caf18145d453c44": "2026-07-04T01:04:53.309420+00:00",
     "fp:7cb8cc013f4b639b": "2026-07-03T11:32:30.040622+00:00",
     "fp:7d40478c730344e0": "2026-06-27T19:35:37.120412+00:00",
+    "fp:7efa6d997c414f89": "2026-07-04T09:32:57.923573+00:00",
     "fp:7f1cbf3f42201fc7": "2026-06-29T04:34:18.604442+00:00",
     "fp:7f3d0d696084057c": "2026-07-03T21:35:01.296118+00:00",
     "fp:812801ee0dc208bf": "2026-07-01T20:03:19.202993+00:00",
@@ -688,7 +684,6 @@
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
     "weather:Special Marine Warning:Coastal waters from Chokoloskee to Bonita Beach FL out 20 NM": "2026-07-02T21:34:38.006510+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
-    "weather:Special Marine Warning:Mexico Bay NY to the St. Lawrence River; Sodus Bay to Mexico": "2026-06-26T09:03:32.364123+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Ocracoke Inlet NC ": "2026-06-27T16:33:19.972106+00:00",
     "weather:Special Marine Warning:Pensacola Bay Area including Santa Rosa Sound; Western Choct": "2026-06-30T19:04:17.150382+00:00",
