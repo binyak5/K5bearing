@@ -56,6 +56,10 @@
       "at": "2026-07-04T00:35:06.714811+00:00",
       "sev": 96
     },
+    "USA, Kentucky": {
+      "at": "2026-07-04T03:34:50.560345+00:00",
+      "sev": 82
+    },
     "USA, Minnesota": {
       "at": "2026-07-03T15:32:41.905476+00:00",
       "sev": 75
@@ -100,7 +104,7 @@
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 7
+    "2026-07-04": 8
   },
   "daily_cat": {
     "2026-07-02": {
@@ -126,15 +130,15 @@
     },
     "2026-07-04": {
       "maritime": 2,
-      "weather": 4,
+      "weather": 5,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-04T03:04:49.127547+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-04T03:34:50.560340+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 139
+    "2026-07": 140
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -426,6 +430,7 @@
     "fp:baa7c6977090cf73": "2026-06-30T15:34:55.214257+00:00",
     "fp:be53186f6ebf9488": "2026-07-01T05:03:05.256403+00:00",
     "fp:bf10ac300bfec920": "2026-06-29T20:34:28.549966+00:00",
+    "fp:bf51cfd13c342df3": "2026-07-04T03:34:50.560316+00:00",
     "fp:c09093a86f93e151": "2026-06-26T08:03:31.275322+00:00",
     "fp:c186c1b956475e81": "2026-06-26T17:04:35.214020+00:00",
     "fp:c3cb8aa4e3430337": "2026-06-30T05:33:36.319524+00:00",
@@ -634,6 +639,7 @@
     "weather:Severe Thunderstorm Warning:Andrews, TX; Dawson, TX; Gaines, TX; Martin, TX": "2026-06-29T01:34:14.172919+00:00",
     "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
     "weather:Severe Thunderstorm Warning:Bayfield, WI; Douglas, WI": "2026-06-29T20:34:28.549923+00:00",
+    "weather:Severe Thunderstorm Warning:Bell, KY; Clay, KY; Harlan, KY; Knox, KY; Leslie, KY": "2026-07-04T03:34:50.560270+00:00",
     "weather:Severe Thunderstorm Warning:Boone, NE": "2026-06-30T03:03:20.448955+00:00",
     "weather:Severe Thunderstorm Warning:Brown, SD; Clark, SD; Day, SD; Spink, SD": "2026-06-28T06:03:19.806348+00:00",
     "weather:Severe Thunderstorm Warning:Carroll, NH; Coos, NH; Grafton, NH": "2026-07-02T01:33:04.889597+00:00",
