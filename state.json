@@ -45,7 +45,7 @@
       "sev": 84
     },
     "USA, Kansas": {
-      "at": "2026-07-04T13:32:30.814870+00:00",
+      "at": "2026-07-04T15:33:02.765420+00:00",
       "sev": 82
     },
     "USA, Kentucky": {
@@ -88,7 +88,7 @@
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 31
+    "2026-07-04": 32
   },
   "daily_cat": {
     "2026-07-02": {
@@ -119,15 +119,15 @@
       "gulf": 1,
       "marine": 1,
       "maritime": 5,
-      "weather": 16,
+      "weather": 17,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-04T15:04:36.832125+00:00",
-  "last_topic": "heat",
+  "last_post_at": "2026-07-04T15:33:02.765416+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 163
+    "2026-07": 164
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -360,6 +360,7 @@
     "fp:88d7edc86f4f015e": "2026-07-03T12:35:02.571746+00:00",
     "fp:88dd4ca9ba3f3920": "2026-06-30T09:03:39.653951+00:00",
     "fp:8902691441bff7a3": "2026-06-28T00:33:18.453811+00:00",
+    "fp:89d5ad81925f4422": "2026-07-04T15:33:02.765390+00:00",
     "fp:89f5777801a8f35a": "2026-06-29T12:04:24.343979+00:00",
     "fp:8ccad75c267506a9": "2026-06-30T14:04:29.923223+00:00",
     "fp:8d904a208cbc321e": "2026-07-01T03:34:20.323131+00:00",
@@ -639,6 +640,7 @@
     "weather:Severe Thunderstorm Warning:Clay, MN; Cass, ND; Richland, ND": "2026-06-30T01:04:13.750323+00:00",
     "weather:Severe Thunderstorm Warning:Clay, SD; Turner, SD; Yankton, SD": "2026-06-28T09:04:27.356528+00:00",
     "weather:Severe Thunderstorm Warning:Clinton, IA; Jackson, IA": "2026-06-28T18:33:51.191876+00:00",
+    "weather:Severe Thunderstorm Warning:Coffey, KS": "2026-07-04T15:33:02.765349+00:00",
     "weather:Severe Thunderstorm Warning:Cook, IL; DuPage, IL": "2026-07-03T03:35:25.165438+00:00",
     "weather:Severe Thunderstorm Warning:Cortland, NY; Schuyler, NY; Seneca, NY; Tompkins, NY; Yates,": "2026-07-03T19:34:25.394605+00:00",
     "weather:Severe Thunderstorm Warning:Cottonwood, MN": "2026-07-02T16:35:02.701156+00:00",
