@@ -75,12 +75,16 @@
     "USA, Tennessee": {
       "at": "2026-07-03T21:04:46.117710+00:00",
       "sev": 84
+    },
+    "USA, Virginia": {
+      "at": "2026-07-04T19:02:22.782313+00:00",
+      "sev": 82
     }
   },
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 38
+    "2026-07-04": 39
   },
   "daily_cat": {
     "2026-07-02": {
@@ -112,15 +116,15 @@
       "gulf": 2,
       "marine": 1,
       "maritime": 5,
-      "weather": 20,
+      "weather": 21,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-04T18:33:22.081138+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-04T19:02:22.782308+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 170
+    "2026-07": 171
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -205,7 +209,6 @@
     "fp:0fcb0440fe4f64a9": "2026-06-28T01:03:22.405870+00:00",
     "fp:10408a4b27682996": "2026-07-02T09:04:47.145959+00:00",
     "fp:10ed6b8348e0911b": "2026-07-02T13:03:29.716440+00:00",
-    "fp:111ab85198354d54": "2026-06-26T18:34:22.311995+00:00",
     "fp:11326106ab0addf8": "2026-06-28T16:03:24.354753+00:00",
     "fp:11abf722fcec44ff": "2026-07-04T07:02:52.613305+00:00",
     "fp:127f79c9bf39d296": "2026-07-03T02:02:40.961417+00:00",
@@ -359,6 +362,7 @@
     "fp:8d904a208cbc321e": "2026-07-01T03:34:20.323131+00:00",
     "fp:8e12e70ef4dedece": "2026-06-29T06:03:09.253254+00:00",
     "fp:90483e4b20a6cafa": "2026-07-03T13:34:53.142821+00:00",
+    "fp:907edfb163846d7a": "2026-07-04T19:02:22.782278+00:00",
     "fp:914f3c2a99d98ac2": "2026-07-01T19:03:40.876080+00:00",
     "fp:916c624b1471d4ec": "2026-06-30T16:04:55.251269+00:00",
     "fp:925ef530c2b1ea21": "2026-06-29T03:03:24.925348+00:00",
@@ -617,7 +621,6 @@
     "weather:Flood Warning:Lake, MT": "2026-06-29T18:04:43.988110+00:00",
     "weather:Flood Warning:Monroe, WI; Vernon, WI": "2026-07-02T13:33:58.982946+00:00",
     "weather:Hazardous Seas Warning:Waters from Cape Blanco OR to Pt. St. George CA from 10 to 6": "2026-06-28T06:33:15.414260+00:00",
-    "weather:Severe Thunderstorm Warning:Addison, VT; Rutland, VT": "2026-06-26T18:34:22.311955+00:00",
     "weather:Severe Thunderstorm Warning:Aitkin, MN; Carlton, MN; Lake, MN; St. Louis, MN; Douglas, W": "2026-06-30T06:32:39.203278+00:00",
     "weather:Severe Thunderstorm Warning:Andrews, TX; Dawson, TX; Gaines, TX; Martin, TX": "2026-06-29T01:34:14.172919+00:00",
     "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
@@ -638,6 +641,7 @@
     "weather:Severe Thunderstorm Warning:Cook, IL; DuPage, IL": "2026-07-03T03:35:25.165438+00:00",
     "weather:Severe Thunderstorm Warning:Cortland, NY; Schuyler, NY; Seneca, NY; Tompkins, NY; Yates,": "2026-07-03T19:34:25.394605+00:00",
     "weather:Severe Thunderstorm Warning:Cottonwood, MN": "2026-07-02T16:35:02.701156+00:00",
+    "weather:Severe Thunderstorm Warning:Craig, VA; Giles, VA; Montgomery, VA; Pulaski, VA; City of R": "2026-07-04T19:02:22.782222+00:00",
     "weather:Severe Thunderstorm Warning:Crawford, PA": "2026-07-03T16:33:25.736731+00:00",
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; Garfield, MT; McCone, MT; Prairie, MT": "2026-07-02T04:34:18.931137+00:00",
