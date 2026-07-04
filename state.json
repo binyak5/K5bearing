@@ -20,6 +20,10 @@
       "at": "2026-07-04T01:04:53.309451+00:00",
       "sev": 96
     },
+    "EU, Spain": {
+      "at": "2026-07-04T08:04:44.581329+00:00",
+      "sev": 79
+    },
     "GCC, Kuwait City": {
       "at": "2026-07-03T16:05:05.865141+00:00",
       "sev": 62
@@ -96,7 +100,7 @@
   "daily": {
     "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 16
+    "2026-07-04": 17
   },
   "daily_cat": {
     "2026-07-02": {
@@ -124,14 +128,14 @@
       "cityweather": 1,
       "maritime": 2,
       "weather": 11,
-      "weather_eu": 2
+      "weather_eu": 3
     }
   },
-  "last_post_at": "2026-07-04T07:32:57.674997+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-04T08:04:44.581325+00:00",
+  "last_topic": "heat",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 148
+    "2026-07": 149
   },
   "posted": {
     "blackout:R1": "2026-07-01T15:03:03.436927+00:00",
@@ -190,7 +194,7 @@
     "eu:slovenia:high-temp:Extreme": "2026-07-01T02:33:56.473691+00:00",
     "eu:slovenia:high-temp:Severe": "2026-07-01T12:04:28.551600+00:00",
     "eu:slovenia:thunder:Severe": "2026-07-01T09:03:13.323449+00:00",
-    "eu:spain:high-temp:Severe": "2026-07-02T07:34:12.737804+00:00",
+    "eu:spain:high-temp:Severe": "2026-07-04T08:04:44.581260+00:00",
     "eu:spain:rain:Severe": "2026-06-28T11:04:17.395734+00:00",
     "eu:spain:thunder:Severe": "2026-06-28T07:03:25.379161+00:00",
     "eu:sweden:heat:Severe": "2026-06-29T10:04:00.051754+00:00",
@@ -318,7 +322,6 @@
     "fp:6166d2e2aedbb809": "2026-07-03T20:34:55.062401+00:00",
     "fp:6178d5a89cba7719": "2026-06-28T18:33:51.191926+00:00",
     "fp:6230704720f80f35": "2026-06-27T06:03:24.516528+00:00",
-    "fp:62dafd34d56e1faa": "2026-06-26T07:33:16.532997+00:00",
     "fp:6450dcaa38ff5c4f": "2026-06-26T09:03:32.364169+00:00",
     "fp:6618cb97da8d078a": "2026-07-01T09:34:16.615613+00:00",
     "fp:67374c8b2419f3ab": "2026-06-28T21:03:19.675361+00:00",
@@ -425,7 +428,7 @@
     "fp:be5e2489aff0d901": "2026-07-04T06:33:52.299294+00:00",
     "fp:bf10ac300bfec920": "2026-06-29T20:34:28.549966+00:00",
     "fp:bf51cfd13c342df3": "2026-07-04T03:34:50.560316+00:00",
-    "fp:c09093a86f93e151": "2026-06-26T08:03:31.275322+00:00",
+    "fp:c02f4504ddca1816": "2026-07-04T08:04:44.581307+00:00",
     "fp:c186c1b956475e81": "2026-06-26T17:04:35.214020+00:00",
     "fp:c3cb8aa4e3430337": "2026-06-30T05:33:36.319524+00:00",
     "fp:c5ec1b247dafd0cb": "2026-06-29T08:33:18.833015+00:00",
@@ -568,7 +571,6 @@
     "weather:Flash Flood Warning:Brewster, TX; Pecos, TX": "2026-07-02T01:04:28.305315+00:00",
     "weather:Flash Flood Warning:Broadwater, MT; Jefferson, MT; Lewis and Clark, MT": "2026-07-01T21:34:34.195797+00:00",
     "weather:Flash Flood Warning:Burlington, NJ; Camden, NJ; Gloucester, NJ; Delaware, PA; Mo": "2026-06-29T00:34:15.925077+00:00",
-    "weather:Flash Flood Warning:Butler, MO": "2026-06-26T07:33:16.532958+00:00",
     "weather:Flash Flood Warning:Butler, MO; Carter, MO; Ripley, MO": "2026-06-26T18:03:28.518859+00:00",
     "weather:Flash Flood Warning:Calhoun, WV; Gilmer, WV; Roane, WV; Wirt, WV": "2026-06-27T21:03:28.227422+00:00",
     "weather:Flash Flood Warning:Campbell, TN; Claiborne, TN; Scott, TN": "2026-06-28T10:03:27.674924+00:00",
@@ -639,7 +641,6 @@
     "weather:Severe Thunderstorm Warning:Carroll, NH; Coos, NH; Grafton, NH": "2026-07-02T01:33:04.889597+00:00",
     "weather:Severe Thunderstorm Warning:Cerro Gordo, IA; Hancock, IA; Humboldt, IA; Kossuth, IA; Win": "2026-06-28T13:04:44.049903+00:00",
     "weather:Severe Thunderstorm Warning:Cherokee, IA; Plymouth, IA": "2026-07-02T12:32:31.536838+00:00",
-    "weather:Severe Thunderstorm Warning:Cherokee, KS; Crawford, KS; Barton, MO; Jasper, MO": "2026-06-26T08:03:31.275273+00:00",
     "weather:Severe Thunderstorm Warning:Cherry, NE": "2026-06-29T03:03:24.925298+00:00",
     "weather:Severe Thunderstorm Warning:Clay, IA; Dickinson, IA; O'Brien, IA; Osceola, IA; Jackson, ": "2026-06-30T07:33:12.249548+00:00",
     "weather:Severe Thunderstorm Warning:Clay, MN; Cass, ND; Richland, ND": "2026-06-30T01:04:13.750323+00:00",
