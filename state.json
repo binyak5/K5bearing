@@ -17,7 +17,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-05T10:02:56.446411+00:00",
+      "at": "2026-07-05T12:02:59.292853+00:00",
       "sev": 80
     },
     "USA, Illinois": {
@@ -72,7 +72,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 23
+    "2026-07-05": 24
   },
   "daily_cat": {
     "2026-07-03": {
@@ -100,15 +100,15 @@
       "cityweather": 1,
       "marine": 2,
       "maritime": 4,
-      "weather": 13,
+      "weather": 14,
       "weather_eu": 3
     }
   },
-  "last_post_at": "2026-07-05T11:33:09.775878+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-07-05T12:02:59.292849+00:00",
+  "last_topic": "marine",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 199
+    "2026-07": 200
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -396,6 +396,7 @@
     "fp:b7c91ca50dcf258d": "2026-06-29T21:05:18.602000+00:00",
     "fp:b81a4c6dd339a6e5": "2026-07-01T16:34:37.920266+00:00",
     "fp:b82a3576388f3f88": "2026-07-02T06:04:44.746896+00:00",
+    "fp:b984c2410a8b15ea": "2026-07-05T12:02:59.292826+00:00",
     "fp:baa7c6977090cf73": "2026-06-30T15:34:55.214257+00:00",
     "fp:bd1e5ee0be34332d": "2026-07-04T15:04:36.832099+00:00",
     "fp:be0909335bd62597": "2026-07-04T17:32:58.722546+00:00",
@@ -444,7 +445,6 @@
     "fp:e2481acb67e9ea2b": "2026-07-04T04:32:29.421394+00:00",
     "fp:e2c1658560729eee": "2026-06-29T00:34:15.925121+00:00",
     "fp:e49bca63caddca12": "2026-07-02T04:34:18.931205+00:00",
-    "fp:e4e8e230a2ffde78": "2026-06-27T11:33:18.118163+00:00",
     "fp:e57b36e19f6516c2": "2026-06-30T06:32:39.203324+00:00",
     "fp:e5826c095cdd7c5c": "2026-07-05T10:32:40.004391+00:00",
     "fp:e663f1da31397b54": "2026-06-29T01:04:24.664534+00:00",
@@ -665,6 +665,7 @@
     "weather:Special Marine Warning:Coastal waters from Chokoloskee to Bonita Beach FL out 20 NM": "2026-07-02T21:34:38.006510+00:00",
     "weather:Special Marine Warning:Coastal waters from Pascagoula Mississippi to Stake Island o": "2026-07-05T10:02:56.446307+00:00",
     "weather:Special Marine Warning:Coastal waters from Sandy Hook to Manasquan Inlet NJ out 20 ": "2026-07-05T02:32:52.227107+00:00",
+    "weather:Special Marine Warning:Guam Coastal Waters": "2026-07-05T12:02:59.292782+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Ocracoke Inlet NC ": "2026-06-27T16:33:19.972106+00:00",
