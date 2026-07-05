@@ -17,8 +17,8 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-04T15:04:36.832129+00:00",
-      "sev": 75
+      "at": "2026-07-05T02:32:52.227186+00:00",
+      "sev": 80
     },
     "USA, Colorado": {
       "at": "2026-07-04T06:33:52.299329+00:00",
@@ -84,7 +84,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 5
+    "2026-07-05": 6
   },
   "daily_cat": {
     "2026-07-03": {
@@ -109,14 +109,14 @@
       "weather_eu": 4
     },
     "2026-07-05": {
-      "weather": 5
+      "weather": 6
     }
   },
-  "last_post_at": "2026-07-05T02:02:43.099324+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-05T02:32:52.227181+00:00",
+  "last_topic": "marine",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 181
+    "2026-07": 182
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -227,6 +227,7 @@
     "fp:22a34e3b8de1a1eb": "2026-07-05T00:02:46.983506+00:00",
     "fp:232c2c777fa53eb9": "2026-07-04T02:05:05.612668+00:00",
     "fp:2499fb3246ad6151": "2026-07-02T20:02:43.517400+00:00",
+    "fp:251ecedefff23181": "2026-07-05T02:32:52.227156+00:00",
     "fp:255c8f82d9440dde": "2026-07-02T07:04:38.595730+00:00",
     "fp:267e0ca7d780b63e": "2026-07-04T03:04:49.127529+00:00",
     "fp:275bc5bb6719aba6": "2026-06-29T03:34:16.942811+00:00",
@@ -307,7 +308,6 @@
     "fp:6230704720f80f35": "2026-06-27T06:03:24.516528+00:00",
     "fp:6618cb97da8d078a": "2026-07-01T09:34:16.615613+00:00",
     "fp:67374c8b2419f3ab": "2026-06-28T21:03:19.675361+00:00",
-    "fp:677c173990ec7a86": "2026-06-27T02:03:19.491955+00:00",
     "fp:68c2c134470ddaf1": "2026-07-04T13:32:30.814838+00:00",
     "fp:6906b52f611fd5a9": "2026-07-01T01:33:07.941973+00:00",
     "fp:698416d74a9e914d": "2026-07-04T21:32:47.741726+00:00",
@@ -676,6 +676,7 @@
     "weather:Severe Thunderstorm Warning:Weld, CO": "2026-07-02T06:32:35.232748+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
     "weather:Special Marine Warning:Coastal waters from Chokoloskee to Bonita Beach FL out 20 NM": "2026-07-02T21:34:38.006510+00:00",
+    "weather:Special Marine Warning:Coastal waters from Sandy Hook to Manasquan Inlet NJ out 20 ": "2026-07-05T02:32:52.227107+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Ocracoke Inlet NC ": "2026-06-27T16:33:19.972106+00:00",
