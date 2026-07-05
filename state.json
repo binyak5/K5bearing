@@ -53,12 +53,8 @@
       "sev": 84
     },
     "USA, Missouri": {
-      "at": "2026-07-04T21:32:47.741760+00:00",
-      "sev": 84
-    },
-    "USA, Nebraska": {
-      "at": "2026-07-04T03:04:49.127552+00:00",
-      "sev": 84
+      "at": "2026-07-05T03:32:54.454862+00:00",
+      "sev": 82
     },
     "USA, New York": {
       "at": "2026-07-04T20:32:57.129775+00:00",
@@ -84,7 +80,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 7
+    "2026-07-05": 8
   },
   "daily_cat": {
     "2026-07-03": {
@@ -109,14 +105,14 @@
       "weather_eu": 4
     },
     "2026-07-05": {
-      "weather": 7
+      "weather": 8
     }
   },
-  "last_post_at": "2026-07-05T03:02:45.655317+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-05T03:32:54.454856+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 183
+    "2026-07": 184
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -261,7 +257,6 @@
     "fp:3da41daae703730f": "2026-07-02T19:33:29.547673+00:00",
     "fp:3e50b68e75ca918f": "2026-07-01T08:34:20.887151+00:00",
     "fp:3ec8829633a5155c": "2026-07-04T14:02:45.415076+00:00",
-    "fp:3f2d8adc594be8cc": "2026-06-27T03:04:43.689639+00:00",
     "fp:3f86080a70cac280": "2026-06-30T04:32:27.853836+00:00",
     "fp:4036f6f183c1ce31": "2026-06-30T05:05:53.305530+00:00",
     "fp:405295529f824cb8": "2026-07-04T01:35:20.230472+00:00",
@@ -428,6 +423,7 @@
     "fp:ceddc92b41aaa7de": "2026-07-04T08:33:25.222069+00:00",
     "fp:cf56c0ecfc4ff964": "2026-06-29T17:34:22.734741+00:00",
     "fp:d089a6b6ab501d1b": "2026-06-28T09:33:12.742579+00:00",
+    "fp:d1c636a726c26949": "2026-07-05T03:32:54.454829+00:00",
     "fp:d238f8adffab990c": "2026-07-03T05:06:11.312950+00:00",
     "fp:d2604fcabd48bf8f": "2026-06-28T18:03:58.329103+00:00",
     "fp:d29d30f78275339b": "2026-06-30T11:04:40.637044+00:00",
@@ -620,7 +616,6 @@
     "weather:Severe Thunderstorm Warning:Aitkin, MN; Carlton, MN; Lake, MN; St. Louis, MN; Douglas, W": "2026-06-30T06:32:39.203278+00:00",
     "weather:Severe Thunderstorm Warning:Andrews, TX; Dawson, TX; Gaines, TX; Martin, TX": "2026-06-29T01:34:14.172919+00:00",
     "weather:Severe Thunderstorm Warning:Appomattox, VA; Charlotte, VA; Halifax, VA": "2026-07-05T00:02:46.983470+00:00",
-    "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
     "weather:Severe Thunderstorm Warning:Bayfield, WI; Douglas, WI": "2026-06-29T20:34:28.549923+00:00",
     "weather:Severe Thunderstorm Warning:Bell, KY; Clay, KY; Harlan, KY; Knox, KY; Leslie, KY": "2026-07-04T03:34:50.560270+00:00",
     "weather:Severe Thunderstorm Warning:Boone, NE": "2026-06-30T03:03:20.448955+00:00",
@@ -641,6 +636,7 @@
     "weather:Severe Thunderstorm Warning:Craig, VA; Giles, VA; Montgomery, VA; Pulaski, VA; City of R": "2026-07-04T19:02:22.782222+00:00",
     "weather:Severe Thunderstorm Warning:Crawford, PA": "2026-07-03T16:33:25.736731+00:00",
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
+    "weather:Severe Thunderstorm Warning:Dade, MO; Jasper, MO; Lawrence, MO": "2026-07-05T03:32:54.454781+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; Garfield, MT; McCone, MT; Prairie, MT": "2026-07-02T04:34:18.931137+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; McCone, MT; Richland, MT; Roosevelt, MT; Wibaux,": "2026-07-03T06:04:30.519246+00:00",
     "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
