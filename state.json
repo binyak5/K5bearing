@@ -21,7 +21,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-05T02:32:52.227186+00:00",
+      "at": "2026-07-05T10:02:56.446411+00:00",
       "sev": 80
     },
     "USA, Illinois": {
@@ -76,7 +76,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 19
+    "2026-07-05": 20
   },
   "daily_cat": {
     "2026-07-03": {
@@ -104,15 +104,15 @@
       "cityweather": 1,
       "marine": 1,
       "maritime": 3,
-      "weather": 11,
+      "weather": 12,
       "weather_eu": 3
     }
   },
-  "last_post_at": "2026-07-05T09:33:02.487381+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-07-05T10:02:56.446405+00:00",
+  "last_topic": "marine",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 195
+    "2026-07": 196
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -251,6 +251,7 @@
     "fp:3ae05e888bd2b8b7": "2026-07-04T20:02:22.068855+00:00",
     "fp:3b54a1100f9e5296": "2026-06-30T10:03:45.422620+00:00",
     "fp:3c7a54c2e1dd1845": "2026-07-02T07:34:12.737869+00:00",
+    "fp:3d0e3c2a10c2c263": "2026-07-05T10:02:56.446371+00:00",
     "fp:3da41daae703730f": "2026-07-02T19:33:29.547673+00:00",
     "fp:3e50b68e75ca918f": "2026-07-01T08:34:20.887151+00:00",
     "fp:3ec8829633a5155c": "2026-07-04T14:02:45.415076+00:00",
@@ -665,6 +666,7 @@
     "weather:Severe Thunderstorm Warning:Weld, CO": "2026-07-02T06:32:35.232748+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
     "weather:Special Marine Warning:Coastal waters from Chokoloskee to Bonita Beach FL out 20 NM": "2026-07-02T21:34:38.006510+00:00",
+    "weather:Special Marine Warning:Coastal waters from Pascagoula Mississippi to Stake Island o": "2026-07-05T10:02:56.446307+00:00",
     "weather:Special Marine Warning:Coastal waters from Sandy Hook to Manasquan Inlet NJ out 20 ": "2026-07-05T02:32:52.227107+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
