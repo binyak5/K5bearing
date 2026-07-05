@@ -45,8 +45,8 @@
       "sev": 96
     },
     "USA, Mississippi": {
-      "at": "2026-07-05T01:32:51.893070+00:00",
-      "sev": 84
+      "at": "2026-07-05T11:02:58.133029+00:00",
+      "sev": 82
     },
     "USA, Missouri": {
       "at": "2026-07-05T05:33:25.727138+00:00",
@@ -76,7 +76,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 21
+    "2026-07-05": 22
   },
   "daily_cat": {
     "2026-07-03": {
@@ -104,15 +104,15 @@
       "cityweather": 1,
       "marine": 2,
       "maritime": 3,
-      "weather": 12,
+      "weather": 13,
       "weather_eu": 3
     }
   },
-  "last_post_at": "2026-07-05T10:32:40.004420+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-07-05T11:02:58.133025+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 197
+    "2026-07": 198
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -383,6 +383,7 @@
     "fp:a4e34da46481eac8": "2026-07-03T19:02:30.432837+00:00",
     "fp:a69814c8ff6f41af": "2026-07-03T02:34:19.107614+00:00",
     "fp:a801149934478877": "2026-07-02T11:04:06.638213+00:00",
+    "fp:a83d18716a4e971b": "2026-07-05T11:02:58.133000+00:00",
     "fp:a944906c409d43ee": "2026-06-28T07:03:25.379216+00:00",
     "fp:a9c153105ee43339": "2026-07-03T11:04:41.991182+00:00",
     "fp:aa1ec2c608181818": "2026-07-02T03:33:17.248225+00:00",
@@ -649,6 +650,7 @@
     "weather:Severe Thunderstorm Warning:Jackson, AL": "2026-07-03T01:33:22.438920+00:00",
     "weather:Severe Thunderstorm Warning:Jefferson, NY; Lewis, NY": "2026-07-01T03:34:20.323081+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
+    "weather:Severe Thunderstorm Warning:Kemper, MS; Neshoba, MS; Noxubee, MS; Winston, MS": "2026-07-05T11:02:58.132956+00:00",
     "weather:Severe Thunderstorm Warning:Lea, NM; Andrews, TX; Gaines, TX": "2026-07-01T01:33:07.941928+00:00",
     "weather:Severe Thunderstorm Warning:Lincoln, CO; Washington, CO": "2026-07-04T06:02:25.702940+00:00",
     "weather:Severe Thunderstorm Warning:Logan, KS; Wallace, KS": "2026-07-01T00:02:52.523055+00:00",
