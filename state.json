@@ -84,7 +84,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 38
+    "2026-07-05": 39
   },
   "daily_cat": {
     "2026-07-03": {
@@ -111,17 +111,17 @@
     "2026-07-05": {
       "cityweather": 2,
       "marine": 3,
-      "maritime": 4,
+      "maritime": 5,
       "outdoor": 2,
       "weather": 23,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-05T20:02:53.590994+00:00",
-  "last_topic": "thunderstorm",
+  "last_post_at": "2026-07-05T20:32:50.613381+00:00",
+  "last_topic": "maritime",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 214
+    "2026-07": 215
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -294,7 +294,6 @@
     "fp:54b61e4c9c6c8466": "2026-07-01T12:34:21.046067+00:00",
     "fp:551f744878f1bdf3": "2026-07-05T05:33:25.727109+00:00",
     "fp:5661ebae79ccb21f": "2026-07-02T01:04:28.305355+00:00",
-    "fp:57bcc9828f75b1e0": "2026-06-27T20:03:16.739214+00:00",
     "fp:57eceba3bfdf1c40": "2026-07-03T16:33:25.736778+00:00",
     "fp:59d5850f1654f725": "2026-07-03T15:04:34.193854+00:00",
     "fp:5a52952bd5fa8a45": "2026-07-02T08:03:16.809858+00:00",
@@ -373,7 +372,7 @@
     "fp:988763d4ff79fd81": "2026-07-03T09:05:07.177495+00:00",
     "fp:9c551116d54df8b4": "2026-07-03T21:04:46.117679+00:00",
     "fp:9cefab3484357cd4": "2026-07-03T17:34:39.495921+00:00",
-    "fp:9f401d776dd97199": "2026-07-03T20:03:09.191427+00:00",
+    "fp:9f401d776dd97199": "2026-07-05T20:32:50.613334+00:00",
     "fp:9f9bb633b3760526": "2026-07-01T01:04:41.064758+00:00",
     "fp:9f9dc66920f6f067": "2026-07-04T19:33:52.444996+00:00",
     "fp:9fea4e7e77bb915b": "2026-06-30T07:02:40.486339+00:00",
@@ -518,7 +517,7 @@
     "nga:cable:the ligurian sea": "2026-07-04T14:32:36.280134+00:00",
     "nga:cable:the persian gulf": "2026-07-05T08:02:51.523063+00:00",
     "nga:cable:the western north atlantic": "2026-07-04T10:03:35.884301+00:00",
-    "nga:launch:the north pacific": "2026-07-03T20:03:09.191383+00:00",
+    "nga:launch:the north pacific": "2026-07-05T20:32:50.613287+00:00",
     "nga:mine:the bay of biscay": "2026-07-04T02:35:10.074671+00:00",
     "nga:mine:the black sea": "2026-07-04T00:05:22.180572+00:00",
     "quake:aka2026msxacu": "2026-06-29T06:03:09.253206+00:00",
@@ -569,7 +568,6 @@
     "weather:Flash Flood Warning:Donley, TX": "2026-06-30T21:33:56.475700+00:00",
     "weather:Flash Flood Warning:DuPage, IL; Kane, IL; Kendall, IL": "2026-07-03T05:06:11.312915+00:00",
     "weather:Flash Flood Warning:Dundy, NE; Hitchcock, NE": "2026-07-03T02:02:40.961366+00:00",
-    "weather:Flash Flood Warning:Edwards, IL; Wabash, IL; Gibson, IN": "2026-06-27T20:03:16.739183+00:00",
     "weather:Flash Flood Warning:Elkhart, IN; Kosciusko, IN; Marshall, IN; St. Joseph, IN": "2026-07-04T05:33:15.109679+00:00",
     "weather:Flash Flood Warning:Fentress, TN; Pickett, TN": "2026-06-28T14:34:18.910439+00:00",
     "weather:Flash Flood Warning:Fillmore, MN; Houston, MN": "2026-07-02T14:34:07.648809+00:00",
