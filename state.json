@@ -24,10 +24,6 @@
       "at": "2026-07-05T02:32:52.227186+00:00",
       "sev": 80
     },
-    "USA, Colorado": {
-      "at": "2026-07-04T06:33:52.299329+00:00",
-      "sev": 84
-    },
     "USA, Illinois": {
       "at": "2026-07-04T19:33:52.445026+00:00",
       "sev": 84
@@ -80,7 +76,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 14
+    "2026-07-05": 15
   },
   "daily_cat": {
     "2026-07-03": {
@@ -107,15 +103,16 @@
     "2026-07-05": {
       "cityweather": 1,
       "marine": 1,
+      "maritime": 1,
       "weather": 11,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-05T06:33:04.752188+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-07-05T07:02:39.845036+00:00",
+  "last_topic": "maritime",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 190
+    "2026-07": 191
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -417,7 +414,6 @@
     "fp:c3cb8aa4e3430337": "2026-06-30T05:33:36.319524+00:00",
     "fp:c5ec1b247dafd0cb": "2026-06-29T08:33:18.833015+00:00",
     "fp:c6729091565bb68a": "2026-06-28T11:32:30.320582+00:00",
-    "fp:c78381a9ad013a1f": "2026-06-27T06:33:17.834464+00:00",
     "fp:c822cdfdb9482227": "2026-06-29T08:04:07.598361+00:00",
     "fp:c9b97d2e59e24b8e": "2026-07-04T18:33:22.081108+00:00",
     "fp:cb0b01fa9291f7c7": "2026-07-05T04:32:10.656065+00:00",
@@ -473,7 +469,7 @@
     "fp:f2b8fb2a69273f61": "2026-07-01T21:34:34.195829+00:00",
     "fp:f346b56489012bdc": "2026-07-01T10:34:22.534978+00:00",
     "fp:f3e3902898ca5290": "2026-07-01T02:33:56.473752+00:00",
-    "fp:f431e1cacbea85cf": "2026-07-02T15:04:11.692649+00:00",
+    "fp:f431e1cacbea85cf": "2026-07-05T07:02:39.845010+00:00",
     "fp:f6f9eed1d789f8de": "2026-06-29T07:34:12.059209+00:00",
     "fp:f7152583d9ed2a10": "2026-07-02T14:34:07.648852+00:00",
     "fp:f97cfa5fff57bde4": "2026-06-28T08:03:32.725756+00:00",
@@ -511,7 +507,7 @@
     "marinefog:US Pacific seaboard:2026-06-30": "2026-06-30T11:32:55.017684+00:00",
     "marinefog:US Pacific seaboard:2026-07-02": "2026-07-02T12:04:33.496743+00:00",
     "marinefog:US Pacific seaboard:2026-07-04": "2026-07-04T12:04:38.688848+00:00",
-    "nga:cable:the bay of biscay": "2026-07-02T15:04:11.692608+00:00",
+    "nga:cable:the bay of biscay": "2026-07-05T07:02:39.844961+00:00",
     "nga:cable:the caribbean sea": "2026-07-03T08:32:44.236210+00:00",
     "nga:cable:the celtic sea": "2026-07-04T09:02:41.876436+00:00",
     "nga:cable:the eastern mediterranean sea": "2026-07-03T15:04:34.193805+00:00",
@@ -565,7 +561,6 @@
     "weather:Flash Flood Warning:Chase, NE; Hayes, NE": "2026-07-03T04:04:58.778283+00:00",
     "weather:Flash Flood Warning:Clay, KY; Estill, KY; Lee, KY; Owsley, KY": "2026-06-27T16:02:38.169586+00:00",
     "weather:Flash Flood Warning:Clinton, KY; Cumberland, KY; Metcalfe, KY": "2026-06-28T08:33:12.111024+00:00",
-    "weather:Flash Flood Warning:Crawford, IN; Perry, IN": "2026-06-27T06:33:17.834423+00:00",
     "weather:Flash Flood Warning:De Kalb, IL; La Salle, IL; Lee, IL": "2026-07-04T19:33:52.444953+00:00",
     "weather:Flash Flood Warning:Donley, TX": "2026-06-30T21:33:56.475700+00:00",
     "weather:Flash Flood Warning:Douglas, MO; Wright, MO": "2026-06-27T14:03:18.275267+00:00",
