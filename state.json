@@ -72,6 +72,10 @@
       "at": "2026-07-05T15:33:09.209829+00:00",
       "sev": 82
     },
+    "USA, Texas": {
+      "at": "2026-07-05T20:02:53.590999+00:00",
+      "sev": 82
+    },
     "USA, Virginia": {
       "at": "2026-07-05T00:02:46.983530+00:00",
       "sev": 82
@@ -80,7 +84,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 37
+    "2026-07-05": 38
   },
   "daily_cat": {
     "2026-07-03": {
@@ -109,15 +113,15 @@
       "marine": 3,
       "maritime": 4,
       "outdoor": 2,
-      "weather": 22,
+      "weather": 23,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-05T19:33:14.569880+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-05T20:02:53.590994+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 213
+    "2026-07": 214
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -327,7 +331,6 @@
     "fp:7c72c78136c9d44c": "2026-06-30T01:34:10.533000+00:00",
     "fp:7caf18145d453c44": "2026-07-04T01:04:53.309420+00:00",
     "fp:7cb8cc013f4b639b": "2026-07-03T11:32:30.040622+00:00",
-    "fp:7d40478c730344e0": "2026-06-27T19:35:37.120412+00:00",
     "fp:7efa6d997c414f89": "2026-07-04T09:32:57.923573+00:00",
     "fp:7f1cbf3f42201fc7": "2026-06-29T04:34:18.604442+00:00",
     "fp:7f3d0d696084057c": "2026-07-03T21:35:01.296118+00:00",
@@ -421,6 +424,7 @@
     "fp:ccbfd06d47753f0d": "2026-07-05T18:02:52.486177+00:00",
     "fp:ce1ee54e8c65a210": "2026-07-05T01:02:39.198907+00:00",
     "fp:ceddc92b41aaa7de": "2026-07-04T08:33:25.222069+00:00",
+    "fp:cf0f15668116f4ce": "2026-07-05T20:02:53.590970+00:00",
     "fp:cf56c0ecfc4ff964": "2026-07-05T19:02:59.387682+00:00",
     "fp:d089a6b6ab501d1b": "2026-06-28T09:33:12.742579+00:00",
     "fp:d1c636a726c26949": "2026-07-05T03:32:54.454829+00:00",
@@ -642,6 +646,7 @@
     "weather:Severe Thunderstorm Warning:Dawson, MT; McCone, MT; Richland, MT; Roosevelt, MT; Wibaux,": "2026-07-03T06:04:30.519246+00:00",
     "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
     "weather:Severe Thunderstorm Warning:Deaf Smith, TX": "2026-07-01T21:04:52.752897+00:00",
+    "weather:Severe Thunderstorm Warning:Deaf Smith, TX; Randall, TX": "2026-07-05T20:02:53.590926+00:00",
     "weather:Severe Thunderstorm Warning:Franklin, NC; Johnston, NC; Nash, NC; Wilson, NC": "2026-06-28T20:34:40.096392+00:00",
     "weather:Severe Thunderstorm Warning:Frontier, NE": "2026-07-03T00:32:31.201579+00:00",
     "weather:Severe Thunderstorm Warning:Gilmer, GA; Murray, GA": "2026-07-03T18:04:36.164702+00:00",
