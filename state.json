@@ -21,8 +21,8 @@
       "sev": 80
     },
     "USA, Illinois": {
-      "at": "2026-07-04T19:33:52.445026+00:00",
-      "sev": 84
+      "at": "2026-07-05T12:33:01.538084+00:00",
+      "sev": 75
     },
     "USA, Indiana": {
       "at": "2026-07-04T14:02:45.415104+00:00",
@@ -72,7 +72,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 24
+    "2026-07-05": 25
   },
   "daily_cat": {
     "2026-07-03": {
@@ -100,15 +100,15 @@
       "cityweather": 1,
       "marine": 2,
       "maritime": 4,
-      "weather": 14,
+      "weather": 15,
       "weather_eu": 3
     }
   },
-  "last_post_at": "2026-07-05T12:02:59.292849+00:00",
-  "last_topic": "marine",
+  "last_post_at": "2026-07-05T12:33:01.538079+00:00",
+  "last_topic": "flood",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 200
+    "2026-07": 201
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -269,6 +269,7 @@
     "fp:4a709c0019768013": "2026-06-29T18:04:43.988175+00:00",
     "fp:4af6f560351f5a40": "2026-07-01T20:34:16.521148+00:00",
     "fp:4f2bb8af9c740012": "2026-07-01T17:04:58.785028+00:00",
+    "fp:514ad2329502eb7a": "2026-07-05T12:33:01.538054+00:00",
     "fp:51b3a208f117925a": "2026-06-28T10:03:27.674967+00:00",
     "fp:51dd02455717274f": "2026-07-03T08:03:08.747436+00:00",
     "fp:52018fd024567afd": "2026-07-02T06:32:35.232792+00:00",
@@ -601,6 +602,7 @@
     "weather:Flood Warning:Houston, MN": "2026-07-03T15:32:41.905409+00:00",
     "weather:Flood Warning:Lake, MT": "2026-06-29T18:04:43.988110+00:00",
     "weather:Flood Warning:Monroe, WI; Vernon, WI": "2026-07-02T13:33:58.982946+00:00",
+    "weather:Flood Warning:Will, IL": "2026-07-05T12:33:01.538015+00:00",
     "weather:Hazardous Seas Warning:Waters from Cape Blanco OR to Pt. St. George CA from 10 to 6": "2026-06-28T06:33:15.414260+00:00",
     "weather:Severe Thunderstorm Warning:Adair, OK; Cherokee, OK; Craig, OK; Delaware, OK; Mayes, OK;": "2026-07-05T02:02:43.099248+00:00",
     "weather:Severe Thunderstorm Warning:Aitkin, MN; Carlton, MN; Lake, MN; St. Louis, MN; Douglas, W": "2026-06-30T06:32:39.203278+00:00",
