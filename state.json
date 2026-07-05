@@ -76,7 +76,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 31
+    "2026-07-05": 32
   },
   "daily_cat": {
     "2026-07-03": {
@@ -102,18 +102,18 @@
     },
     "2026-07-05": {
       "cityweather": 1,
-      "marine": 2,
+      "marine": 3,
       "maritime": 4,
       "outdoor": 1,
       "weather": 19,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-05T16:32:49.372739+00:00",
-  "last_topic": "outdoor",
+  "last_post_at": "2026-07-05T17:02:50.230364+00:00",
+  "last_topic": "marine",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 207
+    "2026-07": 208
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -213,7 +213,6 @@
     "fp:1a46453da99bc825": "2026-07-01T06:04:49.282451+00:00",
     "fp:1a980846c46bf862": "2026-07-05T08:32:57.089770+00:00",
     "fp:1c26ecbc8e9e1d8a": "2026-07-01T09:03:13.323534+00:00",
-    "fp:1d59b91a02d51aab": "2026-06-27T16:33:19.972157+00:00",
     "fp:1d5e829ed1856ec4": "2026-07-05T16:32:49.372714+00:00",
     "fp:1da93097ff71cfa6": "2026-06-29T10:33:57.323005+00:00",
     "fp:1e72941dd0da6c4e": "2026-06-30T20:32:48.597521+00:00",
@@ -429,6 +428,7 @@
     "fp:d368187bd5d09a8b": "2026-07-02T21:34:38.006547+00:00",
     "fp:d3693f42e3882963": "2026-06-29T04:04:26.541490+00:00",
     "fp:d44f2b2a31ecb590": "2026-07-03T10:03:42.402009+00:00",
+    "fp:d47bf833de7e2d15": "2026-07-05T17:02:50.230332+00:00",
     "fp:d4bcdda8b0676080": "2026-06-30T20:03:03.769533+00:00",
     "fp:d52c7099ab6e9c89": "2026-07-01T02:04:56.845156+00:00",
     "fp:d551aa4d71e3a8b8": "2026-06-30T13:33:41.770341+00:00",
@@ -522,6 +522,7 @@
     "seas:Arabian Sea:2026-07-01": "2026-07-01T13:04:41.032820+00:00",
     "seas:Arabian Sea:2026-07-03": "2026-07-03T13:34:53.142773+00:00",
     "seawind:Aegean Sea:2026-07-05": "2026-07-05T10:32:40.004341+00:00",
+    "seawind:Baltic Sea:2026-07-05": "2026-07-05T17:02:50.230280+00:00",
     "seawind:Irish Sea:2026-07-01": "2026-07-01T20:03:19.202947+00:00",
     "seawind:North Sea:2026-07-02": "2026-07-02T08:03:16.809811+00:00",
     "seawind:Norwegian Sea:2026-07-05": "2026-07-05T06:33:04.752114+00:00",
@@ -674,7 +675,6 @@
     "weather:Special Marine Warning:Guam Coastal Waters": "2026-07-05T12:02:59.292782+00:00",
     "weather:Special Marine Warning:Lake Superior East of a line from Manitou Island to Marquett": "2026-06-30T15:34:55.214201+00:00",
     "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Cape Hatteras NC t": "2026-06-28T18:03:58.329044+00:00",
-    "weather:Special Marine Warning:Pamlico Sound; Neuse and Bay Rivers; S of Ocracoke Inlet NC ": "2026-06-27T16:33:19.972106+00:00",
     "weather:Special Marine Warning:Pensacola Bay Area including Santa Rosa Sound; Western Choct": "2026-06-30T19:04:17.150382+00:00",
     "weather:Special Marine Warning:S of Cape Lookout NC to Surf City NC out to 20 NM; Waters fr": "2026-06-29T02:02:38.692388+00:00",
     "weather:Special Marine Warning:Seul Choix Point to 5NM West of Mackinac Bridge; Norwood MI ": "2026-06-29T17:04:10.354789+00:00",
