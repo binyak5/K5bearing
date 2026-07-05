@@ -73,27 +73,16 @@
       "sev": 82
     },
     "USA, Virginia": {
-      "at": "2026-07-04T19:02:22.782313+00:00",
+      "at": "2026-07-05T00:02:46.983530+00:00",
       "sev": 82
     }
   },
   "daily": {
-    "2026-07-02": 44,
     "2026-07-03": 44,
-    "2026-07-04": 44
+    "2026-07-04": 44,
+    "2026-07-05": 1
   },
   "daily_cat": {
-    "2026-07-02": {
-      "cityweather": 2,
-      "earthquake": 1,
-      "flare": 1,
-      "gulf": 4,
-      "marine": 3,
-      "maritime": 5,
-      "outdoor": 1,
-      "weather": 22,
-      "weather_eu": 5
-    },
     "2026-07-03": {
       "blackout": 1,
       "cityweather": 1,
@@ -114,13 +103,16 @@
       "maritime": 5,
       "weather": 25,
       "weather_eu": 4
+    },
+    "2026-07-05": {
+      "weather": 1
     }
   },
-  "last_post_at": "2026-07-04T21:32:47.741754+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-05T00:02:46.983525+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 176
+    "2026-07": 177
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -229,6 +221,7 @@
     "fp:1edd3b1b52f1767a": "2026-07-01T04:34:10.283784+00:00",
     "fp:1f05ba3e8166c76d": "2026-07-03T19:34:25.394649+00:00",
     "fp:20f1d5a1ac43c87f": "2026-07-02T17:32:20.578333+00:00",
+    "fp:22a34e3b8de1a1eb": "2026-07-05T00:02:46.983506+00:00",
     "fp:232c2c777fa53eb9": "2026-07-04T02:05:05.612668+00:00",
     "fp:2499fb3246ad6151": "2026-07-02T20:02:43.517400+00:00",
     "fp:255c8f82d9440dde": "2026-07-02T07:04:38.595730+00:00",
@@ -620,6 +613,7 @@
     "weather:Hazardous Seas Warning:Waters from Cape Blanco OR to Pt. St. George CA from 10 to 6": "2026-06-28T06:33:15.414260+00:00",
     "weather:Severe Thunderstorm Warning:Aitkin, MN; Carlton, MN; Lake, MN; St. Louis, MN; Douglas, W": "2026-06-30T06:32:39.203278+00:00",
     "weather:Severe Thunderstorm Warning:Andrews, TX; Dawson, TX; Gaines, TX; Martin, TX": "2026-06-29T01:34:14.172919+00:00",
+    "weather:Severe Thunderstorm Warning:Appomattox, VA; Charlotte, VA; Halifax, VA": "2026-07-05T00:02:46.983470+00:00",
     "weather:Severe Thunderstorm Warning:Armstrong, TX; Carson, TX; Hutchinson, TX; Moore, TX; Potter": "2026-06-27T03:04:43.689575+00:00",
     "weather:Severe Thunderstorm Warning:Bayfield, WI; Douglas, WI": "2026-06-29T20:34:28.549923+00:00",
     "weather:Severe Thunderstorm Warning:Bell, KY; Clay, KY; Harlan, KY; Knox, KY; Leslie, KY": "2026-07-04T03:34:50.560270+00:00",
