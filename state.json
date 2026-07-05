@@ -61,7 +61,7 @@
       "sev": 84
     },
     "USA, Oklahoma": {
-      "at": "2026-07-05T02:02:43.099328+00:00",
+      "at": "2026-07-05T04:32:10.656098+00:00",
       "sev": 82
     },
     "USA, Pennsylvania": {
@@ -80,7 +80,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 9
+    "2026-07-05": 10
   },
   "daily_cat": {
     "2026-07-03": {
@@ -105,14 +105,14 @@
       "weather_eu": 4
     },
     "2026-07-05": {
-      "weather": 9
+      "weather": 10
     }
   },
-  "last_post_at": "2026-07-05T04:02:46.894754+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-05T04:32:10.656093+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 185
+    "2026-07": 186
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -243,7 +243,6 @@
     "fp:328767e5073c7464": "2026-06-30T06:04:09.548199+00:00",
     "fp:32dc64fbf5698425": "2026-07-04T06:02:25.702991+00:00",
     "fp:33c808ebdaa4afa0": "2026-06-30T03:03:20.448999+00:00",
-    "fp:341214589db567df": "2026-06-27T04:03:26.144985+00:00",
     "fp:34935b21e9a7355c": "2026-07-03T00:02:52.822184+00:00",
     "fp:35386df463e4bcb4": "2026-07-03T17:05:18.742503+00:00",
     "fp:3791200e42d70f59": "2026-06-28T21:33:12.950957+00:00",
@@ -418,6 +417,7 @@
     "fp:c78381a9ad013a1f": "2026-06-27T06:33:17.834464+00:00",
     "fp:c822cdfdb9482227": "2026-06-29T08:04:07.598361+00:00",
     "fp:c9b97d2e59e24b8e": "2026-07-04T18:33:22.081108+00:00",
+    "fp:cb0b01fa9291f7c7": "2026-07-05T04:32:10.656065+00:00",
     "fp:cba5becfa9b5612f": "2026-06-28T06:03:19.806398+00:00",
     "fp:ce1ee54e8c65a210": "2026-07-05T01:02:39.198907+00:00",
     "fp:ceddc92b41aaa7de": "2026-07-04T08:33:25.222069+00:00",
@@ -622,6 +622,7 @@
     "weather:Severe Thunderstorm Warning:Brown, SD; Clark, SD; Day, SD; Spink, SD": "2026-06-28T06:03:19.806348+00:00",
     "weather:Severe Thunderstorm Warning:Cameron, PA; Centre, PA; Clearfield, PA; Clinton, PA; Elk, P": "2026-07-04T04:32:29.421348+00:00",
     "weather:Severe Thunderstorm Warning:Carroll, NH; Coos, NH; Grafton, NH": "2026-07-02T01:33:04.889597+00:00",
+    "weather:Severe Thunderstorm Warning:Carter, OK; Garvin, OK; Murray, OK; Pontotoc, OK; Stephens, ": "2026-07-05T04:32:10.656012+00:00",
     "weather:Severe Thunderstorm Warning:Cerro Gordo, IA; Hancock, IA; Humboldt, IA; Kossuth, IA; Win": "2026-06-28T13:04:44.049903+00:00",
     "weather:Severe Thunderstorm Warning:Cherokee, IA; Plymouth, IA": "2026-07-02T12:32:31.536838+00:00",
     "weather:Severe Thunderstorm Warning:Cherry, NE": "2026-06-29T03:03:24.925298+00:00",
@@ -659,7 +660,6 @@
     "weather:Severe Thunderstorm Warning:McHenry, ND; McLean, ND; Ward, ND": "2026-06-29T19:34:01.613391+00:00",
     "weather:Severe Thunderstorm Warning:Meade, SD": "2026-07-03T02:34:19.107579+00:00",
     "weather:Severe Thunderstorm Warning:Meade, SD; Pennington, SD": "2026-07-03T04:34:43.853435+00:00",
-    "weather:Severe Thunderstorm Warning:Northwest Boulder, CO; Grand, CO": "2026-06-27T04:03:26.144948+00:00",
     "weather:Severe Thunderstorm Warning:Oneida, NY": "2026-06-30T18:33:08.386004+00:00",
     "weather:Severe Thunderstorm Warning:Phillips, CO; Sedgwick, CO": "2026-07-03T07:02:43.853060+00:00",
     "weather:Severe Thunderstorm Warning:Pierce, ND": "2026-06-29T05:33:20.814096+00:00",
