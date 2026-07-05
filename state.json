@@ -49,8 +49,8 @@
       "sev": 84
     },
     "USA, Missouri": {
-      "at": "2026-07-05T03:32:54.454862+00:00",
-      "sev": 82
+      "at": "2026-07-05T05:33:25.727138+00:00",
+      "sev": 84
     },
     "USA, New York": {
       "at": "2026-07-04T20:32:57.129775+00:00",
@@ -76,7 +76,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 11
+    "2026-07-05": 12
   },
   "daily_cat": {
     "2026-07-03": {
@@ -102,20 +102,19 @@
     },
     "2026-07-05": {
       "cityweather": 1,
-      "weather": 10
+      "weather": 11
     }
   },
-  "last_post_at": "2026-07-05T05:03:19.905983+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-07-05T05:33:25.727133+00:00",
+  "last_topic": "flood",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 187
+    "2026-07": 188
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
     "blackout:R2": "2026-07-03T18:33:22.066659+00:00",
     "citywx:rotterdam:2026-06-27:evening": "2026-06-27T17:04:13.854778+00:00",
-    "citywx:rotterdam:2026-06-27:morning": "2026-06-27T05:04:07.785729+00:00",
     "citywx:rotterdam:2026-06-28:evening": "2026-06-28T17:04:05.744060+00:00",
     "citywx:rotterdam:2026-06-29:morning": "2026-06-29T05:04:16.690533+00:00",
     "citywx:rotterdam:2026-06-30:evening": "2026-06-30T17:04:18.141290+00:00",
@@ -283,6 +282,7 @@
     "fp:54a02571df60d94d": "2026-07-04T00:05:22.180619+00:00",
     "fp:54a2151ce3c0aab3": "2026-06-28T06:33:15.414300+00:00",
     "fp:54b61e4c9c6c8466": "2026-07-01T12:34:21.046067+00:00",
+    "fp:551f744878f1bdf3": "2026-07-05T05:33:25.727109+00:00",
     "fp:5661ebae79ccb21f": "2026-07-02T01:04:28.305355+00:00",
     "fp:57bcc9828f75b1e0": "2026-06-27T20:03:16.739214+00:00",
     "fp:57eceba3bfdf1c40": "2026-07-03T16:33:25.736778+00:00",
@@ -581,6 +581,7 @@
     "weather:Flash Flood Warning:Houston, MN": "2026-07-02T11:04:06.638173+00:00",
     "weather:Flash Flood Warning:Johnson, KS; Miami, KS; Cass, MO": "2026-07-04T17:32:58.722504+00:00",
     "weather:Flash Flood Warning:Kit Carson, CO": "2026-07-04T06:33:52.299242+00:00",
+    "weather:Flash Flood Warning:Lawrence, MO": "2026-07-05T05:33:25.727072+00:00",
     "weather:Flash Flood Warning:Leelanau, MI": "2026-06-29T16:34:24.726515+00:00",
     "weather:Flash Flood Warning:Lincoln, MS": "2026-07-05T01:32:51.893002+00:00",
     "weather:Flash Flood Warning:Logan, CO; Phillips, CO; Sedgwick, CO": "2026-07-03T09:34:34.798610+00:00",
