@@ -52,6 +52,10 @@
       "at": "2026-07-04T20:32:57.129775+00:00",
       "sev": 84
     },
+    "USA, North Carolina": {
+      "at": "2026-07-05T18:02:52.486211+00:00",
+      "sev": 82
+    },
     "USA, Ohio": {
       "at": "2026-07-05T03:02:45.655321+00:00",
       "sev": 84
@@ -72,7 +76,7 @@
   "daily": {
     "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 33
+    "2026-07-05": 34
   },
   "daily_cat": {
     "2026-07-03": {
@@ -101,15 +105,15 @@
       "marine": 3,
       "maritime": 4,
       "outdoor": 1,
-      "weather": 19,
+      "weather": 20,
       "weather_eu": 4
     }
   },
-  "last_post_at": "2026-07-05T17:33:38.014826+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-07-05T18:02:52.486206+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 209
+    "2026-07": 210
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -410,6 +414,7 @@
     "fp:c9b97d2e59e24b8e": "2026-07-04T18:33:22.081108+00:00",
     "fp:cb0b01fa9291f7c7": "2026-07-05T04:32:10.656065+00:00",
     "fp:cba5becfa9b5612f": "2026-06-28T06:03:19.806398+00:00",
+    "fp:ccbfd06d47753f0d": "2026-07-05T18:02:52.486177+00:00",
     "fp:ce1ee54e8c65a210": "2026-07-05T01:02:39.198907+00:00",
     "fp:ceddc92b41aaa7de": "2026-07-04T08:33:25.222069+00:00",
     "fp:cf56c0ecfc4ff964": "2026-06-29T17:34:22.734741+00:00",
@@ -640,6 +645,7 @@
     "weather:Severe Thunderstorm Warning:Hartford, CT; Tolland, CT; Franklin, MA; Hampden, MA; Hampsh": "2026-07-02T03:02:56.766836+00:00",
     "weather:Severe Thunderstorm Warning:Harvey, KS; McPherson, KS; Reno, KS": "2026-07-04T13:32:30.814789+00:00",
     "weather:Severe Thunderstorm Warning:Hinds, MS; Madison, MS; Rankin, MS": "2026-07-04T20:02:22.068807+00:00",
+    "weather:Severe Thunderstorm Warning:Hoke, NC; Richmond, NC; Scotland, NC": "2026-07-05T18:02:52.486128+00:00",
     "weather:Severe Thunderstorm Warning:Iberia, LA; St. Martin, LA": "2026-07-01T19:03:40.876045+00:00",
     "weather:Severe Thunderstorm Warning:Jackson, AL": "2026-07-03T01:33:22.438920+00:00",
     "weather:Severe Thunderstorm Warning:Jefferson, NY; Lewis, NY": "2026-07-01T03:34:20.323081+00:00",
