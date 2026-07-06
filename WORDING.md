@@ -324,16 +324,6 @@ _Softened with a "Heads up," lead (advisory tier)._
 
 ---
 
-## World Cup — knockout final scores (ESPN)
-_Only knockout rounds (Round of 32 onward); group-stage matches are never posted. Score in home–away order; penalty score in the same order. No geo-tag prefix and no timestamp prefix._
-1. Full time - {home} {hs}–{as} {away} ({round})
-1. _(extra time)_ Full time (AET) - {home} {hs}–{as} {away} ({round})
-1. _(penalties)_ Full time (AET) - {home} {hs}–{as} {away} - {hp}–{ap} penalties ({round})
-
-_Rounds:_ Round of 32, Round of 16, Quarter final, Semi final, Third place playoff, Final.
-
----
-
 ## City weather update — Rotterdam (scheduled, not an alert)
 _Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
 

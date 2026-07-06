@@ -9,9 +9,6 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config.yaml"
 STATE_PATH = ROOT / "state.json"
-# Separate state for the fast World Cup scores workflow, so it never races the
-# main posting pipeline on state.json.
-WC_STATE_PATH = ROOT / "wc_state.json"
 
 USER_AGENT = "K5Bearing/1.0 (Kastle Five Systems; +https://x.com/K5Bearing)"
 

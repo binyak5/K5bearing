@@ -8,11 +8,12 @@ account:
 
 # Cost control. Pay-per-use is ~$0.015/post (X's current rate). The monthly cap
 # is a hard ceiling. NOTE: this must stay <= your X billing spend cap, or X will
-# reject posts once that cap is hit. Current: 44/day, 1320/month ~= $19.80/month.
+# reject posts once that cap is hit. Current: 20/day, 640/month ~= $9.60/month,
+# sitting just under the $10 X billing spend cap.
 limits:
   max_posts_per_run: 1   # one post per run; most severe candidate goes first
-  max_posts_per_day: 44
-  max_posts_per_month: 1320  # hard cost cap (~$19.80/month at $0.015/post)
+  max_posts_per_day: 20
+  max_posts_per_month: 640  # hard cost cap (~$9.60/month at $0.015/post, under the $10 cap)
   # Minimum minutes between posts. Set cron-job.org to fire every 30 min (a clean
   # */30 since 30 divides 60); this 25-min gap sits just under that so every run
   # posts once -> an even 30 minutes apart, with margin for cron jitter. It also
@@ -26,49 +27,31 @@ limits:
   # geo tag ("USA, Illinois" / "EU, France" / "GCC, ..."); coordinate-less
   # signals (space weather, marine, quakes) carry no area and are unaffected.
   area_cooldown_hours: 2
-  # Per-category daily caps so no single source dominates the whole feed. Tuned
-  # to reserve ~25% of the day's 44 posts for each of the three regions (US,
-  # Europe, Gulf = 33 slots) and keep the rest tight so they can't backfill into
-  # that reserved space on a quiet day. The caps still sum above max_posts_per_day
-  # so the feed never goes fully silent when a region is calm — the remaining
-  # categories absorb the slack — but far less than before. Categories not listed
-  # are uncapped.
+  # Per-category daily caps so no single source dominates the feed. The account
+  # is now Rotterdam-only plus global space weather, so only those categories are
+  # listed; caps for the muted sources (US/Gulf/marine/maritime/etc.) were
+  # dropped and can be restored from git when those regions come back. Caps sum
+  # above max_posts_per_day so the feed never goes fully silent on a quiet day.
+  # Categories not listed are uncapped.
   category_daily_caps:
     cityweather: 2    # the scheduled Rotterdam update (morning + evening); exempt from budget
-    gulf: 11          # Gulf alerts — ~25% of a full day's feed (regional balance)
-    weather: 11       # US NWS — ~25% of a full day's feed (regional balance)
-    weather_eu: 11    # Europe MeteoAlarm — ~25% of a full day's feed (regional balance)
-    maritime: 4       # NGA navigation warnings (tightened from 8)
-    marine: 4         # sea-state, swell, wind, fog, surf (tightened from 8)
-    outdoor: 4        # UV, dust, smoke, lightning (tightened from 6)
-    earthquake: 3     # (tightened from 4)
-    global: 2         # GDACS volcanoes / wildfires (tightened from 3)
-    hab: 1            # red tide (tightened from 2)
-    geomagnetic: 2    # (tightened from 3)
-    aurora: 1         # (disabled; tightened from 2)
-    solar: 2          # (tightened from 3)
+    weather_eu: 6     # Netherlands MeteoAlarm severe-weather warnings
+    outdoor: 3        # Rotterdam UV / dust / lightning
+    geomagnetic: 2
+    solar: 2
     solarwind: 2      # high-speed solar wind streams
-    flare: 2          # (tightened from 3)
-    radiation: 1      # (tightened from 2)
-    blackout: 1       # (tightened from 2)
+    flare: 2
+    radiation: 1
+    blackout: 1
 
 # Don't repost the same signal within this many hours (dedup TTL). Long enough
 # that multi-day warnings don't repeat in the feed.
 dedup_ttl_hours: 48
 
-# Regional scope. Only post events within these regions (USA, Europe, Gulf
-# states). Applied to the global sources (earthquakes, GDACS, NGA, marine, UV);
-# NWS is US-only and MeteoAlarm is Europe-only already.
-regions: ["usa", "europe", "gulf"]
-
-# World Cup final scores (FIFA World Cup, via ESPN's keyless scoreboard API).
-# Posted by a SEPARATE fast workflow (every ~5 min) so a result lands within
-# minutes of full time, independent of the 30-min weather pipeline. Only
-# knockout rounds are posted (Round of 32 onward); group-stage matches never
-# are. `start` is an extra safety floor — no scores before this instant (UTC).
-world_cup:
-  enabled: true
-  start: "2026-06-28T19:00:00Z"   # Round of 32 kickoff (21:00 CEST)
+# Regional scope. Only post events within these regions. Currently Rotterdam-only,
+# so Europe alone; the US and Gulf location sources are disabled below. Space
+# weather is global and unaffected by this filter.
+regions: ["europe"]
 
 # Media cards: attach a generated black/Eurostile card image (with the dotted
 # region map + orange location dot) to posts. Which event types get a card is
@@ -123,8 +106,9 @@ radio_blackout:
   min_scale: 1     # R1 (minor) and up
 
 # Significant earthquakes (USGS), filtered to USA / Europe / Gulf.
+# Muted: Rotterdam-only scope. Re-enable to restore terrestrial quake coverage.
 earthquakes:
-  enabled: true
+  enabled: false
   min_magnitude: 5.0     # lower bar since we're region-limited (Europe/Gulf quakes are smaller)
   max_age_hours: 6       # ignore quakes older than this on startup
 
@@ -132,8 +116,9 @@ earthquakes:
 # is Europe-only): extreme heat, shamal winds, dense fog, thunderstorms, heavy
 # rain / flash flooding, and dust storms, from Open-Meteo (keyless).
 # Fires once per city per day per hazard. Temps in °C, winds in km/h.
+# Muted: Rotterdam-only scope. Wordings and the city list are kept for re-enable.
 gulf_weather:
-  enabled: true
+  enabled: false
   heat_feels_c: 47       # feels-like (apparent) temperature at/above this = dangerous heat
   wind_gust_kmh: 55      # wind gusts at/above this = shamal / high-wind alert
   fog_visibility_m: 1000 # dense fog when visibility drops below this (metres)
@@ -180,31 +165,17 @@ city_weather:
 outdoor:
   enabled: true
   uv_threshold: 11       # 11+ = "extreme" (WHO scale)
-  dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm (common in the Gulf)
+  dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm
+  # Rotterdam-only scope. In practice only the lightning watch fires here (NW
+  # Europe rarely reaches extreme UV or dust-storm levels), which is the point.
+  # The full US/Europe/Gulf city list is preserved in git for re-enable.
   locations:
-    # USA
-    - {name: "Phoenix",      lat: 33.45, lon: -112.07}
-    - {name: "Los Angeles",  lat: 34.05, lon: -118.24}
-    - {name: "Miami",        lat: 25.76, lon: -80.19}
-    - {name: "Denver",       lat: 39.74, lon: -104.99}
-    - {name: "Houston",      lat: 29.76, lon: -95.37}
-    # Europe
-    - {name: "Madrid",       lat: 40.42, lon: -3.70}
-    - {name: "Rome",         lat: 41.90, lon: 12.50}
-    - {name: "Athens",       lat: 37.98, lon: 23.73}
-    - {name: "Lisbon",       lat: 38.72, lon: -9.14}
-    - {name: "Nicosia",      lat: 35.17, lon: 33.36}
-    # Gulf
-    - {name: "Dubai",        lat: 25.20, lon: 55.27}
-    - {name: "Riyadh",       lat: 24.71, lon: 46.68}
-    - {name: "Doha",         lat: 25.29, lon: 51.53}
-    - {name: "Kuwait City",  lat: 29.38, lon: 47.99}
-    - {name: "Abu Dhabi",    lat: 24.45, lon: 54.38}
-    - {name: "Muscat",       lat: 23.59, lon: 58.41}
+    - {name: "Rotterdam", lat: 51.92, lon: 4.48}
 
 # Severe-weather alerts from the US National Weather Service.
+# Muted: Rotterdam-only scope. The full event list and wordings are kept intact.
 weather:
-  enabled: true
+  enabled: false
   # Only these event types get posted (high-stakes by default).
   events:
     - "Tornado Warning"
@@ -262,36 +233,16 @@ weather_eu:
   # Severe filters out the high-volume yellow warnings; raise to Extreme for
   # red-only.
   min_severity: "Severe"
-  # Country feed slugs (feeds.meteoalarm.org legacy-atom names).
+  # Country feed slugs (feeds.meteoalarm.org legacy-atom names). Rotterdam-only
+  # scope, so just the Netherlands feed; the full European list is kept in git.
   countries:
-    - united-kingdom
-    - ireland
-    - france
-    - germany
     - netherlands
-    - spain
-    - portugal
-    - italy
-    - switzerland
-    - poland
-    - sweden
-    - norway
-    - greece
-    - ukraine
-    - czechia
-    - hungary
-    - finland
-    - serbia
-    - slovakia
-    - slovenia
-    - bosnia-herzegovina
-    - iceland
-    - estonia
 
 # Marine sea-state (high-seas) warnings via Open-Meteo, for named sea areas.
 # Gives Europe (and global) marine coverage where there's no official feed.
+# Muted: Rotterdam-only scope. Sea areas and thresholds kept for re-enable.
 marine_seas:
-  enabled: true
+  enabled: false
   wave_height_threshold: 4.0   # metres; 4 m+ = "high seas" (WMO)
   fog_visibility_m: 1000       # dense fog at sea when visibility drops below this
   wind_gale_kt: 34             # gale-force at sea (Beaufort 8); 48 = storm, 64 = hurricane
@@ -322,23 +273,26 @@ marine_seas:
 # Harmful algal bloom / red tide monitoring for the US Pacific coast, from the
 # CalHABMAP shore-station network (SCCOOS ERDDAP, keyless). Fires when a station
 # reports a Pseudo-nitzschia bloom or a domoic-acid spike.
+# Muted: Rotterdam-only scope (US Pacific coast source).
 algal_blooms:
-  enabled: true
+  enabled: false
   cell_threshold: 100000   # Pseudo-nitzschia cells/L; 100k+ = a notable bloom
   da_threshold: 1.0        # domoic acid ng/mL; toxin level worth flagging
   lookback_days: 14        # stations sample roughly weekly, so look back a couple weeks
 
 # Global maritime security / military navigation warnings (NGA Maritime Safety
 # Information broadcast warnings — worldwide ocean coverage).
+# Muted: Rotterdam-only scope. Categories and wordings kept for re-enable.
 maritime_security:
-  enabled: true
+  enabled: false
   # Which to post: launch | mine | gunfire | gps | ice | cable | chokepoint
   categories: ["launch", "mine", "gunfire", "gps", "ice", "cable", "chokepoint"]
 
 # GDACS multi-hazard, region-filtered. Limited to volcanoes and wildfires only:
 # floods/quakes/cyclones/tsunamis in our regions are already covered by NWS,
 # MeteoAlarm, and USGS, so including them here would just duplicate posts.
+# Muted: Rotterdam-only scope.
 global_hazards:
-  enabled: true
+  enabled: false
   min_alert: "Orange"        # Orange | Red (Green is routine noise)
   event_types: ["VO", "WF"]  # volcanoes + wildfires (unique to GDACS in-region)
