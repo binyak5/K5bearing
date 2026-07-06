@@ -26,13 +26,13 @@ def test_dedup_unknown_key(tmp_path):
 def test_counters_increment(tmp_path):
     s = _state(tmp_path)
     assert s.posts_today() == 0
-    s.increment_today("weather")
-    s.increment_today("weather")
-    s.increment_today("gulf")
+    s.increment_today("rotterdam")
+    s.increment_today("rotterdam")
+    s.increment_today("cityweather")
     assert s.posts_today() == 3
     assert s.posts_this_month() == 3
-    assert s.posts_today_in("weather") == 2
-    assert s.posts_today_in("gulf") == 1
+    assert s.posts_today_in("rotterdam") == 2
+    assert s.posts_today_in("cityweather") == 1
     assert s.posts_today_in("marine") == 0
 
 

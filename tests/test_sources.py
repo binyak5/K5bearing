@@ -1,5 +1,5 @@
 """Pure (non-network) helpers in the source modules."""
-from src.sources import nws, meteoalarm, nga, marine, outdoor, usgs
+from src.sources import wording, nga, marine, outdoor, usgs, rotterdam
 
 
 # --- outdoor._geo: "REGION, city" tag so it matches the weather sources ----
@@ -23,101 +23,84 @@ def test_quake_geo_tag_falls_back_to_region_only():
     assert usgs._geo_tag("Northern California", 39.5, -121.0) == ("USA", "Northern California")
 
 
-# --- nws._geo_tag: "USA, <state>" from areaDesc -------------------------
-def test_geo_tag_reads_state_from_area_desc():
-    assert nws._geo_tag("Travis, TX; Williamson, TX") == "USA, Texas"
-    assert nws._geo_tag("Coastal Los Angeles County, CA") == "USA, California"
-
-
-def test_geo_tag_first_state_when_multiple():
-    assert nws._geo_tag("Cameron, LA; Jefferson, TX") == "USA, Louisiana"
-
-
-def test_geo_tag_falls_back_to_usa_without_state():
-    assert nws._geo_tag("Coastal waters out 10 nm") == "USA"
-
-
-# --- nws._area_label: drop the repeated state on single-state alerts -----
-def test_area_label_strips_state_when_single_state():
-    # State is already in the "USA, Texas" tag, so it's dropped from the body.
-    out = nws._area_label("Travis, TX; Williamson, TX; Hays, TX")
-    assert "TX" not in out
-    assert out == "Travis, Williamson, and Hays"
-
-
-def test_area_label_keeps_state_when_multiple_states():
-    # The tag can only name one state, so multi-state lists keep ', ST'.
-    out = nws._area_label("Cameron, LA; Jefferson, TX")
-    assert "LA" in out and "TX" in out
-
-
-# --- nws._is_excluded: drop territory-only alerts ------------------------
-_EXC = {"PR", "VI", "GU", "AS", "MP"}
-
-
-def test_is_excluded_drops_territory_only_alert():
-    assert nws._is_excluded("Mayaguez and Vicinity, PR", _EXC)
-    assert nws._is_excluded("St. Thomas, VI; St. John, VI", _EXC)
-
-
-def test_is_excluded_keeps_mainland_and_mixed():
-    assert not nws._is_excluded("Travis, TX", _EXC)
-    assert not nws._is_excluded("Travis, TX; San Juan, PR", _EXC)  # mixed -> keep
-    assert not nws._is_excluded("Coastal waters out 10 nm", _EXC)  # no code -> keep
-    assert not nws._is_excluded("Travis, TX", set())               # nothing excluded
-
-
-# --- nws._tier -----------------------------------------------------------
+# --- wording.tier -------------------------------------------------------
 def test_tier_critical_event():
-    assert nws._tier("Tornado Warning") == "critical"
+    assert wording.tier("Tornado Warning") == "critical"
 
 
 def test_tier_flash_flood_is_not_critical():
-    """We deliberately removed Flash Flood from CRITICAL_EVENTS so it can't
-    dominate the feed — guard against it sneaking back in."""
-    assert nws._tier("Flash Flood Warning") == "serious"
+    """Flash Flood is deliberately not critical so it can't dominate the feed —
+    guard against it sneaking back in."""
+    assert wording.tier("Flash Flood Warning") == "serious"
 
 
 def test_tier_advisory_suffix():
-    assert nws._tier("Heat Advisory") == "advisory"
+    assert wording.tier("Heat Advisory") == "advisory"
 
 
-# --- nws._topic ----------------------------------------------------------
+# --- wording.topic ------------------------------------------------------
 def test_topic_mapping():
-    assert nws._topic("Flash Flood Warning") == "flood"
-    assert nws._topic("Tornado Warning") == "tornado"
-    assert nws._topic("Extreme Heat Warning") == "heat"
+    assert wording.topic("Flash Flood Warning") == "flood"
+    assert wording.topic("Tornado Warning") == "tornado"
+    assert wording.topic("Extreme Heat Warning") == "heat"
+    assert wording.topic("Winter Storm Warning") == "winter"
+    assert wording.topic("Dense Fog Warning") == "fog"
     # Marine warnings map via the sea/wind keywords.
-    assert nws._topic("Gale Warning") == "marine"
-    assert nws._topic("High Surf Warning") == "marine"
-    # Small Craft Advisory has no marine keyword, so _topic returns "weather" —
-    # harmless, because the SCA roundup signal sets topic="marine" explicitly and
-    # individual SCAs are never routed through _topic.
-    assert nws._topic("Small Craft Advisory") == "weather"
+    assert wording.topic("Gale Warning") == "marine"
+    assert wording.topic("High Surf Warning") == "marine"
 
 
-# --- nws.EVENT_FLOOR sanity (the pure-severity safety net) ---------------
+# --- wording.EVENT_FLOOR sanity (the pure-severity safety net) -----------
 def test_event_floor_keeps_lifethreat_high():
     for ev in ("Tornado Warning", "Hurricane Warning", "Storm Surge Warning"):
-        assert nws.EVENT_FLOOR[ev] >= 95
-    # Official marine warnings floored to match the modeled marine scale.
-    assert nws.EVENT_FLOOR["Gale Warning"] == 74
-    assert nws.EVENT_FLOOR["Hurricane Force Wind Warning"] == 95
+        assert wording.EVENT_FLOOR[ev] >= 95
+    assert wording.EVENT_FLOOR["Gale Warning"] == 74
+    assert wording.EVENT_FLOOR["Hurricane Force Wind Warning"] == 95
 
 
-# --- meteoalarm._hazard / _classify / _eu_topic --------------------------
-def test_hazard_strips_colour_and_warning():
-    assert meteoalarm._hazard("Severe thunderstorm warning") == "thunderstorm"
+def test_severity_for_falls_back_to_severe():
+    # An event with no explicit floor ranks at the Severe default.
+    assert wording.severity_for("Freeze Warning") == wording.SEVERITY_WEIGHT["Severe"]
+    assert wording.severity_for("Tornado Warning") == 96
 
 
-def test_hazard_handles_warning_for_phrasing():
-    assert meteoalarm._hazard("warning for heatwave") == "heatwave"
+# --- rotterdam: derived alerts reuse the shared wording -------------------
+def _fake_forecast(rotterdam_mod, current, daily):
+    rotterdam_mod._forecast = lambda lat, lon, zone: {"current": current, "daily": daily}
 
 
-def test_classify_maps_forest_to_fire_topic():
-    token, _actions = meteoalarm._classify("Forest fire warning")
-    assert token == "forest"
-    assert meteoalarm._eu_topic(token) == "fire"
+_ROT_CFG = {"lat": 51.92, "lon": 4.48, "tz": "Europe/Amsterdam"}
+
+
+def test_rotterdam_thunderstorm_reuses_wording():
+    _fake_forecast(rotterdam, {"weather_code": 95}, {})
+    sigs = rotterdam.rotterdam_signals(_ROT_CFG)
+    assert len(sigs) == 1
+    s = sigs[0]
+    assert s.category == "rotterdam"
+    assert s.topic == "thunderstorm"
+    assert s.country == "Rotterdam"           # so the post always names Rotterdam
+    assert s.text == ("A severe thunderstorm warning is active. "
+                      + wording.ACTIONS["Severe Thunderstorm Warning"][0])
+
+
+def test_rotterdam_heat_adds_degree_clause():
+    _fake_forecast(rotterdam, {"weather_code": 1}, {"temperature_2m_max": [34], "temperature_2m_min": [20]})
+    sigs = rotterdam.rotterdam_signals(_ROT_CFG)
+    heat = [s for s in sigs if s.topic == "heat"]
+    assert heat and "Highs near 34°C." in heat[0].text
+
+
+def test_rotterdam_freeze_vs_extreme_cold():
+    _fake_forecast(rotterdam, {"weather_code": 1}, {"temperature_2m_max": [3], "temperature_2m_min": [-15]})
+    topics = {s.dedup_key.split(":")[1] for s in rotterdam.rotterdam_signals(_ROT_CFG)}
+    assert "extremecold" in topics and "freeze" not in topics  # -15 is the severe tier only
+
+
+def test_rotterdam_calm_is_silent():
+    _fake_forecast(rotterdam, {"weather_code": 1, "wind_gusts_10m": 5, "precipitation": 0, "visibility": 9000},
+                   {"temperature_2m_max": [18], "temperature_2m_min": [9]})
+    assert rotterdam.rotterdam_signals(_ROT_CFG) == []
 
 
 # --- nga._classify / _titlecase ------------------------------------------

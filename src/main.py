@@ -19,7 +19,7 @@ from .state import State
 from .formatter import render, fingerprint
 from .poster import Poster
 from . import card
-from .sources import swpc, nws, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, gulf, Signal
+from .sources import swpc, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, rotterdam, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -74,22 +74,8 @@ def collect(cfg: dict) -> list[Signal]:
         if sig:
             signals.append(sig)
 
-    if cfg["weather"]["enabled"]:
-        signals.extend(
-            nws.weather_signals(
-                cfg["weather"]["events"],
-                cfg["weather"].get("area", ""),
-                cfg["weather"].get("exclude_areas", []),
-            )
-        )
-
-    if cfg.get("weather_eu", {}).get("enabled"):
-        signals.extend(
-            meteoalarm.weather_signals(
-                cfg["weather_eu"]["countries"],
-                cfg["weather_eu"].get("min_severity", "Severe"),
-            )
-        )
+    if cfg.get("rotterdam", {}).get("enabled"):
+        signals.extend(rotterdam.rotterdam_signals(cfg["rotterdam"]))
 
     if cfg.get("marine_seas", {}).get("enabled"):
         ms = cfg["marine_seas"]
@@ -129,20 +115,6 @@ def collect(cfg: dict) -> list[Signal]:
             usgs.quake_signals(
                 cfg["earthquakes"].get("min_magnitude", 6.0),
                 cfg["earthquakes"].get("max_age_hours", 6),
-            )
-        )
-
-    if cfg.get("gulf_weather", {}).get("enabled"):
-        gw = cfg["gulf_weather"]
-        signals.extend(
-            gulf.gulf_signals(
-                gw.get("locations", []),
-                gw.get("heat_feels_c", 47),
-                gw.get("wind_gust_kmh", 55),
-                gw.get("fog_visibility_m", 1000),
-                gw.get("rain_mm", 7),
-                gw.get("dust_threshold", 500),
-                gw.get("cold_c", 5),
             )
         )
 

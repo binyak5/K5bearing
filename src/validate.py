@@ -9,14 +9,13 @@ feed); warnings print but are allowed.
 from __future__ import annotations
 
 from . import tz
-from .sources import nws
 
 # Every category string a Signal can carry. category_daily_caps must reference
 # one of these (a typo'd cap is silently ignored otherwise).
 KNOWN_CATEGORIES = {
     "cityweather", "geomagnetic", "aurora", "solar", "solarwind", "flare",
-    "radiation", "blackout", "weather", "weather_eu", "marine", "hab",
-    "maritime", "global", "earthquake", "gulf", "outdoor",
+    "radiation", "blackout", "rotterdam", "marine", "hab",
+    "maritime", "global", "earthquake", "outdoor",
 }
 
 
@@ -36,47 +35,23 @@ def validate_config(cfg: dict) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
 
-    # 1. US events <-> wording. Every posted event needs an ACTIONS entry.
-    #    Small Craft Advisory is the exception: it only ever posts as the
-    #    collapsed roundup, never individually, so it has no ACTIONS line.
-    events = (cfg.get("weather") or {}).get("events", [])
-    for ev in events:
-        if ev == "Small Craft Advisory":
-            continue
-        if ev not in nws.ACTIONS:
-            errors.append(f"weather.events: '{ev}' has no wording in nws.ACTIONS")
-    for ev in nws.ACTIONS:
-        if ev not in events:
-            warnings.append(f"nws.ACTIONS: '{ev}' is never posted (not in weather.events)")
+    # 1. The Rotterdam alert source needs coordinates and a timezone.
+    rt = cfg.get("rotterdam") or {}
+    if rt.get("enabled"):
+        if rt.get("lat") is None or rt.get("lon") is None:
+            errors.append("rotterdam: missing lat/lon")
+        if not rt.get("tz"):
+            errors.append("rotterdam: missing 'tz'")
 
-    # 2. European countries need both a timezone and an ISO code, or their posts
-    #    lose the local timestamp / country prefix.
-    for c in (cfg.get("weather_eu") or {}).get("countries", []):
-        if tz.zone_for_country(c) is None:
-            errors.append(f"weather_eu.countries: '{c}' has no timezone in tz.COUNTRY_ZONES")
-        if tz.code_for_country(c) is None:
-            errors.append(f"weather_eu.countries: '{c}' has no ISO code in tz.COUNTRY_CODES")
-
-    # 3. Caps must reference real categories.
+    # 2. Caps must reference real categories.
     for cat in (cfg.get("limits") or {}).get("category_daily_caps", {}):
         if cat not in KNOWN_CATEGORIES:
             errors.append(f"category_daily_caps: '{cat}' is not a known category")
 
-    # 4. Watch locations need coordinates (and a timezone where stamped locally).
-    _check_locations(errors, "gulf_weather.locations", (cfg.get("gulf_weather") or {}).get("locations"), need_tz=True)
+    # 3. Watch locations need coordinates (and a timezone where stamped locally).
     _check_locations(errors, "city_weather.locations", (cfg.get("city_weather") or {}).get("locations"), need_tz=True)
     _check_locations(errors, "outdoor.locations", (cfg.get("outdoor") or {}).get("locations"))
     _check_locations(errors, "marine_seas.areas", (cfg.get("marine_seas") or {}).get("areas"))
-
-    # 5. Gulf cities derive their country code from the timezone; warn (not error)
-    #    if a tz has no mapping, since the post would then show no country code.
-    for loc in (cfg.get("gulf_weather") or {}).get("locations", []):
-        z = loc.get("tz")
-        if z and tz.code_for_zone(z) is None:
-            warnings.append(
-                f"gulf_weather: '{loc.get('name', '?')}' tz '{z}' has no ISO code in "
-                "tz.ZONE_CODES (post will show no country after the time)"
-            )
 
     return errors, warnings
 

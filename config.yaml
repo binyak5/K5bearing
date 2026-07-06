@@ -35,8 +35,7 @@ limits:
   # Categories not listed are uncapped.
   category_daily_caps:
     cityweather: 2    # the scheduled Rotterdam update (morning + evening); exempt from budget
-    weather_eu: 6     # Netherlands MeteoAlarm severe-weather warnings
-    outdoor: 3        # Rotterdam UV / dust / lightning
+    rotterdam: 6      # Rotterdam severe-weather alerts (storm, wind, rain, fog, heat, cold)
     geomagnetic: 2
     solar: 2
     solarwind: 2      # high-speed solar wind streams
@@ -112,43 +111,24 @@ earthquakes:
   min_magnitude: 5.0     # lower bar since we're region-limited (Europe/Gulf quakes are smaller)
   max_age_hours: 6       # ignore quakes older than this on startup
 
-# Gulf-state weather alerts the official feeds miss (NWS is US-only, MeteoAlarm
-# is Europe-only): extreme heat, shamal winds, dense fog, thunderstorms, heavy
-# rain / flash flooding, and dust storms, from Open-Meteo (keyless).
-# Fires once per city per day per hazard. Temps in °C, winds in km/h.
-# Muted: Rotterdam-only scope. Wordings and the city list are kept for re-enable.
-gulf_weather:
-  enabled: false
-  heat_feels_c: 47       # feels-like (apparent) temperature at/above this = dangerous heat
-  wind_gust_kmh: 55      # wind gusts at/above this = shamal / high-wind alert
-  fog_visibility_m: 1000 # dense fog when visibility drops below this (metres)
-  rain_mm: 7             # heavy rain / flash-flood risk at/above this (mm in the hour)
-  dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm (air-quality feed)
-  cold_c: 2              # forecast overnight low at/below this (°C) = freeze/frost (US Freeze Warning tier)
-  locations:
-    # UAE
-    - {name: "Dubai",          lat: 25.20, lon: 55.27, tz: "Asia/Dubai"}
-    - {name: "Abu Dhabi",      lat: 24.45, lon: 54.38, tz: "Asia/Dubai"}
-    - {name: "Sharjah",        lat: 25.35, lon: 55.39, tz: "Asia/Dubai"}
-    - {name: "Al Ain",         lat: 24.21, lon: 55.74, tz: "Asia/Dubai"}
-    - {name: "Ras Al Khaimah", lat: 25.79, lon: 55.94, tz: "Asia/Dubai"}
-    - {name: "Fujairah",       lat: 25.13, lon: 56.33, tz: "Asia/Dubai"}
-    # Saudi Arabia
-    - {name: "Riyadh",         lat: 24.71, lon: 46.68, tz: "Asia/Riyadh"}
-    - {name: "Jeddah",         lat: 21.49, lon: 39.19, tz: "Asia/Riyadh"}
-    - {name: "Dammam",         lat: 26.43, lon: 50.10, tz: "Asia/Riyadh"}
-    - {name: "Mecca",          lat: 21.39, lon: 39.86, tz: "Asia/Riyadh"}
-    - {name: "Medina",         lat: 24.52, lon: 39.57, tz: "Asia/Riyadh"}
-    - {name: "Tabuk",          lat: 28.38, lon: 36.57, tz: "Asia/Riyadh"}
-    # Qatar / Bahrain / Kuwait
-    - {name: "Doha",           lat: 25.29, lon: 51.53, tz: "Asia/Qatar"}
-    - {name: "Manama",         lat: 26.23, lon: 50.59, tz: "Asia/Bahrain"}
-    - {name: "Kuwait City",    lat: 29.38, lon: 47.99, tz: "Asia/Kuwait"}
-    # Oman
-    - {name: "Muscat",         lat: 23.59, lon: 58.41, tz: "Asia/Muscat"}
-    - {name: "Salalah",        lat: 17.02, lon: 54.09, tz: "Asia/Muscat"}
-    - {name: "Sohar",          lat: 24.34, lon: 56.71, tz: "Asia/Muscat"}
-    - {name: "Sur",            lat: 22.57, lon: 59.53, tz: "Asia/Muscat"}
+# Rotterdam severe-weather alerts, derived from Open-Meteo (keyless). The single
+# alert source now the account is Rotterdam-only: it reads current conditions +
+# today's forecast and fires when a hazard threshold is crossed. Wording is
+# reused from the shared library (src/sources/wording.py, the old US/EU/Gulf
+# phrasing), so alerts read exactly as before. Temps °C, wind km/h, visibility m.
+# Fires at most once per hazard per day.
+rotterdam:
+  enabled: true
+  lat: 51.92
+  lon: 4.48
+  tz: "Europe/Amsterdam"
+  wind_gust_kmh: 75      # wind gusts at/above this (km/h) = high-wind warning
+  rain_mm: 10            # rain in the hour at/above this = flood warning
+  flash_flood_mm: 25     # rain in the hour at/above this = flash-flood warning
+  fog_visibility_m: 200  # dense fog when visibility drops below this (metres)
+  heat_c: 30             # today's forecast high at/above this (°C) = extreme heat
+  freeze_c: 0            # today's forecast low at/below this (°C) = freeze/frost
+  severe_cold_c: -10     # today's forecast low at/below this (°C) = extreme cold
 
 # Routine twice-daily city weather update (not an alert), Open-Meteo, in local
 # time and degrees Celsius. Fires once in the morning window and once in the
@@ -161,82 +141,20 @@ city_weather:
     - {name: "Rotterdam", lat: 51.92, lon: 4.48, tz: "Europe/Amsterdam"}
 
 # Outdoor-safety watch (Open-Meteo): extreme UV, dust storms, and violent
-# thunderstorms. Only fires when a watched location crosses the threshold.
+# thunderstorms. Muted: the Rotterdam source now owns thunderstorms (so keeping
+# this on would double-post them), and NW Europe never reaches the extreme-UV or
+# dust-storm thresholds. Kept in git for re-enable if other cities come back.
 outdoor:
-  enabled: true
+  enabled: false
   uv_threshold: 11       # 11+ = "extreme" (WHO scale)
   dust_threshold: 500    # airborne dust µg/m³; 500+ = a dust storm
-  # Rotterdam-only scope. In practice only the lightning watch fires here (NW
-  # Europe rarely reaches extreme UV or dust-storm levels), which is the point.
-  # The full US/Europe/Gulf city list is preserved in git for re-enable.
   locations:
     - {name: "Rotterdam", lat: 51.92, lon: 4.48}
 
-# Severe-weather alerts from the US National Weather Service.
-# Muted: Rotterdam-only scope. The full event list and wordings are kept intact.
-weather:
-  enabled: false
-  # Only these event types get posted (high-stakes by default).
-  events:
-    - "Tornado Warning"
-    - "Hurricane Warning"
-    - "Hurricane Watch"
-    - "Tropical Storm Warning"
-    - "Blizzard Warning"
-    - "Extreme Wind Warning"
-    - "Severe Thunderstorm Warning"
-    - "Flash Flood Warning"
-    - "Flood Warning"
-    - "Red Flag Warning"        # fire weather
-    - "Fire Warning"
-    # Marine / sea / ocean — the focus of this account
-    - "Storm Surge Warning"
-    - "Storm Surge Watch"
-    - "Hurricane Force Wind Warning"
-    - "Hurricane Force Wind Watch"
-    - "Storm Warning"
-    - "Gale Warning"
-    - "Gale Watch"
-    - "Hazardous Seas Warning"
-    - "Special Marine Warning"
-    - "Small Craft Advisory"     # kept for the collapsed roundup (never posted individually)
-    - "Heavy Freezing Spray Warning"
-    - "High Surf Warning"
-    - "Rip Current Statement"
-    - "Coastal Flood Warning"
-    - "Lakeshore Flood Warning"
-    # Winter
-    - "Winter Storm Warning"
-    - "Ice Storm Warning"
-    - "Extreme Cold Warning"    # NWS renamed from "Wind Chill Warning" in 2024
-    # Heat / wind / other
-    - "Extreme Heat Warning"    # NWS renamed from "Excessive Heat Warning" in 2024
-    - "High Wind Warning"
-    - "Dust Storm Warning"
-    - "Avalanche Warning"
-    - "Freeze Warning"
-    - "Air Quality Alert"
-  # Optional: restrict to a US state/area code (e.g. "FL"). Empty = nationwide.
-  area: ""
-  # US states/territories to drop (NWS area codes). Nationwide minus these.
-  exclude_areas:
-    - PR   # Puerto Rico
-    - VI   # U.S. Virgin Islands
-    - GU   # Guam
-    - AS   # American Samoa
-    - MP   # Northern Mariana Islands
-
-# Severe-weather warnings for Europe via MeteoAlarm (EUMETNET).
-weather_eu:
-  enabled: true
-  # min_severity: Moderate (yellow) | Severe (orange) | Extreme (red).
-  # Severe filters out the high-volume yellow warnings; raise to Extreme for
-  # red-only.
-  min_severity: "Severe"
-  # Country feed slugs (feeds.meteoalarm.org legacy-atom names). Rotterdam-only
-  # scope, so just the Netherlands feed; the full European list is kept in git.
-  countries:
-    - netherlands
+# The US National Weather Service (nationwide severe weather) and MeteoAlarm
+# (Europe-wide warnings) sources were removed when the account went Rotterdam-
+# only. Their wording lives on in src/sources/wording.py and WORDING.md and is
+# reused by the Rotterdam source above; the source code is in git history.
 
 # Marine sea-state (high-seas) warnings via Open-Meteo, for named sea areas.
 # Gives Europe (and global) marine coverage where there's no official feed.

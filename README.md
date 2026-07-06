@@ -1,46 +1,43 @@
 # K5Bearing
 
-Automated X account for **Kastle Five Systems**. Posts useful, signal-grade
-alerts about space weather, geomagnetic activity, compass accuracy, severe
-weather, and field readiness — sourced entirely from free US government feeds.
+Automated X account for **Kastle Five Systems**. Posts signal-grade alerts about
+space weather, geomagnetic activity, compass accuracy, and **Rotterdam** severe
+weather — sourced entirely from free, keyless feeds.
+
+> **Scope: Rotterdam-only.** The account currently covers Rotterdam, Netherlands
+> plus global space weather. The worldwide sources (US NWS, Europe MeteoAlarm,
+> Gulf, marine, earthquakes, GDACS, NGA, red tide, outdoor) are **disabled** but
+> kept in the repo, and their wording is preserved in
+> [`WORDING.md`](WORDING.md) and `src/sources/wording.py` — they can be switched
+> back on in `config.yaml`.
 
 ## What it posts
 
 | Signal | Source | Trigger |
 | --- | --- | --- |
+| **Rotterdam forecast** — twice-daily outlook (morning + evening) | Open-Meteo | Scheduled window (local time) |
+| **Rotterdam severe weather** — thunderstorm, high wind, heavy rain/flood, dense fog, snow, ice, extreme heat, freeze/extreme cold | Open-Meteo (derived) | Hazard threshold crossed |
 | Geomagnetic storm + **compass accuracy** advisory | NOAA SWPC planetary K-index | Kp ≥ threshold (default 5 = G1) |
-| **Aurora visibility** watch (global viewline) | NOAA SWPC Kp index | Kp ≥ threshold (default 5) |
 | **Solar flares** (M/X-class) | NOAA SWPC GOES X-ray | New flare ≥ threshold class |
-| Solar storms / radio blackouts / radiation storms | NOAA SWPC alerts feed | New matching alert |
-| **Marine / sea / ocean** (storm surge, hurricane-force wind, gale, hazardous seas, special marine, freezing spray, high surf, rip current, beach hazards, coastal/lakeshore flood, tsunami) — **priority focus**; small-craft advisories collapse into one low-priority roundup so they don't flood | US National Weather Service | New active warning |
-| Severe weather — **US** land (tornado, hurricane, severe t-storm, flood, fire, winter, extreme heat/cold, high wind, dust, avalanche…) | US National Weather Service | New active warning |
-| **Marine sea-state** (high seas) — European & global sea areas | Open-Meteo Marine (watchlist) | Significant wave height ≥ threshold |
-| Severe weather — **Europe** (~38 countries) | MeteoAlarm (EUMETNET) | New orange/red warning |
-| **Maritime security / military** (worldwide) — missile/rocket launch hazard areas, naval gunfire & live-fire zones, mine danger areas, military exercises closing shipping lanes, GPS interference/jamming | NGA Maritime Safety Information | New in-force broadcast warning |
-| **Global multi-hazard** — tropical cyclones (all basins), floods, earthquakes, volcanoes, wildfires | GDACS (UN OCHA / EC JRC) | New orange/red event |
-| **Significant earthquakes** (worldwide) | USGS | New quake ≥ magnitude threshold |
-| **Outdoor safety** — extreme UV index | Open-Meteo (watchlist) | UV threshold crossed at a watched city |
+| Solar storms / radio blackouts / radiation storms / high-speed solar wind | NOAA SWPC alerts feed | New matching alert |
 
-Every post is written as a timestamped advisory in plain, flowing prose
-(National Hurricane Center style), e.g. `2:34 am EDT: A tornado warning is in
-effect for ...`. The timestamp is in the **local time zone of the alert's
-location** (resolved from coordinates for US/global alerts and from country for
-Europe); global space-weather signals stay in UTC. The source agency is not
-named in-tweet — K5Bearing is the voice. No emoji, no sign-offs.
+The Rotterdam severe-weather alerts reuse the preserved US/EU/Gulf wording
+library, so they read exactly like the account's old alerts (see
+[`WORDING.md`](WORDING.md)).
+
+Every post is written as a timestamped advisory in plain, flowing prose, e.g.
+`18:00 CEST Rotterdam: A severe thunderstorm warning is active. ...`. The
+Rotterdam timestamp is in local time (CEST); global space-weather signals stay
+in UTC. The source agency is not named in-tweet — K5Bearing is the voice. No
+emoji, no sign-offs.
 
 Each alert is phrased from several vetted variants (openers + per-hazard action
 lines) chosen deterministically from the alert's id, so the feed reads freshly
 written rather than copy-pasted while a given alert always renders the same way.
 
-**Coverage is worldwide.** Space-weather signals are inherently global — the Kp
-index is a *planetary* index and SWPC alerts are global. Severe-weather
-warnings come from the NWS (US) and MeteoAlarm (Europe), and **GDACS** adds the
-rest of the planet — Asia, Africa, Latin America, Oceania — for tropical
-cyclones, floods, quakes, volcanoes, and wildfires at Orange/Red alert levels.
-
 The compass advisory is derived from the Kp index — geomagnetic storms
-transiently shift magnetic declination, which is what degrades magnetic-compass
-accuracy (worst at high latitudes). That's the "Bearing" in K5Bearing.
+transiently shift magnetic declination, which degrades magnetic-compass accuracy
+(worst at high latitudes). That's the "Bearing" in K5Bearing.
 
 All data sources are public, free, and keyless. The only credential you need is
 for posting to X.
@@ -61,17 +58,23 @@ src/
   formatter.py   timestamp + tweet rendering
   poster.py      X v2 client (tweepy), with DRY_RUN
   sources/
-    swpc.py        solar + geomagnetic + compass (global)
-    aurora.py      aurora-visibility viewline from Kp (global)
-    nws.py         severe weather — US (incl. marine, winter, heat)
-    meteoalarm.py  severe weather — Europe
-    gdacs.py       global multi-hazard — rest of world
-    nga.py         maritime security / military nav warnings — worldwide
-    marine.py      high-seas warnings — European & global sea areas
-    usgs.py        significant earthquakes — worldwide
-    outdoor.py     extreme UV index (Open-Meteo watchlist)
+    swpc.py        solar + geomagnetic + compass (global)      [active]
+    rotterdam.py   Rotterdam severe weather (Open-Meteo)        [active]
+    citywx.py      twice-daily Rotterdam forecast (Open-Meteo)  [active]
+    wording.py     shared alert wording library (reused above)
+    aurora.py      aurora-visibility viewline from Kp           [disabled]
+    gdacs.py       global multi-hazard                          [disabled]
+    nga.py         maritime security / military nav warnings    [disabled]
+    marine.py      high-seas warnings — global sea areas        [disabled]
+    usgs.py        significant earthquakes                       [disabled]
+    outdoor.py     extreme UV / dust / lightning watch          [disabled]
+    hab.py         harmful algal bloom / red tide               [disabled]
 config.yaml      thresholds, limits, schedule — tune this
 ```
+
+The US (`nws.py`), Europe (`meteoalarm.py`), and Gulf (`gulf.py`) sources were
+removed when the account went Rotterdam-only; their wording lives on in
+`wording.py` and `WORDING.md`, and the code is in git history.
 
 ## Setup
 
@@ -88,13 +91,11 @@ You already have an app in the X developer portal. Now:
      setting Read+Write so they carry write permission.
 3. Put them in `.env` (copy `.env.example`) for local testing.
 
-> **Cost note:** As of Feb 2026 the free tier is closed to new developers. New
-> apps are on **pay-per-use: ~$0.01 per post** (you may have a one-time $10
-> credit). The defaults cap posting at 16/day with a hard **500-posts/month
-> ceiling ≈ $5/month** (`limits.max_posts_per_month` in `config.yaml`). The
-> monthly cap is enforced in `state.json`, so cost can't run over even on busy
-> weather days. If you're on a legacy free tier instead, the 1,500-posts/month
-> limit applies.
+> **Cost note:** pay-per-use is ~$0.015 per post. The defaults cap posting at
+> **20/day** with a hard **640-posts/month ceiling ≈ $9.60/month**, sitting just
+> under a **$10** X billing spend cap (`limits.max_posts_per_month` in
+> `config.yaml`). The monthly cap is enforced in `state.json`, so cost can't run
+> over even on busy days. Keep `max_posts_per_month` ≤ your X spend cap.
 
 ### 2. Test locally (no posting)
 
@@ -121,26 +122,20 @@ That's it — no server to manage.
 
 Everything tunable lives in [`config.yaml`](config.yaml):
 
-- `limits.max_posts_per_run` / `max_posts_per_day` — budget control.
+- `limits.max_posts_per_run` / `max_posts_per_day` / `max_posts_per_month` —
+  budget control (keep the monthly cap ≤ your X spend cap).
+- `rotterdam.*` — the Rotterdam alert thresholds: `wind_gust_kmh`, `rain_mm`,
+  `flash_flood_mm`, `fog_visibility_m`, `heat_c`, `freeze_c`, `severe_cold_c`.
+  Lower a threshold for more alerts of that type, raise it for fewer.
+- `city_weather.morning_hours` / `evening_hours` — the local-time windows for
+  the twice-daily Rotterdam forecast.
 - `geomagnetic.kp_alert_threshold` — lower to 4 for more posts, raise to 6/7
   for only major storms.
-- `weather.events` — which NWS (US) event types qualify. Add e.g.
-  `"Severe Thunderstorm Warning"` for more volume.
-- `weather.area` — set a state code (e.g. `"FL"`) to go regional instead of
-  nationwide.
-- `weather_eu.countries` — which European countries to watch (MeteoAlarm feed
-  slugs, e.g. `france`, `united-kingdom`, `czechia`). Add or remove freely.
-- `weather_eu.min_severity` — `Severe` (orange, default) keeps volume sane;
-  `Extreme` = red-only; `Moderate` includes yellow (high volume).
-- `aurora.kp_threshold` — Kp at/above which the aurora watch fires (default 5).
-- `global_hazards.event_types` — which GDACS hazards qualify (`TC` cyclone,
-  `FL` flood, `EQ` quake, `VO` volcano, `WF` wildfire, `TS` tsunami).
-- `global_hazards.min_alert` — `Orange` (default) or `Red` for major-only.
-
-> **Volume note:** adding severe-thunderstorm and flood warnings pulls in a lot
-> of active US alerts. The severity ranking + `max_posts_per_day` cap mean only
-> the most serious get posted, but raise the cap (and your budget) if you want
-> more through, up to the 500/month (~$5) hard ceiling.
+- The disabled worldwide sources (`weather`, `weather_eu`, `gulf_weather`,
+  `marine_seas`, `earthquakes`, `global_hazards`, `maritime_security`,
+  `outdoor`, `algal_blooms`) can be re-enabled by flipping their `enabled: true`
+  — note `weather`/`weather_eu`/`gulf_weather` also need their source modules
+  restored from git history.
 
 ## Disclaimer
 

@@ -2,13 +2,13 @@
 
 Every phrasing the bot can post. {curly braces} are filled in at post time. One variant is chosen per alert.
 
-**Regions:** USA, Europe, Gulf states.
+**Scope:** Rotterdam, Netherlands. The account posts a twice-daily Rotterdam forecast, **Rotterdam severe-weather alerts** (derived from Open-Meteo — see the section below), and global space weather. The **US (NWS)**, **Europe (MeteoAlarm)**, **Gulf**, **marine**, **earthquake**, **GDACS**, **red tide**, **outdoor**, and **NGA** sections below are the **preserved wording library**: those sources are off, but their phrasing is kept — the Rotterdam alerts reuse the US per-hazard lines, and coverage can be restored later. Nothing here has been deleted from the wording.
 
 **Prefix:** 24-hour local time, the timezone, then a `REGION, place` geo tag — e.g. `11:20 CDT USA, Texas:`, `16:33 CEST EU, France:`, `20:14 GST GCC, United Arab Emirates:`. The place is the US **state** (NWS), the **country** (Europe / Gulf), the **city** (outdoor UV/dust/lightning), or `USA, California` (red tide). Coordinate-less signals — space weather, open-sea marine, NGA navigation warnings — keep the plain `16:33 UTC:` form, as does the scheduled Rotterdam update (deliberately, so it stands out). **No hashtags.**
 
 **Timezones** print their official abbreviation: US/EU native codes (EDT, CEST…), plus GST (UAE/Oman), AST (Saudi/Qatar/Bahrain/Kuwait/Iraq/Yemen), IRST (Iran), AFT (Afghanistan), TRT (Türkiye), GET/AMT/AZT (Caucasus). Open ocean and unmapped zones fall back to `UTC±N`.
 
-**Units:** US temperatures in **°F**; Europe and the Gulf in **°C**.
+**Units:** Rotterdam alerts in **°C** (wind km/h, visibility m). In the preserved library below, US temperatures are documented in **°F**, Europe and the Gulf in **°C**.
 
 **Voice** — most alerts post exactly as written below. Low-stakes ones are softened with a **"Heads up,"** lead: anything ending in "Advisory", the small-craft roundup, extreme-UV, the Gulf dense-fog alert, and the Gulf cold-snap alert. We inform; we don't issue commands.
 
@@ -47,6 +47,27 @@ _Impact:_
 
 ## Space weather — solar alerts
 `Space weather alert: {NOAA headline}`.
+
+---
+
+## Rotterdam severe-weather alerts (derived, Open-Meteo) — ACTIVE
+
+The one alert source now the account is Rotterdam-only. It reads current conditions + today's forecast for Rotterdam and fires when a threshold is crossed, at most once per hazard per day. The opener is the shared `{article} {event} is active/has been issued.` (no `for {area}` — Rotterdam is fixed and rides in the prefix), followed by the reused US per-hazard action line. Prefix: `HH:MM CEST Rotterdam:`.
+
+| Hazard (trigger) | Reused event wording |
+| --- | --- |
+| Thunderstorm (WMO code 95/96/99) | Severe Thunderstorm Warning |
+| Snow (WMO 71/73/75/77/85/86) | Winter Storm Warning |
+| Freezing rain/drizzle (WMO 56/57/66/67) | Ice Storm Warning |
+| Dense fog (visibility < `fog_visibility_m`, or WMO 45/48) | Dense Fog Warning |
+| High wind (gusts ≥ `wind_gust_kmh`) | High Wind Warning |
+| Heavy rain (≥ `rain_mm`/h) | Flood Warning |
+| Torrential rain (≥ `flash_flood_mm`/h) | Flash Flood Warning |
+| Extreme heat (today's high ≥ `heat_c`) | Extreme Heat Warning + `Highs near {t}°C.` |
+| Freeze (today's low ≤ `freeze_c`) | Freeze Warning + `Lows near {t}°C.` |
+| Extreme cold (today's low ≤ `severe_cold_c`) | Extreme Cold Warning + `Lows near {t}°C.` |
+
+The event wording itself is the per-hazard action line listed under **US weather (NWS)** below (plus the **Dense Fog Warning** line, kept from the European/Gulf fog phrasing). Thresholds live in `config.yaml` under `rotterdam:`.
 
 ---
 
@@ -165,6 +186,9 @@ _Impact:_
 
 **Air Quality Alert**
 1. Air pollution is reaching unhealthy levels. Limit time outdoors, keep windows closed, and take it easy if you have breathing trouble.
+
+**Dense Fog Warning** _(no US NWS "Warning" event; phrasing kept from the European/Gulf fog wording, used by the Rotterdam source)_
+1. Dense fog is closing in and visibility is dropping fast. Slow down, switch to low-beam headlights, and watch for sudden slow or stopped traffic.
 
 ## US weather (NWS) — Small Craft Advisory roundup
 1. Small craft advisories cover {n} stretches of US coastal water. Small craft should remain in harbour until conditions ease.
