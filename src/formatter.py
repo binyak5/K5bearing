@@ -146,18 +146,24 @@ def _apply_tier(text: str, tier: str) -> str:
 
 
 def render(signal: Signal) -> str:
-    """Prepend the local timestamp, apply the voice tier, and fit to 280 chars.
-    No hashtags. Never truncates mid-sentence: a too-long post is trimmed back
-    to whole sentences so it always ends cleanly.
+    """Render the post: a header line (local time, zone, and geo tag) on its own
+    line, then the alert body on the next line. Applies the voice tier and fits
+    to MAX_LEN. No hashtags. Never truncates mid-sentence: a too-long post is
+    trimmed back to whole sentences so it always ends cleanly.
+
+        18:00 CEST Rotterdam
+        A severe thunderstorm warning is active. ...
     """
     body = _apply_tier(_split_so(signal.text.strip()), getattr(signal, "tier", "serious"))
-    # "HH:MM CEST:" -> "HH:MM CEST EU, France:" when the signal carries a geo tag.
-    # Sources build the "REGION, place" tag (USA + state, EU/GCC + country).
+    # timestamp() ends with a colon ("18:00 CEST:"); drop it, since the header
+    # now sits on its own line. Append the "REGION, place" geo tag when present
+    # (USA + state, EU/GCC + country, or "Rotterdam").
     ts = timestamp(signal.tz)
+    header = ts[:-1] if ts.endswith(":") else ts
     country = getattr(signal, "country", "")
     if country:
-        ts = ts[:-1] + f" {country}:"
-    return _fit(f"{ts} ", body)
+        header = f"{header} {country}"
+    return _fit(f"{header}\n", body)
 
 
 # Numbers that drift run-to-run for the same event (a Kp of 5 then 6, seas at

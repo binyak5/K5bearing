@@ -32,12 +32,6 @@ FREEZING_CODES = {56, 57, 66, 67}   # freezing drizzle / freezing rain
 FOG_CODES = {45, 48}
 
 
-def _geo_label() -> str:
-    """The geo tag shown after the timezone, e.g. 'HH:MM CEST Rotterdam:'. Fixed,
-    since this source only ever covers Rotterdam."""
-    return "Rotterdam"
-
-
 def _forecast(lat: float, lon: float, zone: str) -> dict | None:
     params = {
         "latitude": lat,
@@ -75,7 +69,9 @@ def _emit(event: str, key: str, clause: str = "") -> Signal:
         tz=None,  # set by caller
         tier=wording.tier(event),
         topic=wording.topic(event),
-        country=_geo_label(),
+        # No geo tag: the whole account is Rotterdam, so the header is just the
+        # local time + zone ("18:00 CEST"), with no redundant "Rotterdam" label.
+        country="",
     )
 
 

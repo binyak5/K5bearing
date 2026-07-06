@@ -79,7 +79,7 @@ def test_rotterdam_thunderstorm_reuses_wording():
     s = sigs[0]
     assert s.category == "rotterdam"
     assert s.topic == "thunderstorm"
-    assert s.country == "Rotterdam"           # so the post always names Rotterdam
+    assert s.country == ""                     # whole account is Rotterdam; no geo tag
     assert s.text == ("A severe thunderstorm warning is active. "
                       + wording.ACTIONS["Severe Thunderstorm Warning"][0])
 
