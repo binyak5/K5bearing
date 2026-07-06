@@ -24,6 +24,10 @@
       "at": "2026-07-06T14:03:02.985567+00:00",
       "sev": 80
     },
+    "USA, Colorado": {
+      "at": "2026-07-06T15:03:02.566520+00:00",
+      "sev": 50
+    },
     "USA, Delaware": {
       "at": "2026-07-06T03:33:01.783492+00:00",
       "sev": 84
@@ -96,7 +100,7 @@
   "daily": {
     "2026-07-04": 44,
     "2026-07-05": 44,
-    "2026-07-06": 29
+    "2026-07-06": 30
   },
   "daily_cat": {
     "2026-07-04": {
@@ -122,15 +126,15 @@
       "global": 2,
       "gulf": 1,
       "maritime": 6,
-      "weather": 18,
+      "weather": 19,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-07-06T14:32:52.958902+00:00",
-  "last_topic": "maritime",
+  "last_post_at": "2026-07-06T15:03:02.566514+00:00",
+  "last_topic": "air",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 249
+    "2026-07": 250
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -268,6 +272,7 @@
     "fp:3f86080a70cac280": "2026-06-30T04:32:27.853836+00:00",
     "fp:4036f6f183c1ce31": "2026-06-30T05:05:53.305530+00:00",
     "fp:405295529f824cb8": "2026-07-04T01:35:20.230472+00:00",
+    "fp:405e22a8825cee98": "2026-07-06T15:03:02.566486+00:00",
     "fp:409ed9de4e430d87": "2026-06-30T12:04:27.585072+00:00",
     "fp:413067f74df046a2": "2026-07-02T05:04:08.749227+00:00",
     "fp:427635a345f69c9b": "2026-07-03T04:34:43.853503+00:00",
@@ -391,7 +396,6 @@
     "fp:a2a8233df0b5f562": "2026-07-02T16:04:32.875269+00:00",
     "fp:a31ec280dfce1653": "2026-06-29T07:04:14.621207+00:00",
     "fp:a3442c9f6bb91473": "2026-06-30T19:04:17.150423+00:00",
-    "fp:a360605cba966ab1": "2026-06-28T14:34:18.910479+00:00",
     "fp:a413eef3f54912e5": "2026-07-03T01:33:22.438965+00:00",
     "fp:a4e34da46481eac8": "2026-07-03T19:02:30.432837+00:00",
     "fp:a69814c8ff6f41af": "2026-07-03T02:34:19.107614+00:00",
@@ -544,6 +548,7 @@
     "uv:Phoenix:2026-07-05": "2026-07-05T19:02:59.387643+00:00",
     "weather:Air Quality Alert:Arapahoe, CO; Douglas, CO; Boulder, CO; Weld, CO; Adams, CO;": "2026-07-05T13:02:47.619145+00:00",
     "weather:Air Quality Alert:Montrose, CO; Eagle, CO; Gunnison, CO; Ouray, CO; Mesa, CO; ": "2026-07-03T13:04:29.343105+00:00",
+    "weather:Air Quality Alert:Park, CO; Summit, CO": "2026-07-06T15:03:02.566439+00:00",
     "weather:Air Quality Alert:Southern Baltimore; Anne Arundel": "2026-07-06T02:32:52.712550+00:00",
     "weather:Extreme Heat Warning:Clinton; Washington; Randolph; Madison; St. Clair; Monroe; B": "2026-07-03T12:02:33.012455+00:00",
     "weather:Extreme Heat Warning:Dade; Walker; Catoosa": "2026-07-02T03:33:17.248154+00:00",
@@ -575,7 +580,6 @@
     "weather:Flash Flood Warning:Dundy, NE; Hitchcock, NE": "2026-07-03T02:02:40.961366+00:00",
     "weather:Flash Flood Warning:Elkhart, IN; Kosciusko, IN; Marshall, IN; St. Joseph, IN": "2026-07-04T05:33:15.109679+00:00",
     "weather:Flash Flood Warning:Erie, OH": "2026-07-06T05:34:46.367377+00:00",
-    "weather:Flash Flood Warning:Fentress, TN; Pickett, TN": "2026-06-28T14:34:18.910439+00:00",
     "weather:Flash Flood Warning:Fillmore, MN; Houston, MN": "2026-07-02T14:34:07.648809+00:00",
     "weather:Flash Flood Warning:Floyd, TX": "2026-07-05T23:03:25.074126+00:00",
     "weather:Flash Flood Warning:Garland, AR; Saline, AR": "2026-07-02T05:04:08.749182+00:00",
