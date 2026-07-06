@@ -21,7 +21,7 @@
       "sev": 72
     },
     "USA": {
-      "at": "2026-07-06T09:32:49.152750+00:00",
+      "at": "2026-07-06T14:03:02.985567+00:00",
       "sev": 80
     },
     "USA, Delaware": {
@@ -96,7 +96,7 @@
   "daily": {
     "2026-07-04": 44,
     "2026-07-05": 44,
-    "2026-07-06": 27
+    "2026-07-06": 28
   },
   "daily_cat": {
     "2026-07-04": {
@@ -122,15 +122,15 @@
       "global": 2,
       "gulf": 1,
       "maritime": 5,
-      "weather": 17,
+      "weather": 18,
       "weather_eu": 2
     }
   },
-  "last_post_at": "2026-07-06T13:32:51.432590+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-06T14:03:02.985562+00:00",
+  "last_topic": "marine",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 247
+    "2026-07": 248
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -467,6 +467,7 @@
     "fp:ea54058f1652282d": "2026-06-30T00:32:27.070678+00:00",
     "fp:eb43b8321a5c75e0": "2026-07-02T02:04:30.832969+00:00",
     "fp:ec94a49b2eba8843": "2026-06-29T00:04:33.442797+00:00",
+    "fp:ed16289063e7890b": "2026-07-06T14:03:02.985533+00:00",
     "fp:edb389252a9b57db": "2026-07-06T00:02:33.461057+00:00",
     "fp:ee90b287ae13dd8f": "2026-07-04T11:32:44.119488+00:00",
     "fp:eecbf7284884dec2": "2026-06-30T04:03:22.190223+00:00",
@@ -494,7 +495,6 @@
     "gulfdust:Kuwait City:2026-06-30": "2026-06-30T18:04:42.488443+00:00",
     "gulfdust:Kuwait City:2026-07-02": "2026-07-02T19:04:48.516213+00:00",
     "gulfdust:Manama:2026-07-02": "2026-07-02T16:04:32.875227+00:00",
-    "gulfdust:Mecca:2026-06-28": "2026-06-28T13:34:38.682659+00:00",
     "gulfdust:Mecca:2026-06-30": "2026-06-30T14:34:13.521948+00:00",
     "gulfdust:Medina:2026-06-30": "2026-06-30T17:35:22.574959+00:00",
     "gulfdust:Medina:2026-07-02": "2026-07-02T18:03:30.711509+00:00",
@@ -688,6 +688,7 @@
     "weather:Severe Thunderstorm Warning:Weld, CO": "2026-07-02T06:32:35.232748+00:00",
     "weather:Special Marine Warning:Coastal Waters of Southern Puerto Rico out 10 NM; Mona Passa": "2026-06-29T21:05:18.601918+00:00",
     "weather:Special Marine Warning:Coastal waters from Chokoloskee to Bonita Beach FL out 20 NM": "2026-07-02T21:34:38.006510+00:00",
+    "weather:Special Marine Warning:Coastal waters from Okaloosa-Walton County Line to Mexico Be": "2026-07-06T14:03:02.985472+00:00",
     "weather:Special Marine Warning:Coastal waters from Pascagoula Mississippi to Stake Island o": "2026-07-05T10:02:56.446307+00:00",
     "weather:Special Marine Warning:Coastal waters from Sandy Hook to Manasquan Inlet NJ out 20 ": "2026-07-05T02:32:52.227107+00:00",
     "weather:Special Marine Warning:Guam Coastal Waters": "2026-07-05T12:02:59.292782+00:00",
