@@ -1,0 +1,63 @@
+name: Cleanup timeline (delete non-Rotterdam tweets)
+
+# One-off, manual-only maintenance job. Deletes every tweet on the account whose
+# text does NOT contain "Rotterdam" (the routine forecast and Rotterdam alerts
+# both do; nothing else does), leaving a Rotterdam-only timeline.
+#
+# Runs a DRY RUN by default — it prints the full keep/delete list to the log and
+# uploads a manifest, but changes nothing. To actually delete, run it again and
+# type DELETE in the confirm box. Reads the X_* posting secrets that already
+# exist on the repo, so there's nothing to set up.
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type DELETE to permanently delete non-Rotterdam tweets. Leave blank for a dry run (no changes).'
+        required: false
+        default: ''
+
+# Never let this run alongside a posting run (or another cleanup) — both touch
+# the live account.
+concurrency:
+  group: k5bearing-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run cleanup
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          CONFIRM: ${{ github.event.inputs.confirm }}
+        run: |
+          if [ "$CONFIRM" = "DELETE" ]; then
+            echo "CONFIRM=DELETE — executing deletion of non-Rotterdam tweets."
+            python cleanup_timeline.py --execute
+          else
+            echo "Dry run (confirm is not DELETE). No tweets will be deleted."
+            python cleanup_timeline.py
+          fi
+
+      # Full keep/delete manifest, so the delete set can be reviewed after a dry
+      # run before committing to the real thing.
+      - name: Upload manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cleanup-manifest
+          path: cleanup_manifest.txt
+          if-no-files-found: ignore
