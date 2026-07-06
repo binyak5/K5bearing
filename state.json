@@ -48,6 +48,10 @@
       "at": "2026-07-05T11:02:58.133029+00:00",
       "sev": 82
     },
+    "USA, Montana": {
+      "at": "2026-07-06T06:33:09.527032+00:00",
+      "sev": 82
+    },
     "USA, New York": {
       "at": "2026-07-06T04:32:51.192137+00:00",
       "sev": 84
@@ -88,7 +92,7 @@
   "daily": {
     "2026-07-04": 44,
     "2026-07-05": 44,
-    "2026-07-06": 12
+    "2026-07-06": 13
   },
   "daily_cat": {
     "2026-07-04": {
@@ -112,15 +116,15 @@
     },
     "2026-07-06": {
       "maritime": 2,
-      "weather": 9,
+      "weather": 10,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-06T05:34:46.367446+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-06T06:33:09.527028+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 232
+    "2026-07": 233
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -418,8 +422,8 @@
     "fp:c6729091565bb68a": "2026-06-28T11:32:30.320582+00:00",
     "fp:c822cdfdb9482227": "2026-06-29T08:04:07.598361+00:00",
     "fp:c9b97d2e59e24b8e": "2026-07-04T18:33:22.081108+00:00",
+    "fp:ca494a9beeaa1723": "2026-07-06T06:33:09.527003+00:00",
     "fp:cb0b01fa9291f7c7": "2026-07-05T04:32:10.656065+00:00",
-    "fp:cba5becfa9b5612f": "2026-06-28T06:03:19.806398+00:00",
     "fp:ccbfd06d47753f0d": "2026-07-05T18:02:52.486177+00:00",
     "fp:ce1ee54e8c65a210": "2026-07-05T01:02:39.198907+00:00",
     "fp:ceddc92b41aaa7de": "2026-07-04T08:33:25.222069+00:00",
@@ -623,7 +627,6 @@
     "weather:Severe Thunderstorm Warning:Bedford, TN; Marshall, TN": "2026-07-05T15:33:09.209726+00:00",
     "weather:Severe Thunderstorm Warning:Bell, KY; Clay, KY; Harlan, KY; Knox, KY; Leslie, KY": "2026-07-04T03:34:50.560270+00:00",
     "weather:Severe Thunderstorm Warning:Boone, NE": "2026-06-30T03:03:20.448955+00:00",
-    "weather:Severe Thunderstorm Warning:Brown, SD; Clark, SD; Day, SD; Spink, SD": "2026-06-28T06:03:19.806348+00:00",
     "weather:Severe Thunderstorm Warning:Cabarrus, NC; Mecklenburg, NC; Union, NC": "2026-07-05T21:33:36.072605+00:00",
     "weather:Severe Thunderstorm Warning:Cameron, PA; Centre, PA; Clearfield, PA; Clinton, PA; Elk, P": "2026-07-04T04:32:29.421348+00:00",
     "weather:Severe Thunderstorm Warning:Carroll, NH; Coos, NH; Grafton, NH": "2026-07-02T01:33:04.889597+00:00",
@@ -644,6 +647,7 @@
     "weather:Severe Thunderstorm Warning:Cuming, NE; Stanton, NE; Wayne, NE": "2026-06-30T05:05:53.305486+00:00",
     "weather:Severe Thunderstorm Warning:Dade, MO; Jasper, MO; Lawrence, MO": "2026-07-05T03:32:54.454781+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; Garfield, MT; McCone, MT; Prairie, MT": "2026-07-02T04:34:18.931137+00:00",
+    "weather:Severe Thunderstorm Warning:Dawson, MT; McCone, MT; Richland, MT": "2026-07-06T06:33:09.526950+00:00",
     "weather:Severe Thunderstorm Warning:Dawson, MT; McCone, MT; Richland, MT; Roosevelt, MT; Wibaux,": "2026-07-03T06:04:30.519246+00:00",
     "weather:Severe Thunderstorm Warning:DeKalb, AL; Jackson, AL; Marshall, AL": "2026-07-01T18:02:43.975091+00:00",
     "weather:Severe Thunderstorm Warning:Deaf Smith, TX": "2026-07-01T21:04:52.752897+00:00",
