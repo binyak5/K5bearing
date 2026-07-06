@@ -72,6 +72,10 @@
       "at": "2026-07-05T04:32:10.656098+00:00",
       "sev": 82
     },
+    "USA, Oregon": {
+      "at": "2026-07-06T04:03:03.018070+00:00",
+      "sev": 82
+    },
     "USA, Pennsylvania": {
       "at": "2026-07-05T22:32:46.250974+00:00",
       "sev": 96
@@ -96,7 +100,7 @@
   "daily": {
     "2026-07-04": 44,
     "2026-07-05": 44,
-    "2026-07-06": 8
+    "2026-07-06": 9
   },
   "daily_cat": {
     "2026-07-04": {
@@ -120,15 +124,15 @@
     },
     "2026-07-06": {
       "maritime": 2,
-      "weather": 5,
+      "weather": 6,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-06T03:33:01.783488+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-06T04:03:03.018066+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 228
+    "2026-07": 229
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -347,6 +351,7 @@
     "fp:83a9479105148ff5": "2026-06-29T17:04:10.354853+00:00",
     "fp:85b33b1a45493259": "2026-06-29T05:33:20.814140+00:00",
     "fp:8782f84177361ca9": "2026-07-05T15:33:09.209789+00:00",
+    "fp:87b538245f195082": "2026-07-06T04:03:03.018041+00:00",
     "fp:87b6d25e95960c0e": "2026-07-01T00:32:42.013084+00:00",
     "fp:889b0b8bcff45249": "2026-06-29T20:04:03.313633+00:00",
     "fp:88d7edc86f4f015e": "2026-07-03T12:35:02.571746+00:00",
@@ -452,7 +457,6 @@
     "fp:d856f22a9aa61eac": "2026-06-29T19:34:01.613440+00:00",
     "fp:d90c0793d203c633": "2026-07-04T16:35:10.552145+00:00",
     "fp:d93796f81492e5a1": "2026-06-29T11:34:36.942512+00:00",
-    "fp:da3f380b2291e009": "2026-06-28T03:34:06.001898+00:00",
     "fp:db0cbcdbef74f340": "2026-07-02T01:33:04.889626+00:00",
     "fp:dc309e0d63813968": "2026-07-03T04:04:58.778312+00:00",
     "fp:de9d33c0496acdc9": "2026-07-04T16:02:29.199719+00:00",
@@ -613,7 +617,6 @@
     "weather:Flash Flood Warning:Smith, TX": "2026-07-05T21:03:02.526719+00:00",
     "weather:Flash Flood Warning:St. Louis, MO; St. Louis City, MO": "2026-07-04T21:32:47.741678+00:00",
     "weather:Flash Flood Warning:Story, IA": "2026-07-03T12:35:02.571700+00:00",
-    "weather:Flash Flood Warning:Tucker, WV": "2026-06-28T03:34:06.001857+00:00",
     "weather:Flash Flood Warning:Union, GA": "2026-07-01T20:34:16.521110+00:00",
     "weather:Flash Flood Warning:Winona, MN": "2026-07-01T16:34:37.920221+00:00",
     "weather:Flood Warning:Boone, IA; Jasper, IA; Marshall, IA; Polk, IA; Story, IA": "2026-07-04T16:02:29.199672+00:00",
@@ -672,6 +675,7 @@
     "weather:Severe Thunderstorm Warning:Jefferson, NY; Lewis, NY": "2026-07-01T03:34:20.323081+00:00",
     "weather:Severe Thunderstorm Warning:Jones, SD; Stanley, SD": "2026-06-29T09:04:38.537623+00:00",
     "weather:Severe Thunderstorm Warning:Kemper, MS; Neshoba, MS; Noxubee, MS; Winston, MS": "2026-07-05T11:02:58.132956+00:00",
+    "weather:Severe Thunderstorm Warning:Klamath, OR": "2026-07-06T04:03:03.017998+00:00",
     "weather:Severe Thunderstorm Warning:Lea, NM; Andrews, TX; Gaines, TX": "2026-07-01T01:33:07.941928+00:00",
     "weather:Severe Thunderstorm Warning:Lincoln, CO; Washington, CO": "2026-07-04T06:02:25.702940+00:00",
     "weather:Severe Thunderstorm Warning:Logan, KS; Wallace, KS": "2026-07-01T00:02:52.523055+00:00",
