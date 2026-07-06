@@ -36,6 +36,10 @@
       "at": "2026-07-05T19:33:14.569885+00:00",
       "sev": 84
     },
+    "USA, Maryland": {
+      "at": "2026-07-06T00:02:33.461095+00:00",
+      "sev": 82
+    },
     "USA, Minnesota": {
       "at": "2026-07-05T01:02:39.198937+00:00",
       "sev": 96
@@ -82,21 +86,11 @@
     }
   },
   "daily": {
-    "2026-07-03": 44,
     "2026-07-04": 44,
-    "2026-07-05": 44
+    "2026-07-05": 44,
+    "2026-07-06": 1
   },
   "daily_cat": {
-    "2026-07-03": {
-      "blackout": 1,
-      "cityweather": 1,
-      "gulf": 2,
-      "marine": 1,
-      "maritime": 5,
-      "outdoor": 2,
-      "weather": 28,
-      "weather_eu": 4
-    },
     "2026-07-04": {
       "blackout": 1,
       "cityweather": 2,
@@ -115,13 +109,16 @@
       "outdoor": 2,
       "weather": 28,
       "weather_eu": 4
+    },
+    "2026-07-06": {
+      "weather": 1
     }
   },
-  "last_post_at": "2026-07-05T23:03:25.074197+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-06T00:02:33.461090+00:00",
+  "last_topic": "thunderstorm",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 220
+    "2026-07": 221
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -468,6 +465,7 @@
     "fp:ea54058f1652282d": "2026-06-30T00:32:27.070678+00:00",
     "fp:eb43b8321a5c75e0": "2026-07-02T02:04:30.832969+00:00",
     "fp:ec94a49b2eba8843": "2026-06-29T00:04:33.442797+00:00",
+    "fp:edb389252a9b57db": "2026-07-06T00:02:33.461057+00:00",
     "fp:ee90b287ae13dd8f": "2026-07-04T11:32:44.119488+00:00",
     "fp:eecbf7284884dec2": "2026-06-30T04:03:22.190223+00:00",
     "fp:f087124af26cae91": "2026-06-28T15:34:42.403205+00:00",
@@ -659,6 +657,7 @@
     "weather:Severe Thunderstorm Warning:Harvey, KS; McPherson, KS; Reno, KS": "2026-07-04T13:32:30.814789+00:00",
     "weather:Severe Thunderstorm Warning:Hinds, MS; Madison, MS; Rankin, MS": "2026-07-04T20:02:22.068807+00:00",
     "weather:Severe Thunderstorm Warning:Hoke, NC; Richmond, NC; Scotland, NC": "2026-07-05T18:02:52.486128+00:00",
+    "weather:Severe Thunderstorm Warning:Howard, MD; Montgomery, MD; Prince Georges, MD": "2026-07-06T00:02:33.461006+00:00",
     "weather:Severe Thunderstorm Warning:Iberia, LA; St. Martin, LA": "2026-07-01T19:03:40.876045+00:00",
     "weather:Severe Thunderstorm Warning:Jackson, AL": "2026-07-03T01:33:22.438920+00:00",
     "weather:Severe Thunderstorm Warning:Jefferson, NY; Lewis, NY": "2026-07-01T03:34:20.323081+00:00",
