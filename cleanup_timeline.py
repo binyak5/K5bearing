@@ -75,17 +75,45 @@ def _one_line(text: str, n: int = 90) -> str:
     return " ".join((text or "").split())[:n]
 
 
+def _read_blocked(exc: Exception) -> None:
+    """Explain a failed read (the common case: the X access tier has no read
+    scope), then exit non-zero."""
+    print("\n" + "=" * 60, file=sys.stderr)
+    print("READ FAILED. This step needs to READ your timeline before it can", file=sys.stderr)
+    print("delete anything, and that read was rejected:", file=sys.stderr)
+    print(f"  {type(exc).__name__}: {exc}", file=sys.stderr)
+    print("", file=sys.stderr)
+    if isinstance(exc, tweepy.Forbidden):
+        print("A 403/Forbidden here almost always means your X API access tier", file=sys.stderr)
+        print("does not allow reading tweets (many pay-per-use / free tiers are", file=sys.stderr)
+        print("write-only). The bot can still POST, but not enumerate the", file=sys.stderr)
+        print("timeline to find what to delete.", file=sys.stderr)
+        print("Options: (a) raise the app's access tier so reads are allowed,", file=sys.stderr)
+        print("or (b) delete manually / with a third-party tool instead.", file=sys.stderr)
+    elif isinstance(exc, tweepy.TooManyRequests):
+        print("A 429/TooManyRequests means the read quota is exhausted for now.", file=sys.stderr)
+        print("Wait for the window to reset and try the dry run again.", file=sys.stderr)
+    print("=" * 60, file=sys.stderr)
+    sys.exit(1)
+
+
 def main() -> None:
     execute = "--execute" in sys.argv
     client = build_client()
 
-    me = client.get_me()
+    try:
+        me = client.get_me()
+    except tweepy.TweepyException as exc:
+        _read_blocked(exc)
     if not me or not me.data:
-        sys.exit("Could not resolve the authenticated account (get_me failed).")
+        sys.exit("Could not resolve the authenticated account (get_me returned no data).")
     uid, handle = me.data.id, me.data.username
     print(f"Account: @{handle} (id {uid})")
 
-    tweets = fetch_all(client, uid)
+    try:
+        tweets = fetch_all(client, uid)
+    except tweepy.TweepyException as exc:
+        _read_blocked(exc)
     print(f"Fetched {len(tweets)} original tweets (endpoint reaches ~3200 most recent).")
     if not tweets:
         print("Nothing to do.")
