@@ -21,8 +21,8 @@
       "sev": 62
     },
     "USA": {
-      "at": "2026-07-05T14:33:04.997172+00:00",
-      "sev": 80
+      "at": "2026-07-06T02:32:52.712605+00:00",
+      "sev": 50
     },
     "USA, Colorado": {
       "at": "2026-07-05T13:02:47.619227+00:00",
@@ -92,7 +92,7 @@
   "daily": {
     "2026-07-04": 44,
     "2026-07-05": 44,
-    "2026-07-06": 5
+    "2026-07-06": 6
   },
   "daily_cat": {
     "2026-07-04": {
@@ -116,15 +116,15 @@
     },
     "2026-07-06": {
       "maritime": 1,
-      "weather": 3,
+      "weather": 4,
       "weather_eu": 1
     }
   },
-  "last_post_at": "2026-07-06T02:02:33.971092+00:00",
-  "last_topic": "flood",
+  "last_post_at": "2026-07-06T02:32:52.712601+00:00",
+  "last_topic": "air",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 225
+    "2026-07": 226
   },
   "posted": {
     "blackout:R1": "2026-07-04T11:32:44.119438+00:00",
@@ -215,6 +215,7 @@
     "fp:16a616cd29413d3e": "2026-07-01T07:05:05.822064+00:00",
     "fp:1731f30afa5af9ae": "2026-07-03T06:04:30.519291+00:00",
     "fp:1833f4b8f0c577b2": "2026-06-28T02:33:11.049196+00:00",
+    "fp:188c07dfb6fc4c77": "2026-07-06T02:32:52.712584+00:00",
     "fp:18b2a516e39aa724": "2026-06-29T10:04:00.051804+00:00",
     "fp:19484e92ebfcbba0": "2026-07-02T17:03:43.772121+00:00",
     "fp:1a46453da99bc825": "2026-07-01T06:04:49.282451+00:00",
@@ -544,6 +545,7 @@
     "uv:Phoenix:2026-07-05": "2026-07-05T19:02:59.387643+00:00",
     "weather:Air Quality Alert:Arapahoe, CO; Douglas, CO; Boulder, CO; Weld, CO; Adams, CO;": "2026-07-05T13:02:47.619145+00:00",
     "weather:Air Quality Alert:Montrose, CO; Eagle, CO; Gunnison, CO; Ouray, CO; Mesa, CO; ": "2026-07-03T13:04:29.343105+00:00",
+    "weather:Air Quality Alert:Southern Baltimore; Anne Arundel": "2026-07-06T02:32:52.712550+00:00",
     "weather:Extreme Heat Warning:Clinton; Washington; Randolph; Madison; St. Clair; Monroe; B": "2026-07-03T12:02:33.012455+00:00",
     "weather:Extreme Heat Warning:Dade; Walker; Catoosa": "2026-07-02T03:33:17.248154+00:00",
     "weather:Extreme Heat Warning:Dallas; Polk; Jasper; Poweshiek; Madison; Warren; Marion; Ma": "2026-07-02T14:04:27.596474+00:00",
