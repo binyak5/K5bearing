@@ -348,6 +348,26 @@ _Softened with a "Heads up," lead (advisory tier)._
 
 ---
 
+## Almanac — Rotterdam compass / navigation (scheduled, not an alert) — ACTIVE
+_Daily "bearing" posts derived from Open-Meteo sun data + solar geometry. Plain two-line format (`HH:MM CEST` + body), no "Heads up," lead. `{az}` is a 3-digit TRUE bearing (051, 309); `{off}` is the live angle to true north (equals the sunrise azimuth, accurate every day — not a fixed 90°). Each fires relative to the actual sun event, so timing stays right year-round._
+
+_Sunrise bearing (within ~3 h after sunrise):_
+1. Sunrise bears {az}° today. Line yourself up with it, and true north sits {off}° off your left.
+
+_Sunset bearing (within ~2 h before sunset):_
+1. Sun bears {az}° tonight. Line yourself up with it, and true north sits {off}° off your right.
+
+_Solar noon (within ~15 min of solar noon):_
+1. Solar noon. The sun is locked due true south right now. Your shadow locks straight true north — the day's cleanest compass check.
+
+_Daylight ledger (with the sunrise post). Seasonal twin — the light is either growing (Dec–Jun) or shrinking (Jun–Dec); {delta} is the day-over-day change ("2 minutes" / "45 seconds"):_
+1. _(gaining)_ Daylight today: {len}, and the sun's clawing back about {delta} a day now.
+1. _(losing)_ Daylight today: {len}, and the light's clawing off about {delta} a day now.
+
+_Planned (not built): tide at Hoek van Holland — "Next high water at Hoek van Holland: {time}, {height} m."_
+
+---
+
 ## City weather update — Rotterdam (scheduled, not an alert)
 _Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
 
