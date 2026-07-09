@@ -156,6 +156,16 @@ almanac:
   sunset_window_min: 120       # sunset bearing: within 2 h before sunset
   solar_noon_slack_min: 15     # solar-noon post: within this many minutes of solar noon
 
+# Tide at Hoek van Holland (Rotterdam's sea gate, mouth of the Nieuwe Waterweg),
+# from Rijkswaterstaat's open WaterWebservices (keyless). Announces the next
+# predicted high water in the run-up to it — once per high-water event.
+tides:
+  enabled: true
+  location_code: "hoekvanholland"   # Rijkswaterstaat WaterWebservices location code
+  name: "Hoek van Holland"
+  tz: "Europe/Amsterdam"
+  lead_min: 90                 # announce the next high water when it's within this many minutes
+
 # Outdoor-safety watch (Open-Meteo): extreme UV, dust storms, and violent
 # thunderstorms. Muted: the Rotterdam source now owns thunderstorms (so keeping
 # this on would double-post them), and NW Europe never reaches the extreme-UV or

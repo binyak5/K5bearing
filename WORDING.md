@@ -364,7 +364,11 @@ _Daylight ledger (with the sunrise post). Seasonal twin — the light is either 
 1. _(gaining)_ Daylight today: {len}, and the sun's clawing back about {delta} a day now.
 1. _(losing)_ Daylight today: {len}, and the light's clawing off about {delta} a day now.
 
-_Planned (not built): tide at Hoek van Holland — "Next high water at Hoek van Holland: {time}, {height} m."_
+---
+
+## Tide — Hoek van Holland (scheduled, not an alert) — ACTIVE
+_Next predicted high water at Rotterdam's sea gate, from Rijkswaterstaat's open WaterWebservices. Fires once per high-water event, in the ~90 min run-up to it. `{time}` is local (CEST/CET); `{height}` is metres relative to NAP._
+1. Next high water at {name}: {time}, {height} m.
 
 ---
 
