@@ -80,8 +80,10 @@ def test_rotterdam_thunderstorm_reuses_wording():
     assert s.category == "rotterdam"
     assert s.topic == "thunderstorm"
     assert s.country == ""                     # whole account is Rotterdam; no geo tag
-    assert s.text == ("A severe thunderstorm warning is active. "
-                      + wording.ACTIONS["Severe Thunderstorm Warning"][0])
+    # Opener variant ("is active" / "has been issued") is seed-picked, so don't
+    # pin it; just check it's a thunderstorm opener followed by the reused action.
+    assert s.text.startswith("A severe thunderstorm warning ")
+    assert s.text.endswith(wording.ACTIONS["Severe Thunderstorm Warning"][0])
 
 
 def test_rotterdam_heat_adds_degree_clause():

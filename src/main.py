@@ -19,7 +19,7 @@ from .state import State
 from .formatter import render, fingerprint
 from .poster import Poster
 from . import card
-from .sources import swpc, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, rotterdam, Signal
+from .sources import swpc, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, rotterdam, almanac, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -76,6 +76,9 @@ def collect(cfg: dict) -> list[Signal]:
 
     if cfg.get("rotterdam", {}).get("enabled"):
         signals.extend(rotterdam.rotterdam_signals(cfg["rotterdam"]))
+
+    if cfg.get("almanac", {}).get("enabled"):
+        signals.extend(almanac.almanac_signals(cfg["almanac"]))
 
     if cfg.get("marine_seas", {}).get("enabled"):
         ms = cfg["marine_seas"]

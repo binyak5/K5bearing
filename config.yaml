@@ -140,6 +140,22 @@ city_weather:
   locations:
     - {name: "Rotterdam", lat: 51.92, lon: 4.48, tz: "Europe/Amsterdam"}
 
+# Almanac: daily compass/navigation rhythm posts for Rotterdam, derived from
+# Open-Meteo sun data + solar geometry (keyless). Sunrise/sunset true bearings
+# and the daylight ledger post in the morning/evening windows; the solar-noon
+# post fires within a few minutes of the sun crossing due south. Low priority,
+# so a real weather/space alert always goes first.
+almanac:
+  enabled: true
+  lat: 51.92
+  lon: 4.48
+  tz: "Europe/Amsterdam"
+  # Timing is relative to the day's real sun events (robust year-round as
+  # sunrise/sunset shift with the seasons), not fixed clock hours.
+  sunrise_window_min: 180      # sunrise bearing + daylight ledger: within 3 h after sunrise
+  sunset_window_min: 120       # sunset bearing: within 2 h before sunset
+  solar_noon_slack_min: 15     # solar-noon post: within this many minutes of solar noon
+
 # Outdoor-safety watch (Open-Meteo): extreme UV, dust storms, and violent
 # thunderstorms. Muted: the Rotterdam source now owns thunderstorms (so keeping
 # this on would double-post them), and NW Europe never reaches the extreme-UV or

@@ -14,7 +14,7 @@ from . import tz
 # one of these (a typo'd cap is silently ignored otherwise).
 KNOWN_CATEGORIES = {
     "cityweather", "geomagnetic", "aurora", "solar", "solarwind", "flare",
-    "radiation", "blackout", "rotterdam", "marine", "hab",
+    "radiation", "blackout", "rotterdam", "almanac", "marine", "hab",
     "maritime", "global", "earthquake", "outdoor",
 }
 
