@@ -76,7 +76,8 @@ def geomagnetic_signal(kp_threshold: int) -> Signal | None:
             "north off by several degrees, so trust GPS or a celestial bearing and treat "
             "the compass as a rough guide until it settles.",
         ]
-    # Dedup per storm level per day so escalations re-post but steady state doesn't.
+    # Dedup per storm level (within the dedup TTL) so escalations re-post but a
+    # steady state doesn't.
     # G1(kp5)=64 ... G5(kp9)=88: space weather sits in the upper-"serious" band,
     # on-theme for a compass brand but below the life-threatening weather tier.
     return Signal(

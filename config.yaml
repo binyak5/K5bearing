@@ -36,6 +36,8 @@ limits:
   category_daily_caps:
     cityweather: 2    # the scheduled Rotterdam update (morning + evening); exempt from budget
     rotterdam: 6      # Rotterdam severe-weather alerts (storm, wind, rain, fog, heat, cold)
+    almanac: 4        # sunrise/sunset bearings, solar noon, daylight ledger (self-limited)
+    tides: 3          # next high water at Hoek van Holland (self-limited, ~2/day)
     geomagnetic: 2
     solar: 2
     solarwind: 2      # high-speed solar wind streams
@@ -46,11 +48,6 @@ limits:
 # Don't repost the same signal within this many hours (dedup TTL). Long enough
 # that multi-day warnings don't repeat in the feed.
 dedup_ttl_hours: 48
-
-# Regional scope. Only post events within these regions. Currently Rotterdam-only,
-# so Europe alone; the US and Gulf location sources are disabled below. Space
-# weather is global and unaffected by this filter.
-regions: ["europe"]
 
 # Media cards: attach a generated black/Eurostile card image (with the dotted
 # region map + orange location dot) to posts. Which event types get a card is
