@@ -2,7 +2,7 @@
   "area_posts": {},
   "daily": {
     "2026-07-09": 4,
-    "2026-07-10": 2
+    "2026-07-10": 3
   },
   "daily_cat": {
     "2026-07-09": {
@@ -11,17 +11,18 @@
       "tides": 1
     },
     "2026-07-10": {
-      "almanac": 1,
+      "almanac": 2,
       "cityweather": 1
     }
   },
-  "last_post_at": "2026-07-10T05:45:46.583531+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-07-10T06:15:45.419526+00:00",
+  "last_topic": "daylight",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 257
+    "2026-07": 258
   },
   "posted": {
+    "almanac:daylight:2026-07-10": "2026-07-10T06:15:45.419464+00:00",
     "almanac:solarnoon:2026-07-09": "2026-07-09T11:36:24.171729+00:00",
     "almanac:sunrise:2026-07-10": "2026-07-10T04:15:48.396128+00:00",
     "almanac:sunset:2026-07-09": "2026-07-09T18:31:14.404017+00:00",
@@ -168,6 +169,7 @@
     "fp:98d115783e401710": "2026-07-06T13:02:58.037083+00:00",
     "fp:9c551116d54df8b4": "2026-07-03T21:04:46.117679+00:00",
     "fp:9cefab3484357cd4": "2026-07-03T17:34:39.495921+00:00",
+    "fp:9d604d8667458831": "2026-07-10T06:15:45.419501+00:00",
     "fp:9f401d776dd97199": "2026-07-05T20:32:50.613334+00:00",
     "fp:9f9dc66920f6f067": "2026-07-04T19:33:52.444996+00:00",
     "fp:9ff2803dc18e2eb0": "2026-07-02T12:32:31.536884+00:00",
@@ -186,7 +188,6 @@
     "fp:b0fb1eebca6fded8": "2026-07-02T16:35:02.701185+00:00",
     "fp:b48ab4f7e1d86eb4": "2026-07-04T04:02:32.354378+00:00",
     "fp:b7f4509e1fefd0f6": "2026-07-09T11:36:24.171773+00:00",
-    "fp:b82a3576388f3f88": "2026-07-02T06:04:44.746896+00:00",
     "fp:b984c2410a8b15ea": "2026-07-05T12:02:59.292826+00:00",
     "fp:bd1e5ee0be34332d": "2026-07-04T15:04:36.832099+00:00",
     "fp:be0909335bd62597": "2026-07-04T17:32:58.722546+00:00",
@@ -276,7 +277,6 @@
     "weather:Extreme Heat Warning:District of Columbia; Frederick; Carroll; Northern Baltimore": "2026-07-04T15:04:36.832047+00:00",
     "weather:Extreme Heat Warning:Fulton; Franklin; Perry; Cumberland": "2026-07-04T13:02:21.434650+00:00",
     "weather:Extreme Heat Warning:Northern Oneida; Yates; Seneca; Southern Cayuga; Onondaga; S": "2026-07-02T17:32:20.578277+00:00",
-    "weather:Flash Flood Warning:Adams, WI": "2026-07-02T06:04:44.746851+00:00",
     "weather:Flash Flood Warning:Black Hawk, IA; Grundy, IA; Marshall, IA; Tama, IA": "2026-07-03T00:02:52.822140+00:00",
     "weather:Flash Flood Warning:Calhoun, IA; Carroll, IA; Greene, IA; Sac, IA": "2026-07-04T12:33:00.734911+00:00",
     "weather:Flash Flood Warning:Caroline, MD; Kent, MD; Queen Anne's, MD": "2026-07-06T11:33:09.126875+00:00",
