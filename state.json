@@ -3,7 +3,7 @@
   "daily": {
     "2026-07-11": 4,
     "2026-07-12": 4,
-    "2026-07-13": 2
+    "2026-07-13": 3
   },
   "daily_cat": {
     "2026-07-11": {
@@ -18,14 +18,15 @@
     },
     "2026-07-13": {
       "almanac": 1,
-      "cityweather": 1
+      "cityweather": 1,
+      "tides": 1
     }
   },
-  "last_post_at": "2026-07-13T05:15:44.910089+00:00",
-  "last_topic": "cityweather",
+  "last_post_at": "2026-07-13T12:15:48.080450+00:00",
+  "last_topic": "tide",
   "monthly": {
     "2026-06": 504,
-    "2026-07": 269
+    "2026-07": 270
   },
   "posted": {
     "almanac:daylight:2026-07-10": "2026-07-10T06:15:45.419464+00:00",
@@ -94,13 +95,12 @@
     "fp:a27330299c538469": "2026-07-06T01:32:26.049803+00:00",
     "fp:ae7920638fe4dd3d": "2026-07-06T13:32:51.432571+00:00",
     "fp:b7f4509e1fefd0f6": "2026-07-11T11:45:47.786252+00:00",
-    "fp:b984c2410a8b15ea": "2026-07-05T12:02:59.292826+00:00",
     "fp:be53186f6ebf9488": "2026-07-12T05:31:21.033986+00:00",
     "fp:ca494a9beeaa1723": "2026-07-06T06:33:09.527003+00:00",
     "fp:ccbfd06d47753f0d": "2026-07-05T18:02:52.486177+00:00",
     "fp:cf0f15668116f4ce": "2026-07-05T20:02:53.590970+00:00",
     "fp:cf56c0ecfc4ff964": "2026-07-05T19:02:59.387682+00:00",
-    "fp:d11ade6a87d963be": "2026-07-11T09:31:17.999456+00:00",
+    "fp:d11ade6a87d963be": "2026-07-13T12:15:48.080423+00:00",
     "fp:d47bf833de7e2d15": "2026-07-05T17:02:50.230332+00:00",
     "fp:d90c0793d203c633": "2026-07-12T09:15:49.824627+00:00",
     "fp:d9748d290e4c3350": "2026-07-06T08:33:33.958262+00:00",
@@ -125,6 +125,7 @@
     "seawind:Baltic Sea:2026-07-05": "2026-07-05T17:02:50.230280+00:00",
     "tide:hoekvanholland:2026-07-09T10:30:00+02:00": "2026-07-09T07:45:47.339627+00:00",
     "tide:hoekvanholland:2026-07-11T12:44:00+02:00": "2026-07-11T09:31:17.999419+00:00",
+    "tide:hoekvanholland:2026-07-13T14:43:00+02:00": "2026-07-13T12:15:48.080354+00:00",
     "uv:Phoenix:2026-07-05": "2026-07-05T19:02:59.387643+00:00",
     "weather:Air Quality Alert:Arapahoe, CO; Douglas, CO; Boulder, CO; Weld, CO; Adams, CO;": "2026-07-05T13:02:47.619145+00:00",
     "weather:Air Quality Alert:Park, CO; Summit, CO": "2026-07-06T15:03:02.566439+00:00",
@@ -156,7 +157,6 @@
     "weather:Severe Thunderstorm Warning:Howard, MD; Montgomery, MD; Prince Georges, MD": "2026-07-06T00:02:33.461006+00:00",
     "weather:Severe Thunderstorm Warning:Klamath, OR": "2026-07-06T04:03:03.017998+00:00",
     "weather:Special Marine Warning:Coastal waters from Okaloosa-Walton County Line to Mexico Be": "2026-07-06T14:03:02.985472+00:00",
-    "weather:Special Marine Warning:Guam Coastal Waters": "2026-07-05T12:02:59.292782+00:00",
     "weather:Special Marine Warning:Reno Beach to The Islands OH; The Islands to Vermilion OH; R": "2026-07-06T05:03:57.028423+00:00",
     "weather:Special Marine Warning:St. Andrews Bay Waterways; Coastal waters from Okaloosa-Walt": "2026-07-05T14:33:04.997089+00:00",
     "weather:Special Marine Warning:Western Choctawhatchee Bay; Eastern Choctawhatchee Bay; Coas": "2026-07-06T09:32:49.152655+00:00",
