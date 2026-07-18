@@ -34,10 +34,10 @@ limits:
   # above max_posts_per_day so the feed never goes fully silent on a quiet day.
   # Categories not listed are uncapped.
   category_daily_caps:
-    cityweather: 2    # the scheduled Rotterdam update (morning + evening); exempt from budget
-    rotterdam: 6      # Rotterdam severe-weather alerts (storm, wind, rain, fog, heat, cold)
+    cityweather: 2    # the scheduled national update (morning + evening); exempt from budget
+    weather_eu: 6     # MeteoAlarm Netherlands severe-weather warnings
     almanac: 4        # sunrise/sunset bearings, solar noon, daylight ledger (self-limited)
-    tides: 3          # next high water at Hoek van Holland (self-limited, ~2/day)
+    tides: 6          # next high water across NL stations (self-limited, ~2/day each)
     geomagnetic: 2
     solar: 2
     solarwind: 2      # high-speed solar wind streams
@@ -108,14 +108,22 @@ earthquakes:
   min_magnitude: 5.0     # lower bar since we're region-limited (Europe/Gulf quakes are smaller)
   max_age_hours: 6       # ignore quakes older than this on startup
 
-# Rotterdam severe-weather alerts, derived from Open-Meteo (keyless). The single
-# alert source now the account is Rotterdam-only: it reads current conditions +
-# today's forecast and fires when a hazard threshold is crossed. Wording is
-# reused from the shared library (src/sources/wording.py, the old US/EU/Gulf
-# phrasing), so alerts read exactly as before. Temps °C, wind km/h, visibility m.
-# Fires at most once per hazard per day.
-rotterdam:
+# Severe-weather warnings for the whole Netherlands via MeteoAlarm (EUMETNET) —
+# the official national warning feed. Names the affected Dutch regions; wording
+# reused from src/sources/wording.py. This is the account's severe-weather source.
+weather_eu:
   enabled: true
+  # min_severity: Moderate (yellow) | Severe (orange) | Extreme (red).
+  # Severe (orange) filters out the very common yellow warnings.
+  min_severity: "Severe"
+  countries:
+    - netherlands
+
+# Rotterdam severe-weather alerts, derived from Open-Meteo (keyless).
+# Muted: replaced by the official nationwide MeteoAlarm feed above. Kept in git
+# and can be re-enabled as a Rotterdam-specific supplement if wanted.
+rotterdam:
+  enabled: false
   lat: 51.92
   lon: 4.48
   tz: "Europe/Amsterdam"
@@ -127,9 +135,9 @@ rotterdam:
   freeze_c: 0            # today's forecast low at/below this (°C) = freeze/frost
   severe_cold_c: -10     # today's forecast low at/below this (°C) = extreme cold
 
-# Routine twice-daily city weather update (not an alert), Open-Meteo, in local
-# time and degrees Celsius. Fires once in the morning window and once in the
-# evening window per city per day.
+# Routine twice-daily weather update (not an alert), Open-Meteo, in local time
+# and °C. Rotterdam-specific (the account's home city), even though the alerts,
+# tides, and almanac cover the whole country. Fires once per morning + evening.
 city_weather:
   enabled: true
   morning_hours: [7, 8]     # local-time window for the morning update [start, end): 07:00-08:00
@@ -137,15 +145,15 @@ city_weather:
   locations:
     - {name: "Rotterdam", lat: 51.92, lon: 4.48, tz: "Europe/Amsterdam"}
 
-# Almanac: daily compass/navigation rhythm posts for Rotterdam, derived from
-# Open-Meteo sun data + solar geometry (keyless). Sunrise/sunset true bearings
-# and the daylight ledger post in the morning/evening windows; the solar-noon
-# post fires within a few minutes of the sun crossing due south. Low priority,
-# so a real weather/space alert always goes first.
+# Almanac: daily compass/navigation rhythm posts, derived from Open-Meteo sun
+# data + solar geometry (keyless). Anchored on De Bilt (central NL) — sun figures
+# barely differ across the country. Sunrise/sunset true bearings + daylight
+# ledger post around sunrise/sunset; solar noon fires as the sun crosses due
+# south. Low priority, so a real weather/space alert always goes first.
 almanac:
   enabled: true
-  lat: 51.92
-  lon: 4.48
+  lat: 52.10                 # De Bilt (KNMI national reference), central NL
+  lon: 5.18
   tz: "Europe/Amsterdam"
   # Timing is relative to the day's real sun events (robust year-round as
   # sunrise/sunset shift with the seasons), not fixed clock hours.
@@ -153,15 +161,19 @@ almanac:
   sunset_window_min: 120       # sunset bearing: within 2 h before sunset
   solar_noon_slack_min: 15     # solar-noon post: within this many minutes of solar noon
 
-# Tide at Hoek van Holland (Rotterdam's sea gate, mouth of the Nieuwe Waterweg),
-# from Rijkswaterstaat's open WaterWebservices (keyless). Announces the next
-# predicted high water in the run-up to it — once per high-water event.
+# Tides across the Netherlands, from Rijkswaterstaat's open WaterWebservices
+# (keyless). Each station announces its next predicted high water in the run-up
+# to it — once per high-water event. A curated coastal spread (Rotterdam gate +
+# north + south-west) keeps tide posts from dominating the feed; more stations
+# with tidal predictions exist (Scheveningen, Delfzijl) if we want wider coverage.
 tides:
   enabled: true
-  location_code: "hoekvanholland"   # Rijkswaterstaat WaterWebservices location code
-  name: "Hoek van Holland"
   tz: "Europe/Amsterdam"
   lead_min: 90                 # announce the next high water when it's within this many minutes
+  stations:
+    - {code: "hoekvanholland",     name: "Hoek van Holland"}   # Rotterdam sea gate (South Holland)
+    - {code: "denhelder.marsdiep", name: "Den Helder"}         # north / Wadden gateway
+    - {code: "vlissingen",         name: "Vlissingen"}         # south-west / Zeeland
 
 # Outdoor-safety watch (Open-Meteo): extreme UV, dust storms, and violent
 # thunderstorms. Muted: the Rotterdam source now owns thunderstorms (so keeping

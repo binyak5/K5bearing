@@ -102,33 +102,41 @@ def next_high_water(code: str, zone: str):
 
 
 def tide_signals(cfg: dict) -> list[Signal]:
-    code = cfg.get("location_code", "hoekvanholland")
-    name = cfg.get("name", "Hoek van Holland")
     zone = cfg.get("tz", "Europe/Amsterdam")
     lead_min = cfg.get("lead_min", 90)
 
-    nxt = next_high_water(code, zone)
-    if nxt is None:
-        return []
-    when, height_m = nxt
+    # A list of NL tide stations; each announces its own next high water. Falls
+    # back to the old single-station shape for compatibility.
+    stations = cfg.get("stations") or []
+    if not stations and cfg.get("location_code"):
+        stations = [{"code": cfg["location_code"], "name": cfg.get("name", "Hoek van Holland")}]
 
-    # Only in the run-up to the high water, so it reads as a timely heads-up.
     now_local = datetime.now(ZoneInfo(zone))
-    lead = (when - now_local).total_seconds()
-    if not (0 <= lead <= lead_min * 60):
-        return []
-
-    # Dedup on the specific high-water timestamp -> posted once per event.
-    key = f"tide:{code}:{when.isoformat()}"
-    text = pick(TIDE_VARIANTS, key).format(name=name, time=when.strftime("%H:%M"),
-                                           height=f"{height_m:.1f}")
-    return [Signal(
-        category="tides",
-        severity=42,          # low: a rhythm post, never jumps a real alert
-        text=text,
-        dedup_key=key,
-        hashtags=["#Tides", "#Rotterdam"],
-        tz=zone,
-        tier="serious",
-        topic="tide",
-    )]
+    out: list[Signal] = []
+    for st in stations:
+        code, name = st.get("code"), st.get("name")
+        if not code or not name:
+            continue
+        nxt = next_high_water(code, zone)
+        if nxt is None:
+            continue
+        when, height_m = nxt
+        # Only in the run-up to the high water, so it reads as a timely heads-up.
+        lead = (when - now_local).total_seconds()
+        if not (0 <= lead <= lead_min * 60):
+            continue
+        # Dedup on station + the specific high-water timestamp -> once per event.
+        key = f"tide:{code}:{when.isoformat()}"
+        text = pick(TIDE_VARIANTS, key).format(name=name, time=when.strftime("%H:%M"),
+                                               height=f"{height_m:.1f}")
+        out.append(Signal(
+            category="tides",
+            severity=42,          # low: a rhythm post, never jumps a real alert
+            text=text,
+            dedup_key=key,
+            hashtags=["#Tides", "#Rotterdam"],
+            tz=zone,
+            tier="serious",
+            topic="tide",
+        ))
+    return out

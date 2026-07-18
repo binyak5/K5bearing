@@ -51,4 +51,17 @@ def test_tide_signal_silent_outside_lead(monkeypatch):
 
 def test_tide_signal_none_on_api_failure(monkeypatch):
     monkeypatch.setattr(tides, "_fetch_extremes", lambda code, hours=30: None)
-    assert tides.tide_signals({"tz": "Europe/Amsterdam"}) == []
+    assert tides.tide_signals({"tz": "Europe/Amsterdam", "stations": [
+        {"code": "hoekvanholland", "name": "Hoek van Holland"}]}) == []
+
+
+def test_tide_signals_one_per_station(monkeypatch):
+    monkeypatch.setattr(tides, "_fetch_extremes", lambda code, hours=30: _fake_extremes(30))
+    cfg = {"tz": "Europe/Amsterdam", "lead_min": 90, "stations": [
+        {"code": "hoekvanholland", "name": "Hoek van Holland"},
+        {"code": "vlissingen", "name": "Vlissingen"}]}
+    sigs = tides.tide_signals(cfg)
+    assert len(sigs) == 2
+    assert {s.dedup_key for s in sigs}.__len__() == 2      # distinct per station
+    texts = " ".join(s.text for s in sigs)
+    assert "Hoek van Holland" in texts and "Vlissingen" in texts

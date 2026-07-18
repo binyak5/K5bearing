@@ -19,7 +19,7 @@ from .state import State
 from .formatter import render, fingerprint
 from .poster import Poster
 from . import card
-from .sources import swpc, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, rotterdam, almanac, tides, Signal
+from .sources import swpc, meteoalarm, gdacs, aurora, usgs, outdoor, nga, marine, hab, citywx, rotterdam, almanac, tides, Signal
 
 
 def collect(cfg: dict) -> list[Signal]:
@@ -73,6 +73,14 @@ def collect(cfg: dict) -> list[Signal]:
         sig = swpc.blackout_signal(cfg["radio_blackout"].get("min_scale", 1))
         if sig:
             signals.append(sig)
+
+    if cfg.get("weather_eu", {}).get("enabled"):
+        signals.extend(
+            meteoalarm.weather_signals(
+                cfg["weather_eu"]["countries"],
+                cfg["weather_eu"].get("min_severity", "Severe"),
+            )
+        )
 
     if cfg.get("rotterdam", {}).get("enabled"):
         signals.extend(rotterdam.rotterdam_signals(cfg["rotterdam"]))

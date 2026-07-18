@@ -2,7 +2,7 @@
 
 Every phrasing the bot can post. {curly braces} are filled in at post time. One variant is chosen per alert.
 
-**Scope:** Rotterdam, Netherlands. The account posts a twice-daily Rotterdam forecast, **Rotterdam severe-weather alerts** (derived from Open-Meteo — see the section below), and global space weather. The **US (NWS)**, **Europe (MeteoAlarm)**, **Gulf**, **marine**, **earthquake**, **GDACS**, **red tide**, **outdoor**, and **NGA** sections below are the **preserved wording library**: those sources are off, but their phrasing is kept — the Rotterdam alerts reuse the US per-hazard lines, and coverage can be restored later. Nothing here has been deleted from the wording.
+**Scope:** the Netherlands. The account posts official **MeteoAlarm Netherlands** severe-weather warnings (nationwide, naming the affected Dutch regions), a twice-daily national **forecast** (anchored on De Bilt, KNMI's reference station), **almanac** compass/navigation posts, **tides** at several NL coastal stations, and global **space weather**. The **US (NWS)**, **Gulf**, **marine**, **earthquake**, **GDACS**, **red tide**, **outdoor**, and **NGA** sections below are the **preserved wording library** — those sources are off, but their phrasing is kept (MeteoAlarm and the almanac reuse it) and coverage can be restored later. Nothing here has been deleted from the wording.
 
 **Prefix:** 24-hour local time, the timezone, then a `REGION, place` geo tag — e.g. `11:20 CDT USA, Texas:`, `16:33 CEST EU, France:`, `20:14 GST GCC, United Arab Emirates:`. The place is the US **state** (NWS), the **country** (Europe / Gulf), the **city** (outdoor UV/dust/lightning), or `USA, California` (red tide). Coordinate-less signals — space weather, open-sea marine, NGA navigation warnings — keep the plain `16:33 UTC:` form, as does the scheduled Rotterdam update (deliberately, so it stands out). **No hashtags.**
 
@@ -50,7 +50,7 @@ _Impact:_
 
 ---
 
-## Rotterdam severe-weather alerts (derived, Open-Meteo) — ACTIVE
+## Rotterdam severe-weather alerts (derived, Open-Meteo) — MUTED (replaced by MeteoAlarm NL)
 
 The one alert source now the account is Rotterdam-only. It reads current conditions + today's forecast for Rotterdam and fires when a threshold is crossed, at most once per hazard per day. The opener is the shared `{article} {event} is active/has been issued.` (no `for {area}` — Rotterdam is fixed and rides in the prefix), followed by the reused US per-hazard action line. Prefix: `HH:MM CEST Rotterdam:`.
 
@@ -195,8 +195,8 @@ The event wording itself is the per-hazard action line listed under **US weather
 
 ---
 
-## Europe (MeteoAlarm)
-Prefix carries `EU, <country>`. Openers name the affected sub-regions (`{label}` = as many as fit, then "and N other areas"); with no named sub-region, the "for {label}" is dropped (the country is already in the prefix). Awareness codes are normalised, so `extreme_heat`, `High Temperature`, and `high-temperature` all classify the same.
+## Netherlands severe weather (MeteoAlarm) — ACTIVE
+The account's severe-weather source (scoped to the `netherlands` feed, orange/red only by default). No geo prefix — the affected Dutch regions are named in the body (`{label}` = as many as fit, then "and N other areas"); with no named sub-region the "for {label}" is dropped. Colour is the MeteoAlarm level (yellow/orange/red); yellow warnings get the softer "Heads up," lead. Awareness codes are normalised, so `extreme_heat`, `High Temperature`, and `high-temperature` all classify the same. Action lines are reused from the US (NWS) library below.
 1. {article} {color} {hazard} warning is active for {label}.
 2. {article} {color} {hazard} warning has been issued for {label}.
 
@@ -348,8 +348,8 @@ _Softened with a "Heads up," lead (advisory tier)._
 
 ---
 
-## Almanac — Rotterdam compass / navigation (scheduled, not an alert) — ACTIVE
-_Daily "bearing" posts derived from Open-Meteo sun data + solar geometry. Plain two-line format (`HH:MM CEST` + body), no "Heads up," lead. `{az}` is a 3-digit TRUE bearing (051, 309); `{off}` is the live angle to true north (equals the sunrise azimuth, accurate every day — not a fixed 90°). Each fires relative to the actual sun event, so timing stays right year-round._
+## Almanac — compass / navigation (scheduled, not an alert) — ACTIVE
+_Daily "bearing" posts derived from Open-Meteo sun data + solar geometry, anchored on De Bilt (central NL). Inline format (`HH:MM CEST:` then the body), no "Heads up," lead. `{az}` is a 3-digit TRUE bearing (051, 309); `{off}` is the live angle to true north (equals the sunrise azimuth, accurate every day — not a fixed 90°). Each fires relative to the actual sun event, so timing stays right year-round._
 
 _Sunrise bearing (within ~3 h after sunrise):_
 1. Sunrise bears {az}° today. Line yourself up with it, and true north sits {off}° off your left.
@@ -366,14 +366,14 @@ _Daylight ledger (with the sunrise post). Seasonal twin — the light is either 
 
 ---
 
-## Tide — Hoek van Holland (scheduled, not an alert) — ACTIVE
-_Next predicted high water at Rotterdam's sea gate, from Rijkswaterstaat's open WaterWebservices. Fires once per high-water event, in the ~90 min run-up to it. `{time}` is local (CEST/CET); `{height}` is metres relative to NAP._
+## Tides — NL coastal stations (scheduled, not an alert) — ACTIVE
+_Next predicted high water at each watched station (Hoek van Holland, Den Helder, Vlissingen), from Rijkswaterstaat's open WaterWebservices. Fires once per station per high-water event, in the ~90 min run-up to it. `{name}` is the station; `{time}` is local (CEST/CET); `{height}` is metres relative to NAP._
 1. Next high water at {name}: {time}, {height} m.
 
 ---
 
-## City weather update — Rotterdam (scheduled, not an alert)
-_Routine twice-daily forecast in local time and °C. Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
+## City weather update — Rotterdam (scheduled, not an alert) — ACTIVE
+_Routine twice-daily Rotterdam forecast in local time and °C (the account's home city; alerts/tides/almanac cover the whole country). Posts once in the morning window and once in the evening window each day. {cond} is a plain-language sky description (clear skies, broken cloud, light rain, fog, thunderstorms, etc.)._
 
 _Morning:_
 1. Rotterdam this morning, it's {temp}°C with {cond}. The day reaches {high}°C and eases to {low}°C, with winds {wdesc} near {wind} km/h.

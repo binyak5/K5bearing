@@ -29,6 +29,7 @@ def test_city_weather_location_missing_coords_errors():
 
 def test_rotterdam_missing_coords_errors():
     cfg = copy.deepcopy(load_config())
+    cfg["rotterdam"]["enabled"] = True   # only validated when enabled
     cfg["rotterdam"].pop("lat")
     errors, _ = validate_config(cfg)
     assert any("rotterdam" in e and "lat/lon" in e for e in errors)
@@ -36,6 +37,15 @@ def test_rotterdam_missing_coords_errors():
 
 def test_rotterdam_missing_tz_errors():
     cfg = copy.deepcopy(load_config())
+    cfg["rotterdam"]["enabled"] = True
     cfg["rotterdam"]["tz"] = ""
     errors, _ = validate_config(cfg)
     assert any("rotterdam" in e and "tz" in e for e in errors)
+
+
+def test_unknown_eu_country_errors():
+    cfg = copy.deepcopy(load_config())
+    cfg["weather_eu"]["countries"].append("kazakhstan")
+    errors, _ = validate_config(cfg)
+    assert any("kazakhstan" in e and "timezone" in e for e in errors)
+    assert any("kazakhstan" in e and "ISO code" in e for e in errors)

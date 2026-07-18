@@ -1,13 +1,14 @@
 # K5Bearing
 
 Automated X account for **Kastle Five Systems**. Posts signal-grade alerts about
-space weather, geomagnetic activity, compass accuracy, and **Rotterdam** severe
-weather — sourced entirely from free, keyless feeds.
+**Netherlands** severe weather, space weather, compass accuracy, tides, and the
+daily sun almanac — sourced entirely from free, keyless feeds.
 
-> **Scope: Rotterdam-only.** The account currently covers Rotterdam, Netherlands
-> plus global space weather. The worldwide sources (US NWS, Europe MeteoAlarm,
-> Gulf, marine, earthquakes, GDACS, NGA, red tide, outdoor) are **disabled** but
-> kept in the repo, and their wording is preserved in
+> **Scope: the Netherlands.** The account covers nationwide Dutch severe weather
+> plus a Rotterdam forecast (home city), a national almanac, NL tides, and global
+> space weather. Other
+> worldwide sources (US NWS, Gulf, marine, earthquakes, GDACS, NGA, red tide,
+> outdoor) are **disabled** but kept in the repo, with wording preserved in
 > [`WORDING.md`](WORDING.md) and `src/sources/wording.py` — they can be switched
 > back on in `config.yaml`.
 
@@ -15,21 +16,20 @@ weather — sourced entirely from free, keyless feeds.
 
 | Signal | Source | Trigger |
 | --- | --- | --- |
-| **Rotterdam forecast** — twice-daily outlook (morning + evening) | Open-Meteo | Scheduled window (local time) |
-| **Rotterdam severe weather** — thunderstorm, high wind, heavy rain/flood, dense fog, snow, ice, extreme heat, freeze/extreme cold | Open-Meteo (derived) | Hazard threshold crossed |
+| **NL severe weather** — nationwide warnings naming the affected regions | MeteoAlarm (EUMETNET) | New orange/red warning |
+| **Rotterdam forecast** — twice-daily outlook (the account's home city) | Open-Meteo | Scheduled window (local time) |
+| **Almanac** — sunrise/sunset true bearings, solar noon, daylight ledger | Open-Meteo + solar geometry | Around the sun events |
+| **Tides** — next high water at NL coastal stations | Rijkswaterstaat WaterWebservices | ~90 min before high water |
 | Geomagnetic storm + **compass accuracy** advisory | NOAA SWPC planetary K-index | Kp ≥ threshold (default 5 = G1) |
-| **Solar flares** (M/X-class) | NOAA SWPC GOES X-ray | New flare ≥ threshold class |
-| Solar storms / radio blackouts / radiation storms / high-speed solar wind | NOAA SWPC alerts feed | New matching alert |
+| **Solar flares** (M/X) / radio blackouts / radiation storms / solar wind | NOAA SWPC feeds | New matching alert |
 
-The Rotterdam severe-weather alerts reuse the preserved US/EU/Gulf wording
-library, so they read exactly like the account's old alerts (see
-[`WORDING.md`](WORDING.md)).
+The NL severe-weather alerts reuse the preserved US wording library, so they read
+like the account's established voice (see [`WORDING.md`](WORDING.md)).
 
 Every post is written as a timestamped advisory in plain, flowing prose, e.g.
-`18:00 CEST Rotterdam: A severe thunderstorm warning is active. ...`. The
-Rotterdam timestamp is in local time (CEST); global space-weather signals stay
-in UTC. The source agency is not named in-tweet — K5Bearing is the voice. No
-emoji, no sign-offs.
+`18:00 CEST` then `An orange wind warning is active for ...`. Timestamps are in
+local time (CEST); global space-weather signals stay in UTC. The source agency is
+not named in-tweet — K5Bearing is the voice. No emoji, no sign-offs.
 
 Each alert is phrased from several vetted variants (openers + per-hazard action
 lines) chosen deterministically from the alert's id, so the feed reads freshly
@@ -59,9 +59,12 @@ src/
   poster.py      X v2 client (tweepy), with DRY_RUN
   sources/
     swpc.py        solar + geomagnetic + compass (global)      [active]
-    rotterdam.py   Rotterdam severe weather (Open-Meteo)        [active]
+    meteoalarm.py  NL severe weather — MeteoAlarm (national)    [active]
     citywx.py      twice-daily Rotterdam forecast (Open-Meteo)  [active]
+    almanac.py     sun bearings / solar noon / daylight         [active]
+    tides.py       NL high-water tides (Rijkswaterstaat)        [active]
     wording.py     shared alert wording library (reused above)
+    rotterdam.py   Rotterdam-derived severe weather             [disabled]
     aurora.py      aurora-visibility viewline from Kp           [disabled]
     gdacs.py       global multi-hazard                          [disabled]
     nga.py         maritime security / military nav warnings    [disabled]
@@ -72,9 +75,9 @@ src/
 config.yaml      thresholds, limits, schedule — tune this
 ```
 
-The US (`nws.py`), Europe (`meteoalarm.py`), and Gulf (`gulf.py`) sources were
-removed when the account went Rotterdam-only; their wording lives on in
-`wording.py` and `WORDING.md`, and the code is in git history.
+The US (`nws.py`) and Gulf (`gulf.py`) sources were removed in the Rotterdam
+pivot; their wording lives on in `wording.py` and `WORDING.md`, and the code is
+in git history. `meteoalarm.py` was restored to power nationwide NL warnings.
 
 ## Setup
 

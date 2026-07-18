@@ -14,8 +14,8 @@ from . import tz
 # one of these (a typo'd cap is silently ignored otherwise).
 KNOWN_CATEGORIES = {
     "cityweather", "geomagnetic", "aurora", "solar", "solarwind", "flare",
-    "radiation", "blackout", "rotterdam", "almanac", "tides", "marine", "hab",
-    "maritime", "global", "earthquake", "outdoor",
+    "radiation", "blackout", "rotterdam", "weather_eu", "almanac", "tides",
+    "marine", "hab", "maritime", "global", "earthquake", "outdoor",
 }
 
 
@@ -35,13 +35,22 @@ def validate_config(cfg: dict) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
 
-    # 1. The Rotterdam alert source needs coordinates and a timezone.
+    # 1. The Rotterdam alert source needs coordinates and a timezone (when on).
     rt = cfg.get("rotterdam") or {}
     if rt.get("enabled"):
         if rt.get("lat") is None or rt.get("lon") is None:
             errors.append("rotterdam: missing lat/lon")
         if not rt.get("tz"):
             errors.append("rotterdam: missing 'tz'")
+
+    # 1b. MeteoAlarm countries each need a timezone and ISO code, or their posts
+    #     lose the local timestamp.
+    if (cfg.get("weather_eu") or {}).get("enabled"):
+        for c in cfg["weather_eu"].get("countries", []):
+            if tz.zone_for_country(c) is None:
+                errors.append(f"weather_eu.countries: '{c}' has no timezone in tz.COUNTRY_ZONES")
+            if tz.code_for_country(c) is None:
+                errors.append(f"weather_eu.countries: '{c}' has no ISO code in tz.COUNTRY_CODES")
 
     # 2. Caps must reference real categories.
     for cat in (cfg.get("limits") or {}).get("category_daily_caps", {}):

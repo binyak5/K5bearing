@@ -93,34 +93,25 @@ def test_render_has_time_prefix():
     assert PREFIX.match(out)
 
 
-def test_render_puts_body_on_second_line():
-    # Header (time + zone [+ geo tag]) on line 1, alert body on line 2.
+def test_render_is_single_line_inline():
+    # Timestamp first, body on the SAME line — no newline in the post.
     out = render(_sig("A flood warning is active for X.", tz="Europe/Zurich"))
-    header, _, body = out.partition("\n")
-    assert PREFIX.match(header)
-    assert body.startswith("A flood warning")
+    assert "\n" not in out
+    assert PREFIX.match(out)
+    assert re.search(r"\d{2}:\d{2} \S+: A flood warning", out)
 
 
 def test_render_appends_geo_tag_verbatim():
-    # Sources build the "REGION, place" tag; the formatter appends it to the
-    # header line (no trailing colon now that the body is on its own line).
+    # Sources build the "REGION, place" tag; the formatter appends it right
+    # before the colon, inline.
     out = render(_sig("A red wind warning is active for X.", tz="Europe/Zurich",
                       country="EU, Switzerland"))
-    header = out.split("\n", 1)[0]
-    assert header.endswith("EU, Switzerland")
-    assert " CEST " in header or " CET " in header
+    assert "CEST EU, Switzerland: " in out or "CET EU, Switzerland: " in out
 
 
 def test_render_without_geo_tag_has_no_trailing_tag():
     out = render(_sig("A geomagnetic storm is underway.", country=""))
-    header = out.split("\n", 1)[0]
-    assert re.fullmatch(r"\d{2}:\d{2} \S+", header)  # just "HH:MM UTC", no geo tag
-
-
-def test_render_header_has_no_trailing_colon():
-    out = render(_sig("A geomagnetic storm is underway.", country=""))
-    header = out.split("\n", 1)[0]
-    assert not header.endswith(":")
+    assert re.search(r"\d{2}:\d{2} \S+: ", out)
     assert " : " not in out
 
 

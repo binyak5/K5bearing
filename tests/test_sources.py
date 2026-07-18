@@ -1,5 +1,25 @@
 """Pure (non-network) helpers in the source modules."""
-from src.sources import wording, nga, marine, outdoor, usgs, rotterdam
+from src.sources import wording, nga, marine, outdoor, usgs, rotterdam, meteoalarm
+
+
+# --- meteoalarm: hazard/classify reuse the shared wording library --------
+def test_meteoalarm_hazard_strips_colour_and_warning():
+    assert meteoalarm._hazard("Severe thunderstorm warning") == "thunderstorm"
+
+
+def test_meteoalarm_hazard_handles_warning_for_phrasing():
+    assert meteoalarm._hazard("warning for heatwave") == "heatwave"
+
+
+def test_meteoalarm_classify_reuses_shared_actions():
+    token, actions = meteoalarm._classify("Severe thunderstorm warning")
+    assert token == "thunder"
+    assert actions == wording.ACTIONS["Severe Thunderstorm Warning"]
+
+
+def test_meteoalarm_forest_maps_to_fire_topic():
+    token, _ = meteoalarm._classify("Forest fire warning")
+    assert token == "forest" and meteoalarm._eu_topic(token) == "fire"
 
 
 # --- outdoor._geo: "REGION, city" tag so it matches the weather sources ----
