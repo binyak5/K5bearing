@@ -1,15 +1,10 @@
 {
   "area_posts": {},
   "daily": {
-    "2026-07-16": 3,
     "2026-07-17": 6,
     "2026-07-18": 3
   },
   "daily_cat": {
-    "2026-07-16": {
-      "almanac": 1,
-      "cityweather": 2
-    },
     "2026-07-17": {
       "almanac": 3,
       "cityweather": 2,
